@@ -1,0 +1,26 @@
+/** @format */
+
+import React from 'react'
+import ReactDOM from 'react-dom'
+import '@styles/index.less'
+import App from './App'
+import reportWebVitals from './reportWebVitals'
+import { Helmet } from 'react-helmet'
+import '@i18n'
+import { Provider } from 'react-redux'
+import store from '@stores/store'
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Helmet>
+            <title>{APP_CONFIGRATION.env.title}</title>
+        </Helmet>
+        <App />
+    </Provider>,
+    document.getElementById('root'),
+)
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals()
