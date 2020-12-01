@@ -1,0 +1,23 @@
+/** @format */
+
+@import '@styles/variables.less';
+.nav-main {
+    color: @text-primary;
+    border-right: none;
+    .ant-menu-submenu-title {
+        font-size: 1rem!important;
+    }
+    .ant-menu-submenu-selected {
+        color: @text-primary;
+        .ant-menu-submenu-title {
+            font-weight: 500;
+        }
+    }
+
+    .ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after{
+        border-right: none;
+        border-left: 3px solid #2249c0;
+        left:0;
+        right: auto;
+    }
+}

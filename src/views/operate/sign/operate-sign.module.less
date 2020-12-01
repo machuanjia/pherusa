@@ -1,0 +1,53 @@
+/** @format */
+
+@import '@styles/variables.less';
+
+.renewal-wrap {
+    height: 100%;
+    margin: 0 -30px;
+    display: flex;
+    flex-direction: column;
+    .renewal-header {
+        padding: 10px 30px;
+    }
+    .renewal-body {
+        flex: 1;
+        overflow: auto;
+        padding: 0 30px;
+    }
+    .renewal-footer {
+        padding: 10px 30px;
+        border-top: 1px @border solid;
+    }
+}
+
+.renewal-card {
+    &-header {
+        font-size: 1rem;
+        font-weight: 600;
+        color: @text-primary;
+        position: relative;
+        padding-left: 10px;
+        &::before {
+            position: absolute;
+            content: '';
+            background: @color-primary;
+            width: 3px;
+            height: 12px;
+            left: 0;
+            top: 6px;
+        }
+    }
+    &-body {
+        padding: 30px 0;
+    }
+}
+
+
+.item-margin{
+    margin-bottom: 8px;
+}
+
+.desc-title{
+
+}

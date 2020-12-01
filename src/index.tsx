@@ -2,20 +2,24 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import '@styles/index.less'
+import './styles/index.less'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { Helmet } from 'react-helmet'
 import '@i18n'
 import { Provider } from 'react-redux'
 import store from '@stores/store'
+import { BrowserRouter } from 'react-router-dom'
+// import 'laiye-antd/dist/antd.less'
 
 ReactDOM.render(
     <Provider store={store}>
         <Helmet>
             <title>{APP_CONFIGRATION.env.title}</title>
         </Helmet>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>,
     document.getElementById('root'),
 )

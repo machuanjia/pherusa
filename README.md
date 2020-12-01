@@ -1,6 +1,6 @@
-# Pherusa
-### react技术展脚手架
-(斐鲁萨希腊女神，象征和平与团结)
+# PHERUSA
+### React 前端项目模版
+(海神女，涅柔斯和多丽丝的五十个女儿之一)
 
 ### 安装
 
@@ -13,6 +13,12 @@ npm i
 
 ```
 npm start
+```
+
+### 启动mock
+
+```
+npm run mock
 ```
 
 ### 打包
@@ -32,6 +38,7 @@ eslint
 prettier
 i18n
 proxy
+nestjs
 
 
 ### 项目结构
@@ -41,7 +48,8 @@ proxy
 ├── README.md
 ├── build 编译过后的js代码
 ├── docker docker上线脚本
-├── doc 文档说明
+├── docs 文档说明
+├── mock mock数据
 ├── node_modules
 ├── package.json 项目依赖
 ├── public 静态文件
@@ -83,7 +91,9 @@ proxy
 
 ```
 craco 文档 
+
 https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#configuration-overview
+
 ```
 
 

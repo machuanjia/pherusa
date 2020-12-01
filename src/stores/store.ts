@@ -1,12 +1,15 @@
 /** @format */
 
-import { createStore, applyMiddleware, Store } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
-import reducer from './reducers'
-import { ArticleState, ArticleAction, DispatchType } from '@entities/article'
+import articleReducer from './article/reducers'
+import fileReducer from './files/files-reducers'
+import appReducer from './app/app-reducers'
 
-const store: Store<ArticleState, ArticleAction> & {
-    dispatch: DispatchType
-} = createStore(reducer, applyMiddleware(thunk))
+const rootReducer = combineReducers({
+    article: articleReducer,
+    file: fileReducer,
+    app: appReducer,
+})
 
-export default store
+export default createStore(rootReducer, applyMiddleware(thunk))

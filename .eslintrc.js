@@ -26,7 +26,7 @@ module.exports = {
         },
     },
     rules: {
-        'array-bracket-spacing': ['error', 'always'],
+        'array-bracket-spacing': 'off',
         'object-curly-spacing': ['error', 'always'],
     },
 }

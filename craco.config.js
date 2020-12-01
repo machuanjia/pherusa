@@ -5,6 +5,10 @@ const CracoLessPlugin = require('craco-less')
 const path = require('path')
 const pathResolve = pathUrl => path.join(__dirname, pathUrl)
 const config = require('./server/config')
+const modifiedTheme = {
+    '@laiye-primary-color': '#2249c0',
+    '@laiye-link-color': '#2249c0',
+}
 
 module.exports = {
     webpack: {
@@ -31,22 +35,51 @@ module.exports = {
     },
     babel: {
         plugins: [
-            ['import', { libraryName: 'antd', style: true }],
+            ['import', { libraryName: 'laiye-antd', style: true }],
             ['@babel/plugin-proposal-decorators', { legacy: true }],
         ],
     },
     plugins: [
+        // This plugin takes care of the .less files
         {
             plugin: CracoLessPlugin,
             options: {
                 lessLoaderOptions: {
                     lessOptions: {
-                        modifyVars: { '@primary-color': '#1DA57A' },
                         javascriptEnabled: true,
+                        modifyVars: modifiedTheme,
                     },
                 },
-                cssLoaderOptions: {
-                    modules: { localIdentName: '[local]_[hash:base64:5]' },
+            },
+        },
+        // This plugin take scare of the .less.module files
+        {
+            plugin: CracoLessPlugin,
+            options: {
+                modifyLessRule: function (lessRule, _context) {
+                    lessRule.test = /\.(less)$/
+                    lessRule.use = [
+                        {
+                            loader: 'style-loader',
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                            },
+                        },
+                        {
+                            loader: 'less-loader',
+                            options: {
+                                lessOptions: {
+                                    modifyVars: modifiedTheme,
+                                    javascriptEnabled: true,
+                                },
+                            },
+                        },
+                    ]
+                    lessRule.exclude = /node_modules/
+                    return lessRule
                 },
             },
         },
@@ -55,11 +88,8 @@ module.exports = {
         port: config.env.port,
         proxy: {
             '/api': {
-                target: 'http://localhost:' + config.env.port,
-                changeOrigin: true,
-                pathRewrite: {
-                    '^/api': '',
-                },
+                target: 'http://localhost:' + config.devPort,
+                changeOrigin: true
             },
         },
     },

@@ -1,0 +1,77 @@
+/** @format */
+
+@import './variables.less';
+.ant-table-thead > tr > th {
+    background: @bg-white !important;
+    border-bottom: 1px solid @border !important;
+}
+.ant-table-tbody > tr > td {
+    border-bottom: 1px solid @border !important;
+}
+.laiye-copyurl-wrapper {
+    &:hover {
+        .anticon.laiye-copyurl-copy {
+            visibility: visible;
+        }
+    }
+    .laiye-copyurl-input {
+        background: none !important;
+    }
+    .anticon.laiye-copyurl-copy {
+        background: none !important;
+        visibility: hidden;
+    }
+}
+
+.page-form {
+    .ant-form-item {
+        margin-bottom: 32px;
+    }
+    .ant-form-explain {
+        transform: translateY(5px);
+    }
+    .ant-form-item-with-help {
+        margin-bottom: 13px;
+    }
+    .has-error {
+        .ant-input {
+            background: #ffebe9;
+        }
+    }
+}
+
+.xlarge {
+    height: 48px !important;
+}
+
+.avatar-uploader {
+    .ant-upload {
+        background: @color-white !important;
+        width: 140px!important;
+        height: 140px!important;
+        .ant-upload-icon{
+            color: @color-primary;
+            font-size: 2.5rem;
+        }
+        .ant-upload-text{
+            color: @text-primary;
+            margin-top: 12px;
+        }
+    }
+}
+
+// 合作伙伴下载证书，上传组件样式
+.picture-wrap {
+    height: 225px;
+    .ant-upload-list-picture-card {
+        .ant-upload-list-item {
+            width: 320px;
+            height: 225px;
+        }
+    }
+    .ant-upload-list-item-actions{
+       .anticon-delete{
+           display: none;
+       }
+    }
+}
