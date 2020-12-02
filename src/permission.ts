@@ -30,7 +30,7 @@ export const APP_PERMISSIONS = {
     project: ['project*', 'project.club*', 'project.report*'],
 }
 
-export const RULE_PERMISSIONS = {
+export const ROLE_PERMISSIONS = {
     admin: [
         ...APP_PERMISSIONS.market,
         ...APP_PERMISSIONS.train,
@@ -121,7 +121,7 @@ export const getAuthRoutes = () => {
     let asyncRoutes = []
     let permissions = []
     map(roles, role => {
-        permissions = concat(permissions, RULE_PERMISSIONS[role])
+        permissions = concat(permissions, ROLE_PERMISSIONS[role])
     })
     permissions = uniq(permissions)
     asyncRoutes = filterAsyncRoutes(asyncRouters, permissions)
