@@ -1,9 +1,9 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import MainLayout from '@layouts/main/main.layout'
-const ProjectClueView = AsyncComponent(() => import('../views/project/project-clue.view'))
-const ProjectReportView = AsyncComponent(() => import('../views/project/project-report.view'))
+import MainLayout from '@layouts/main'
+const ProjectClueView = AsyncComponent(() => import('@views/project/project-clue.view'))
+const ProjectReportView = AsyncComponent(() => import('@views/project/project-report.view'))
 
 const projectRoute = {
     path: '/project',

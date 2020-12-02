@@ -7,10 +7,10 @@ import productRoute from './product.route'
 import trainRoute from './train.route'
 import managementRoute from './operate.route'
 
-const AboutView = AsyncComponent(() => import('../views/about/about.view'))
-const RedirectView = AsyncComponent(() => import('../views/redirect/redirect.view'))
-const LoginView = AsyncComponent(() => import('../views/login/login.view'))
-const NotFontVIew = AsyncComponent(() => import('../views/no-fond/no-font.view'))
+const AboutView = AsyncComponent(() => import('@views/about'))
+const RedirectView = AsyncComponent(() => import('@views/redirect'))
+const LoginView = AsyncComponent(() => import('@views/login'))
+const NotFontVIew = AsyncComponent(() => import('@views/no-fond'))
 
 //动态路由，根据后台返回的权限动态生成
 export const asyncRouters = [marketRoute, projectRoute, productRoute, trainRoute, managementRoute]

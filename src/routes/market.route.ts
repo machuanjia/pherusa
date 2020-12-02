@@ -1,8 +1,8 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import MainLayout from '@layouts/main/main.layout'
-const FileView = AsyncComponent(() => import('../views/file/file.view'))
+import MainLayout from '@layouts/main'
+const FileView = AsyncComponent(() => import('@views/file/file.view'))
 
 const marketRoute = {
     path: '/market',

@@ -1,13 +1,13 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import MainLayout from '@layouts/main/main.layout'
-const FileView = AsyncComponent(() => import('../views/file/file.view'))
+import MainLayout from '@layouts/main'
+const FileView = AsyncComponent(() => import('@views/file/file.view'))
 
-const TrainCenterView = AsyncComponent(() => import('../views/train/center/train-center.view'))
-const TrainEngineerView = AsyncComponent(() => import('../views/train/engineer/train-engineer.view'))
-const TrainShootingView = AsyncComponent(() => import('../views/train/shooting/train-shooting.view'))
-const TrainInstructorView = AsyncComponent(() => import('../views/train/instructor/train-instructor.view'))
+const TrainCenterView = AsyncComponent(() => import('@views/train/center/train-center.view'))
+const TrainEngineerView = AsyncComponent(() => import('@views/train/engineer/train-engineer.view'))
+const TrainShootingView = AsyncComponent(() => import('@views/train/shooting/train-shooting.view'))
+const TrainInstructorView = AsyncComponent(() => import('@views/train/instructor/train-instructor.view'))
 
 const trainRoute = {
     path: '/train',

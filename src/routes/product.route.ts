@@ -1,11 +1,11 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import MainLayout from '@layouts/main/main.layout'
-const ProductDocView = AsyncComponent(() => import('../views/product/product-doc.view'))
-const ProductTrialView = AsyncComponent(() => import('../views/product/product-trial.view'))
-// const ProductFAQView = AsyncComponent(() => import('../views/product/product-faq.view'))
-const ProductSupportView = AsyncComponent(() => import('../views/product/product-support.view'))
+import MainLayout from '@layouts/main'
+const ProductDocView = AsyncComponent(() => import('@views/product/product-doc.view'))
+const ProductTrialView = AsyncComponent(() => import('@views/product/product-trial.view'))
+// const ProductFAQView = AsyncComponent(() => import('@views/product/product-faq.view'))
+const ProductSupportView = AsyncComponent(() => import('@views/product/product-support.view'))
 
 const productRoute = {
     path: '/product',

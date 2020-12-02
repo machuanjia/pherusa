@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 import { Button, Form, Input } from 'laiye-antd'
-import FieldItemComponent from '@components/field/field-item.component'
+import FieldItemComponent from '@components/field'
 import { map } from 'lodash'
 
 interface IOperateInfoFormProps {
