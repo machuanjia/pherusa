@@ -26,8 +26,7 @@ export default class MainLayout extends Component<IMainLayoutState, IMainLayoutP
         const route = this.props['route']
         return (
             <div className={styles['main-layout']}>
-                <HeaderComponent></HeaderComponent>
-                <BannerComponent />
+                {/* <HeaderComponent></HeaderComponent> */}
                 <div className={styles['main-layout-side']}>
                     <NavComponent />
                 </div>
