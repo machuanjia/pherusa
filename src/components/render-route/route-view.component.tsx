@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component, Fragment } from 'react'
-import { generateRoutes } from './render-routes.component'
+import { generateRoutes } from './index'
 import { getConstantRoutes, getAuthRoutes } from '../../permission'
 import store from '@stores/store'
 import { checkAuth } from './../../permission'

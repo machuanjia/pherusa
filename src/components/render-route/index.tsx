@@ -5,6 +5,10 @@ import { Route, Redirect, Switch } from 'react-router-dom'
 import store from '@stores/store'
 import { getToken } from '@utils/catch'
 
+import Error404 from '@views/no-fond'
+import LoginView from '@views/login'
+import AboutView from '@views/about'
+
 const settings = {
     unAuthPath: '/login',
     authPath: '/',
@@ -20,6 +24,9 @@ const settings = {
 export const generateRoutes = (routes, extraProps = {}, switchProps = {}) => {
     return routes ? (
         <Switch {...switchProps}>
+            <Route exact strict path="/login" render={() => <LoginView />} />
+            <Route exact strict path="/about" render={() => <AboutView />} />
+
             {routes.map((route: any, i) => (
                 <Route
                     key={route.key || i}
@@ -46,6 +53,7 @@ export const generateRoutes = (routes, extraProps = {}, switchProps = {}) => {
                     }}
                 />
             ))}
+            <Route component={Error404} />
         </Switch>
     ) : null
 }

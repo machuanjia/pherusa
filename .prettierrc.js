@@ -7,6 +7,6 @@ module.exports = {
     jsxBracketSameLine: true,
     arrowParens: 'avoid',
     insertPragma: true,
-    tabWidth: 4,
+    tabWidth: 2,
     useTabs: false,
 }

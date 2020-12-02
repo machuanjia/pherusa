@@ -5,14 +5,14 @@
 ### 安装
 
 ```
-npm i
+npm i / yarn
 
 ```
 
 ### 启动
 
 ```
-npm start
+npm start / yarn start
 ```
 
 ### 启动mock
@@ -94,6 +94,20 @@ craco 文档
 
 https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#configuration-overview
 
+```
+
+### temp
+```
+    "@typescript-eslint/eslint-plugin": "4.7.0",
+    "@typescript-eslint/parser": "4.7.0",
+    与
+    "typescript": "4.0.5"
+    有冲突
+
+    暂定解决方式
+    固定版本
+    "@typescript-eslint/eslint-plugin": "4.6.0",
+    "@typescript-eslint/parser": "4.6.0",
 ```
 
 

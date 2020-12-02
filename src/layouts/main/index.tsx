@@ -1,9 +1,9 @@
 /** @format */
 
 import React, { Component } from 'react'
-import HeaderComponent from '../header/header.component'
-import BannerComponent from '../banner/banner.component'
-import NavComponent from '../nav/nav.component'
+import HeaderComponent from '../header'
+import BannerComponent from '../banner'
+import NavComponent from '../nav'
 import styles from './main.module.less'
 import { RouteView } from '@components/index'
 

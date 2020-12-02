@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 import { Form, Radio, Checkbox } from 'laiye-antd'
-import FieldItemComponent from '@components/field/field-item.component'
+import FieldItemComponent from '@components/field'
 import styles from '../../../operate-sign.module.less'
 import { map } from 'lodash'
 

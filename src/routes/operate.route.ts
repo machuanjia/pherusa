@@ -1,12 +1,12 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import MainLayout from '@layouts/main/main.layout'
+import MainLayout from '@layouts/main'
 
-const OperateInfoView = AsyncComponent(() => import('../views/operate/info/operate-info.view'))
-const OperateSignView = AsyncComponent(() => import('../views/operate/sign/operate-sign.view'))
-const OperateCertificateView = AsyncComponent(() => import('../views/operate/certificate/operate-certificate.view'))
-// const OperateAdminView = AsyncComponent(() => import('../views/Operate/admin/Operate-admin.view'))
+const OperateInfoView = AsyncComponent(() => import('@views/operate/info/operate-info.view'))
+const OperateSignView = AsyncComponent(() => import('@views/operate/sign/operate-sign.view'))
+const OperateCertificateView = AsyncComponent(() => import('@views/operate/certificate'))
+// const OperateAdminView = AsyncComponent(() => import('@views/Operate/admin'))
 
 const operateRoute = {
     path: '/operate',
