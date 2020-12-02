@@ -27,21 +27,22 @@ export const generateRoutes = (routes, extraProps = {}, switchProps = {}) => {
                     exact={route.exact}
                     strict={route.strict}
                     render={props => {
+                        return <route.component {...props} {...extraProps} route={route} />
                         // 路由更新都会调用此函数
-                        const token = getToken()
-                        if (token) {
-                            if (settings.whiteList.indexOf(route.path) !== -1) {
-                                return (
-                                    <Redirect to={{ pathname: settings.authPath, state: { from: props.location } }} />
-                                )
-                            }
-                            return <route.component {...props} {...extraProps} route={route} />
-                        } else {
-                            if (settings.whiteList.indexOf(route.path) !== -1) {
-                                return <route.component {...props} {...extraProps} route={route} />
-                            }
-                            return <Redirect to={{ pathname: settings.unAuthPath, state: { from: props.location } }} />
-                        }
+                        // const token = getToken()
+                        // if (token) {
+                        //     if (settings.whiteList.indexOf(route.path) !== -1) {
+                        //         return (
+                        //             <Redirect to={{ pathname: settings.authPath, state: { from: props.location } }} />
+                        //         )
+                        //     }
+                        //     return <route.component {...props} {...extraProps} route={route} />
+                        // } else {
+                        //     if (settings.whiteList.indexOf(route.path) !== -1) {
+                        //         return <route.component {...props} {...extraProps} route={route} />
+                        //     }
+                        //     return <Redirect to={{ pathname: settings.unAuthPath, state: { from: props.location } }} />
+                        // }
                     }}
                 />
             ))}

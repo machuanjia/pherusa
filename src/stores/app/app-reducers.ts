@@ -6,7 +6,7 @@ import { AppState, AppAction } from '@entities/app'
 const initialState: AppState = {
     token: '',
     permissions: [],
-    roles: [],
+    roles: ['admin'],
 }
 
 const reducer = (state: AppState = initialState, action: AppAction): AppState => {

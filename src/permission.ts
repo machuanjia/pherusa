@@ -8,6 +8,7 @@ import { SET_ROLES } from '@stores/app/app-types'
 import { getToken } from '@utils/catch'
 
 export const checkAuth = async () => {
+    return
     if (!getToken()) {
         return
     }
