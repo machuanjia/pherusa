@@ -24,8 +24,8 @@ const settings = {
 export const generateRoutes = (routes, extraProps = {}, switchProps = {}) => {
     return routes ? (
         <Switch {...switchProps}>
-            <Route exact strict path="/login" render={() => <LoginView />} />
-            <Route exact strict path="/about" render={() => <AboutView />} />
+            {/* <Route exact strict path="/login" render={() => <LoginView />} />
+            <Route exact strict path="/about" render={() => <AboutView />} /> */}
 
             {routes.map((route: any, i) => (
                 <Route

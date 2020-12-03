@@ -8,6 +8,7 @@ import { signIn } from '@apis/users'
 import { addToken } from '@stores/app/app-actions'
 import { setToken } from '@utils/catch'
 import { ILoginEntity } from '@entities/login'
+import { redirectTo } from '@utils/index'
 
 interface ILoginProps {
     addToken: (token: string) => {}

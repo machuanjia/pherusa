@@ -22,7 +22,7 @@ class RouteViewComponent extends Component<IRouteViewProps, IRouteViewState> {
     constructor(props) {
         super(props)
         this.state = {
-            type: AUTH_ROUTE.async.key,
+            type: AUTH_ROUTE.constant.key,
         }
         this.subRoles = store.subscribe(() => {
             const roles = store.getState().app.roles || []
