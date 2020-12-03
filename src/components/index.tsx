@@ -11,13 +11,13 @@ import CopyComponent from './copy'
 import RouteView from './render-route/route-view.component'
 
 export {
-    AsyncComponent,
-    FileListComponent,
-    FolderCollectionComponent,
-    ContentLayoutComponent,
-    SimpleLayoutComponent,
-    UploadComponent,
-    ModalDragComponent,
-    CopyComponent,
-    RouteView,
+  AsyncComponent,
+  FileListComponent,
+  FolderCollectionComponent,
+  ContentLayoutComponent,
+  SimpleLayoutComponent,
+  UploadComponent,
+  ModalDragComponent,
+  CopyComponent,
+  RouteView,
 }

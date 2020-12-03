@@ -10,9 +10,9 @@ import LoginView from '@views/login'
 import AboutView from '@views/about'
 
 const settings = {
-    unAuthPath: '/login',
-    authPath: '/',
-    whiteList: ['/login', '/about', '/404'],
+  unAuthPath: '/login',
+  authPath: '/',
+  whiteList: ['/login', '/about', '/404'],
 }
 /**
  *
@@ -22,38 +22,38 @@ const settings = {
  *
  */
 export const generateRoutes = (routes, extraProps = {}, switchProps = {}) => {
-    return routes ? (
-        <Switch {...switchProps}>
-            {/* <Route exact strict path="/login" render={() => <LoginView />} />
+  return routes ? (
+    <Switch {...switchProps}>
+      {/* <Route exact strict path="/login" render={() => <LoginView />} />
             <Route exact strict path="/about" render={() => <AboutView />} /> */}
 
-            {routes.map((route: any, i) => (
-                <Route
-                    key={route.key || i}
-                    path={route.path}
-                    exact={route.exact}
-                    strict={route.strict}
-                    render={props => {
-                        return <route.component {...props} {...extraProps} route={route} />
-                        // 路由更新都会调用此函数
-                        // const token = getToken()
-                        // if (token) {
-                        //     if (settings.whiteList.indexOf(route.path) !== -1) {
-                        //         return (
-                        //             <Redirect to={{ pathname: settings.authPath, state: { from: props.location } }} />
-                        //         )
-                        //     }
-                        //     return <route.component {...props} {...extraProps} route={route} />
-                        // } else {
-                        //     if (settings.whiteList.indexOf(route.path) !== -1) {
-                        //         return <route.component {...props} {...extraProps} route={route} />
-                        //     }
-                        //     return <Redirect to={{ pathname: settings.unAuthPath, state: { from: props.location } }} />
-                        // }
-                    }}
-                />
-            ))}
-            <Route component={Error404} />
-        </Switch>
-    ) : null
+      {routes.map((route: any, i) => (
+        <Route
+          key={route.key || i}
+          path={route.path}
+          exact={route.exact}
+          strict={route.strict}
+          render={props => {
+            return <route.component {...props} {...extraProps} route={route} />
+            // 路由更新都会调用此函数
+            // const token = getToken()
+            // if (token) {
+            //     if (settings.whiteList.indexOf(route.path) !== -1) {
+            //         return (
+            //             <Redirect to={{ pathname: settings.authPath, state: { from: props.location } }} />
+            //         )
+            //     }
+            //     return <route.component {...props} {...extraProps} route={route} />
+            // } else {
+            //     if (settings.whiteList.indexOf(route.path) !== -1) {
+            //         return <route.component {...props} {...extraProps} route={route} />
+            //     }
+            //     return <Redirect to={{ pathname: settings.unAuthPath, state: { from: props.location } }} />
+            // }
+          }}
+        />
+      ))}
+      <Route component={Error404} />
+    </Switch>
+  ) : null
 }

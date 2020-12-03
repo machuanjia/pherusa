@@ -9,45 +9,45 @@ const OperateCertificateView = AsyncComponent(() => import('@views/operate/certi
 // const OperateAdminView = AsyncComponent(() => import('@views/Operate/admin'))
 
 const operateRoute = {
-    path: '/operate',
-    component: MainLayout,
-    meta: {
-        key: 'Operate',
-        name: '经营与管理',
+  path: '/operate',
+  component: MainLayout,
+  meta: {
+    key: 'Operate',
+    name: '经营与管理',
+    className: 'menu',
+    permission: 'operate*',
+  },
+  children: [
+    {
+      path: '/operate/info',
+      component: OperateInfoView,
+      meta: {
+        key: 'OperateInfo',
+        name: '公司信息管理',
         className: 'menu',
-        permission: 'operate*',
+        permission: 'operate.info*',
+      },
     },
-    children: [
-        {
-            path: '/operate/info',
-            component: OperateInfoView,
-            meta: {
-                key: 'OperateInfo',
-                name: '公司信息管理',
-                className: 'menu',
-                permission: 'operate.info*',
-            },
-        },
-        {
-            path: '/operate/sign',
-            component: OperateSignView,
-            meta: {
-                key: 'OperateSign',
-                name: '线上签约及续约',
-                className: 'menu',
-                permission: 'operate.sign*',
-            },
-        },
-        {
-            path: '/operate/certificate',
-            component: OperateCertificateView,
-            meta: {
-                key: 'OperateCertificate',
-                name: '合作伙伴证书下载',
-                className: 'menu',
-                permission: 'operate.certificate*',
-            },
-        },
-    ],
+    {
+      path: '/operate/sign',
+      component: OperateSignView,
+      meta: {
+        key: 'OperateSign',
+        name: '线上签约及续约',
+        className: 'menu',
+        permission: 'operate.sign*',
+      },
+    },
+    {
+      path: '/operate/certificate',
+      component: OperateCertificateView,
+      meta: {
+        key: 'OperateCertificate',
+        name: '合作伙伴证书下载',
+        className: 'menu',
+        permission: 'operate.certificate*',
+      },
+    },
+  ],
 }
 export default operateRoute

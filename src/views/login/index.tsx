@@ -11,51 +11,51 @@ import { ILoginEntity } from '@entities/login'
 import { redirectTo } from '@utils/index'
 
 interface ILoginProps {
-    addToken: (token: string) => {}
+  addToken: (token: string) => {}
 }
 interface ILoginState {}
 
 class LoginView extends Component<ILoginProps, ILoginState> {
-    constructor(props) {
-        super(props)
-    }
+  constructor(props) {
+    super(props)
+  }
 
-    async loginSuccess(payload: ILoginEntity) {
-        const { data } = await signIn(payload)
-        data && setToken(data) && this.props['history'].push('/')
-    }
+  async loginSuccess(payload: ILoginEntity) {
+    const { data } = await signIn(payload)
+    data && setToken(data) && this.props['history'].push('/')
+  }
 
-    render() {
-        return (
-            <div className={styles['login-wrap']}>
-                <div className={styles['login-aside']}>
-                    <div className={styles['login-icon']}>
-                        <a className="form-go-banner" href="/">
-                            <img className="nav-logo" src="https://cdn.wul.ai/official/img/officialLogo.png" />
-                        </a>
-                    </div>
-                    <img
-                        className={styles['login-aside-content']}
-                        src="https://cdn.wul.ai/official/hestia/login-aside-content.png"
-                    />
-                </div>
-                <div className={styles['login-main']}>
-                    <LoginForm loginSuccess={this.loginSuccess.bind(this)} />
-                </div>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className={styles['login-wrap']}>
+        <div className={styles['login-aside']}>
+          <div className={styles['login-icon']}>
+            <a className="form-go-banner" href="/">
+              <img className="nav-logo" src="https://cdn.wul.ai/official/img/officialLogo.png" />
+            </a>
+          </div>
+          <img
+            className={styles['login-aside-content']}
+            src="https://cdn.wul.ai/official/hestia/login-aside-content.png"
+          />
+        </div>
+        <div className={styles['login-main']}>
+          <LoginForm loginSuccess={this.loginSuccess.bind(this)} />
+        </div>
+      </div>
+    )
+  }
 }
 
 const mapDispatchToProps = (dispatch: any) => {
-    return {
-        addToken: (token: string) => {
-            dispatch(addToken(token))
-        },
-    }
+  return {
+    addToken: (token: string) => {
+      dispatch(addToken(token))
+    },
+  }
 }
 
 const mapStateToProps = (state: any) => {
-    return {}
+  return {}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(LoginView)

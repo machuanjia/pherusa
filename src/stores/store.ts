@@ -7,9 +7,9 @@ import fileReducer from './files/files-reducers'
 import appReducer from './app/app-reducers'
 
 const rootReducer = combineReducers({
-    article: articleReducer,
-    file: fileReducer,
-    app: appReducer,
+  article: articleReducer,
+  file: fileReducer,
+  app: appReducer,
 })
 
 export default createStore(rootReducer, applyMiddleware(thunk))

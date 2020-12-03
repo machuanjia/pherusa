@@ -8,11 +8,11 @@ interface IAppComponentProps {}
 interface IAppComponentState {}
 
 class App extends Component<IAppComponentProps, IAppComponentState> {
-    constructor(props: IAppComponentProps) {
-        super(props)
-    }
-    render() {
-        return <RouteView />
-    }
+  constructor(props: IAppComponentProps) {
+    super(props)
+  }
+  render() {
+    return <RouteView />
+  }
 }
 export default withRouter(App)

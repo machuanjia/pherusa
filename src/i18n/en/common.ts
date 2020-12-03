@@ -1,7 +1,7 @@
 /** @format */
 
 export default {
-    actions: {
-        ok: 'Ok',
-    },
+  actions: {
+    ok: 'Ok',
+  },
 }

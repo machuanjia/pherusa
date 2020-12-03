@@ -1,7 +1,7 @@
 /** @format */
 
 export default {
-    actions: {
-        ok: '确定',
-    },
+  actions: {
+    ok: '确定',
+  },
 }

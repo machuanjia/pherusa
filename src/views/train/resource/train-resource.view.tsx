@@ -6,7 +6,7 @@ interface ITrainResourceProps {}
 interface ITrainResourceState {}
 
 export default class TrainResourceView extends Component<ITrainResourceProps, ITrainResourceState> {
-    render() {
-        return <div>ITrainResourceState</div>
-    }
+  render() {
+    return <div>ITrainResourceState</div>
+  }
 }

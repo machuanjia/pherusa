@@ -4,6 +4,6 @@
 declare var APP_CONFIGRATION: any
 
 declare module '*.less' {
-    const content: { [className: string]: string }
-    export default content
+  const content: { [className: string]: string }
+  export default content
 }

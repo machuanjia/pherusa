@@ -6,7 +6,7 @@ interface IOperateAdminProps {}
 interface IOperateAdminState {}
 
 export default class OperateAdminView extends Component<IOperateAdminProps, IOperateAdminState> {
-    render() {
-        return <div>IOperateAdminState</div>
-    }
+  render() {
+    return <div>IOperateAdminState</div>
+  }
 }
