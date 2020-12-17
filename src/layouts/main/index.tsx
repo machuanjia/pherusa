@@ -30,9 +30,11 @@ export default class MainLayout extends Component<IMainLayoutState, IMainLayoutP
       <div className={styles['main-layout']}>
         {/* <HeaderComponent></HeaderComponent> */}
         <div className={styles['main-layout-side']}>
-          <img className="logo" src="https://cdn.wul.ai/official/img/officialLogo.png" width="50"/>
-          <div className="navs"><NavComponent /></div>
-          <PreferenceComponent/>
+          <img className="logo" src="https://cdn.wul.ai/official/img/officialLogo.png" width="50" />
+          <div className="navs">
+            <NavComponent />
+          </div>
+          <PreferenceComponent />
         </div>
         <div className={styles['main-layout-main']}>
           <RouteView route={route} />
