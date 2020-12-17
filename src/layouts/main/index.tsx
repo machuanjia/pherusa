@@ -6,6 +6,8 @@ import BannerComponent from '../banner'
 import NavComponent from '../nav'
 import styles from './main.module.less'
 import { RouteView } from '@components/index'
+import { Icon } from 'laiye-antd'
+import PreferenceComponent from '../preference'
 
 interface IMainLayoutProps {
   route: any
@@ -28,7 +30,9 @@ export default class MainLayout extends Component<IMainLayoutState, IMainLayoutP
       <div className={styles['main-layout']}>
         {/* <HeaderComponent></HeaderComponent> */}
         <div className={styles['main-layout-side']}>
-          <NavComponent />
+          <img className="logo" src="https://cdn.wul.ai/official/img/officialLogo.png" width="50"/>
+          <div className="navs"><NavComponent /></div>
+          <PreferenceComponent/>
         </div>
         <div className={styles['main-layout-main']}>
           <RouteView route={route} />

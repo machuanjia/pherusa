@@ -14,7 +14,7 @@ const LoginView = AsyncComponent(() => import('@views/login'))
 const NotFontVIew = AsyncComponent(() => import('@views/no-fond'))
 
 //动态路由，根据后台返回的权限动态生成
-export const asyncRouters = [marketRoute, projectRoute, productRoute, trainRoute, managementRoute, bpmnRoute]
+export const asyncRouters = [bpmnRoute]
 
 //固定路由
 const routes = [

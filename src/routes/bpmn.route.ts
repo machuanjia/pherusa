@@ -10,7 +10,7 @@ const bpmnRoute = {
   meta: {
     key: 'Bpmn',
     name: '业务流程',
-    className: 'menu',
+    className: 'line-chart',
     permission: 'bpmn*',
   },
   children: [
@@ -20,7 +20,7 @@ const bpmnRoute = {
       meta: {
         key: 'BpmnEditor',
         name: 'Bpmn编辑器',
-        className: 'sub-menu',
+        className: 'line-chart',
         permission: 'bpmn.editor*',
       },
     },
