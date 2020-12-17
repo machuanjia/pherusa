@@ -1,0 +1,11 @@
+/**
+ * @format
+ */
+
+.fsLoop(@counter) when (@counter < 30) {
+    .fs-@{counter} {
+        font-size: ((@counter / 16) * 1rem) !important;
+    }
+    .fsLoop((@counter + 2));
+}
+.fsLoop(10);

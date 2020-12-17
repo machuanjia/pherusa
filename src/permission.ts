@@ -1,129 +1,81 @@
 /** @format */
 
 import routes, { asyncRouters } from '@routes/index'
-import { map, concat, uniq } from 'lodash'
+import { map, concat, uniq, keyBy } from 'lodash'
 import store from '@stores/store'
 import { getUserInfo } from '@apis/users'
-import { SET_ROLES } from '@stores/app/app-types'
-import { getToken } from '@utils/catch'
+import { SET_PERMISSIONS, SET_ROLES, SET_ROUTERS, SET_USET_ID } from '@stores/app/app-types'
+import { getRoute } from './utils'
+
+export const whiteList = [`${process.env.PUBLIC_URL}/login`]
 
 export const checkAuth = async () => {
-  if (!getToken()) {
-    return
-  }
-  try {
-    const { data } = await getUserInfo()
-    if (data && data.roles) {
-      store.dispatch({
-        type: SET_ROLES,
-        roles: data.roles,
-      })
+    if (whiteList.includes(getRoute())) {
+        return
     }
-  } catch (e) {}
+    if (store.getState().app.roles.length > 0) {
+        return
+    }
+    setInfo()
 }
 
-export const APP_PERMISSIONS = {
-  market: ['market*', 'market.sale*', 'market.activities*', 'market.solution*', 'market.price*'],
-  train: ['train*', 'train.center*', 'train.engineer*', 'train.shooting*', 'train.instructor*', 'train.resource*'],
-  operate: ['operate*', 'operate.info*', 'operate.sign*', 'operate.certificate*'],
-  product: ['product*', 'product.download*', 'product.trial*', 'product.faq*', 'product.support*'],
-  project: ['project*', 'project.club*', 'project.report*'],
+export const setInfo = async () => {
+    try {
+        const { data } = await getUserInfo()
+        if (data && data.roles) {
+            store.dispatch({
+                type: SET_USET_ID,
+                id: data.majorKeyId,
+            })
+            store.dispatch({
+                type: SET_ROLES,
+                roles: data.roles,
+            })
+            store.dispatch({
+                type: SET_PERMISSIONS,
+                permissions: data.permissions,
+            })
+            store.dispatch({
+                type: SET_ROUTERS,
+                routers: getAuthRoutes(),
+            })
+        }
+    } catch (e) {}
 }
 
-export const ROLE_PERMISSIONS = {
-  admin: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
-  channelManager: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
-  staff: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
-  junior: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
-  middle: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
-  senior: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
-  sub: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
-  invalid: [],
-  pending: [
-    ...APP_PERMISSIONS.market,
-    ...APP_PERMISSIONS.train,
-    ...APP_PERMISSIONS.operate,
-    ...APP_PERMISSIONS.product,
-    ...APP_PERMISSIONS.project,
-  ],
+export const isPermission = (permission: string): boolean => {
+    const permissions = store.getState()['app']['permissions'] || []
+    return permissions.includes(permission)
 }
 
 const hasPermission = (permissions: string[], route) => {
-  if (route.meta && route.meta.permission) {
-    return permissions.includes(route.meta.permission)
-  } else {
-    return true
-  }
+    if (route.meta && route.meta.permission) {
+        return permissions.includes(route.meta.permission)
+    } else {
+        return true
+    }
 }
 
 export const filterAsyncRoutes = (routes, permissions: string[]) => {
-  const res = []
-  routes.forEach(route => {
-    const r = { ...route }
-    if (hasPermission(permissions, r)) {
-      if (r.children) {
-        r.children = filterAsyncRoutes(r.children, permissions)
-      }
-      res.push(r)
-    }
-  })
-  return res
+    const res = []
+    routes.forEach(route => {
+        const r = { ...route }
+        if (hasPermission(permissions, r)) {
+            if (r.children) {
+                r.children = filterAsyncRoutes(r.children, permissions)
+            }
+            res.push(r)
+        }
+    })
+    return res
 }
 
 export const getConstantRoutes = () => {
-  return [...routes]
+    return [...routes]
 }
 
 export const getAuthRoutes = () => {
-  const roles = store.getState()['app']['roles'] || []
-  let asyncRoutes = []
-  let permissions = []
-  map(roles, role => {
-    permissions = concat(permissions, ROLE_PERMISSIONS[role])
-  })
-  permissions = uniq(permissions)
-  asyncRoutes = filterAsyncRoutes(asyncRouters, permissions)
-  return [...routes, ...asyncRoutes]
+    const permissions = store.getState()['app']['permissions'] || []
+    const asyncRoutes = filterAsyncRoutes(asyncRouters, permissions)
+    return [...routes, ...asyncRoutes]
 }

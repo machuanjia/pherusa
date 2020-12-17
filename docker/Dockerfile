@@ -1,12 +1,12 @@
 # 在基础镜像中 yarn build，得到 dist 目录
-FROM registry-vpc.cn-beijing.aliyuncs.com/laiye-devops/private-management-admin:baseimg as builder
+FROM registry-vpc.cn-beijing.aliyuncs.com/laiye-devops/pherusa:baseimg as builder
 
 COPY . /apps
 RUN NODE_ENV='development' yarn
 RUN yarn build
 
 # 从基础镜像中，只 Copy 运行必要文件到目标镜像
-FROM registry-vpc.cn-beijing.aliyuncs.com/laiye-devops/private-management-admin:baseimg
+FROM registry-vpc.cn-beijing.aliyuncs.com/laiye-devops/pherusa:baseimg
 
 # 项目文件
 COPY --from=builder /apps/package.json /apps

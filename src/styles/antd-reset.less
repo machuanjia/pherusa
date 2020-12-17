@@ -8,7 +8,52 @@
 .ant-table-tbody > tr > td {
     border-bottom: 1px solid @border !important;
 }
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+    padding: 13px 24px !important;
+}
+
+.ant-table-thead > tr > th,
+.ant-table-tbody > tr > td {
+    &:first-child {
+        padding-left: 0 !important;
+    }
+}
+
+.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    height: 48px !important;
+    line-height: 48px !important;
+    font-size: 1rem;
+}
+.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+.ant-menu-submenu-inline > .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+    background: #8e9ca8 !important;
+    background-image: none !important;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #f4f8fe !important;
+    font-weight: bold;
+}
+.ant-menu-inline .ant-menu-item::after {
+    left: 0 !important;
+    right: auto !important;
+}
+.ant-menu-submenu-selected {
+    color: #000 !important;
+    .ant-menu-submenu-title {
+        font-weight: bold;
+    }
+}
+
+.ant-menu-submenu-active {
+    .ant-menu-submenu-title .ant-menu-submenu-arrow::after,
+    .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+        background: @icon-primary!important;
+    }
+}
+
 .laiye-copyurl-wrapper {
+    width: auto !important;
     &:hover {
         .anticon.laiye-copyurl-copy {
             visibility: visible;
@@ -16,6 +61,7 @@
     }
     .laiye-copyurl-input {
         background: none !important;
+        font-weight: 500;
     }
     .anticon.laiye-copyurl-copy {
         background: none !important;
@@ -23,10 +69,16 @@
     }
 }
 
-.page-form {
-    .ant-form-item {
-        margin-bottom: 32px;
+.ant-form-item {
+    margin-bottom: 12px !important;
+}
+.ant-form-item-label {
+    > label {
+        color: @text-dark!important;
     }
+}
+
+.page-form {
     .ant-form-explain {
         transform: translateY(5px);
     }
@@ -47,31 +99,38 @@
 .avatar-uploader {
     .ant-upload {
         background: @color-white !important;
-        width: 140px!important;
-        height: 140px!important;
-        .ant-upload-icon{
+        width: 140px !important;
+        height: 140px !important;
+        .ant-upload-icon {
             color: @color-primary;
             font-size: 2.5rem;
         }
-        .ant-upload-text{
+        .ant-upload-text {
             color: @text-primary;
             margin-top: 12px;
         }
     }
 }
 
-// 合作伙伴下载证书，上传组件样式
-.picture-wrap {
-    height: 225px;
-    .ant-upload-list-picture-card {
-        .ant-upload-list-item {
-            width: 320px;
-            height: 225px;
-        }
-    }
-    .ant-upload-list-item-actions{
-       .anticon-delete{
-           display: none;
-       }
-    }
+.nav-mini-drawer {
+    height: calc(100% - 108px) !important;
+    top: 108px !important;
+}
+
+.ant-modal-confirm .ant-modal-confirm-btns button + button {
+    margin-left: 16px !important;
+}
+.ant-modal-confirm-body > .anticon + .ant-modal-confirm-title + .ant-modal-confirm-content {
+    margin-left: 34px !important;
+}
+.ant-modal-confirm .ant-modal-confirm-btns {
+    margin-top: 32px !important;
+}
+
+.tooltip-wrap {
+    max-width: 360px;
+}
+
+.ant-table-pagination.ant-pagination {
+    margin-left: 0 !important;
 }

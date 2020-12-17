@@ -9,6 +9,7 @@ const modifiedTheme = {
     '@laiye-primary-color': '#2249c0',
     '@laiye-link-color': '#2249c0',
 }
+const serverPort = 3000
 
 module.exports = {
     webpack: {
@@ -31,6 +32,14 @@ module.exports = {
             '@views': pathResolve('src/views'),
             '@routes': pathResolve('src/routes'),
             '@entities': pathResolve('src/entities'),
+        },
+        configure: (webpackConfig, { env, paths }) => {
+            paths.appBuild = 'dist' 
+            webpackConfig.output = {
+                ...webpackConfig.output,
+                path: path.resolve(__dirname, 'dist')
+            }
+            return webpackConfig
         },
     },
     babel: {
@@ -88,7 +97,7 @@ module.exports = {
         port: config.env.port,
         proxy: {
             '/api': {
-                target: 'http://localhost:' + config.devPort,
+                target: 'http://localhost:' + serverPort,
                 changeOrigin: true
             },
         },

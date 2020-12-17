@@ -1,27 +1,29 @@
-const { resolve } = require('path');
-const { existsSync, readFileSync } = require('fs');
+/** @format */
+
+const { resolve } = require('path')
+const { existsSync, readFileSync } = require('fs')
 
 function renderConfig() {
-  let config;
+    let config
 
-  const filePath = process.env.npm_config_conf || resolve(__dirname, '../conf/dev.conf');
-  if (!existsSync(filePath)) {
-    throw new Error(`> 配置模板不存在: ${filePath}`);
-  }
+    const filePath = process.env.npm_config_conf || resolve(__dirname, '../conf/dev.conf')
+    if (!existsSync(filePath)) {
+        throw new Error(`> 配置模板不存在: ${filePath}`)
+    }
 
-  console.log();
-  console.log(`> 配置模板路径: ${filePath}`);
+    console.log()
+    console.log(`> 配置模板路径: ${filePath}`)
 
-  try {
-    const configFile = readFileSync(filePath, { encoding: 'utf8' });
-    config = JSON.parse(configFile.replace(/\/\*注释\*\/.*/g, ''));
-    console.info('> 配置模板编译成功');
-  } catch (error) {
-    throw new Error(`> 配置模板编译出错: ${error.message}`);
-  }
+    try {
+        const configFile = readFileSync(filePath, { encoding: 'utf8' })
+        config = JSON.parse(configFile.replace(/\/\*注释\*\/.*/g, ''))
+        console.info('> 配置模板编译成功')
+    } catch (error) {
+        throw new Error(`> 配置模板编译出错: ${error.message}`)
+    }
 
-  console.log();
-  return config;
+    console.log()
+    return config
 }
 
 /**
@@ -32,36 +34,36 @@ function renderConfig() {
 // create a unique, global symbol name
 // -----------------------------------
 
-const CONFIG_KEY = Symbol.for('Config');
+const CONFIG_KEY = Symbol.for('Config')
 
 // check if the global object has this symbol
 // add it if it does not have the symbol, yet
 // ------------------------------------------
 
-const globalSymbols = Object.getOwnPropertySymbols(global);
-const hasConifg = globalSymbols.indexOf(CONFIG_KEY) > -1;
+const globalSymbols = Object.getOwnPropertySymbols(global)
+const hasConifg = globalSymbols.indexOf(CONFIG_KEY) > -1
 
 if (!hasConifg) {
-  global[CONFIG_KEY] = renderConfig();
+    global[CONFIG_KEY] = renderConfig()
 }
 
 // define the singleton API
 // ------------------------
 
-const singleton = {};
+const singleton = {}
 
 Object.defineProperty(singleton, 'instance', {
-  get() {
-    return global[CONFIG_KEY];
-  },
-});
+    get() {
+        return global[CONFIG_KEY]
+    },
+})
 
 // ensure the API is never changed
 // -------------------------------
 
-Object.freeze(singleton);
+Object.freeze(singleton)
 
 // export the singleton API only
 // -----------------------------
 
-module.exports = singleton.instance;
+module.exports = singleton.instance

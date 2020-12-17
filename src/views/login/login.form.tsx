@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import styles from './login.module.less'
 import { Form, Input, Button, Row, Col } from 'laiye-antd'
 import { ILoginEntity } from '@entities/login'
+import { isPhone } from '@utils/validate'
 
 interface ILoginFormProps {
   loginSuccess: (payload: ILoginEntity) => {}
@@ -27,14 +28,11 @@ class LoginForm extends Component<ILoginFormProps, ILoginFormState> {
   }
 
   checkPhone(rule, value, callback) {
-    var regex = /^((\+)?86|((\+)?86)?)0?1[3458]\d{9}$/
-    if (value) {
-      if (regex.test(value)) {
+      if (isPhone(value)) {
         callback()
       } else {
         callback('请输入正确的手机号码')
       }
-    }
   }
 
   render() {

@@ -10,7 +10,7 @@ app.get('/healthz', (_, res) => {
   res.send('OK');
 });
 
-app.use(express.static('build'));
+app.use('/pherusa',express.static('build'));
 
 app.get('/*', (_, res) => {
   res.send(html);

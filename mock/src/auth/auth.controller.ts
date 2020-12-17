@@ -2,6 +2,7 @@ import { Controller, Post, Response, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { User } from 'libs/db/src/models/user.model';
 import { InjectModel } from 'nestjs-typegoose';
+import { ALL_PERMISSIONS } from 'src/constants/permissions';
 import { resSuccess } from 'src/utils/response';
 
 @Controller('auth')
@@ -21,8 +22,10 @@ export class AuthController {
   @Get('/user')
   getInfo() {
     return resSuccess({
-        name: '小美',
-        roles: ['admin'],
-      });
+      majorKeyId:Math.random(),
+      name: '小美',
+      roles: ['admin'],
+      permissions: ALL_PERMISSIONS,
+    });
   }
 }

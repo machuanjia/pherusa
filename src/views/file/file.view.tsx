@@ -7,7 +7,7 @@ import FileListComponent from '@components/file/file-list.component'
 import { Divider } from 'laiye-antd'
 import FolderCollectionComponent from '@components/file/folder-collection.component'
 import { connect } from 'react-redux'
-import { initFiles, clearFiles } from '@stores/files/files-actions'
+// import { initFiles, clearFiles } from '@stores/files/files-actions'
 import { IFile } from '@entities/file'
 
 interface IFileState {
@@ -85,10 +85,10 @@ class FileView extends Component<IFileProps, IFileState> {
 const mapDispatchToProps = (dispatch: any) => {
   return {
     initFiles: (files: IFile[]) => {
-      dispatch(initFiles(files))
+      // dispatch(initFiles(files))
     },
     clearFiels: () => {
-      dispatch(clearFiles())
+      // dispatch(clearFiles())
     },
   }
 }
