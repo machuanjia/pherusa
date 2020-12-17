@@ -3,11 +3,11 @@
 import React, { Component } from 'react'
 
 export default class DmnEditorComponent extends Component {
-    constructor(props) {
-        super(props)
-    }
+  constructor(props) {
+    super(props)
+  }
 
-    render() {
-        return <div>dmn editor</div>
-    }
+  render() {
+    return <div>dmn editor</div>
+  }
 }

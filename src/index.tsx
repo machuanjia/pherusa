@@ -15,15 +15,15 @@ import 'bpmn-js/dist/assets/diagram-js.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Helmet>
-            <title>{APP_CONFIGRATION.env.title}</title>
-        </Helmet>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root'),
+  <Provider store={store}>
+    <Helmet>
+      <title>{APP_CONFIGRATION.env.title}</title>
+    </Helmet>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root'),
 )
 
 // If you want to start measuring performance in your app, pass a function

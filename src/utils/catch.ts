@@ -9,38 +9,38 @@ import store from '@stores/store'
 // export const removeToken = () => Cookies.remove(tokenKey)
 
 export const getSignAgreement = () => {
-    const signAgreement = `${store.getState().app.id}-sign-agreement`
-    return localStorage.getItem(signAgreement)
+  const signAgreement = `${store.getState().app.id}-sign-agreement`
+  return localStorage.getItem(signAgreement)
 }
 export const setSignAgreement = (value: boolean) => {
-    const signAgreement = `${store.getState().app.id}-sign-agreement`
-    return localStorage.setItem(signAgreement, value.toString())
+  const signAgreement = `${store.getState().app.id}-sign-agreement`
+  return localStorage.setItem(signAgreement, value.toString())
 }
 export const removeSignAgreement = () => {
-    const signAgreement = `${store.getState().app.id}-sign-agreement`
-    localStorage.removeItem(signAgreement)
+  const signAgreement = `${store.getState().app.id}-sign-agreement`
+  localStorage.removeItem(signAgreement)
 }
 
 export const getSignConfirm = () => {
-    const signConfirm = `${store.getState().app.id}-sign-confirm`
-    return localStorage.getItem(signConfirm)
+  const signConfirm = `${store.getState().app.id}-sign-confirm`
+  return localStorage.getItem(signConfirm)
 }
 export const setSignConfirm = (value: boolean) => {
-    const signConfirm = `${store.getState().app.id}-sign-confirm`
-    return localStorage.setItem(signConfirm, value.toString())
+  const signConfirm = `${store.getState().app.id}-sign-confirm`
+  return localStorage.setItem(signConfirm, value.toString())
 }
 export const removeSignConfirm = () => {
-    const signConfirm = `${store.getState().app.id}-sign-confirm`
-    localStorage.removeItem(signConfirm)
+  const signConfirm = `${store.getState().app.id}-sign-confirm`
+  localStorage.removeItem(signConfirm)
 }
 
 const warnKey = 'laiye.partner.warn'
 export const getWarnKey = () => {
-    return localStorage.getItem(warnKey)
+  return localStorage.getItem(warnKey)
 }
 export const setWarnKey = () => {
-    return localStorage.setItem(warnKey, 'true')
+  return localStorage.setItem(warnKey, 'true')
 }
 export const removeWarnKey = () => {
-    localStorage.removeItem(warnKey)
+  localStorage.removeItem(warnKey)
 }

@@ -18,43 +18,43 @@ export const asyncRouters = [marketRoute, projectRoute, productRoute, trainRoute
 
 //固定路由
 const routes = [
-    {
-        path: '/login',
-        meta: {
-            key: 'Login',
-            name: 'login',
-            isHidden: true,
-        },
-        component: LoginView,
+  {
+    path: '/login',
+    meta: {
+      key: 'Login',
+      name: 'login',
+      isHidden: true,
     },
-    {
-        path: '/about',
-        meta: {
-            key: 'about',
-            name: 'about',
-            isHidden: true,
-        },
-        component: AboutView,
+    component: LoginView,
+  },
+  {
+    path: '/about',
+    meta: {
+      key: 'about',
+      name: 'about',
+      isHidden: true,
     },
-    {
-        path: '/',
-        exact: true,
-        component: RedirectView,
-        meta: {
-            key: 'Redirect',
-            name: 'redirect',
-            isHidden: true,
-        },
+    component: AboutView,
+  },
+  {
+    path: '/',
+    exact: true,
+    component: RedirectView,
+    meta: {
+      key: 'Redirect',
+      name: 'redirect',
+      isHidden: true,
     },
-    {
-        path: '/404',
-        meta: {
-            key: 'NotFond',
-            name: 'notFond',
-            isHidden: true,
-        },
-        component: NotFontVIew,
+  },
+  {
+    path: '/404',
+    meta: {
+      key: 'NotFond',
+      name: 'notFond',
+      isHidden: true,
     },
+    component: NotFontVIew,
+  },
 ]
 
 export default routes

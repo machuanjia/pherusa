@@ -7,53 +7,53 @@ import { checkAuth } from './../../permission'
 import { withRouter } from 'react-router-dom'
 
 interface IRouteViewProps {
-    route?: {}
-    type?: string
+  route?: {}
+  type?: string
 }
 interface IRouteViewState {
-    routers?: {}[]
+  routers?: {}[]
 }
 
 class RouteViewComponent extends Component<IRouteViewProps, IRouteViewState> {
-    private subRoles
-    constructor(props) {
-        super(props)
-        this.state = {
-            routers: store.getState().app.routers,
-        }
-        this.subRoles = store.subscribe(() => {
-            const routers = store.getState().app.routers || []
-            if (routers.length > 0) {
-                this.setState({
-                    routers,
-                })
-            }
+  private subRoles
+  constructor(props) {
+    super(props)
+    this.state = {
+      routers: store.getState().app.routers,
+    }
+    this.subRoles = store.subscribe(() => {
+      const routers = store.getState().app.routers || []
+      if (routers.length > 0) {
+        this.setState({
+          routers,
         })
-    }
+      }
+    })
+  }
 
-    componentDidMount() {
-        checkAuth()
-    }
+  componentDidMount() {
+    checkAuth()
+  }
 
-    componentWillMount() {}
+  componentWillMount() {}
 
-    componentWillUnmount() {
-        this.subRoles && this.subRoles()
-    }
+  componentWillUnmount() {
+    this.subRoles && this.subRoles()
+  }
 
-    getRoutes() {
-        const route = this.props['route']
-        let routes = null
-        if (route) {
-            routes = route['children']
-        } else {
-            routes = this.state.routers
-        }
-        return routes
+  getRoutes() {
+    const route = this.props['route']
+    let routes = null
+    if (route) {
+      routes = route['children']
+    } else {
+      routes = this.state.routers
     }
+    return routes
+  }
 
-    render() {
-        return <Fragment>{generateRoutes(this.getRoutes())}</Fragment>
-    }
+  render() {
+    return <Fragment>{generateRoutes(this.getRoutes())}</Fragment>
+  }
 }
 export default withRouter(RouteViewComponent)

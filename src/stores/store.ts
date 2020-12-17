@@ -8,10 +8,10 @@ import appReducer from './app/app-reducers'
 import operateReducer from './operate/operate.reducers'
 
 const rootReducer = combineReducers({
-    article: articleReducer,
-    file: fileReducer,
-    app: appReducer,
-    operate: operateReducer,
+  article: articleReducer,
+  file: fileReducer,
+  app: appReducer,
+  operate: operateReducer,
 })
 
 export default createStore(rootReducer, applyMiddleware(thunk))

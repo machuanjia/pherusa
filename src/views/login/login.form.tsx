@@ -28,11 +28,11 @@ class LoginForm extends Component<ILoginFormProps, ILoginFormState> {
   }
 
   checkPhone(rule, value, callback) {
-      if (isPhone(value)) {
-        callback()
-      } else {
-        callback('请输入正确的手机号码')
-      }
+    if (isPhone(value)) {
+      callback()
+    } else {
+      callback('请输入正确的手机号码')
+    }
   }
 
   render() {

@@ -12,20 +12,20 @@ import Error404 from '@views/no-fond/index'
  *
  */
 export const generateRoutes = (routes, extraProps = {}, switchProps = {}) => {
-    return routes ? (
-        <Switch {...switchProps}>
-            {routes.map((route: any, i) => (
-                <Route
-                    key={route.key || i}
-                    path={route.path}
-                    exact={route.exact}
-                    strict={route.strict}
-                    render={props => {
-                        return <route.component {...props} {...extraProps} route={route} />
-                    }}
-                />
-            ))}
-            <Route component={Error404} />
-        </Switch>
-    ) : null
+  return routes ? (
+    <Switch {...switchProps}>
+      {routes.map((route: any, i) => (
+        <Route
+          key={route.key || i}
+          path={route.path}
+          exact={route.exact}
+          strict={route.strict}
+          render={props => {
+            return <route.component {...props} {...extraProps} route={route} />
+          }}
+        />
+      ))}
+      <Route component={Error404} />
+    </Switch>
+  ) : null
 }
