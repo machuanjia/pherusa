@@ -38,8 +38,7 @@ export default class MainLayout extends Component<IMainLayoutState, IMainLayoutP
           <PreferenceComponent />
         </div>
         <div className={styles['main-layout-main']}>
-          {/* <RouteView route={route} /> */}
-          {renderRoutes(route['children'])}
+          <RouteView routers={route['children']} />
         </div>
       </div>
     )
