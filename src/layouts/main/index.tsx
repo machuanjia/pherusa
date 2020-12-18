@@ -8,7 +8,7 @@ import styles from './main.module.less'
 import { RouteView } from '@components/index'
 import { Icon } from 'laiye-antd'
 import PreferenceComponent from '../preference'
-import {renderRoutes } from 'react-router-config'
+import { renderRoutes } from 'react-router-config'
 
 interface IMainLayoutProps {
   route: any

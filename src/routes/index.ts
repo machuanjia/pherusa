@@ -20,64 +20,64 @@ export const asyncRouters = [bpmnRoute]
 
 //固定路由
 const routes = [
-    {
-        path: '/login',
-        meta: {
-            key: 'Login',
-            name: 'login',
-            isHidden: true,
-        },
-        component: LoginView,
+  {
+    path: '/login',
+    meta: {
+      key: 'Login',
+      name: 'login',
+      isHidden: true,
     },
-    {
-        path: '/about',
-        meta: {
-            key: 'about',
-            name: 'about',
-            isHidden: true,
-        },
-        component: AboutView,
+    component: LoginView,
+  },
+  {
+    path: '/about',
+    meta: {
+      key: 'about',
+      name: 'about',
+      isHidden: true,
     },
-    {
-        path: '/',
-        exact: true,
-        component: RedirectView,
-        meta: {
-            key: 'Redirect',
-            name: 'redirect',
-            isHidden: true,
-        },
+    component: AboutView,
+  },
+  {
+    path: '/',
+    exact: true,
+    component: RedirectView,
+    meta: {
+      key: 'Redirect',
+      name: 'redirect',
+      isHidden: true,
     },
-    {
-        path: '/dashboard',
-        component: MainLayout,
-        meta: {
-            key: 'Dashboard',
-            name: 'dashboard',
-            redirect: '/dashboard/index',
-            iconType:'dashboard'
-        },
-        children: [
-            {
-                path: '/dashboard/index',
-                component: DashboardView,
-                meta: {
-                    key: 'DashboardIndex',
-                    name: 'dashboardIndex',
-                    className: 'sub-menu',
-                },
-            },
-        ],
+  },
+  {
+    path: '/dashboard',
+    component: MainLayout,
+    meta: {
+      key: 'Dashboard',
+      name: 'dashboard',
+      redirect: '/dashboard/index',
+      iconType: 'dashboard',
     },
-    {
-        path: '/404',
+    children: [
+      {
+        path: '/dashboard/index',
+        component: DashboardView,
         meta: {
-            key: 'NotFond',
-            name: 'notFond',
-            isHidden: true,
+          key: 'DashboardIndex',
+          name: 'dashboardIndex',
+          className: 'sub-menu',
         },
-        component: NotFontVIew,
+      },
+    ],
+  },
+  {
+    path: '/404',
+    meta: {
+      key: 'NotFond',
+      name: 'notFond',
+      isHidden: true,
     },
+    component: NotFontVIew,
+  },
 ]
 
 export default routes
