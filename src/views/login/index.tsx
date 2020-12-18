@@ -20,7 +20,7 @@ class LoginView extends Component<ILoginProps, ILoginState> {
 
   async loginSuccess(payload: ILoginEntity) {
     const { data } = await signIn(payload)
-    data && this.props['history'].push('/')
+    data && this.props['history'].push('/redirect')
   }
 
   render() {

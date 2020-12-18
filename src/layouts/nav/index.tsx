@@ -10,132 +10,110 @@ import styles from './nav.module.less'
 import { SET_ACTIVE_NAV } from '@stores/app/app-types'
 
 interface IRoute {
-  path: string
-  meta: { key: string; name: string; isLink?: boolean }
-  children?: IRoute[]
+    path: string
+    meta: { key: string; name: string; isLink?: boolean; redirect?: string; iconType?: string; className?: string }
+    children?: IRoute[]
 }
 
 interface INavProps {}
 
 interface INavState {
-  rootSubmenuKeys: string[]
-  openKeys: string[]
-  routers: IRoute[]
-  defaultSelectedKeys: string[]
+    routers: IRoute[]
 }
 
 export default class NavComponent extends Component<INavProps, INavState> {
-  private subRoles
-  constructor(props) {
-    super(props)
-    this.state = this.getRouters()
-  }
-
-  componentWillUnmount() {
-    this.subRoles && this.subRoles()
-  }
-
-  onOpenChange = openKeys => {
-    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1)
-    if (this.state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      this.setState({ openKeys })
-    } else {
-      this.setState({
-        openKeys: latestOpenKey ? [latestOpenKey] : [],
-      })
+    private subRoles
+    constructor(props) {
+        super(props)
+        this.state = this.getRouters()
+        this.subRoles = store.subscribe(() => {
+            const routers = store.getState().app.routers || []
+            if (routers.length > 0) {
+                this.setState(this.getRouters())
+            }
+        })
     }
-  }
 
-  getRouters() {
-    let appRouter = filter(store.getState().app.routers, n => {
-      return !n.meta.isHidden && n.children.length > 0
-    })
-    const location: string = window.location.href
-    const defaultSelectedKeys = []
-    const rootSubmenuKeys = []
-    const openKeys = []
-    const routers =
-      appRouter &&
-      filter(appRouter, n => {
-        if (!n.meta) {
-          throw new Error('route must have meta')
+    componentWillUnmount() {
+        this.subRoles && this.subRoles()
+    }
+
+    getRouters() {
+        const routers = filter(store.getState().app.routers, n => {
+            return !n.meta.isHidden
+        })
+        map(routers, router => {
+            if (router.children && router.children.length === 1) {
+                router.meta.redirect = router.children[0].path
+                router.children[0].meta.isHidden = true
+            }
+        })
+        return {
+            routers,
         }
-        n.meta && n.meta.key && rootSubmenuKeys.push(n.meta.key)
-        if (location.indexOf(n.path) > -1 && n.children) {
-          n.meta && n.meta.key && openKeys.push(n.meta.key)
-          map(n.children, cn => {
-            location.indexOf(cn.path) > -1 &&
-              cn.meta &&
-              cn.meta.key &&
-              defaultSelectedKeys.push(cn.meta.key) &&
-              store.dispatch({
+    }
+
+    onSelectNav(nav) {
+        nav &&
+            store.dispatch({
                 type: SET_ACTIVE_NAV,
-                activeNav: cn,
-              })
-          })
-        }
-        return n.meta.name !== 'notFond'
-      })
-
-    return {
-      rootSubmenuKeys,
-      routers,
-      defaultSelectedKeys,
-      openKeys,
+                activeNav: nav,
+            })
     }
-  }
 
-  onSelectNav(nav) {
-    nav &&
-      store.dispatch({
-        type: SET_ACTIVE_NAV,
-        activeNav: nav,
-      })
-  }
-
-  render() {
-    const SubMenu = Menu['SubMenu']
-    const { openKeys, routers, defaultSelectedKeys } = this.state
-    return (
-      <Menu
-        mode="inline"
-        className={styles['nav-main']}
-        onOpenChange={this.onOpenChange}
-        theme="dark"
-        inlineCollapsed={true}>
-        {routers.map(n => {
-          return (
-            <SubMenu
-              key={n.meta.key}
-              title={
-                <span>
-                  <Icon type="pie-chart" />
-                  <span>{n.meta.name}</span>
-                </span>
-              }>
-              {n.children &&
-                n.children.map(item => {
-                  if (!!item.meta['isHidden']) {
-                    return null
-                  }
-                  let link = <Link to={item.path}>{item.meta.name}</Link>
-                  if (item.meta.isLink) {
-                    link = (
-                      <a href={item.path} target="_blank" rel="noopener noreferrer">
-                        {item.meta.name}
-                      </a>
+    render() {
+        const SubMenu = Menu['SubMenu']
+        const { routers } = this.state
+        return (
+            <Menu mode="inline" className={styles['nav-main']} theme="dark" inlineCollapsed={true}>
+                {routers.map(n => {
+                    return (
+                        <SubMenu
+                            key={n.meta.key}
+                            title={
+                                n.meta.redirect ? (
+                                    <Link to={n.meta.redirect}>
+                                        {n.meta.iconType ? (
+                                            <Icon type={n.meta.iconType} />
+                                        ) : (
+                                            <i className={n.meta.className}></i>
+                                        )}
+                                        <span>{n.meta.name}</span>
+                                    </Link>
+                                ) : (
+                                    <span>
+                                        {n.meta.iconType ? (
+                                            <Icon type={n.meta.iconType} />
+                                        ) : (
+                                            <i className={n.meta.className}></i>
+                                        )}
+                                        <span>{n.meta.name}</span>
+                                    </span>
+                                )
+                            }>
+                            {n.children &&
+                                n.children.map(item => {
+                                    if (!!item.meta['isHidden']) {
+                                        return null
+                                    }
+                                    let link = <Link to={item.path}>{item.meta.name}</Link>
+                                    if (item.meta.isLink) {
+                                        link = (
+                                            <a href={item.path} target="_blank" rel="noopener noreferrer">
+                                                {item.meta.name}
+                                            </a>
+                                        )
+                                    }
+                                    return (
+                                        <Menu.Item key={item.meta.key} onClick={this.onSelectNav.bind(this, item)}>
+                                            {link}
+                                        </Menu.Item>
+                                    )
+                                })}
+                        </SubMenu>
                     )
-                  }
-                  return (
-                    <Menu.Item key={item.meta.key} onClick={this.onSelectNav.bind(this, item)}>
-                      {link}
-                    </Menu.Item>
-                  )
                 })}
-            </SubMenu>
-          )
-        })}
-      </Menu>
-    )
-  }
+            </Menu>
+        )
+    }
 }

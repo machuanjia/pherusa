@@ -8,6 +8,7 @@ import styles from './main.module.less'
 import { RouteView } from '@components/index'
 import { Icon } from 'laiye-antd'
 import PreferenceComponent from '../preference'
+import {renderRoutes } from 'react-router-config'
 
 interface IMainLayoutProps {
   route: any
@@ -37,7 +38,8 @@ export default class MainLayout extends Component<IMainLayoutState, IMainLayoutP
           <PreferenceComponent />
         </div>
         <div className={styles['main-layout-main']}>
-          <RouteView route={route} />
+          {/* <RouteView route={route} /> */}
+          {renderRoutes(route['children'])}
         </div>
       </div>
     )

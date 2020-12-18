@@ -19,7 +19,7 @@ ReactDOM.render(
     <Helmet>
       <title>{APP_CONFIGRATION.env.title}</title>
     </Helmet>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </Provider>,
