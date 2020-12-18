@@ -17,7 +17,7 @@ const NotFontVIew = AsyncComponent(() => import('@views/no-fond'))
 const DashboardView = AsyncComponent(() => import('@views/dashboard'))
 
 //动态路由，根据后台返回的权限动态生成
-export const asyncRouters = [bpmnRoute,componentsRoute]
+export const asyncRouters = [bpmnRoute, componentsRoute]
 
 //固定路由
 const routes = [
