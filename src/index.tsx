@@ -10,21 +10,24 @@ import '@i18n'
 import { Provider } from 'react-redux'
 import store from '@stores/store'
 import { BrowserRouter } from 'react-router-dom'
-// import 'laiye-antd/dist/antd.less'
+import zhCN from 'antd/lib/locale/zh_CN'
 import 'bpmn-js/dist/assets/diagram-js.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import { history } from '@utils/history'
+import { ConfigProvider } from 'laiye-antd'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Helmet>
-      <title>{APP_CONFIGRATION.env.title}</title>
-    </Helmet>
-    <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
-      <App />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById('root'),
+    <Provider store={store}>
+        <Helmet>
+            <title>{APP_CONFIGRATION.env.title}</title>
+        </Helmet>
+        <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
+            <ConfigProvider locale={zhCN}>
+                <App />
+            </ConfigProvider>
+        </BrowserRouter>
+    </Provider>,
+    document.getElementById('root'),
 )
 
 // If you want to start measuring performance in your app, pass a function
