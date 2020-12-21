@@ -15,14 +15,11 @@ export default class ContentLayoutComponent extends Component {
     let actions = null
     let bread = null
     let main = null
-    if (childrenMap['title']) {
-      title = <div className={styles['content-layout-header-title']}>{childrenMap['title']}</div>
+    if (childrenMap['left']) {
+      title = <div className={styles['content-layout-header-left']}>{childrenMap['left']}</div>
     }
     if (childrenMap['actions']) {
       actions = <div className={styles['content-layout-header-actions']}>{childrenMap['actions']}</div>
-    }
-    if (childrenMap['bread']) {
-      bread = <div className={styles['content-layout-bread']}>{childrenMap['bread']}</div>
     }
     if (childrenMap['main']) {
       main = <div className={styles['content-layout-main']}>{childrenMap['main']}</div>
@@ -31,6 +28,7 @@ export default class ContentLayoutComponent extends Component {
       <div className={styles['content-layout']}>
         <div className={styles['content-layout-header']}>
           {title}
+          <div className={styles['content-layout-header-center']}></div>
           {actions}
         </div>
         {bread}

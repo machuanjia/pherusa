@@ -1,11 +1,6 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import marketRoute from './market.route'
-import projectRoute from './project.route'
-import productRoute from './product.route'
-import trainRoute from './train.route'
-import managementRoute from './operate.route'
 import bpmnRoute from './bpmn.route'
 import componentsRoute from './component.route'
 import MainLayout from '@layouts/main'

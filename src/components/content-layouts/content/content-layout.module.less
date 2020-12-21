@@ -1,40 +1,55 @@
+/** @format */
+
 @import '@styles/variables.less';
 
-.content-layout{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  &-header{
+.content-layout {
+    height: 100%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px @border solid;
+    flex-direction: column;
 
-    &-title{
-      flex:1;
-      padding: 40px 32px;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: @text-primary;
+    &-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-bottom: 1px @border solid;
+        background: @bg-white;
+        margin-bottom: 12px;
+
+        &-left {
+            flex: 1;
+            padding: 10px;
+            :global{
+                .search{
+                    max-width: 280px;
+                }
+            }
+        }
+
+        &-center {
+            flex: 1;
+        }
+
+        &-actions {
+            padding: 10px;
+            display: flex;
+        }
     }
 
-    &-actions{
-      padding: 0 32px;
-      display: flex;
+    &-main {
+        flex: 1;
+        overflow: auto;
+        background: @bg-main;
+        :global{
+            .ant-table{
+                background: @bg-white;
+            }
+            .ant-pagination{
+                background: @bg-white;
+                float: none;
+                margin-left: 0;
+                padding: 12px 0;
+                margin: 12px 0 ;
+            }
+        }
     }
-  }
-
-  &-bread{
-    display: flex;
-    align-items: center;
-    padding: 8px 32px;
-    font-size: 0.875rem;
-  }
-
-  &-main{
-    flex:1;
-    overflow: auto;
-    padding: 8px 32px;
-  }
 }
