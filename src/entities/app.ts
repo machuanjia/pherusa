@@ -5,6 +5,7 @@ export type AppState = {
   permissions: string[]
   roles: string[]
   routers: {}[]
+  flattenRouters:{}[],
   warning: string
   id: string
   activeNav: {}
@@ -16,6 +17,7 @@ export type AppAction = {
   permissions?: string[]
   roles?: string[]
   routers?: {}[]
+  flattenRouters?:{}[]
   warning?: string
   id?: string
   activeNav?: {}

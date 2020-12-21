@@ -13,13 +13,14 @@ import { BrowserRouter } from 'react-router-dom'
 // import 'laiye-antd/dist/antd.less'
 import 'bpmn-js/dist/assets/diagram-js.css'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
+import { history } from '@utils/history'
 
 ReactDOM.render(
   <Provider store={store}>
     <Helmet>
       <title>{APP_CONFIGRATION.env.title}</title>
     </Helmet>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
       <App />
     </BrowserRouter>
   </Provider>,

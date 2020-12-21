@@ -2,7 +2,7 @@
 
 import { createBrowserHistory } from 'history'
 import { message } from 'laiye-antd'
-const history = createBrowserHistory()
+export const history = createBrowserHistory()
 
 export const redirectTo = (option: { path: string; isHash?: boolean }) => {
   const { path, isHash = true } = option
