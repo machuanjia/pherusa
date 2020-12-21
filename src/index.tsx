@@ -17,17 +17,17 @@ import { history } from '@utils/history'
 import { ConfigProvider } from 'laiye-antd'
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Helmet>
-            <title>{APP_CONFIGRATION.env.title}</title>
-        </Helmet>
-        <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
-            <ConfigProvider locale={zhCN}>
-                <App />
-            </ConfigProvider>
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById('root'),
+  <Provider store={store}>
+    <Helmet>
+      <title>{APP_CONFIGRATION.env.title}</title>
+    </Helmet>
+    <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
+      <ConfigProvider locale={zhCN}>
+        <App />
+      </ConfigProvider>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root'),
 )
 
 // If you want to start measuring performance in your app, pass a function
