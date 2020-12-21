@@ -9,34 +9,34 @@ import { find } from 'lodash'
 import { Icon } from 'laiye-antd'
 
 interface INavbarProps {
-    location: {
-        pathname: string
-    }
+  location: {
+    pathname: string
+  }
 }
 interface INavbarState {}
 
 class NavbarComponent extends Component<INavbarProps, INavbarState> {
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    const route = find(store.getState().app.flattenRouters, { path: this.props.location.pathname })
+    let title = '来也'
+    let icon = null
+    if (route && route.meta) {
+      title = route.meta.name
+      icon = route.meta.iconType ? <Icon type={route.meta.iconType} /> : <i className={route.meta.className}></i>
     }
 
-    render() {
-        const route = find(store.getState().app.flattenRouters, { path: this.props.location.pathname })
-        let title = '来也'
-        let icon = null
-        if (route && route.meta) {
-            title = route.meta.name
-            icon = route.meta.iconType ? <Icon type={route.meta.iconType} /> : <i className={route.meta.className}></i>
-        }
-
-        return (
-            <div className={styles['nav-bar-wrap']}>
-                <div className={styles['nav-bar-title']}>
-                    {icon}
-                    <span className="m-l-12">{title}</span>
-                </div>
-            </div>
-        )
-    }
+    return (
+      <div className={styles['nav-bar-wrap']}>
+        <div className={styles['nav-bar-title']}>
+          {icon}
+          <span className="m-l-12">{title}</span>
+        </div>
+      </div>
+    )
+  }
 }
 export default withRouter(NavbarComponent)

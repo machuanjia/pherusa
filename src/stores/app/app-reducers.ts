@@ -9,7 +9,7 @@ const initialState: AppState = {
   permissions: [],
   roles: [],
   routers: routes,
-  flattenRouters:[],
+  flattenRouters: [],
   warning: '',
   id: '',
   activeNav: null,
@@ -37,11 +37,11 @@ const reducer = (state: AppState = initialState, action: AppAction): AppState =>
         ...state,
         routers: action.routers,
       }
-      case actionTypes.SET_FLATTEN_ROUTERS:
-        return {
-          ...state,
-          flattenRouters: action.flattenRouters,
-        }  
+    case actionTypes.SET_FLATTEN_ROUTERS:
+      return {
+        ...state,
+        flattenRouters: action.flattenRouters,
+      }
     case actionTypes.SET_WARNING:
       return {
         ...state,
