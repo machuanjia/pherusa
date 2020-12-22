@@ -1,6 +1,6 @@
 import { Controller, Post, Response, Get } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { User } from 'libs/db/src/models/user.model';
+// import { User } from 'libs/db/src/models/user.model';
 import { InjectModel } from 'nestjs-typegoose';
 import { ALL_PERMISSIONS } from 'src/constants/permissions';
 import { resSuccess } from 'src/utils/response';
@@ -8,7 +8,7 @@ import { resSuccess } from 'src/utils/response';
 @Controller('auth')
 @ApiTags('Auth')
 export class AuthController {
-  constructor(@InjectModel(User) private readonly model) {}
+  // constructor(@InjectModel(User) private readonly model) {}
 
   @Post('/login')
   login(@Response() res) {
