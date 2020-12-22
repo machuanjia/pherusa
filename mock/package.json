@@ -27,6 +27,7 @@
     "@nestjs/swagger": "^4.7.5",
     "@typegoose/typegoose": "^7.4.2",
     "@types/mongoose": "^5.10.1",
+    "bpmn-js-properties-panel": "^0.38.0",
     "mongoose": "^5.11.0",
     "nestjs-mongoose-crud": "^2.0.0",
     "nestjs-typegoose": "^7.1.38",
