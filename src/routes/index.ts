@@ -60,7 +60,7 @@ const routes = [
         meta: {
           key: 'DashboardIndex',
           name: 'Dashboard',
-          iconType: 'dashboard'
+          iconType: 'dashboard',
         },
       },
     ],
