@@ -4,11 +4,10 @@ import React, { Component } from 'react'
 import BpmnViewer from 'bpmn-js'
 import Modeler from 'bpmn-js/lib/Modeler'
 
-
 import { pizzaBpmn } from '@assets/pizza.bpmn'
-import propertiesPanelModule from 'bpmn-js-properties-panel';
-import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
-import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda';
+import propertiesPanelModule from 'bpmn-js-properties-panel'
+import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
+import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 
 // @ts-ignore
 // import pizzaDiagram from './pizza-collaboration.bpmn'
@@ -42,13 +41,10 @@ export default class BpmnEditorComponent extends Component {
       propertiesPanel: {
         parent: '#propview',
       },
-      additionalModules: [
-        propertiesPanelModule,
-        propertiesProviderModule
-      ],
+      additionalModules: [propertiesPanelModule, propertiesProviderModule],
       moddleExtensions: {
-          camunda: camundaModdleDescriptor
-      }
+        camunda: camundaModdleDescriptor,
+      },
     })
 
     this.newBpmnDiagram()
