@@ -49,7 +49,7 @@ const routes = [
     component: MainLayout,
     meta: {
       key: 'Dashboard',
-      name: 'dashboard',
+      name: 'Dashboard',
       redirect: '/dashboard/index',
       iconType: 'dashboard',
     },
@@ -59,8 +59,8 @@ const routes = [
         component: DashboardView,
         meta: {
           key: 'DashboardIndex',
-          name: 'dashboardIndex',
-          className: 'sub-menu',
+          name: 'Dashboard',
+          iconType: 'dashboard'
         },
       },
     ],
