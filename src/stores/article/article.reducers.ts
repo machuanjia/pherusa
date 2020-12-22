@@ -1,6 +1,6 @@
 /** @format */
 
-import * as actionTypes from './action-types'
+import * as actionTypes from './article.types'
 import { IArticle, ArticleAction, ArticleState } from '@entities/article'
 
 const initialState: ArticleState = {

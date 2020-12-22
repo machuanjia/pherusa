@@ -5,9 +5,8 @@ import { Icon, Menu } from 'laiye-antd'
 import { Link } from 'react-router-dom'
 import { filter, map } from 'lodash'
 import store from '@stores/store'
-import { getAuthRoutes } from '../../permission'
 import styles from './nav.module.less'
-import { SET_ACTIVE_NAV } from '@stores/app/app-types'
+import { SET_ACTIVE_NAV } from '@stores/app/app.types'
 
 interface IRoute {
   path: string
@@ -22,11 +21,11 @@ interface INavState {
 }
 
 export default class NavComponent extends Component<INavProps, INavState> {
-  private subRoles
+  private subRoutes
   constructor(props) {
     super(props)
     this.state = this.getRouters()
-    this.subRoles = store.subscribe(() => {
+    this.subRoutes = store.subscribe(() => {
       const routers = store.getState().app.routers || []
       if (routers.length > 0) {
         this.setState(this.getRouters())
@@ -35,7 +34,7 @@ export default class NavComponent extends Component<INavProps, INavState> {
   }
 
   componentWillUnmount() {
-    this.subRoles && this.subRoles()
+    this.subRoutes && this.subRoutes()
   }
 
   getRouters() {

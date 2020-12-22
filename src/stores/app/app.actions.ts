@@ -1,6 +1,6 @@
 /** @format */
 
-import * as actionTypes from './app-types'
+import * as actionTypes from './app.types'
 import { AppAction, DispatchType } from '@entities/app'
 
 export const addToken = (token: string) => {

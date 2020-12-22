@@ -1,10 +1,9 @@
 /** @format */
 
 import routes, { asyncRouters } from '@routes/index'
-import { map, concat, uniq, keyBy } from 'lodash'
 import store from '@stores/store'
 import { getUserInfo } from '@apis/users'
-import { SET_PERMISSIONS, SET_ROLES, SET_ROUTERS, SET_USET_ID, SET_FLATTEN_ROUTERS } from '@stores/app/app-types'
+import { SET_PERMISSIONS, SET_ROLES, SET_ROUTERS, SET_USET_ID, SET_FLATTEN_ROUTERS } from '@stores/app/app.types'
 import { getRoute } from './utils'
 
 export const whiteList = [`${process.env.PUBLIC_URL}/login`]

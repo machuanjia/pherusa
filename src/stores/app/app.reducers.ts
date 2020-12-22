@@ -1,6 +1,6 @@
 /** @format */
 
-import * as actionTypes from './app-types'
+import * as actionTypes from './app.types'
 import { AppState, AppAction } from '@entities/app'
 import routes from '@routes/index'
 

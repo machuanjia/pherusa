@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addRoles } from '@stores/app/app-actions'
+import { addRoles } from '@stores/app/app.actions'
 import store from '@stores/store'
 import styles from './redirect.module.less'
 import { Icon, message } from 'laiye-antd'

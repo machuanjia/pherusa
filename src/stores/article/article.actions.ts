@@ -1,6 +1,6 @@
 /** @format */
 
-import * as actionTypes from './action-types'
+import * as actionTypes from './article.types'
 import { IArticle, ArticleAction, DispatchType } from '@entities/article'
 
 export const addArticle = (article: IArticle) => {

@@ -5,7 +5,7 @@ import styles from './login.module.less'
 import LoginForm from './login.form'
 import { connect } from 'react-redux'
 import { signIn } from '@apis/users'
-import { addToken } from '@stores/app/app-actions'
+import { addToken } from '@stores/app/app.actions'
 import { ILoginEntity } from '@entities/login'
 
 interface ILoginProps {
