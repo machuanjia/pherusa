@@ -9,7 +9,8 @@ const modifiedTheme = {
     '@laiye-primary-color': '#2249c0',
     '@laiye-link-color': '#2249c0',
 }
-const serverPort = 3000
+
+process.env.NODE_ENV === 'development' && (process.env.REACT_APP_CONFIGRATION = JSON.stringify(config))
 
 module.exports = {
     webpack: {
@@ -97,7 +98,7 @@ module.exports = {
         port: config.env.port,
         proxy: {
             '/api': {
-                target: 'http://localhost:' + serverPort,
+                target: 'http://localhost:' + 3000,
                 changeOrigin: true
             },
         },
