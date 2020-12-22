@@ -15,9 +15,9 @@ process.env.NODE_ENV === 'development' && (process.env.REACT_APP_CONFIGRATION = 
 module.exports = {
     webpack: {
         plugins: [
-            new webpack.DefinePlugin({
-                APP_CONFIGRATION: JSON.stringify(config),
-            }),
+            // new webpack.DefinePlugin({
+            //     APP_CONFIGRATION: JSON.stringify(config),
+            // }),
         ],
         alias: {
             '@': pathResolve('src'),
