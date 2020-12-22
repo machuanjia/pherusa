@@ -4,15 +4,11 @@ import React, { Component } from 'react'
 import BpmnViewer from 'bpmn-js'
 import Modeler from 'bpmn-js/lib/Modeler'
 
-// import 'bpmn-js/dist/assets/diagram-js.css';
-// import 'bpmn-font/dist/css/bpmn-embedded.css';
-// import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css'
-// import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css'
-// import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
+
 import { pizzaBpmn } from '@assets/pizza.bpmn'
-// import propertiesPanelModule from 'bpmn-js-properties-panel';
-// import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
-// import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda';
+import propertiesPanelModule from 'bpmn-js-properties-panel';
+import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda';
+import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda';
 
 // @ts-ignore
 // import pizzaDiagram from './pizza-collaboration.bpmn'
@@ -47,12 +43,12 @@ export default class BpmnEditorComponent extends Component {
         parent: '#propview',
       },
       additionalModules: [
-        // propertiesPanelModule,
-        // propertiesProviderModule
+        propertiesPanelModule,
+        propertiesProviderModule
       ],
-      // moddleExtensions: {
-      //     camunda: camundaModdleDescriptor
-      // }
+      moddleExtensions: {
+          camunda: camundaModdleDescriptor
+      }
     })
 
     this.newBpmnDiagram()
@@ -84,9 +80,7 @@ export default class BpmnEditorComponent extends Component {
       if (error) {
         return console.log('fail import xml')
       }
-
-      var canvas = this.modeler.get('canvas')
-
+      const canvas = this.modeler.get('canvas')
       canvas.zoom('fit-viewport')
     })
     // .then(function(){
