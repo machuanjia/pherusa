@@ -17,21 +17,23 @@ export default class BpmnBasicComponent extends Component {
   modeler = null
 
   componentDidMount() {
-    this.modeler = new Modeler({
-      container: '#bpmnview',
-      keyboard: {
-        bindTo: window,
-      },
-      propertiesPanel: {
-        parent: '#propview',
-      },
-      additionalModules: [propertiesPanelModule, propertiesProviderModule],
-      moddleExtensions: {
-        camunda: camundaModdleDescriptor,
-      },
-    })
+    setTimeout(() => {
+      this.modeler = new Modeler({
+        container: '#bpmnview',
+        keyboard: {
+          bindTo: window,
+        },
+        propertiesPanel: {
+          parent: '#propview',
+        },
+        additionalModules: [propertiesPanelModule, propertiesProviderModule],
+        moddleExtensions: {
+          camunda: camundaModdleDescriptor,
+        },
+      })
 
-    this.newBpmnDiagram()
+      this.newBpmnDiagram()
+    }, 1000)
   }
 
   newBpmnDiagram = () => {
@@ -58,8 +60,4 @@ export default class BpmnBasicComponent extends Component {
       </div>
     )
   }
-
-  // render() {
-  //   return <div id="canvas" className={styles['editor-wrap']}></div>
-  // }
 }
