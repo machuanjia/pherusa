@@ -6,12 +6,14 @@ import { MODAL_SIZE } from '@constants/index'
 import BpmnBasicComponent from './bpmn/basic.component'
 import BpmnEventComponent from './bpmn/event.component'
 import BpmnPaletteComponent from './bpmn/palette.component'
+import BpmnCustomComponent from './bpmn/custom.component'
 
 interface IBpmnEditorProps {}
 interface IBpmnEditorState {
   isBasicVisible: boolean
   isEventVisible: boolean
   isPaletteVisible: boolean
+  isPaletteCustomVisible: boolean
 }
 
 export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBpmnEditorState> {
@@ -21,6 +23,7 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
       isBasicVisible: false,
       isEventVisible: false,
       isPaletteVisible: false,
+      isPaletteCustomVisible: false,
     }
   }
   setOpen(key) {
@@ -35,11 +38,12 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
       isBasicVisible: false,
       isEventVisible: false,
       isPaletteVisible: false,
+      isPaletteCustomVisible: false,
     })
   }
 
   render() {
-    const { isBasicVisible, isEventVisible, isPaletteVisible } = this.state
+    const { isBasicVisible, isEventVisible, isPaletteVisible, isPaletteCustomVisible } = this.state
     return (
       <div>
         <Button type="primary" onClick={this.setOpen.bind(this, 'isBasicVisible')}>
@@ -82,6 +86,20 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
           onCancel={this.handleCancel.bind(this)}>
           <div style={{ height: '800px', overflow: 'auto' }}>
             <BpmnPaletteComponent />
+          </div>
+        </Modal>
+        <Button type="primary" className="m-l-12" onClick={this.setOpen.bind(this, 'isPaletteCustomVisible')}>
+          palette custom
+        </Button>
+        <Modal
+          title="Palette Custom"
+          width={MODAL_SIZE.lg}
+          footer={null}
+          destroyOnClose={true}
+          visible={isPaletteCustomVisible}
+          onCancel={this.handleCancel.bind(this)}>
+          <div style={{ height: '800px', overflow: 'auto' }}>
+            <BpmnCustomComponent />
           </div>
         </Modal>
       </div>
