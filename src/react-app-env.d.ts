@@ -9,3 +9,5 @@ declare module '*.less' {
 }
 
 declare module 'camunda-bpmn-moddle/resources/camunda'
+
+declare module 'react-color'
