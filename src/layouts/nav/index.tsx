@@ -71,7 +71,7 @@ export default class NavComponent extends Component<INavProps, INavState> {
               key={n.meta.key}
               title={
                 n.meta.redirect ? (
-                  <Link to={n.meta.redirect} className={styles["nav-item"]}>
+                  <Link to={n.meta.redirect} className={styles['nav-item']}>
                     {n.meta.iconType ? <Icon type={n.meta.iconType} /> : <i className={n.meta.className}></i>}
                     <span>{n.meta.name}</span>
                   </Link>
