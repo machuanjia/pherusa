@@ -38,7 +38,7 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
     const { isBasicVisible, isEventVisible } = this.state
     return (
       <div>
-        <Button type="primary" onClick={this.setOpen.bind(this,'isBasicVisible')}>
+        <Button type="primary" onClick={this.setOpen.bind(this, 'isBasicVisible')}>
           basic
         </Button>
         <Modal
@@ -52,7 +52,7 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
             <BpmnBasicComponent />
           </div>
         </Modal>
-        <Button type="primary" className="m-l-12" onClick={this.setOpen.bind(this,'isEventVisible')}>
+        <Button type="primary" className="m-l-12" onClick={this.setOpen.bind(this, 'isEventVisible')}>
           event
         </Button>
         <Modal
