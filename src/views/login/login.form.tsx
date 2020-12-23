@@ -40,11 +40,11 @@ class LoginForm extends Component<ILoginFormProps, ILoginFormState> {
     return (
       <div className={styles['login-form-wrap']}>
         <div className={styles['login-form-header']}>
-          <div className={styles['login-form-title']}>合作伙伴登录</div>
-          <div className={styles['login-form-desc']}>欢迎访问来也科技合作伙伴专区</div>
+          <div className={styles['login-form-title']}>来也科技登录</div>
+          <div className={styles['login-form-desc']}>欢迎访问来也科技专区</div>
         </div>
         <div className={styles['login-form-body']}>
-          <Form onSubmit={this.handleSubmit} className="page-form">
+          <Form onSubmit={this.handleSubmit} className={styles['page-form']}>
             <Form.Item>
               {getFieldDecorator('phone', {
                 rules: [{ required: true, message: '请输入正确的手机号' }, { validator: this.checkPhone.bind(this) }],
@@ -72,7 +72,7 @@ class LoginForm extends Component<ILoginFormProps, ILoginFormState> {
           </Form>
         </div>
         <div className={styles['login-form-footer']}>
-          还不是合作伙伴？ <a href="">申请成为合作伙伴</a>
+          还没有注册？ <a href="">马上注册</a>
         </div>
       </div>
     )
