@@ -76,7 +76,12 @@ export default class PreferenceComponent extends Component {
           </div>
           <div className="text-dark m-b-8">主题</div>
           <div className="m-b-24">
-            <Popover overlayClassName="preference-pop-wrap" placement="bottom" title={null} content={<SketchPicker />} trigger="click">
+            <Popover
+              overlayClassName="preference-pop-wrap"
+              placement="bottom"
+              title={null}
+              content={<SketchPicker />}
+              trigger="click">
               <div className="preference-theme-block"></div>
             </Popover>
           </div>
