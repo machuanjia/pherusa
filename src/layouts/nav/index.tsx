@@ -3,10 +3,11 @@
 import React, { Component } from 'react'
 import { Icon, Menu } from 'laiye-antd'
 import { Link } from 'react-router-dom'
-import { filter, map } from 'lodash'
+import { filter, map, find } from 'lodash'
 import store from '@stores/store'
 import styles from './nav.module.less'
 import { SET_ACTIVE_NAV } from '@stores/app/app.types'
+import { ROUTE_APP_KEY } from '@routes/index'
 
 interface IRoute {
   path: string
@@ -38,7 +39,11 @@ export default class NavComponent extends Component<INavProps, INavState> {
   }
 
   getRouters() {
-    const routers = filter(store.getState().app.routers, n => {
+    const allRoutes = store.getState().app.routers
+    const home = find(allRoutes, n => {
+      return n.meta.key === ROUTE_APP_KEY
+    })
+    const routers = filter(home.children, n => {
       return !n.meta.isHidden
     })
     map(routers, router => {

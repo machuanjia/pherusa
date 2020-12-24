@@ -4,6 +4,9 @@ import { AsyncComponent } from '@components/index'
 import bpmnRoute from './bpmn.route'
 import componentsRoute from './component.route'
 import MainLayout from '@layouts/main'
+import RouteLayout from '@layouts/route-layout'
+
+export const ROUTE_APP_KEY = 'app'
 
 const AboutView = AsyncComponent(() => import('@views/about'))
 const RedirectView = AsyncComponent(() => import('@views/redirect'))
@@ -36,35 +39,35 @@ const routes = [
   },
   {
     path: '/',
-    exact: true,
-    component: RedirectView,
-    meta: {
-      key: 'Redirect',
-      name: 'redirect',
-      isHidden: true,
-    },
-  },
-  {
-    path: '/dashboard',
     component: MainLayout,
     meta: {
-      key: 'Dashboard',
-      name: 'Dashboard',
-      redirect: '/dashboard/index',
-      iconType: 'dashboard',
+      key: ROUTE_APP_KEY,
+      name: 'App',
+      isHidden: true,
     },
-    children: [
-      {
-        path: '/dashboard/index',
-        component: DashboardView,
-        meta: {
-          key: 'DashboardIndex',
-          name: 'Dashboard',
-          iconType: 'dashboard',
-        },
+    children:[{
+      path: '/dashboard',
+      component: RouteLayout,
+      meta: {
+        key: 'Dashboard',
+        name: 'Dashboard',
+        redirect: '/dashboard/index',
+        iconType: 'dashboard',
       },
-    ],
+      children: [
+        {
+          path: '/dashboard/index',
+          component: DashboardView,
+          meta: {
+            key: 'DashboardIndex',
+            name: 'Dashboard',
+            iconType: 'dashboard',
+          },
+        },
+      ],
+    },]
   },
+  
   {
     path: '/404',
     meta: {

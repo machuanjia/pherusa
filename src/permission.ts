@@ -1,10 +1,11 @@
 /** @format */
 
-import routes, { asyncRouters } from '@routes/index'
+import routes, { asyncRouters, ROUTE_APP_KEY } from '@routes/index'
 import store from '@stores/store'
 import { getUserInfo } from '@apis/users'
 import { SET_PERMISSIONS, SET_ROLES, SET_ROUTERS, SET_USET_ID, SET_FLATTEN_ROUTERS } from '@stores/app/app.types'
 import { getRoute } from './utils'
+import { find } from 'lodash'
 
 export const whiteList = [`${process.env.PUBLIC_URL}/login`]
 
@@ -34,11 +35,11 @@ export const setInfo = async () => {
         type: SET_PERMISSIONS,
         permissions: data.permissions,
       })
-      const allRoutes = getAuthRoutes()
-      const flattenRouters = filterFlattenRoutes(allRoutes)
+      const routes = getAuthRoutes()
+      const flattenRouters = filterFlattenRoutes(routes)
       store.dispatch({
         type: SET_ROUTERS,
-        routers: allRoutes,
+        routers: routes,
       })
       store.dispatch({
         type: SET_FLATTEN_ROUTERS,
@@ -97,5 +98,9 @@ export const getConstantRoutes = () => {
 export const getAuthRoutes = () => {
   const permissions = store.getState()['app']['permissions'] || []
   const asyncRoutes = filterAsyncRoutes(asyncRouters, permissions)
-  return [...routes, ...asyncRoutes]
+  const redirect = find(routes, n => {
+    return n.meta.key === ROUTE_APP_KEY
+  })
+  redirect && (redirect.children = [...redirect.children, ...asyncRoutes])
+  return routes
 }

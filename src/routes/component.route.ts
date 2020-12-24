@@ -2,12 +2,16 @@
 
 import { AsyncComponent } from '@components/index'
 import MainLayout from '@layouts/main'
+import RouteLayout from '@layouts/route-layout'
 const TableView = AsyncComponent(() => import('@views/comps/table/index'))
 const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))
+const GraphLayoutView = AsyncComponent(() => import('@views/comps/graph-layout/index'))
+
+
 
 const componentsRoute = {
   path: '/components',
-  component: MainLayout,
+  component: RouteLayout,
   meta: {
     key: 'Components',
     name: '组件',
@@ -30,6 +34,15 @@ const componentsRoute = {
         key: 'CEditor',
         name: '富文本',
         iconType: 'table',
+      },
+    },
+    {
+      path: '/components/graph-layout',
+      component: GraphLayoutView,
+      meta: {
+        key: 'GraphLayout',
+        name: '画布布局',
+        iconType: 'LayoutOutlined',
       },
     },
   ],

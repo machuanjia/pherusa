@@ -2,11 +2,12 @@
 
 import { AsyncComponent } from '@components/index'
 import MainLayout from '@layouts/main'
+import RouteLayout from '@layouts/route-layout'
 const BpmnView = AsyncComponent(() => import('@views/bmpn/index'))
 
 const bpmnRoute = {
   path: '/bpmn',
-  component: MainLayout,
+  component: RouteLayout,
   meta: {
     key: 'Bpmn',
     name: '业务流程',
