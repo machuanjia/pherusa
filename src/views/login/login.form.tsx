@@ -14,8 +14,6 @@ interface ILoginFormProps {
 interface ILoginFormState {}
 
 class LoginForm extends Component<ILoginFormProps, ILoginFormState> {
-  
-
   handleSubmit = e => {
     e.preventDefault()
     this.props.form.validateFields((err, values: ILoginEntity) => {

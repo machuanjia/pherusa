@@ -8,7 +8,6 @@ interface IAppComponentProps {}
 interface IAppComponentState {}
 
 class App extends Component<IAppComponentProps, IAppComponentState> {
-  
   render() {
     return <RouteView />
   }

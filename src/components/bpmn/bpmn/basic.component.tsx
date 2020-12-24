@@ -9,8 +9,6 @@ import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camu
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 
 export default class BpmnBasicComponent extends Component {
-  
-
   modeler = null
 
   componentDidMount() {

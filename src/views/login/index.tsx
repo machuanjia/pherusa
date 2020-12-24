@@ -15,7 +15,6 @@ interface ILoginProps {
 interface ILoginState {}
 
 class LoginView extends Component<ILoginProps, ILoginState> {
- 
   async loginSuccess(payload: ILoginEntity) {
     const { data } = await signIn(payload)
     setToken('token')

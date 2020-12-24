@@ -16,8 +16,6 @@ interface INavbarProps {
 interface INavbarState {}
 
 class NavbarComponent extends Component<INavbarProps, INavbarState> {
-  
-
   render() {
     const route = find(store.getState().app.flattenRouters, { path: this.props.location.pathname })
     let title = '来也'

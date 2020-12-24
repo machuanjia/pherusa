@@ -5,7 +5,6 @@ import { Input, Button, message } from 'laiye-antd'
 import ReactDOM from 'react-dom'
 
 export default class CopyComponent extends Component {
-
   copy() {
     const wrap: any = ReactDOM.findDOMNode(this.refs.copyWrap).firstChild
     if (!wrap.value) {

@@ -5,7 +5,6 @@ import { ContentLayoutComponent } from '@components/index'
 import { BpmnEditorComponent } from '@components/index'
 
 export default class BpmnView extends Component {
- 
   render() {
     return (
       <ContentLayoutComponent>

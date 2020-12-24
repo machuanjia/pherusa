@@ -14,7 +14,6 @@ interface IMainLayoutProps {
 interface IMainLayoutState {}
 
 export default class MainLayout extends Component<IMainLayoutState, IMainLayoutProps> {
-
   componentDidCatch(error, info) {
     // 捕获子组件渲染错误，可以存储在数据库
   }
