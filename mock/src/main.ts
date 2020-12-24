@@ -5,7 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
-  app.setGlobalPrefix('api/v1');
+  app.setGlobalPrefix('api/pherusa');
   const options = new DocumentBuilder()
     .setTitle('Hestia-Api')
     .setDescription('合作伙伴服务端API')

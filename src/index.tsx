@@ -18,7 +18,7 @@ import { ConfigProvider } from 'laiye-antd'
 ReactDOM.render(
   <Provider store={store}>
     <Helmet>
-      <title>{APP_CONFIGRATION.env.title}</title>
+      <title>来也科技</title>
     </Helmet>
     <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
       <ConfigProvider locale={zhCN}>
