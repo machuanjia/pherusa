@@ -14,8 +14,8 @@ export const checkAuth = async () => {
   if (getToken()) {
     if (whiteList.includes(getRoute())) {
       redirectTo({
-        path:`${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/dashboard/index`,
-        isHash:false
+        path: `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/dashboard/index`,
+        isHash: false,
       })
     } else {
       if (store.getState().app.id) {
