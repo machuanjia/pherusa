@@ -31,7 +31,7 @@ const routes = [
   {
     path: '/about',
     meta: {
-      key: 'about',
+      key: 'About',
       name: 'about',
       isHidden: true,
     },

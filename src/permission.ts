@@ -5,7 +5,7 @@ import store from '@stores/store'
 import { getUserInfo } from '@apis/users'
 import { SET_PERMISSIONS, SET_ROLES, SET_ROUTERS, SET_USET_ID, SET_FLATTEN_ROUTERS } from '@stores/app/app.types'
 import { getRoute } from './utils'
-import { find } from 'lodash'
+import { find, uniqBy } from 'lodash'
 
 export const whiteList = [`${process.env.PUBLIC_URL}/login`]
 
@@ -13,7 +13,8 @@ export const checkAuth = async () => {
   if (whiteList.includes(getRoute())) {
     return
   }
-  if (store.getState().app.roles.length > 0) {
+  console.log(store.getState().app.id)
+  if (store.getState().app.id) {
     return
   }
   setInfo()
@@ -100,6 +101,9 @@ export const getAuthRoutes = () => {
   const app = find(routes, n => {
     return n.meta.key === ROUTE_APP_KEY
   })
-  app && (app.children = [...app.children, ...asyncRoutes])
+  app &&
+    (app.children = uniqBy([...app.children, ...asyncRoutes], n => {
+      return n.meta.key
+    }))
   return routes
 }

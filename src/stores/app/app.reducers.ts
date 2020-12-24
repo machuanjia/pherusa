@@ -8,7 +8,7 @@ const initialState: AppState = {
   token: '',
   permissions: [],
   roles: [],
-  routers: [],
+  routers: routes,
   flattenRouters: [],
   warning: '',
   id: '',
