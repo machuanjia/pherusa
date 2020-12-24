@@ -18,10 +18,10 @@ class About extends Component<any, any> {
     })
   }
   render() {
-    i18n.on('languageChanged', (e) => {
-      console.log("==国际化变了====")
+    i18n.on('languageChanged', e => {
+      console.log('==国际化变了====')
       console.log(e)
-    });
+    })
     console.log(i18n.t('actions.ok'))
     i18n.changeLanguage('zh-cn')
     // console.log(i18n.t('actions.ok'))
