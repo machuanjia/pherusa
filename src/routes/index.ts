@@ -45,29 +45,31 @@ const routes = [
       name: 'App',
       isHidden: true,
     },
-    children:[{
-      path: '/dashboard',
-      component: RouteLayout,
-      meta: {
-        key: 'Dashboard',
-        name: 'Dashboard',
-        redirect: '/dashboard/index',
-        iconType: 'dashboard',
-      },
-      children: [
-        {
-          path: '/dashboard/index',
-          component: DashboardView,
-          meta: {
-            key: 'DashboardIndex',
-            name: 'Dashboard',
-            iconType: 'dashboard',
-          },
+    children: [
+      {
+        path: '/dashboard',
+        component: RouteLayout,
+        meta: {
+          key: 'Dashboard',
+          name: 'Dashboard',
+          redirect: '/dashboard/index',
+          iconType: 'dashboard',
         },
-      ],
-    },]
+        children: [
+          {
+            path: '/dashboard/index',
+            component: DashboardView,
+            meta: {
+              key: 'DashboardIndex',
+              name: 'Dashboard',
+              iconType: 'dashboard',
+            },
+          },
+        ],
+      },
+    ],
   },
-  
+
   {
     path: '/404',
     meta: {

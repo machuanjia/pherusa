@@ -7,8 +7,6 @@ const TableView = AsyncComponent(() => import('@views/comps/table/index'))
 const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))
 const GraphLayoutView = AsyncComponent(() => import('@views/comps/graph-layout/index'))
 
-
-
 const componentsRoute = {
   path: '/components',
   component: RouteLayout,
