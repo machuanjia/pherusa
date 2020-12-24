@@ -6,18 +6,28 @@ import { getUserInfo } from '@apis/users'
 import { SET_PERMISSIONS, SET_ROLES, SET_ROUTERS, SET_USET_ID, SET_FLATTEN_ROUTERS } from '@stores/app/app.types'
 import { getRoute } from './utils'
 import { find, uniqBy } from 'lodash'
+import { getToken, redirectTo } from '@utils/index'
 
 export const whiteList = [`${process.env.PUBLIC_URL}/login`]
 
 export const checkAuth = async () => {
-  if (whiteList.includes(getRoute())) {
-    return
+  if (getToken()) {
+    if (whiteList.includes(getRoute())) {
+      redirectTo({
+        path:`${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/dashboard/index`,
+        isHash:false
+      })
+    } else {
+      if (store.getState().app.id) {
+        return
+      }
+      setInfo()
+    }
+  } else {
+    if (whiteList.includes(getRoute())) {
+      return
+    }
   }
-  console.log(store.getState().app.id)
-  if (store.getState().app.id) {
-    return
-  }
-  setInfo()
 }
 
 export const setInfo = async () => {

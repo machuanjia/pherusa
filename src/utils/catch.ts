@@ -3,10 +3,10 @@
 import store from '@stores/store'
 // import Cookies from 'js-cookie'
 
-// const tokenKey = 'laiye.partner' //authorization
-// export const getToken = () => Cookies.get(tokenKey)
-// export const setToken = (value: string) => Cookies.set(tokenKey, value)
-// export const removeToken = () => Cookies.remove(tokenKey)
+const tokenKey = 'laiye.authorization' 
+export const getToken = () => localStorage.getItem(tokenKey)
+export const setToken = (value: string) => localStorage.setItem(tokenKey, value)
+export const removeToken = () => localStorage.removeItem(tokenKey)
 
 export const getSignAgreement = () => {
   const signAgreement = `${store.getState().app.id}-sign-agreement`

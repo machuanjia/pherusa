@@ -1,7 +1,7 @@
 /** @format */
 
 import { createBrowserHistory } from 'history'
-import { message } from 'laiye-antd'
+import { removeToken } from './catch'
 export const history = createBrowserHistory()
 
 export const redirectTo = (option: { path: string; isHash?: boolean }) => {
@@ -20,6 +20,6 @@ export const getRoute = () => {
 }
 
 export const logout = () => {
-  // message.warn('登录已超期，请重新登录!')
+  removeToken()
   window.location.href = `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/login`
 }

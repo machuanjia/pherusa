@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { signIn } from '@apis/users'
 import { addToken } from '@stores/app/app.actions'
 import { ILoginEntity } from '@entities/login'
+import { setToken } from '@utils/index'
 
 interface ILoginProps {
   addToken: (token: string) => {}
@@ -20,7 +21,8 @@ class LoginView extends Component<ILoginProps, ILoginState> {
 
   async loginSuccess(payload: ILoginEntity) {
     const { data } = await signIn(payload)
-    data && this.props['history'].push('/')
+    setToken('token')
+    data && this.props['history'].push('/dashboard/index')
   }
 
   render() {
