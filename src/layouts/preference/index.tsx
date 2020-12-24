@@ -5,6 +5,8 @@ import styles from './preference.module.less'
 import { logout } from '@utils/index'
 import { SketchPicker } from 'react-color'
 import { MODAL_SIZE } from '@constants/index'
+import i18n from 'i18next'
+import { Trans } from 'react-i18next'
 
 export default class PreferenceComponent extends Component {
   constructor(props) {
@@ -41,7 +43,7 @@ export default class PreferenceComponent extends Component {
   }
   changeLang(e) {
     e.preventDefault()
-    // const lang = e.target.value
+    i18n.changeLanguage(e.target.value)
   }
   themeAction() {}
   render() {
@@ -102,7 +104,7 @@ export default class PreferenceComponent extends Component {
           <div className="text-dark m-b-8">语言</div>
           <div className="m-b-24">
             <Radio.Group onChange={this.changeLang.bind(this)} defaultValue="zh-cn">
-              <Radio.Button value="zh-cn">中文</Radio.Button>
+              <Radio.Button value="zh">中文</Radio.Button>
               <Radio.Button value="en">英文</Radio.Button>
               <Radio.Button value="ZH">繁体</Radio.Button>
             </Radio.Group>

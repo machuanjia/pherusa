@@ -23,7 +23,7 @@ class About extends Component<any, any> {
       console.log(e)
     })
     console.log(i18n.t('actions.ok'))
-    i18n.changeLanguage('zh-cn')
+    // i18n.changeLanguage('zh-cn')
     // console.log(i18n.t('actions.ok'))
     const list = this.props.list
     return (
