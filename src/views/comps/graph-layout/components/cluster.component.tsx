@@ -2,18 +2,19 @@
 
 import React, { Component } from 'react'
 import * as d3 from 'd3'
-export default class TreeComponent extends Component {
+
+export default class ClusterComponent extends Component {
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
     setTimeout(() => {
-      this.drawTree()
+      this.drawCluster()
     }, 1500)
   }
 
-  drawTree() {
+  drawCluster() {
     console.log(d3['select'])
 
     const data = {
@@ -42,14 +43,13 @@ export default class TreeComponent extends Component {
         },
       ],
     }
+    var clusterLayout = d3.cluster().size([400, 200])
+
     var root = d3.hierarchy(data)
 
-    var treeLayout = d3.tree()
-    treeLayout.size([400, 200])
+    clusterLayout(root)
 
-    treeLayout(root)
-
-    const svg = d3.select('#tree').append('svg').attr('width', 1000).attr('height', 1000).style('margin-left', 10)
+    const svg = d3.select('#cluster').append('svg').attr('width', 1000).attr('height', 1000).style('margin-left', 10)
 
     console.log(root.descendants())
 
@@ -91,6 +91,6 @@ export default class TreeComponent extends Component {
   }
 
   render() {
-    return <div id="tree">tree</div>
+    return <div id="cluster">cluster</div>
   }
 }

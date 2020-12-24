@@ -2,18 +2,19 @@
 
 import React, { Component } from 'react'
 import * as d3 from 'd3'
-export default class TreeComponent extends Component {
+
+export default class PackComponent extends Component {
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
     setTimeout(() => {
-      this.drawTree()
+      this.drawPack()
     }, 1500)
   }
 
-  drawTree() {
+  drawPack() {
     console.log(d3['select'])
 
     const data = {
@@ -44,53 +45,37 @@ export default class TreeComponent extends Component {
     }
     var root = d3.hierarchy(data)
 
-    var treeLayout = d3.tree()
-    treeLayout.size([400, 200])
+    var packLayout = d3.pack()
+    packLayout.size([300, 300])
+    // packLayout.padding(10)
+    root.sum(function (d) {
+      return d['value']
+    })
 
-    treeLayout(root)
+    packLayout(root)
 
-    const svg = d3.select('#tree').append('svg').attr('width', 1000).attr('height', 1000).style('margin-left', 10)
+    const svg = d3.select('#pack').append('svg').attr('width', 1000).attr('height', 1000).style('margin-left', 10)
 
     console.log(root.descendants())
 
-    // Nodes
     svg
-      .selectAll('circle.node')
+      .selectAll('circle')
       .data(root.descendants())
       .enter()
       .append('circle')
-      .classed('node', true)
       .attr('cx', function (d) {
         return d['x']
       })
       .attr('cy', function (d) {
         return d['y']
       })
-      .attr('r', 4)
-
-    svg
-      .selectAll('line.link')
-      .data(root.links())
-      .enter()
-      .append('line')
-      .classed('link', true)
-      .attr('x1', function (d) {
-        return d.source['x']
+      .attr('r', function (d) {
+        return d['r']
       })
-      .attr('y1', function (d) {
-        return d.source['y']
-      })
-      .attr('x2', function (d) {
-        return d.target['x']
-      })
-      .attr('y2', function (d) {
-        return d.target['y']
-      })
-      .attr('stroke-width', 1)
-      .attr('stroke', 'black')
+      .attr('style', 'fill: cadetblue; opacity: 0.3; stroke: white;')
   }
 
   render() {
-    return <div id="tree">tree</div>
+    return <div id="pack">pack</div>
   }
 }
