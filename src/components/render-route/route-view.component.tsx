@@ -31,7 +31,7 @@ class RouteViewComponent extends Component<IRouteViewProps, IRouteViewState> {
   }
 
   componentDidMount() {
-    checkAuth()
+    !this.props['routers'] && checkAuth()
   }
 
   componentWillMount() {}

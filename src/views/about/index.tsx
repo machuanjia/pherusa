@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import { Trans } from 'react-i18next'
 import { connect } from 'react-redux'
 import { addArticle } from '@stores/article/article.actions'
+import i18n from 'i18next'
 
 class About extends Component<any, any> {
   addNewArticle = (e: React.FormEvent) => {
@@ -17,7 +18,13 @@ class About extends Component<any, any> {
     })
   }
   render() {
-    console.log('=========')
+    i18n.on('languageChanged', e => {
+      console.log('==国际化变了====')
+      console.log(e)
+    })
+    console.log(i18n.t('actions.ok'))
+    i18n.changeLanguage('zh-cn')
+    // console.log(i18n.t('actions.ok'))
     const list = this.props.list
     return (
       <div>

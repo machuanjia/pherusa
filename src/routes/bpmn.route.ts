@@ -1,7 +1,6 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import MainLayout from '@layouts/main'
 import RouteLayout from '@layouts/route-layout'
 const BpmnView = AsyncComponent(() => import('@views/bmpn/index'))
 

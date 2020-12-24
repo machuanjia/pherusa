@@ -6,6 +6,7 @@ import styles from './main.module.less'
 import { RouteView } from '@components/index'
 import PreferenceComponent from '../preference'
 import NavbarComponent from '../navbar'
+import { generateRoutes } from '@components/render-route'
 
 interface IMainLayoutProps {
   route: any

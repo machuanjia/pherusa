@@ -1,7 +1,6 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import MainLayout from '@layouts/main'
 import RouteLayout from '@layouts/route-layout'
 const TableView = AsyncComponent(() => import('@views/comps/table/index'))
 const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))

@@ -5,7 +5,7 @@ import store from '@stores/store'
 import { getUserInfo } from '@apis/users'
 import { SET_PERMISSIONS, SET_ROLES, SET_ROUTERS, SET_USET_ID, SET_FLATTEN_ROUTERS } from '@stores/app/app.types'
 import { getRoute } from './utils'
-import { find } from 'lodash'
+import { find, uniqBy } from 'lodash'
 
 export const whiteList = [`${process.env.PUBLIC_URL}/login`]
 
@@ -13,7 +13,8 @@ export const checkAuth = async () => {
   if (whiteList.includes(getRoute())) {
     return
   }
-  if (store.getState().app.roles.length > 0) {
+  console.log(store.getState().app.id)
+  if (store.getState().app.id) {
     return
   }
   setInfo()
@@ -22,30 +23,29 @@ export const checkAuth = async () => {
 export const setInfo = async () => {
   try {
     const { data } = await getUserInfo()
-    if (data && data.roles) {
-      store.dispatch({
-        type: SET_USET_ID,
-        id: data.majorKeyId,
-      })
-      store.dispatch({
-        type: SET_ROLES,
-        roles: data.roles,
-      })
-      store.dispatch({
-        type: SET_PERMISSIONS,
-        permissions: data.permissions,
-      })
-      const routes = getAuthRoutes()
-      const flattenRouters = filterFlattenRoutes(routes)
-      store.dispatch({
-        type: SET_ROUTERS,
-        routers: routes,
-      })
-      store.dispatch({
-        type: SET_FLATTEN_ROUTERS,
-        flattenRouters: flattenRouters,
-      })
-    }
+    const { roles = [], permissions = [] } = data
+    store.dispatch({
+      type: SET_USET_ID,
+      id: data.majorKeyId,
+    })
+    store.dispatch({
+      type: SET_ROLES,
+      roles: roles,
+    })
+    store.dispatch({
+      type: SET_PERMISSIONS,
+      permissions: permissions,
+    })
+    const routes = getAuthRoutes()
+    const flattenRouters = filterFlattenRoutes(routes)
+    store.dispatch({
+      type: SET_ROUTERS,
+      routers: routes,
+    })
+    store.dispatch({
+      type: SET_FLATTEN_ROUTERS,
+      flattenRouters: flattenRouters,
+    })
   } catch (e) {}
 }
 
@@ -98,9 +98,12 @@ export const getConstantRoutes = () => {
 export const getAuthRoutes = () => {
   const permissions = store.getState()['app']['permissions'] || []
   const asyncRoutes = filterAsyncRoutes(asyncRouters, permissions)
-  const redirect = find(routes, n => {
+  const app = find(routes, n => {
     return n.meta.key === ROUTE_APP_KEY
   })
-  redirect && (redirect.children = [...redirect.children, ...asyncRoutes])
+  app &&
+    (app.children = uniqBy([...app.children, ...asyncRoutes], n => {
+      return n.meta.key
+    }))
   return routes
 }
