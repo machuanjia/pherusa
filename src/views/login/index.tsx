@@ -22,7 +22,7 @@ class LoginView extends Component<ILoginProps, ILoginState> {
   async loginSuccess(payload: ILoginEntity) {
     const { data } = await signIn(payload)
     setToken('token')
-    data && this.props['history'].push('/dashboard/index')
+    data && this.props['history'].push('/redirect')
   }
 
   render() {

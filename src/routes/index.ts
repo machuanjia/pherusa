@@ -38,6 +38,15 @@ const routes = [
     component: AboutView,
   },
   {
+    path:'/redirect',
+    component: RedirectView,
+    meta: {
+      key: 'Redirect',
+      name: 'redirect',
+      isHidden: true,
+    },
+  },
+  {
     path: '/',
     component: MainLayout,
     meta: {
