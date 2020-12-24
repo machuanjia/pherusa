@@ -38,7 +38,7 @@ const routes = [
     component: AboutView,
   },
   {
-    path:'/redirect',
+    path: '/redirect',
     component: RedirectView,
     meta: {
       key: 'Redirect',
