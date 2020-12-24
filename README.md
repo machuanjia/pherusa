@@ -90,9 +90,9 @@ nestjs
 ### docs
 
 ```
-craco 文档 
+文档 
 
-https://github.com/gsoft-inc/craco/blob/master/packages/craco/README.md#configuration-overview
+https://wiki.laiye.com/display/FE/Pherusa
 
 ```
 
