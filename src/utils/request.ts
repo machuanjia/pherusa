@@ -1,10 +1,8 @@
 /** @format */
 
 import axios from 'axios'
-import { Modal, message } from 'laiye-antd'
+import { message } from 'laiye-antd'
 import { logout } from '@utils/index'
-
-const { confirm } = Modal
 
 const service = axios.create({
   baseURL: APP_CONFIGRATION.api,

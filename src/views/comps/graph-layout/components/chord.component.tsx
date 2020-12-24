@@ -4,10 +4,6 @@ import React, { Component } from 'react'
 import * as d3 from 'd3'
 
 export default class ChordComponent extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     setTimeout(() => {
       this.drawCluster()
@@ -33,7 +29,7 @@ export default class ChordComponent extends Component {
 
     console.log(chords)
 
-    const svg = d3.select('#chord').append('svg').attr('width', 1000).attr('height', 1000).style('margin-left', 10)
+    // const svg = d3.select('#chord').append('svg').attr('width', 1000).attr('height', 1000).style('margin-left', 10)
 
     // svg.selectAll('path').data(chords).enter().append('path').attr('d', ribbonGenerator)
   }

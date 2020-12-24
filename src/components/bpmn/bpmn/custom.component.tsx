@@ -6,10 +6,6 @@ import { pizzaBpmn } from './pizza.bpmn'
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 import customModule from './ImportJS/onlyContextPad'
 export default class BpmnCustomComponent extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   modeler = null
 
   componentDidMount() {

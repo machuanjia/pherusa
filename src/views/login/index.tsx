@@ -15,10 +15,7 @@ interface ILoginProps {
 interface ILoginState {}
 
 class LoginView extends Component<ILoginProps, ILoginState> {
-  constructor(props) {
-    super(props)
-  }
-
+ 
   async loginSuccess(payload: ILoginEntity) {
     const { data } = await signIn(payload)
     setToken('token')
@@ -31,11 +28,12 @@ class LoginView extends Component<ILoginProps, ILoginState> {
         <div className={styles['login-aside']}>
           <div className={styles['login-icon']}>
             <a className="form-go-banner" href="/">
-              <img className="nav-logo" src="https://cdn.wul.ai/official/img/officialLogo.png" />
+              <img className="nav-logo" alt="logo" src="https://cdn.wul.ai/official/img/officialLogo.png" />
             </a>
           </div>
           <img
             className={styles['login-aside-content']}
+            alt="login"
             src="https://cdn.wul.ai/official/hestia/login-aside-content.png"
           />
         </div>

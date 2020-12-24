@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { isPhone } from '@utils/index'
-import { Form, Input, Button, Checkbox } from 'laiye-antd'
+import { Form, Input, Button } from 'laiye-antd'
 
 interface ITableCollectionProps {
   callback: ({ isVisible, isRefresh }) => {}

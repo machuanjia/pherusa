@@ -6,7 +6,6 @@ import styles from './main.module.less'
 import { RouteView } from '@components/index'
 import PreferenceComponent from '../preference'
 import NavbarComponent from '../navbar'
-import { generateRoutes } from '@components/render-route'
 
 interface IMainLayoutProps {
   route: any
@@ -15,9 +14,6 @@ interface IMainLayoutProps {
 interface IMainLayoutState {}
 
 export default class MainLayout extends Component<IMainLayoutState, IMainLayoutProps> {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidCatch(error, info) {
     // 捕获子组件渲染错误，可以存储在数据库
@@ -28,7 +24,7 @@ export default class MainLayout extends Component<IMainLayoutState, IMainLayoutP
     return (
       <div className={styles['main-layout']}>
         <div className={styles['main-layout-side']}>
-          <img className="logo" src="https://cdn.wul.ai/official/img/officialLogo.png" width="50" />
+          <img className="logo" alt="logo" src="https://cdn.wul.ai/official/img/officialLogo.png" width="50" />
           <div className="navs">
             <NavComponent />
           </div>

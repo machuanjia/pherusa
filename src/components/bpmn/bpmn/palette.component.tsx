@@ -3,7 +3,6 @@
 import React, { Component } from 'react'
 import Modeler from 'bpmn-js/lib/Modeler'
 import { pizzaBpmn } from './pizza.bpmn'
-import propertiesPanelModule from 'bpmn-js-properties-panel'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 import customModule from './ImportJS/onlyPalette'
@@ -11,10 +10,6 @@ import customModule from './ImportJS/onlyPalette'
 // import customModule from './ImportJS/onlyContextPad'
 
 export default class BpmnPaletteComponent extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   modeler = null
 
   componentDidMount() {

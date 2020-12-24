@@ -2,11 +2,9 @@ import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer';
 
 import {
     append as svgAppend,
-    attr as svgAttr,
     create as svgCreate
 } from 'tiny-svg';
 import { customElements, customConfig, hasLabelElements } from '../util'
-import { is } from 'bpmn-js/lib/util/ModelUtil';
 
 const HIGH_PRIORITY = 1500
 

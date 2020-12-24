@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { Component } from 'react'
-import BpmnViewer from 'bpmn-js'
 import Modeler from 'bpmn-js/lib/Modeler'
 
 import { pizzaBpmn } from './pizza.bpmn'
@@ -10,9 +9,7 @@ import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camu
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 
 export default class BpmnBasicComponent extends Component {
-  constructor(props) {
-    super(props)
-  }
+  
 
   modeler = null
 

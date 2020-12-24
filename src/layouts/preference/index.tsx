@@ -41,7 +41,7 @@ export default class PreferenceComponent extends Component {
   }
   changeLang(e) {
     e.preventDefault()
-    const lang = e.target.value
+    // const lang = e.target.value
   }
   themeAction() {}
   render() {
@@ -86,7 +86,7 @@ export default class PreferenceComponent extends Component {
           <p>11. 代码检查（使用prettier和eslint）</p>
           <p>12. 代码提交检查（commit-lint）</p>
           <p>
-            <a href="https://wiki.laiye.com/display/FE/Pherusa" target="_blank">
+            <a href="https://wiki.laiye.com/display/FE/Pherusa" target="_blank" rel="noopener noreferrer">
               详细文档
             </a>
           </p>

@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import styles from './login.module.less'
-import { Form, Input, Button, Row, Col } from 'laiye-antd'
+import { Form, Input, Button } from 'laiye-antd'
 import { ILoginEntity } from '@entities/login'
 import { isPhone } from '@utils/validate'
 
@@ -14,9 +14,7 @@ interface ILoginFormProps {
 interface ILoginFormState {}
 
 class LoginForm extends Component<ILoginFormProps, ILoginFormState> {
-  constructor(props) {
-    super(props)
-  }
+  
 
   handleSubmit = e => {
     e.preventDefault()
@@ -72,7 +70,7 @@ class LoginForm extends Component<ILoginFormProps, ILoginFormState> {
           </Form>
         </div>
         <div className={styles['login-form-footer']}>
-          还没有注册？ <a href="">马上注册</a>
+          还没有注册？ <a href="/">马上注册</a>
         </div>
       </div>
     )

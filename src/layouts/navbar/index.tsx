@@ -16,9 +16,7 @@ interface INavbarProps {
 interface INavbarState {}
 
 class NavbarComponent extends Component<INavbarProps, INavbarState> {
-  constructor(props) {
-    super(props)
-  }
+  
 
   render() {
     const route = find(store.getState().app.flattenRouters, { path: this.props.location.pathname })

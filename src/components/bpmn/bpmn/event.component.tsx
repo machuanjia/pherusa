@@ -9,10 +9,6 @@ import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camu
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 
 export default class BpmnEventComponent extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   modeler = null
 
   componentDidMount() {
@@ -62,7 +58,7 @@ export default class BpmnEventComponent extends Component {
     eventTypes.forEach(eventType => {
       eventBus.on(eventType, e => {
         console.log(e)
-        if (!e || e.element.type == 'bpmn:Process') return
+        if (!e || e.element.type === 'bpmn:Process') return
         if (eventType === 'element.changed') {
           this.elementChanged(e)
         } else if (eventType === 'element.click') {

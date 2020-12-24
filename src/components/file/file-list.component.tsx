@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from 'react'
-import { Table, Icon } from 'laiye-antd'
+import { Table } from 'laiye-antd'
 import { getFileIconByName } from '@utils/icon'
 import styles from './file.module.less'
 
@@ -37,7 +37,6 @@ export default class FileListComponent extends Component<IFileListProps, IFileLi
   removeAction(file) {}
 
   render() {
-    const { Column, ColumnGroup } = Table
     const { scrollY } = this.state
     const columns: any = [
       {
