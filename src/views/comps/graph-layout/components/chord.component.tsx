@@ -21,7 +21,7 @@ export default class ChordComponent extends Component {
 
     var ribbonGenerator = d3.ribbon().radius(200)
 
-    console.log(ribbonGenerator);
+    console.log(ribbonGenerator)
 
     const data = [
       [10, 20, 30],

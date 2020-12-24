@@ -49,7 +49,14 @@ export default class GraphLayoutView extends Component<IGraphLayoutProps, IGraph
     })
   }
   render() {
-    const { isTreeVisible, isClusterVisible, isTreemapVisible, isPackVisible, isPartitionVisible, isChordVisible } = this.state
+    const {
+      isTreeVisible,
+      isClusterVisible,
+      isTreemapVisible,
+      isPackVisible,
+      isPartitionVisible,
+      isChordVisible,
+    } = this.state
     return (
       <div>
         <Button type="primary" onClick={this.setOpen.bind(this, 'isTreeVisible')}>

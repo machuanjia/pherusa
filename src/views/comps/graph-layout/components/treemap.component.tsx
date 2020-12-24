@@ -75,7 +75,7 @@ export default class TreemapComponent extends Component {
       .attr('height', function (d) {
         return d['y1'] - d['y0']
       })
-      .attr('style','fill: cadetblue; opacity: 0.3; stroke: white;')
+      .attr('style', 'fill: cadetblue; opacity: 0.3; stroke: white;')
   }
 
   render() {
