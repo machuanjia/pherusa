@@ -7,6 +7,7 @@ import { Form, Input, Button } from 'laiye-antd'
 interface ITableCollectionProps {
   callback: ({ isVisible, isRefresh }) => {}
   form: any
+  entity: {}
 }
 interface ITableCollectionState {
   loading: boolean
@@ -18,6 +19,9 @@ class TableCollecrtionComponent extends Component<ITableCollectionProps, ITableC
     this.state = {
       loading: false,
     }
+  }
+  componentDidMount() {
+    console.log(this.props.entity)
   }
   cancel(e) {
     e.preventDefault()

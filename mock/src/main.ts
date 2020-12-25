@@ -7,8 +7,8 @@ async function bootstrap() {
   app.enableCors();
   app.setGlobalPrefix('api/pherusa');
   const options = new DocumentBuilder()
-    .setTitle('Hestia-Api')
-    .setDescription('合作伙伴服务端API')
+    .setTitle('Pherusa-Api')
+    .setDescription('Pherusa mock apis')
     .setVersion('1.0')
     .addBearerAuth()
     .build();

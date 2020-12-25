@@ -5,123 +5,67 @@ import { ContentLayoutComponent } from '@components/index'
 import { Table, Tag, Input, Icon, Button, Tooltip, Modal } from 'laiye-antd'
 import { MODAL_SIZE } from '@constants/index'
 import TableCollecrtionComponent from './table.collection.component'
+import { ListMixin } from '@components/mixin/list.mixin'
+import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index'
 
-interface ITableProps {}
-
-interface ITableState {
+interface ITableProps {
+  data: {}[]
+  loading: boolean
+  pagination: {}
+  searchAction: () => {}
+  openCollection: () => {}
+  closeCollection: () => {}
+  getList: () => {}
+  getRowKey: any
+  collectionCallBack: () => {}
+  editEntity: any
+  deleteEntity: any
+  entity: {}
   isCollectionVisible: boolean
 }
 
-export default class TableView extends Component<ITableProps, ITableState> {
-  private searchText = ''
+interface ITableState {}
 
-  private pagination = {
-    showSizeChanger: true,
-    onShowSizeChange: this.onShowSizeChange.bind(this),
-    onChange: this.pageChange.bind(this),
-    pageSizeOptions: ['10', '20', '30', '40', '50', '60', '100'],
-    hideOnSinglePage: false,
-    pageIndex: 1,
-    pageSize: 20,
-    total: 0,
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      isCollectionVisible: false,
+class TableView extends Component<ITableProps, ITableState> {
+  init() {
+    return {
+      fetchAction: getUsers,
+      getDetailAction: getUserDetail,
+      updateAction: updateUser,
+      deleteAction: deleteUser,
     }
   }
 
-  componentDidMount() {
-    this.fetchData()
+  getRowKey(record, index) {
+    return record.id || record._id || index
   }
 
-  fetchData() {
-    // 获取数据
+  editAction(record) {
+    this.props.editEntity(record._id)
   }
 
-  onShowSizeChange(current, pageSize) {
-    this.pagination.pageSize = pageSize
-    // this.fetchData()
-  }
-  pageChange(page, pageSize) {
-    this.pagination.pageIndex = page
-    // this.fetchData()
-  }
-
-  searchAction(e) {
-    const code = e.keyCode
-    const value = e.target.value
-    // enter
-    if (code === 13) {
-      this.searchText = value
-      this.pagination.pageIndex = 1
-      this.pagination.pageSize = 20
-      this.fetchData()
-    }
-  }
-
-  openCollection() {
-    this.setState({
-      isCollectionVisible: true,
-    })
-  }
-
-  callback({ isVisible, isRefresh }) {
-    this.setState({
-      isCollectionVisible: isVisible,
-    })
-    isRefresh && this.fetchData()
-  }
-
-  cancel() {
-    this.setState({
-      isCollectionVisible: false,
-    })
-  }
-
-  getRowKey(record) {
-    return record.id
+  deleteAction(record) {
+    this.props.deleteEntity(record._id)
   }
 
   getTable() {
+    const { data, loading, pagination, getRowKey } = this.props
     const columns = [
       {
         title: '名称',
-        dataIndex: 'name',
-        key: 'name',
+        dataIndex: 'username',
+        key: 'username',
         render: text => text,
       },
       {
-        title: '年龄',
-        dataIndex: 'age',
-        key: 'age',
+        title: '密码',
+        dataIndex: 'password',
+        key: 'password',
       },
       {
         title: '地址',
         dataIndex: 'address',
         key: 'address',
-      },
-      {
-        title: '状态',
-        key: 'tags',
-        dataIndex: 'tags',
-        render: tags => (
-          <span>
-            {tags.map(tag => {
-              let color = tag.length > 5 ? 'geekblue' : 'green'
-              if (tag === 'loser') {
-                color = 'volcano'
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              )
-            })}
-          </span>
-        ),
       },
       {
         title: '操作',
@@ -133,12 +77,12 @@ export default class TableView extends Component<ITableProps, ITableState> {
             </span>
             <span className="m-l-12 m-r-12 icon-action">
               <Tooltip type="bright" placement="top" title="编辑">
-                <Icon type="form" />
+                <Icon type="form" onClick={this.editAction.bind(this, record)} />
               </Tooltip>
             </span>
             <span className="m-l-12 m-r-12 icon-action">
               <Tooltip type="bright" placement="top" title="删除">
-                <Icon type="delete" />
+                <Icon type="delete" onClick={this.deleteAction.bind(this, record)} />
               </Tooltip>
             </span>
           </span>
@@ -146,33 +90,11 @@ export default class TableView extends Component<ITableProps, ITableState> {
       },
     ]
 
-    const data = [
-      {
-        id: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-        tags: ['nice', 'developer'],
-      },
-      {
-        id: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-        tags: ['loser'],
-      },
-      {
-        id: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sidney No. 1 Lake Park',
-        tags: ['cool', 'teacher'],
-      },
-    ]
     return (
       <Table
-        rowKey={this.getRowKey.bind(this)}
-        pagination={this.pagination}
+        rowKey={getRowKey}
+        pagination={pagination}
+        loading={loading}
         bordered={true}
         columns={columns}
         dataSource={data}
@@ -181,19 +103,26 @@ export default class TableView extends Component<ITableProps, ITableState> {
   }
 
   render() {
-    const { isCollectionVisible } = this.state
+    const {
+      searchAction,
+      isCollectionVisible,
+      openCollection,
+      closeCollection,
+      collectionCallBack,
+      entity,
+    } = this.props
     return (
       <ContentLayoutComponent>
         <Fragment key="left">
           <Input
             className="search"
-            onKeyDown={this.searchAction.bind(this)}
+            onKeyDown={searchAction}
             suffix={<Icon type="search" />}
             placeholder="搜索你的文件"
           />
         </Fragment>
         <Fragment key="actions">
-          <Button type="primary" icon="plus" className={`${'action-btn'}`} onClick={this.openCollection.bind(this)}>
+          <Button type="primary" icon="plus" className={`${'action-btn'}`} onClick={openCollection}>
             新建
           </Button>
         </Fragment>
@@ -205,10 +134,10 @@ export default class TableView extends Component<ITableProps, ITableState> {
             width={MODAL_SIZE.md}
             destroyOnClose={true}
             footer={false}
-            onCancel={this.cancel.bind(this)}>
+            onCancel={closeCollection}>
             {
               // @ts-ignore
-              <TableCollecrtionComponent callback={this.callback.bind(this)} />
+              <TableCollecrtionComponent entity={entity} callback={collectionCallBack} />
             }
           </Modal>
         </Fragment>
@@ -216,3 +145,5 @@ export default class TableView extends Component<ITableProps, ITableState> {
     )
   }
 }
+
+export default ListMixin(TableView)
