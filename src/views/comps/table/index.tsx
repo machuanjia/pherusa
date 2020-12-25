@@ -21,10 +21,6 @@ class TableView extends Component<IListMixin, ITableState> {
     }
   }
 
-  getRowKey(record, index) {
-    return record.id || record._id || index
-  }
-
   editAction(record) {
     this.props.editEntity(record._id)
   }
