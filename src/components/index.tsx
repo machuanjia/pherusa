@@ -9,9 +9,9 @@ import UploadComponent from './upload'
 import ModalDragComponent from './modal-drag'
 import CopyComponent from './copy'
 import RouteView from './render-route/route-view.component'
-import BpmnEditorComponent from './bpmn/bpmn.editor.component'
-import CmmnEditorComponent from './bpmn/cmmn.editor.component'
-import DmnEditorComponent from './bpmn/dmn.editor.component'
+import BpmnEditorComponent from './bpmn/bpmn-editor.component'
+import CmmnEditorComponent from './bpmn/cmmn-editor.component'
+import DmnEditorComponent from './bpmn/dmn-editor.component'
 import ErrorBoundary from './error/error.component'
 
 export {

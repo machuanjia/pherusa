@@ -7,26 +7,11 @@ import { MODAL_SIZE } from '@constants/index'
 import TableCollecrtionComponent from './table.collection.component'
 import { ListMixin } from '@components/mixin/list.mixin'
 import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index'
-
-interface ITableProps {
-  data: {}[]
-  loading: boolean
-  pagination: {}
-  searchAction: () => {}
-  openCollection: () => {}
-  closeCollection: () => {}
-  getList: () => {}
-  getRowKey: any
-  collectionCallBack: () => {}
-  editEntity: any
-  deleteEntity: any
-  entity: {}
-  isCollectionVisible: boolean
-}
+import { IListMixin } from '@entities/mixin'
 
 interface ITableState {}
 
-class TableView extends Component<ITableProps, ITableState> {
+class TableView extends Component<IListMixin, ITableState> {
   init() {
     return {
       fetchAction: getUsers,

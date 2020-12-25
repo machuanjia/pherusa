@@ -39,6 +39,12 @@ export const ListMixin = ComposedComponent =>
       }
     }
 
+    componentDidMount() {
+      this.beforeFetch()
+      this.getList()
+      this.afterFtech()
+    }
+
     searchAction(e) {
       const code = e.keyCode
       const value = e.target.value
@@ -139,12 +145,6 @@ export const ListMixin = ComposedComponent =>
 
     getRowKey(record, index) {
       return record.id || record._id || index
-    }
-
-    componentDidMount() {
-      this.beforeFetch()
-      this.getList()
-      this.afterFtech()
     }
 
     render() {
