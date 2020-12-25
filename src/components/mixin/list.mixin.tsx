@@ -1,7 +1,6 @@
 /** @format */
 
 import React, { Component } from 'react'
-import { threadId } from 'worker_threads'
 interface IListProps {}
 interface IListState {
   data: {}[]
@@ -107,7 +106,7 @@ export const ListMixin = ComposedComponent =>
         ps: this.pagination.pageSize,
         keyword: this.searchText,
       }).then(res => {
-        const { lastPage, page, total, data } = res.data
+        const { page, total, data } = res.data
         this.pagination.total = total
         this.pagination.pageIndex = page
         this.setState({

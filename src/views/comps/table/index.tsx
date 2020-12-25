@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 import { ContentLayoutComponent } from '@components/index'
-import { Table, Tag, Input, Icon, Button, Tooltip, Modal } from 'laiye-antd'
+import { Table, Input, Icon, Button, Tooltip, Modal } from 'laiye-antd'
 import { MODAL_SIZE } from '@constants/index'
 import TableCollecrtionComponent from './table.collection.component'
 import { ListMixin } from '@components/mixin/list.mixin'
