@@ -5,6 +5,7 @@ import RouteLayout from '@layouts/route-layout'
 const TableView = AsyncComponent(() => import('@views/comps/table/index'))
 const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))
 const GraphLayoutView = AsyncComponent(() => import('@views/comps/graph-layout/index'))
+const CytoscapeView = AsyncComponent(() => import('@views/comps/cytoscape/index'))
 
 const componentsRoute = {
   path: '/components',
@@ -42,6 +43,16 @@ const componentsRoute = {
         iconType: 'LayoutOutlined',
       },
     },
+    {
+      path: '/components/cytoscape',
+      component: CytoscapeView,
+      meta: {
+        key: 'Cytoscape',
+        name: 'Cytoscape',
+        iconType: 'LayoutOutlined',
+      },
+    },
   ],
 }
 export default componentsRoute
+

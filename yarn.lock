@@ -4535,6 +4535,14 @@ cyclist@^1.0.1:
   resolved "http://npm.laiye.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+cytoscape@3.17.1:
+  version "3.17.1"
+  resolved "http://npm.laiye.com/cytoscape/-/cytoscape-3.17.1.tgz#da2dd84035db1bcfcff84989ff87f3f841ea01cc"
+  integrity sha1-2i3YQDXbG8/P+EmJ/4fz+EHqAcw=
+  dependencies:
+    heap "^0.2.6"
+    lodash.debounce "^4.0.8"
+
 d3-array@2, d3-array@>=2.5, d3-array@^2.3.0:
   version "2.9.1"
   resolved "http://npm.laiye.com/d3-array/-/d3-array-2.9.1.tgz#f355cc72b46c8649b3f9212029e2d681cb5b9643"
@@ -6779,6 +6787,11 @@ he@^1.2.0:
   version "1.2.0"
   resolved "http://npm.laiye.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha1-hK5l+n6vsWX922FWauFLrwVmTw8=
+
+heap@^0.2.6:
+  version "0.2.6"
+  resolved "http://npm.laiye.com/heap/-/heap-0.2.6.tgz#087e1f10b046932fc8594dd9e6d378afc9d1e5ac"
+  integrity sha1-CH4fELBGky/IWU3Z5tN4r8nR5aw=
 
 hex-color-regex@^1.1.0:
   version "1.1.0"

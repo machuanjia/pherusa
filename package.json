@@ -12,6 +12,7 @@
     "bpmn-js-properties-panel": "^0.28.2",
     "braft-editor": "^2.3.9",
     "camunda-bpmn-moddle": "^4.5.0",
+    "cytoscape": "3.17.1",
     "d3": "^6.3.1",
     "dragm": "^0.0.5",
     "history": "^5.0.0",
