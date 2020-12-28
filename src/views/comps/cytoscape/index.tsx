@@ -4,6 +4,7 @@ import React, { Component, Fragment } from 'react'
 import { ContentLayoutComponent } from '@components/index'
 import { Button } from 'laiye-antd'
 import BasicCytoscapeComponent from './components/basic-cytoscape'
+import LayoutCytoscapeComponent from './components/layout-cytoscape'
 
 import ProdCytoscapeComponent from './components/prod-cytoscape'
 
@@ -55,6 +56,7 @@ export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscape
         </Fragment>
         <Fragment key="main">
           {current === this.cytoscapeDemoType.basic && <BasicCytoscapeComponent></BasicCytoscapeComponent>}
+          {current === this.cytoscapeDemoType.layout && <LayoutCytoscapeComponent />}
           {current === this.cytoscapeDemoType.prod && <ProdCytoscapeComponent />}
         </Fragment>
       </ContentLayoutComponent>

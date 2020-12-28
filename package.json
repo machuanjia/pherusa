@@ -13,12 +13,14 @@
     "braft-editor": "^2.3.9",
     "camunda-bpmn-moddle": "^4.5.0",
     "cytoscape": "3.17.1",
+    "cytoscape-dagre": "2.3.2",
     "d3": "^6.3.1",
     "dragm": "^0.0.5",
     "history": "^5.0.0",
     "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.21",
+    "jspdf": "2.2.0",
     "laiye-antd": "^0.0.27",
     "react": "^17.0.1",
     "react-bpmn": "^0.2.0",
@@ -32,6 +34,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
     "redux-thunk": "^2.3.0",
+    "tippy.js": "6.2.7",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
