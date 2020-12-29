@@ -607,11 +607,3 @@ export class CytoscapeGenerator {
     })
   }
 }
-
-// function pos(source, b) {
-//   let c = 0,
-//     e = 0,
-//     d
-//   for (d in source.incomers().sources().outgoers().targets()) (c += d.position()[0]), (e += 1)
-//   return 0 == e ? 0 : c / e
-// }
