@@ -1,11 +1,13 @@
 /** @format */
 
-import { Modal } from 'laiye-antd'
+import { Icon, Modal } from 'laiye-antd'
 import React, { Component, Fragment } from 'react'
 import styles from './../cytoscape.module.less'
 import { data } from './data'
 import { CytoscapeGenerator } from './util-cytoscape'
 import { Line } from '@ant-design/charts'
+import { Slider } from 'laiye-antd'
+import { filter, remove, map, isUndefined } from 'lodash'
 interface IProdCytoscapeProps {}
 interface IProdCytoscapeState {
   nodeDetailVisible: boolean
@@ -14,6 +16,7 @@ interface IProdCytoscapeState {
 
 export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProps, IProdCytoscapeState> {
   private cg
+  private data
 
   constructor(props) {
     super(props)
@@ -21,6 +24,7 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
       nodeDetailVisible: false,
       edgeDetailVisible: false,
     }
+    this.data = JSON.parse(data)
   }
 
   componentDidMount() {
@@ -30,7 +34,7 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
       edgeTap: this.edgeTap.bind(this),
     })
     this.cg.loadData({
-      data,
+      data: this.data,
       layoutType: CytoscapeGenerator.LAYOUT_DAGRE_LR,
       retain: false,
     })
@@ -60,6 +64,49 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
     this.setState({
       [key]: false,
     })
+  }
+
+  onAfterChange(value) {
+    const rs = filter(this.data, n => {
+      return n.data.value && n.data.value > 1000
+    })
+    const rsIds = map(rs, n => {
+      return n.data.id
+    })
+    const data = filter(this.data, n => {
+      //node
+      if (!isUndefined(n.data.value)) {
+        return n.data.value <= 1000
+      }
+      //edge
+      if (isUndefined(n.data.value)) {
+        return !rsIds.includes(n.data.source) && !rsIds.includes(n.data.target)
+      }
+    })
+    this.cg.loadData({
+      data,
+      layoutType: CytoscapeGenerator.LAYOUT_DAGRE_LR,
+      retain: false,
+    })
+  }
+
+  zoomIn() {
+    this.cg.zoomIn()
+  }
+
+  zoomOut() {
+    this.cg.zoomOut()
+  }
+
+  center() {
+    this.cg.center()
+  }
+
+  exportImg() {
+    this.cg.exportPNG('流程挖掘')
+  }
+  exportPdf() {
+    this.cg.exportPDF('流程挖掘')
   }
 
   getChart() {
@@ -96,6 +143,18 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
     const { nodeDetailVisible, edgeDetailVisible } = this.state
     return (
       <Fragment>
+        <div className={styles['cytoscape-actions']}>
+          <div className={styles['cytoscape-actions-slider']}>
+            <Slider defaultValue={100} onAfterChange={this.onAfterChange.bind(this)} />
+          </div>
+          <div className={styles['cytoscape-actions-buttons']}>
+            <Icon className="fs-18 m-r-8" type="zoom-in" onClick={this.zoomIn.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="zoom-out" onClick={this.zoomOut.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="pic-center" onClick={this.center.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="file-image" onClick={this.exportImg.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="file-pdf" onClick={this.exportPdf.bind(this)} />
+          </div>
+        </div>
         <div id="cy" className={styles['cytoscape-wrap']}></div>
         <Modal
           title="Node Detail"

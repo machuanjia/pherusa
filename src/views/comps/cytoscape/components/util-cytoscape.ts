@@ -5,6 +5,7 @@ import { jsPDF } from 'jspdf'
 import edgeBendEditing from 'cytoscape-edge-bend-editing'
 import popper from 'cytoscape-popper'
 import contextMenus from 'cytoscape-context-menus'
+import { isString } from 'lodash'
 
 cytoscape.use(popper)
 cytoscape.use(contextMenus)
@@ -434,7 +435,7 @@ export class CytoscapeGenerator {
     }
   }
 
-  loadData(payload: { data: string; layoutType: number; retain: boolean }) {
+  loadData(payload: { data; layoutType: number; retain: boolean }) {
     this.currentLayout = payload.layoutType
     let zoom = this.currentZoomLevel
     let pan = this.currentPanPosition
@@ -442,7 +443,7 @@ export class CytoscapeGenerator {
     this.isTraceMode = false
     this.destroy()
     this.init()
-    this.cy.add(JSON.parse(payload.data))
+    this.cy.add(isString(payload.data) ? JSON.parse(payload.data) : payload.data)
     this.layout(payload.layoutType)
 
     if (payload.retain) {
@@ -491,7 +492,8 @@ export class CytoscapeGenerator {
   }
 
   center(layoutType) {
-    this.cy.center()
+    this.fit()
+    // this.cy.center()
     //moveTop(layoutType);
   }
 
@@ -552,7 +554,7 @@ export class CytoscapeGenerator {
             quality: 1.0,
           }),
       ),
-    ]).then(function ([graph]) {
+    ]).then(([graph]) => {
       let canvas = document.createElement('canvas')
       let context = canvas.getContext('2d')
       let signHeight = this.SIGN_HEIGHT
@@ -561,15 +563,15 @@ export class CytoscapeGenerator {
       context.fillStyle = 'white'
       context.fillRect(0, 0, canvas.width, canvas.height)
       //@ts-ignore
-      context.drawImage(graph, MARGIN, signHeight + MARGIN)
+      context.drawImage(graph, this.MARGIN, signHeight + this.MARGIN)
       return canvas
     })
   }
 
   exportPDF(filename) {
-    this.rasterizeForPrint().then(function (canvas) {
+    this.rasterizeForPrint().then(canvas => {
       let pdf = new jsPDF('l', 'px', [canvas.width, canvas.height], false)
-      this.loadImage(canvas.toDataURL()).then(function (raster) {
+      this.loadImage(canvas.toDataURL()).then(raster => {
         //@ts-ignore
         pdf.addImage(raster, 'PNG', 0, 0, canvas.width, canvas.height, NaN, 'FAST')
         pdf.save(filename + '.pdf', { returnPromise: true })
