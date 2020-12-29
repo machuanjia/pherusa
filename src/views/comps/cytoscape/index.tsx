@@ -5,6 +5,8 @@ import { ContentLayoutComponent } from '@components/index'
 import { Button } from 'laiye-antd'
 import BasicCytoscapeComponent from './components/basic-cytoscape'
 import LayoutCytoscapeComponent from './components/layout-cytoscape'
+import StylesCytoscapeComponent from './components/styles-cytoscape'
+import EventCytoscapeComponent from './components/event-cytoscape'
 
 import ProdCytoscapeComponent from './components/prod-cytoscape'
 
@@ -43,7 +45,7 @@ export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscape
             基本用法
           </Button>
           <Button type="primary" className="m-r-12" onClick={this.setType.bind(this, 'styles')}>
-            节点样式
+            展示
           </Button>
           <Button type="primary" className="m-r-12" onClick={this.setType.bind(this, 'event')}>
             事件
@@ -60,6 +62,8 @@ export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscape
         </Fragment>
         <Fragment key="main">
           {current === this.cytoscapeDemoType.basic && <BasicCytoscapeComponent></BasicCytoscapeComponent>}
+          {current === this.cytoscapeDemoType.styles && <StylesCytoscapeComponent />}
+          {current === this.cytoscapeDemoType.event && <EventCytoscapeComponent />}
           {current === this.cytoscapeDemoType.layout && <LayoutCytoscapeComponent />}
           {current === this.cytoscapeDemoType.prod && <ProdCytoscapeComponent />}
         </Fragment>
