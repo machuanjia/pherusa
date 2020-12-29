@@ -419,7 +419,7 @@ export class CytoscapeGenerator {
       hideOnClick: true,
       multiple: false,
       sticky: true,
-      appendTo:document.body
+      appendTo: document.body,
     })
   }
 }
