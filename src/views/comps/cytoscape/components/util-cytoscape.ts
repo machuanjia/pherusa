@@ -373,13 +373,9 @@ export class CytoscapeGenerator {
 
   bindActions() {
     // 边框点击
-    this.cy.on('tap', 'edge', source => {
-
-    })
+    this.cy.on('tap', 'edge', source => {})
     // 节点点击
-    this.cy.on('tap', 'node', source => {
-      
-    })
+    this.cy.on('tap', 'node', source => {})
     // 边框右键
     this.cy.on('cxttap', 'edge', source => {
       if (!this.isTraceMode) {
