@@ -1,134 +1,178 @@
 /** @format */
 
-import React, { Component } from 'react'
+import { Icon, Modal } from 'laiye-antd'
+import React, { Component, Fragment } from 'react'
 import styles from './../cytoscape.module.less'
-import cytoscape from 'cytoscape'
-import dagre from 'cytoscape-dagre'
 import { data } from './data'
-
 import { CytoscapeGenerator } from './util-cytoscape'
-cytoscape.use(dagre)
+import { Line } from '@ant-design/charts'
+import { Slider } from 'laiye-antd'
+import { filter, map, isUndefined } from 'lodash'
+interface IProdCytoscapeProps {}
+interface IProdCytoscapeState {
+  nodeDetailVisible: boolean
+  edgeDetailVisible: boolean
+}
 
-export default class ProdCytoscapeComponent extends Component {
-  private cy
+export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProps, IProdCytoscapeState> {
+  private cg
+  private data
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      nodeDetailVisible: false,
+      edgeDetailVisible: false,
+    }
+    this.data = JSON.parse(data)
+  }
 
   componentDidMount() {
-    this.cy = new CytoscapeGenerator({
+    this.cg = new CytoscapeGenerator({
       container: 'cy',
+      nodeTap: this.nodeTap.bind(this),
+      edgeTap: this.edgeTap.bind(this),
     })
-    this.cy.loadData({
+    this.cg.loadData({
+      data: this.data,
+      layoutType: CytoscapeGenerator.LAYOUT_DAGRE_LR,
+      retain: false,
+    })
+  }
+
+  componentWillUnmount() {
+    this.cg && this.cg.destroy()
+  }
+
+  nodeTap(evt) {
+    // const node = evt.target
+    this.setState({
+      nodeDetailVisible: true,
+      edgeDetailVisible: false,
+    })
+  }
+
+  edgeTap(edge) {
+    this.setState({
+      nodeDetailVisible: false,
+      edgeDetailVisible: true,
+    })
+  }
+
+  handleCancel(key) {
+    // @ts-ignore
+    this.setState({
+      [key]: false,
+    })
+  }
+
+  onAfterChange(value) {
+    const rs = filter(this.data, n => {
+      return n.data.value && n.data.value > 1000
+    })
+    const rsIds = map(rs, n => {
+      return n.data.id
+    })
+    const data = filter(this.data, n => {
+      //node
+      if (!isUndefined(n.data.value)) {
+        return n.data.value <= 1000
+      }
+      //edge
+      if (isUndefined(n.data.value)) {
+        return !rsIds.includes(n.data.source) && !rsIds.includes(n.data.target)
+      }
+    })
+    this.cg.loadData({
       data,
       layoutType: CytoscapeGenerator.LAYOUT_DAGRE_LR,
       retain: false,
     })
-    // const container = document.getElementById('cy')
-    // const options = {
-    //   maxZoom: 1e50,
-    //   minZoom: 1e-50,
-    //   panningEnabled: true,
-    //   userPanningEnabled: true,
-    //   userZoomingEnabled: true,
-    //   wheelSensitivity: 0.1,
-    //   zoom: 1,
-    //   zoomingEnabled: true,
-    // }
-    // const style = [
-    //   {
-    //     selector: 'node',
-    //     style: {
-    //       'background-color': 'data(color)',
-    //       'border-color': 'black',
-    //       'border-width': 'data(borderwidth)',
-    //       color: 'data(textcolor)',
-    //       content: 'data(name)',
-    //       'font-size': 'data(textsize)',
-    //       height: 'data(height)',
-    //       padding: 0,
-    //       shape: 'data(shape)',
-    //       'text-border-width': 0,
-    //       'text-max-width': 'data(textwidth)',
-    //       'text-valign': 'center',
-    //       'text-wrap': 'wrap',
-    //       width: 'data(width)',
-    //     },
-    //   },
-    //   {
-    //     selector: 'edge',
-    //     style: {
-    //       color: 'data(color)',
-    //       'control-point-step-size': 60,
-    //       'curve-style': 'bezier',
-    //       'edge-text-rotation': 0,
-    //       'font-size': 16,
-    //       label: 'data(label)',
-    //       'line-color': 'data(color)',
-    //       'line-style': 'data(style)',
-    //       'loop-direction': -41,
-    //       'loop-sweep': 181,
-    //       opacity: 1,
-    //       'source-arrow-color': 'data(color)',
-    //       'target-arrow-color': 'data(color)',
-    //       'target-arrow-shape': 'triangle',
-    //       'text-background-color': '#ffffff',
-    //       'text-background-opacity': 0,
-    //       'text-background-padding': 5,
-    //       'text-background-shape': 'roundrectangle',
-    //       'text-margin-y': -16,
-    //       'text-wrap': 'wrap',
-    //       width: 'mapData(strength, 0, 100, 1, 6)',
-    //     },
-    //   },
-    //   {
-    //     selector: ':selected',
-    //     style: {
-    //       'border-color': '#ffa500',
-    //       'border-width': '2px',
-    //       color: '#ffa500',
-    //       'line-color': '#ffa500',
-    //       'line-style': 'solid',
-    //       'target-arrow-color': '#ffa500',
-    //     },
-    //   },
-    // ]
-    // const elements = {
-    //   nodes: [],
-    //   edges: [],
-    // }
-    // this.cy = cytoscape(
-    //   Object.assign(options, {
-    //     container,
-    //     style,
-    //     elements,
-    //   }),
-    // )
-    // this.loadData()
-    // this.layout()
   }
 
-  loadData() {
-    this.cy.add(JSON.parse(data))
+  zoomIn() {
+    this.cg.zoomIn()
   }
 
-  layout() {
-    this.cy
-      .elements()
-      .layout({
-        avoidOverlap: !0,
-        edgeSep: 50,
-        name: 'dagre',
-        nodeSep: 110,
-        randomize: false,
-        rankDir: 'LR',
-        ranker: 'network-simplex',
-      })
-      .run()
+  zoomOut() {
+    this.cg.zoomOut()
   }
 
-  componentWillUnmount() {
-    this.cy && this.cy.reset()
+  center() {
+    this.cg.center()
+  }
+
+  exportImg() {
+    this.cg.exportPNG('流程挖掘')
+  }
+  exportPdf() {
+    this.cg.exportPDF('流程挖掘')
+  }
+
+  getChart() {
+    const data = [
+      { year: '1991', value1: 3 },
+      { year: '1992', value: 4 },
+      { year: '1993', value: 3.5 },
+      { year: '1994', value: 5 },
+      { year: '1995', value: 4.9 },
+      { year: '1996', value: 6 },
+      { year: '1997', value: 7 },
+      { year: '1998', value: 9 },
+      { year: '1999', value: 13 },
+    ]
+    const config = {
+      data,
+      height: 400,
+      xField: 'year',
+      yField: 'value',
+      point: {
+        size: 5,
+        shape: 'diamond',
+      },
+      label: {
+        style: {
+          fill: '#aaa',
+        },
+      },
+    }
+    return <Line {...config} />
   }
 
   render() {
-    return <div id="cy" className={styles['cytoscape-wrap']}></div>
+    const { nodeDetailVisible, edgeDetailVisible } = this.state
+    return (
+      <Fragment>
+        <div className={styles['cytoscape-actions']}>
+          <div className={styles['cytoscape-actions-slider']}>
+            <Slider defaultValue={100} onAfterChange={this.onAfterChange.bind(this)} />
+          </div>
+          <div className={styles['cytoscape-actions-buttons']}>
+            <Icon className="fs-18 m-r-8" type="zoom-in" onClick={this.zoomIn.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="zoom-out" onClick={this.zoomOut.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="pic-center" onClick={this.center.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="file-image" onClick={this.exportImg.bind(this)} />
+            <Icon className="fs-18 m-r-8" type="file-pdf" onClick={this.exportPdf.bind(this)} />
+          </div>
+        </div>
+        <div id="cy" className={styles['cytoscape-wrap']}></div>
+        <Modal
+          title="Node Detail"
+          visible={nodeDetailVisible}
+          destroyOnClose={true}
+          footer={null}
+          onCancel={this.handleCancel.bind(this, 'nodeDetailVisible')}>
+          {this.getChart()}
+        </Modal>
+        <Modal
+          title="Edge Detail"
+          destroyOnClose={true}
+          footer={null}
+          visible={edgeDetailVisible}
+          onCancel={this.handleCancel.bind(this, 'edgeDetailVisible')}>
+          {this.getChart()}
+        </Modal>
+      </Fragment>
+    )
   }
 }
