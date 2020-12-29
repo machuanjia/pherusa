@@ -56,21 +56,21 @@ export default class EventCytoscapeComponent extends Component {
       autounselectify: false,
     })
 
-    this.cy.on('add','node',evt=>{
-        var node = evt.target
-        console.log('added ' + node.id())
+    this.cy.on('add', 'node', evt => {
+      var node = evt.target
+      console.log('added ' + node.id())
     })
 
-    this.cy.on('drag','node',evt=>{
-        var node = evt.target
-        console.log('dragged ' + node.id())
+    this.cy.on('drag', 'node', evt => {
+      var node = evt.target
+      console.log('dragged ' + node.id())
     })
 
     this.cy.add([
       { group: 'nodes', data: { id: 'n0' }, position: { x: 300, y: 300 } },
       { group: 'nodes', data: { id: 'n1' }, position: { x: 450, y: 300 } },
-    
-       {
+
+      {
         group: 'edges',
         data: { id: 'e0', source: 'n0', target: 'n1' },
         style: {
@@ -98,8 +98,8 @@ export default class EventCytoscapeComponent extends Component {
 
     // this.cy.fit()
 
-    this.cy.on('zoom',()=>{
-        console.log('zoom')
+    this.cy.on('zoom', () => {
+      console.log('zoom')
     })
 
     // this.cy.zoom({
@@ -119,7 +119,6 @@ export default class EventCytoscapeComponent extends Component {
       },
     )
 
-
     this.cy.startBatch()
 
     this.cy.$('#n1').data('weight', '70').addClass('funny').removeClass('serious')
@@ -135,15 +134,11 @@ export default class EventCytoscapeComponent extends Component {
     })
 
     this.cy.on('position', function (evt) {
-        console.log('position changed')
-      })
-
-
-
+      console.log('position changed')
+    })
 
     // this.cy.removeListener('tap');
   }
-
 
   componentWillUnmount() {
     this.cy && this.cy.destroy()

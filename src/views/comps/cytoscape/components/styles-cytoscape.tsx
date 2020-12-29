@@ -66,7 +66,7 @@ export default class StylesCytoscapeComponent extends Component {
         'background-opacity': '0.5',
         label: 'top left',
         'text-halign': 'left',
-        'text-valign':'top'
+        'text-valign': 'top',
       },
     })
 
@@ -82,8 +82,8 @@ export default class StylesCytoscapeComponent extends Component {
         'background-gradient-stop-positions': '0,50%,100%',
         label: 'center',
         'text-halign': 'center',
-        'text-valign':'center',
-        'text-rotation':'45deg'
+        'text-valign': 'center',
+        'text-rotation': '45deg',
       },
     })
 
@@ -113,7 +113,7 @@ export default class StylesCytoscapeComponent extends Component {
           'target-arrow-color': '#ccc',
           'target-arrow-shape': 'triangle',
           'loop-direction': '90deg',
-          'label':'loop',
+          label: 'loop',
         },
       },
       {
@@ -140,8 +140,8 @@ export default class StylesCytoscapeComponent extends Component {
           'line-color': '#ccc',
           'target-arrow-color': '#ccc',
           'target-arrow-shape': 'triangle-tee',
-          'label': 'autorotate',
-          'text-rotation': 'autorotate'
+          label: 'autorotate',
+          'text-rotation': 'autorotate',
           // 'curve-style': 'unbundled-bezier',
         },
       },
