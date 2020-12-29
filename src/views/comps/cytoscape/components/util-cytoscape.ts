@@ -2,6 +2,11 @@
 import cytoscape from 'cytoscape'
 import tippy from 'tippy.js'
 import { jsPDF } from 'jspdf'
+import edgeBendEditing from 'cytoscape-edge-bend-editing'
+import popper from 'cytoscape-popper'
+
+cytoscape.use(popper)
+edgeBendEditing(cytoscape)
 
 export class CytoscapeGenerator {
   private cy
@@ -222,8 +227,8 @@ export class CytoscapeGenerator {
     this.cy.on('mouseover', 'node', event => {
       let node = event.target
       if (node.data(this.NAME_PROP)) {
-        // this.currentNodeTooltip = this.makeTippy(node, node.data(this.NAME_PROP))
-        // this.currentNodeTooltip.show()
+        this.currentNodeTooltip = this.makeTippy(node, node.data(this.NAME_PROP))
+        this.currentNodeTooltip.show()
       } else {
         this.currentNodeTooltip = undefined
       }
@@ -265,12 +270,12 @@ export class CytoscapeGenerator {
       this.fit(payload.layoutType)
     }
 
-    // this.cy.edgeBendEditing({
-    //   bendShapeSizeFactor: 6,
-    //   enabled: true,
-    //   initBendPointsAutomatically: false,
-    //   undoable: true,
-    // })
+    this.cy.edgeBendEditing({
+      bendShapeSizeFactor: 6,
+      enabled: true,
+      initBendPointsAutomatically: false,
+      undoable: true,
+    })
   }
 
   fit(layoutType?) {
@@ -403,16 +408,18 @@ export class CytoscapeGenerator {
     return tippy(node.popperRef(), {
       content: function () {
         let div = document.createElement('div')
+
         div.innerHTML = text
+
         return div
       },
       trigger: 'manual',
       arrow: true,
       placement: 'bottom',
       hideOnClick: true,
-      //@ts-ignore
       multiple: false,
       sticky: true,
+      appendTo:document.body
     })
   }
 }

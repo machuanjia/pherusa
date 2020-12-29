@@ -14,6 +14,7 @@ import zhCN from 'antd/lib/locale/zh_CN'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import { history } from '@utils/history'
 import { ConfigProvider } from 'laiye-antd'
+import 'tippy.js/index.css'
 
 ReactDOM.render(
   <Provider store={store}>

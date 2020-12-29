@@ -5,7 +5,7 @@ import styles from './../cytoscape.module.less'
 import cytoscape from 'cytoscape'
 import dagre from 'cytoscape-dagre'
 import { data } from './data'
-import 'tippy.js/dist/tippy.css'
+
 import { CytoscapeGenerator } from './util-cytoscape'
 cytoscape.use(dagre)
 

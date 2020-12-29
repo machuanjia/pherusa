@@ -20,6 +20,7 @@ export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscape
     event: 3,
     layout: 4,
     prod: 5,
+    animation: 6,
   }
   constructor(props) {
     super(props)
@@ -46,6 +47,9 @@ export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscape
           </Button>
           <Button type="primary" className="m-r-12" onClick={this.setType.bind(this, 'event')}>
             事件
+          </Button>
+          <Button type="primary" className="m-r-12" onClick={this.setType.bind(this, 'animation')}>
+            动画
           </Button>
           <Button type="primary" className="m-r-12" onClick={this.setType.bind(this, 'layout')}>
             布局
