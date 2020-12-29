@@ -4,13 +4,16 @@ import tippy from 'tippy.js'
 import { jsPDF } from 'jspdf'
 import edgeBendEditing from 'cytoscape-edge-bend-editing'
 import popper from 'cytoscape-popper'
+import contextMenus from 'cytoscape-context-menus'
 
 cytoscape.use(popper)
+cytoscape.use(contextMenus)
 edgeBendEditing(cytoscape)
 
 export class CytoscapeGenerator {
   private cy
   private container
+  private contextMenu
   public static LAYOUT_MANUAL_BEZIER = 0
   public static LAYOUT_DAGRE_LR = 1
   public static LAYOUT_DAGRE_TB = 2
@@ -189,6 +192,8 @@ export class CytoscapeGenerator {
   private currentPanPosition
   private isTraceMode = false
 
+  private removed
+
   constructor(options: { container: string }) {
     this.container = document.getElementById('cy')
     this.init()
@@ -202,28 +207,196 @@ export class CytoscapeGenerator {
         elements: this.elements,
       }),
     )
+    this.setContextMenu()
+    this.bindActions()
+  }
 
+  setContextMenu() {
+    this.contextMenu = this.cy.contextMenus({
+      menuItems: [
+        {
+          id: 'remove',
+          content: 'remove',
+          tooltipText: 'remove',
+          image: { src: 'assets/remove.svg', width: 12, height: 12, x: 6, y: 4 },
+          selector: 'node, edge',
+          onClickFunction: event => {
+            var target = event.target || event.cyTarget
+            this.removed = target.remove()
+            this.contextMenu.showMenuItem('undo-last-remove')
+          },
+          hasTrailingDivider: true,
+        },
+        {
+          id: 'undo-last-remove',
+          content: 'undo last remove',
+          selector: 'node, edge',
+          show: false,
+          coreAsWell: true,
+          onClickFunction: event => {
+            if (this.removed) {
+              this.removed.restore()
+            }
+            this.contextMenu.hideMenuItem('undo-last-remove')
+          },
+          hasTrailingDivider: true,
+        },
+        {
+          id: 'color',
+          content: 'change color',
+          tooltipText: 'change color',
+          selector: 'node',
+          hasTrailingDivider: true,
+          submenu: [
+            {
+              id: 'color-blue',
+              content: 'blue',
+              tooltipText: 'blue',
+              onClickFunction: event => {
+                let target = event.target || event.cyTarget
+                target.style('background-color', 'blue')
+              },
+              submenu: [
+                {
+                  id: 'color-light-blue',
+                  content: 'light blue',
+                  tooltipText: 'light blue',
+                  onClickFunction: event => {
+                    let target = event.target || event.cyTarget
+                    target.style('background-color', 'lightblue')
+                  },
+                },
+                {
+                  id: 'color-dark-blue',
+                  content: 'dark blue',
+                  tooltipText: 'dark blue',
+                  onClickFunction: event => {
+                    let target = event.target || event.cyTarget
+                    target.style('background-color', 'darkblue')
+                  },
+                },
+              ],
+            },
+            {
+              id: 'color-green',
+              content: 'green',
+              tooltipText: 'green',
+              onClickFunction: event => {
+                let target = event.target || event.cyTarget
+                target.style('background-color', 'green')
+              },
+            },
+            {
+              id: 'color-red',
+              content: 'red',
+              tooltipText: 'red',
+              onClickFunction: event => {
+                let target = event.target || event.cyTarget
+                target.style('background-color', 'red')
+              },
+            },
+          ],
+        },
+        {
+          id: 'add-node',
+          content: 'add node',
+          tooltipText: 'add node',
+          image: { src: 'assets/add.svg', width: 12, height: 12, x: 6, y: 4 },
+          coreAsWell: true,
+          onClickFunction: event => {
+            var data = {
+              group: 'nodes',
+            }
+
+            var pos = event.position || event.cyPosition
+
+            this.cy.add({
+              data: data,
+              position: {
+                x: pos.x,
+                y: pos.y,
+              },
+            })
+          },
+        },
+        {
+          id: 'select-all-nodes',
+          content: 'select all nodes',
+          selector: 'node',
+          coreAsWell: true,
+          show: true,
+          onClickFunction: event => {
+            // this.selectAllOfTheSameType('node');
+            this.contextMenu.hideMenuItem('select-all-nodes')
+            this.contextMenu.showMenuItem('unselect-all-nodes')
+          },
+        },
+        {
+          id: 'unselect-all-nodes',
+          content: 'unselect all nodes',
+          selector: 'node',
+          coreAsWell: true,
+          show: false,
+          onClickFunction: event => {
+            // this.unselectAllOfTheSameType('node');
+            this.contextMenu.showMenuItem('select-all-nodes')
+            this.contextMenu.hideMenuItem('unselect-all-nodes')
+          },
+        },
+        {
+          id: 'select-all-edges',
+          content: 'select all edges',
+          selector: 'edge',
+          coreAsWell: true,
+          show: true,
+          onClickFunction: event => {
+            // this.selectAllOfTheSameType('edge');
+            this.contextMenu.hideMenuItem('select-all-edges')
+            this.contextMenu.showMenuItem('unselect-all-edges')
+          },
+        },
+        {
+          id: 'unselect-all-edges',
+          content: 'unselect all edges',
+          selector: 'edge',
+          coreAsWell: true,
+          show: false,
+          onClickFunction: event => {
+            // this.unselectAllOfTheSameType('edge');
+            this.contextMenu.showMenuItem('select-all-edges')
+            this.contextMenu.hideMenuItem('unselect-all-edges')
+          },
+        },
+      ],
+    })
+  }
+
+  bindActions() {
+    // 边框右键
     this.cy.on('cxttap', 'edge', source => {
       if (!this.isTraceMode) {
         //   removeEdge(source)
       }
     })
+    // 节点右键
     this.cy.on('cxttap', 'node', source => {
       if (!this.isTraceMode) {
         //   removeNode(source)
       }
     })
+    // 平移动
     this.cy.on('pan', event => {
       if (!this.isTraceMode) {
         this.currentPanPosition = this.cy.pan()
       }
     })
+    // 缩放
     this.cy.on('zoom', event => {
       if (!this.isTraceMode) {
         this.currentZoomLevel = this.cy.zoom()
       }
     })
-
+    // 鼠标hover，显示tooltip
     this.cy.on('mouseover', 'node', event => {
       let node = event.target
       if (node.data(this.NAME_PROP)) {
@@ -233,13 +406,13 @@ export class CytoscapeGenerator {
         this.currentNodeTooltip = undefined
       }
     })
-
+    // 鼠标移出，隐藏tooltip
     this.cy.on('mouseout', 'node', event => {
       if (this.currentNodeTooltip) this.currentNodeTooltip.hide()
     })
   }
 
-  reset() {
+  destroy() {
     this.cy.destroy()
   }
 
@@ -256,7 +429,7 @@ export class CytoscapeGenerator {
     let pan = this.currentPanPosition
 
     this.isTraceMode = false
-    this.reset()
+    this.destroy()
     this.init()
     this.cy.add(JSON.parse(payload.data))
     this.layout(payload.layoutType)
@@ -289,7 +462,7 @@ export class CytoscapeGenerator {
 
   loadTrace(json) {
     this.isTraceMode = true
-    this.reset()
+    this.destroy()
     this.init()
     this.cy.add(JSON.parse(json))
     this.layout(CytoscapeGenerator.LAYOUT_MANUAL_BEZIER)

@@ -4564,6 +4564,11 @@ cyclist@^1.0.1:
   resolved "http://npm.laiye.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+cytoscape-context-menus@4.0.0:
+  version "4.0.0"
+  resolved "http://npm.laiye.com/cytoscape-context-menus/-/cytoscape-context-menus-4.0.0.tgz#8b416762a4a162834cdeb740b7eccde42ce2671a"
+  integrity sha1-i0FnYqShYoNM3rdAt+zN5CziZxo=
+
 cytoscape-dagre@2.3.2:
   version "2.3.2"
   resolved "http://npm.laiye.com/cytoscape-dagre/-/cytoscape-dagre-2.3.2.tgz#f83d4357642c86d3bd7530dd9c1dffc2e1079d3c"
