@@ -191,10 +191,13 @@ export class CytoscapeGenerator {
   private currentZoomLevel = 1
   private currentPanPosition
   private isTraceMode = false
-
   private removed
+  private nodeTap
+  private edgeTap
 
-  constructor(options: { container: string }) {
+  constructor(options: { container: string; nodeTap: (node) => {}; edgeTap: (edge) => {} }) {
+    this.nodeTap = options.nodeTap
+    this.edgeTap = options.edgeTap
     this.container = document.getElementById('cy')
     this.init()
   }
@@ -373,9 +376,13 @@ export class CytoscapeGenerator {
 
   bindActions() {
     // 边框点击
-    this.cy.on('tap', 'edge', source => {})
+    this.cy.on('tap', 'edge', source => {
+      this.edgeTap(source)
+    })
     // 节点点击
-    this.cy.on('tap', 'node', source => {})
+    this.cy.on('tap', 'node', source => {
+      this.nodeTap(source)
+    })
     // 边框右键
     this.cy.on('cxttap', 'edge', source => {
       if (!this.isTraceMode) {
