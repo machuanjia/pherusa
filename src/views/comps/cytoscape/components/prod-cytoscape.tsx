@@ -7,7 +7,7 @@ import { data } from './data'
 import { CytoscapeGenerator } from './util-cytoscape'
 import { Line } from '@ant-design/charts'
 import { Slider } from 'laiye-antd'
-import { filter, remove, map, isUndefined } from 'lodash'
+import { filter, map, isUndefined } from 'lodash'
 interface IProdCytoscapeProps {}
 interface IProdCytoscapeState {
   nodeDetailVisible: boolean
@@ -45,7 +45,7 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
   }
 
   nodeTap(evt) {
-    const node = evt.target
+    // const node = evt.target
     this.setState({
       nodeDetailVisible: true,
       edgeDetailVisible: false,
@@ -158,7 +158,7 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
         <div id="cy" className={styles['cytoscape-wrap']}></div>
         <Modal
           title="Node Detail"
-          visible={this.state.nodeDetailVisible}
+          visible={nodeDetailVisible}
           destroyOnClose={true}
           footer={null}
           onCancel={this.handleCancel.bind(this, 'nodeDetailVisible')}>
@@ -168,7 +168,7 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
           title="Edge Detail"
           destroyOnClose={true}
           footer={null}
-          visible={this.state.edgeDetailVisible}
+          visible={edgeDetailVisible}
           onCancel={this.handleCancel.bind(this, 'edgeDetailVisible')}>
           {this.getChart()}
         </Modal>

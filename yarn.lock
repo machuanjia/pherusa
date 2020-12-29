@@ -4811,6 +4811,13 @@ cyclist@^1.0.1:
   resolved "http://npm.laiye.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+cytoscape-cola@2.4.0:
+  version "2.4.0"
+  resolved "http://npm.laiye.com/cytoscape-cola/-/cytoscape-cola-2.4.0.tgz#3e21491f99f0a776a894faf87a2fc7c7e6cf4534"
+  integrity sha1-PiFJH5nwp3aolPr4ei/Hx+bPRTQ=
+  dependencies:
+    webcola "^3.4.0"
+
 cytoscape-context-menus@4.0.0:
   version "4.0.0"
   resolved "http://npm.laiye.com/cytoscape-context-menus/-/cytoscape-context-menus-4.0.0.tgz#8b416762a4a162834cdeb740b7eccde42ce2671a"
@@ -4895,6 +4902,11 @@ d3-delaunay@5:
   dependencies:
     delaunator "4"
 
+d3-dispatch@1, d3-dispatch@^1.0.3:
+  version "1.0.6"
+  resolved "http://npm.laiye.com/d3-dispatch/-/d3-dispatch-1.0.6.tgz#00d37bcee4dd8cd97729dd893a0ac29caaba5d58"
+  integrity sha1-ANN7zuTdjNl3Kd2JOgrCnKq6XVg=
+
 "d3-dispatch@1 - 2", d3-dispatch@2:
   version "2.0.0"
   resolved "http://npm.laiye.com/d3-dispatch/-/d3-dispatch-2.0.0.tgz#8a18e16f76dd3fcaef42163c97b926aa9b55e7cf"
@@ -4907,6 +4919,14 @@ d3-drag@2:
   dependencies:
     d3-dispatch "1 - 2"
     d3-selection "2"
+
+d3-drag@^1.0.4:
+  version "1.2.5"
+  resolved "http://npm.laiye.com/d3-drag/-/d3-drag-1.2.5.tgz#2537f451acd39d31406677b7dc77c82f7d988f70"
+  integrity sha1-JTf0UazTnTFAZne33HfIL32Yj3A=
+  dependencies:
+    d3-dispatch "1"
+    d3-selection "1"
 
 "d3-dsv@1 - 2", d3-dsv@2:
   version "2.0.0"
@@ -5031,6 +5051,11 @@ d3-scale@3:
     d3-time "1 - 2"
     d3-time-format "2 - 3"
 
+d3-selection@1:
+  version "1.4.2"
+  resolved "http://npm.laiye.com/d3-selection/-/d3-selection-1.4.2.tgz#dcaa49522c0dbf32d6c1858afc26b6094555bc5c"
+  integrity sha1-3KpJUiwNvzLWwYWK/Ca2CUVVvFw=
+
 d3-selection@2:
   version "2.0.0"
   resolved "http://npm.laiye.com/d3-selection/-/d3-selection-2.0.0.tgz#94a11638ea2141b7565f883780dabc7ef6a61066"
@@ -5043,7 +5068,7 @@ d3-shape@2:
   dependencies:
     d3-path "1 - 2"
 
-d3-shape@^1.2.0:
+d3-shape@^1.2.0, d3-shape@^1.3.5:
   version "1.3.7"
   resolved "http://npm.laiye.com/d3-shape/-/d3-shape-1.3.7.tgz#df63801be07bc986bc54f63789b4fe502992b5d7"
   integrity sha1-32OAG+B7yYa8VPY3ibT+UCmStdc=
@@ -5067,7 +5092,7 @@ d3-shape@^1.2.0:
   resolved "http://npm.laiye.com/d3-timer/-/d3-timer-2.0.0.tgz#055edb1d170cfe31ab2da8968deee940b56623e6"
   integrity sha1-BV7bHRcM/jGrLaiWje7pQLVmI+Y=
 
-d3-timer@^1.0.9:
+d3-timer@^1.0.5, d3-timer@^1.0.9:
   version "1.0.10"
   resolved "http://npm.laiye.com/d3-timer/-/d3-timer-1.0.10.tgz#dfe76b8a91748831b13b6d9c793ffbd508dd9de5"
   integrity sha1-3+dripF0iDGxO22ceT/71QjdneU=
@@ -14131,6 +14156,16 @@ web-vitals@^0.2.4:
   version "0.2.4"
   resolved "http://npm.laiye.com/web-vitals/-/web-vitals-0.2.4.tgz#ec3df43c834a207fd7cdefd732b2987896e08511"
   integrity sha1-7D30PINKIH/Xze/XMrKYeJbghRE=
+
+webcola@^3.4.0:
+  version "3.4.0"
+  resolved "http://npm.laiye.com/webcola/-/webcola-3.4.0.tgz#490d26ae98e5b5109478b94a846a62ff6831a99d"
+  integrity sha1-SQ0mrpjltRCUeLlKhGpi/2gxqZ0=
+  dependencies:
+    d3-dispatch "^1.0.3"
+    d3-drag "^1.0.4"
+    d3-shape "^1.3.5"
+    d3-timer "^1.0.5"
 
 webidl-conversions@^4.0.2:
   version "4.0.2"

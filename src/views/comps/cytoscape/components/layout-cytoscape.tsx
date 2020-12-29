@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 import styles from './../cytoscape.module.less'
 import cytoscape from 'cytoscape'
 import dagre from 'cytoscape-dagre'
+import cola from 'cytoscape-cola'
+
+cytoscape.use(cola)
 cytoscape.use(dagre)
 
 export default class LayoutCytoscapeComponent extends Component {
@@ -78,6 +81,7 @@ export default class LayoutCytoscapeComponent extends Component {
     })
     this.loadData()
     this.layout()
+    console.log(this.cy.data())
   }
 
   loadData() {
