@@ -67,10 +67,10 @@ export default class EventCytoscapeComponent extends Component {
       autounselectify: false,
     })
 
-    this.cy.on('add', 'node', evt => {
-      var node = evt.target
-      console.log('added ' + node.id())
-    })
+    // this.cy.on('add', 'node', evt => {
+    //   var node = evt.target
+    //   console.log('added ' + node.id())
+    // })
 
     this.cy.on('drag', 'node', evt => {
       var node = evt.target
@@ -120,23 +120,23 @@ export default class EventCytoscapeComponent extends Component {
 
     // this.cy.autolock( true );
 
-    this.cy.animate(
-      {
-        center: 'n1',
-        zoom: 2,
-      },
-      {
-        duration: 1000,
-      },
-    )
+    // this.cy.animate(
+    //   {
+    //     center: 'n1',
+    //     zoom: 2,
+    //   },
+    //   {
+    //     duration: 1000,
+    //   },
+    // )
 
-    this.cy.startBatch()
+    // this.cy.startBatch()
 
-    this.cy.$('#n1').data('weight', '70').addClass('funny').removeClass('serious')
+    // this.cy.$('#n1').data('weight', '70').addClass('funny').removeClass('serious')
 
-    this.cy.endBatch()
+    // this.cy.endBatch()
 
-    console.log(this.cy.data())
+    // console.log(this.cy.data())
 
     // 点击node
     this.cy.on('tap', 'node', evt => {
@@ -180,6 +180,19 @@ export default class EventCytoscapeComponent extends Component {
     })
 
     // this.cy.removeListener('tap');
+
+    // 生成2000个node
+    console.time("2000");      
+    for (var i=0;i<2000;i++){
+        this.cy.add({ group: 'nodes', data: { id: 'i'+i }, position: { x: 300 + i* 50, y: 400 } })
+    }
+    console.timeEnd("2000");
+
+    console.time("5000");
+    for (var i=0;i<5000;i++){
+        this.cy.add({ group: 'nodes', data: { id: 'j'+i }, position: { x: 300 + i* 20, y: 500 } })
+    }
+    console.timeEnd("5000");
   }
 
   componentWillUnmount() {
