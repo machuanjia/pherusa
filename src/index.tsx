@@ -16,6 +16,7 @@ import { history } from '@utils/history'
 import { ConfigProvider } from 'laiye-antd'
 import 'tippy.js/index.css'
 import 'cytoscape-context-menus/cytoscape-context-menus.css'
+import 'cytoscape-navigator/cytoscape.js-navigator.css'
 
 ReactDOM.render(
   <Provider store={store}>
