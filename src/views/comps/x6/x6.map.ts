@@ -1,3 +1,5 @@
+/** @format */
+
 import { NodeView } from '@antv/x6'
 
 export class SimpleNodeView extends NodeView {

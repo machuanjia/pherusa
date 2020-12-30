@@ -10,7 +10,7 @@ export default class X6View extends Component {
   componentDidMount() {
     this.xe = new X6Editor({
       container: 'xe',
-      miniMap:'mm'
+      miniMap: 'mm',
     })
     const data = {
       // 节点
