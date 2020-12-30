@@ -30,15 +30,15 @@ export default class EventCytoscapeComponent extends Component {
           },
         },
         {
-            selector: ':selected',
-            style: {
-              'border-color': '#ffa500',
-              'border-width': '2px',
-              color: '#ffa500',
-              'line-color': '#ffa500',
-              'line-style': 'solid',
-              'target-arrow-color': '#ffa500',
-            },
+          selector: ':selected',
+          style: {
+            'border-color': '#ffa500',
+            'border-width': '2px',
+            color: '#ffa500',
+            'line-color': '#ffa500',
+            'line-style': 'solid',
+            'target-arrow-color': '#ffa500',
+          },
         },
       ],
       elements: {
@@ -139,7 +139,7 @@ export default class EventCytoscapeComponent extends Component {
     console.log(this.cy.data())
 
     // 点击node
-    this.cy.on('tap', 'node',  (evt)=> {
+    this.cy.on('tap', 'node', evt => {
       var node = evt.target
       console.log('tapped ' + node.id())
     })
@@ -148,35 +148,35 @@ export default class EventCytoscapeComponent extends Component {
       console.log('boxstart')
     })
 
-    this.cy.on('boxselect',  (evt) =>{
-        var ele = evt.target
-        console.log('boxselect'+ele.id())
-        // this.cy.getElementById(ele.id()).select()
-        // ele.style({
-        //     'border-width': '1',
-        //     'border-style': 'solid'})
-      })
-
-    this.cy.on('boxend', function (evt) {
-        // var ele = evt.target
-        console.log('boxendd')
-      })
-
-    this.cy.on('box', function (evt) {
-        console.log('box')
-      })
-
-    this.cy.on('select', function (evt){
-        var ele = evt.target
-        console.log('select'+ele.id())
+    this.cy.on('boxselect', evt => {
+      var ele = evt.target
+      console.log('boxselect' + ele.id())
+      // this.cy.getElementById(ele.id()).select()
+      // ele.style({
+      //     'border-width': '1',
+      //     'border-style': 'solid'})
     })
 
-    this.cy.on('unselect', function (evt){
-        var ele = evt.target
-        console.log('unselect'+ele.id())
-        // ele.style({
-        //     'border-width': '0',
-        //     'border-style': 'solid'})
+    this.cy.on('boxend', function (evt) {
+      // var ele = evt.target
+      console.log('boxendd')
+    })
+
+    this.cy.on('box', function (evt) {
+      console.log('box')
+    })
+
+    this.cy.on('select', function (evt) {
+      var ele = evt.target
+      console.log('select' + ele.id())
+    })
+
+    this.cy.on('unselect', function (evt) {
+      var ele = evt.target
+      console.log('unselect' + ele.id())
+      // ele.style({
+      //     'border-width': '0',
+      //     'border-style': 'solid'})
     })
 
     // this.cy.removeListener('tap');
