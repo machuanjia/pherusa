@@ -19,10 +19,10 @@ export default class BpmnAnimationComponent extends Component {
         keyboard: {
           bindTo: window,
         },
-        // propertiesPanel: {
-        //   parent: '#propview',
-        // },
-        // additionalModules: [propertiesPanelModule, propertiesProviderModule],
+        propertiesPanel: {
+          parent: '#propview',
+        },
+        additionalModules: [propertiesPanelModule, propertiesProviderModule],
         moddleExtensions: {
           camunda: camundaModdleDescriptor,
         },
@@ -33,47 +33,6 @@ export default class BpmnAnimationComponent extends Component {
     }, 1000)
   }
 
-  addAnimation() {
-    var elements = this.bpmn._elementRegistry._elements
-    elements = Object.values(elements)
-    console.log(elements)
-    var connections = []
-    elements.forEach(ele => {
-      if (ele.element.waypoints) {
-        connections.push(ele.element.waypoints)
-      }
-    })
-    console.log(connections)
-
-    connections.forEach(d => {
-      let path = 'M'
-      d.forEach(point => {
-        console.log(point)
-        path = path + point.x + ',' + point.y + ' '
-      })
-      console.log(path)
-      this.bpmn._svg.innerHTML =
-        `<circle r="5" fill="red">
-      <animateMotion
-        dur="10s"
-        repeatCount="0"
-        path="` +
-        path +
-        `"
-        />
-      </circle>` +
-        this.bpmn._svg.innerHTML
-    })
-    // this.bpmn._svg.innerHTML =
-    //   `<circle r="5" fill="red">
-    //   <animateMotion
-    //     dur="10s"
-    //     repeatCount="0"
-    //     path="M13.5,1096 206,1216"
-    //   />
-    // </circle>` + this.bpmn._svg.innerHTML
-  }
-
   getPoints() {
     const points = document.getElementsByClassName('djs-hit djs-hit-stroke')
     let str = ''
@@ -82,7 +41,7 @@ export default class BpmnAnimationComponent extends Component {
       const path = ele.getAttribute('points')
       str += `<circle r="5" fill="red"><animateMotion dur="10s" fill="freeze" repeatCount="0" path="M${path}"/></circle>`
     })
-    this.bpmn._svg.innerHTML = str + this.bpmn._svg.innerHTML
+    this.bpmn._viewport.innerHTML = str + this.bpmn._viewport.innerHTML
   }
 
   newBpmnDiagram = () => {
@@ -95,10 +54,7 @@ export default class BpmnAnimationComponent extends Component {
         return console.log('fail import xml')
       }
       this.bpmn = this.modeler.get('canvas')
-      // console.log(this.bpmn)
-      // this.bpmn.zoom('fit-viewport')
-      // this.addAnimation()
-      // this.bpmn.zoom('fit-viewport')
+      this.bpmn.zoom('fit-viewport')
       this.getPoints()
     })
   }
@@ -127,11 +83,11 @@ export default class BpmnAnimationComponent extends Component {
 
   render = () => {
     return (
-      <div id="bpmncontainer" style={{ width: '1200px', height: '1200px', overflow: 'auto' }}>
-        {/* <div
+      <div id="bpmncontainer">
+        <div
           id="propview"
-          style={{ width: '15%', height: '98vh', float: 'right', maxHeight: '98vh', overflowX: 'auto' }}></div> */}
-        <div id="bpmnview" style={{ width: '85%', height: '3000px' }}></div>
+          style={{ width: '15%', height: '98vh', float: 'right', maxHeight: '98vh', overflowX: 'auto' }}></div>
+        <div id="bpmnview" style={{ width: '85%', height: '98vh' }}></div>
       </div>
     )
   }

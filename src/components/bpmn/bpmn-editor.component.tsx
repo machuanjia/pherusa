@@ -116,7 +116,9 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
           destroyOnClose={true}
           visible={isAnimationVisible}
           onCancel={this.handleCancel.bind(this)}>
-          <BpmnAnimationComponent />
+          <div style={{ height: '800px', overflow: 'auto' }}>
+            <BpmnAnimationComponent />
+          </div>
         </Modal>
       </div>
     )
