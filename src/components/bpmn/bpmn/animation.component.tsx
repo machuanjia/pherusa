@@ -33,14 +33,41 @@ export default class BpmnAnimationComponent extends Component {
   }
 
   addAnimation() {
-    this.bpmn._svg.innerHTML =
+    var elements = this.bpmn._elementRegistry._elements
+    elements = Object.values(elements)
+    console.log(elements)
+    var connections = []
+    elements.forEach((ele)=>{
+      if(ele.element.waypoints){
+        connections.push(ele.element.waypoints)
+      } 
+      })
+    console.log(connections)
+
+    connections.forEach((d)=>{
+      let path = 'M'
+      d.forEach((point)=>{
+        console.log(point)
+        path = path + point.x+','+point.y+' '
+      })
+      console.log(path)
+      this.bpmn._svg.innerHTML =
       `<circle r="5" fill="red">
       <animateMotion
-        dur="2s"
+        dur="10s"
         repeatCount="0"
-        path="M13.5,1096 206,1216"
-      />
-    </circle>` + this.bpmn._svg.innerHTML
+        path="` + path + `"
+        />
+      </circle>` + this.bpmn._svg.innerHTML
+    })
+    // this.bpmn._svg.innerHTML =
+    //   `<circle r="5" fill="red">
+    //   <animateMotion
+    //     dur="10s"
+    //     repeatCount="0"
+    //     path="M13.5,1096 206,1216"
+    //   />
+    // </circle>` + this.bpmn._svg.innerHTML
   }
 
   newBpmnDiagram = () => {
@@ -53,7 +80,7 @@ export default class BpmnAnimationComponent extends Component {
         return console.log('fail import xml')
       }
       this.bpmn = this.modeler.get('canvas')
-      console.log(this.bpmn)
+      // console.log(this.bpmn)
       // this.bpmn.zoom('fit-viewport')
       this.addAnimation()
       // this.bpmn.zoom('fit-viewport')
