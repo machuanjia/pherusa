@@ -6,6 +6,7 @@ const TableView = AsyncComponent(() => import('@views/comps/table/index'))
 const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))
 const GraphLayoutView = AsyncComponent(() => import('@views/comps/graph-layout/index'))
 const CytoscapeView = AsyncComponent(() => import('@views/comps/cytoscape/index'))
+const X6View = AsyncComponent(() => import('@views/comps/x6/index'))
 
 const componentsRoute = {
   path: '/components',
@@ -49,6 +50,15 @@ const componentsRoute = {
       meta: {
         key: 'Cytoscape',
         name: 'Cytoscape',
+        iconType: 'LayoutOutlined',
+      },
+    },
+    {
+      path: '/components/x6',
+      component: X6View,
+      meta: {
+        key: 'X6',
+        name: 'X6',
         iconType: 'LayoutOutlined',
       },
     },
