@@ -47,13 +47,7 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
   }
 
   render() {
-    const {
-      isBasicVisible,
-      isEventVisible,
-      isPaletteVisible,
-      isPaletteCustomVisible,
-      isAnimationVisible,
-    } = this.state
+    const { isBasicVisible, isEventVisible, isPaletteVisible, isPaletteCustomVisible, isAnimationVisible } = this.state
     return (
       <div>
         <Button type="primary" onClick={this.setOpen.bind(this, 'isBasicVisible')}>
