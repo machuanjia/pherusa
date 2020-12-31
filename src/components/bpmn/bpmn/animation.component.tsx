@@ -10,7 +10,7 @@ import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 
 export default class BpmnAnimationComponent extends Component {
   modeler = null
-
+  bpmn
   componentDidMount() {
     setTimeout(() => {
       this.modeler = new Modeler({
@@ -18,10 +18,10 @@ export default class BpmnAnimationComponent extends Component {
         keyboard: {
           bindTo: window,
         },
-        propertiesPanel: {
-          parent: '#propview',
-        },
-        additionalModules: [propertiesPanelModule, propertiesProviderModule],
+        // propertiesPanel: {
+        //   parent: '#propview',
+        // },
+        // additionalModules: [propertiesPanelModule, propertiesProviderModule],
         moddleExtensions: {
           camunda: camundaModdleDescriptor,
         },
@@ -29,33 +29,18 @@ export default class BpmnAnimationComponent extends Component {
 
       this.newBpmnDiagram()
       this.addModelerListener()
-      var test = document.getElementsByClassName('layer-base')[0]
-      console.log(test)
-      var group = document.createElement('g')
-      group.id = 'animation-group'
-      group.innerHTML = `
-      <path fill="none" stroke="lightgrey" d="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
-          <circle r="5" fill="red">
-            <animateMotion
-              dur="10s"
-              repeatCount="indefinite"
-              path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-            />
-          </circle>`
-      test.appendChild(group)
-      // var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-      // group.appendChild(svg)
-      //   var myCircle = document.createElementNS("http://www.w3.org/2000/svg","circle"); //to create a circle. for rectangle use "rectangle"
-      // myCircle.setAttributeNS(null,"id","mycircle");
-      // myCircle.setAttributeNS(null,"cx",100);
-      // myCircle.setAttributeNS(null,"cy",100);
-      // myCircle.setAttributeNS(null,"r",50);
-      // myCircle.setAttributeNS(null,"fill","black");
-      // myCircle.setAttributeNS(null,"stroke","none");
-
-      // document.getElementById('mySVG').appendChild(myCircle)
-      console.log(test)
     }, 1000)
+  }
+
+  addAnimation() {
+    this.bpmn._svg.innerHTML =
+      `<circle r="5" fill="red">
+      <animateMotion
+        dur="2s"
+        repeatCount="0"
+        path="M13.5,1096 206,1216"
+      />
+    </circle>` + this.bpmn._svg.innerHTML
   }
 
   newBpmnDiagram = () => {
@@ -67,8 +52,11 @@ export default class BpmnAnimationComponent extends Component {
       if (error) {
         return console.log('fail import xml')
       }
-      const canvas = this.modeler.get('canvas')
-      canvas.zoom('fit-viewport')
+      this.bpmn = this.modeler.get('canvas')
+      console.log(this.bpmn)
+      // this.bpmn.zoom('fit-viewport')
+      this.addAnimation()
+      // this.bpmn.zoom('fit-viewport')
     })
   }
 
@@ -97,22 +85,10 @@ export default class BpmnAnimationComponent extends Component {
   render = () => {
     return (
       <div id="bpmncontainer">
-        <div
+        {/* <div
           id="propview"
-          style={{ width: '15%', height: '98vh', float: 'right', maxHeight: '98vh', overflowX: 'auto' }}></div>
-        <div id="bpmnview" style={{ width: '85%', height: '98vh', float: 'left' }}>
-          {/* <svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-            <path fill="none" stroke="lightgrey" d="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
-
-            <circle r="5" fill="red">
-              <animateMotion
-                dur="10s"
-                repeatCount="indefinite"
-                path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z"
-              />
-            </circle>
-          </svg> */}
-        </div>
+          style={{ width: '15%', height: '98vh', float: 'right', maxHeight: '98vh', overflowX: 'auto' }}></div> */}
+        <div id="bpmnview" style={{ width: '85%', height: '2000px', overflow: 'auto' }}></div>
       </div>
     )
   }
