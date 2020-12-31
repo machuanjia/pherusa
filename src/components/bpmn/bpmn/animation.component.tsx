@@ -37,28 +37,31 @@ export default class BpmnAnimationComponent extends Component {
     elements = Object.values(elements)
     console.log(elements)
     var connections = []
-    elements.forEach((ele)=>{
-      if(ele.element.waypoints){
+    elements.forEach(ele => {
+      if (ele.element.waypoints) {
         connections.push(ele.element.waypoints)
-      } 
-      })
+      }
+    })
     console.log(connections)
 
-    connections.forEach((d)=>{
+    connections.forEach(d => {
       let path = 'M'
-      d.forEach((point)=>{
+      d.forEach(point => {
         console.log(point)
-        path = path + point.x+','+point.y+' '
+        path = path + point.x + ',' + point.y + ' '
       })
       console.log(path)
       this.bpmn._svg.innerHTML =
-      `<circle r="5" fill="red">
+        `<circle r="5" fill="red">
       <animateMotion
         dur="10s"
         repeatCount="0"
-        path="` + path + `"
+        path="` +
+        path +
+        `"
         />
-      </circle>` + this.bpmn._svg.innerHTML
+      </circle>` +
+        this.bpmn._svg.innerHTML
     })
     // this.bpmn._svg.innerHTML =
     //   `<circle r="5" fill="red">
