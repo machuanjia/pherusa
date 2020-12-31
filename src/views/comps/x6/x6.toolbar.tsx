@@ -19,7 +19,7 @@ export default class X6ToolbarComponent extends Component<IX6ToolbarProps, IX6To
     this.xe = this.props.xe
   }
   onClick(name: string) {
-    this.xe[name]()
+    this.xe[name] && this.xe[name]()
   }
   render() {
     return (
