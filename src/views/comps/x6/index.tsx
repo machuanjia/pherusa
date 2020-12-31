@@ -5,6 +5,7 @@ import { X6Editor } from './x6.editor'
 import styles from './x6.module.less'
 import '@antv/x6-react-shape'
 import { X6Nodes } from './x6.nodes'
+import X6ToolbarComponent from './x6.toolbar'
 
 export default class X6View extends Component {
   private xe
@@ -37,6 +38,13 @@ export default class X6View extends Component {
       },
     ],
   }
+  constructor(props) {
+    super(props)
+    this.state = {
+      //@ts-ignore
+      xe: this.xe,
+    }
+  }
   componentDidMount() {
     this.xe = new X6Editor({
       container: 'xe',
@@ -47,11 +55,14 @@ export default class X6View extends Component {
       graph: this.xe.graph,
       container: 'tools',
     })
+    this.setState({
+      xe: this.xe,
+    })
   }
   render() {
     return (
       <div className={styles['x6-editor']}>
-        <div className={styles['x6-editor-header']}></div>
+        <div className={styles['x6-editor-header']}>{this.xe ? <X6ToolbarComponent xe={this.xe} /> : null}</div>
         <div className={styles['x6-editor-body']}>
           <div id="tools" className={styles['x6-editor-body-tools']}></div>
           <div id="xe" className={styles['x6-editor-body-content']}></div>

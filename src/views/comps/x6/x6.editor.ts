@@ -119,4 +119,18 @@ export class X6Editor {
   getData() {
     return this.graph.toJSON()
   }
+
+  zoomIn() {
+    this.graph.zoomTo(this.graph.zoom() + 0.1)
+  }
+
+  zoomOut() {
+    this.graph.zoomTo(this.graph.zoom() - 0.1)
+  }
+  undo() {
+    this.graph.history.undo()
+  }
+  redo() {
+    this.graph.history.redo()
+  }
 }
