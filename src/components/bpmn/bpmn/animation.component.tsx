@@ -55,7 +55,6 @@ export default class BpmnAnimationComponent extends Component {
       }
       this.bpmn = this.modeler.get('canvas')
       this.bpmn.zoom('fit-viewport')
-      this.getPoints()
     })
   }
 
@@ -81,9 +80,27 @@ export default class BpmnAnimationComponent extends Component {
     })
   }
 
+  start() {
+    this.getPoints()
+    // 清除当前所有动画
+    // 获取时间轴时间刻度
+    // 添加当前时间刻度到结束时间的数据
+  }
+
+  pause() {
+    this.bpmn._svg.pauseAnimations()
+  }
+
+  continue() {
+    this.bpmn._svg.unpauseAnimations()
+  }
+
   render = () => {
     return (
       <div id="bpmncontainer">
+        <button onClick={this.start.bind(this)}>开始</button>
+        <button onClick={this.pause.bind(this)}>暂停</button>
+        <button onClick={this.continue.bind(this)}>继续</button>
         <div
           id="propview"
           style={{ width: '15%', height: '98vh', float: 'right', maxHeight: '98vh', overflowX: 'auto' }}></div>
