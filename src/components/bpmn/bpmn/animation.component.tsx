@@ -8,6 +8,7 @@ import propertiesPanelModule from 'bpmn-js-properties-panel'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 import { map } from 'lodash'
+import { appendTo, append, remove, create, innerSVG, on, off } from 'tiny-svg'
 
 export default class BpmnAnimationComponent extends Component {
   modeler = null
@@ -35,21 +36,47 @@ export default class BpmnAnimationComponent extends Component {
 
   getPoints() {
     const points = document.getElementsByClassName('djs-hit djs-hit-stroke')
-    let str = ''
-    console.log(points)
     map(points, ele => {
       const path = ele.getAttribute('points')
-      var group = document.createElement('g')
-      group.setAttribute('stroke', 'none')
-      group.style.zIndex = '-100'
-      group.innerHTML = `<animateMotion dur="10s" fill="freeze" repeatCount="0" path="M${path}">
-      </animateMotion>
-      <circle r="5" fill="red"></circle>
-      <text x="0" y="-7" style="fill: black; text-anchor: middle; visibility: hidden">Case38</text>`
-      this.bpmn._viewport.append(group)
+      const g = appendTo(create('g'), this.bpmn._viewport)
+      const anim = create('animateMotion', {
+        dur: '10s',
+        fill: 'freeze',
+        repeatCount: '0',
+        path: `M${path}`,
+      })
+      on(anim, 'endEvent', e => {
+        remove(g)
+      })
+      append(
+        g,
+        // @ts-ignore
+        anim,
+      )
+
+      append(
+        g,
+        // @ts-ignore
+        create('circle', {
+          r: '5',
+          fill: 'red',
+        }),
+      )
+
+      const text = create('text', {
+        x: '0',
+        y: '-7',
+        style: 'fill: black; text-anchor: middle;',
+      })
+
+      innerSVG(text, 'sss')
+
+      append(
+        g,
+        // @ts-ignore
+        text,
+      )
     })
-    console.log(this.bpmn._viewport)
-    this.bpmn._viewport.innerHTML = str + this.bpmn._viewport.innerHTML
   }
 
   newBpmnDiagram = () => {
