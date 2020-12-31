@@ -21,6 +21,25 @@ export class X6Editor {
     }, //点选、框选
     snapline: true, // 对齐线
     scroller: true, // 滚动
+    resizing: {
+      // 节点缩放
+      enabled: true,
+    },
+    rotating: {
+      // 节点旋转
+      enabled: true,
+    },
+    connecting: {
+      //是否连线
+      snap: true,
+      allowBlank: true,
+      allowMulti: true,
+      allowLoop: true,
+      allowNode: true,
+      allowEdge: true,
+      allowPort: true,
+      router: 'manhattan',
+    },
   }
 
   constructor(ops: { container: string; miniMap: string }) {
@@ -58,9 +77,46 @@ export class X6Editor {
 
   init() {
     this.graph = new Graph(this.options)
+    this.setTools()
+  }
+
+  setTools() {
+    this.graph.on('cell:mouseenter', ({ cell }) => {
+      if (cell.isNode()) {
+        cell.addTools([
+          {
+            name: 'boundary',
+            args: {
+              attrs: {
+                fill: '#7c68fc',
+                stroke: '#333',
+                'stroke-width': 1,
+                'fill-opacity': 0.2,
+              },
+            },
+          },
+          {
+            name: 'button-remove',
+            args: {
+              x: 0,
+              y: 0,
+              offset: { x: 10, y: 10 },
+            },
+          },
+        ])
+      } else {
+        cell.addTools(['vertices', 'segments'])
+      }
+    })
+    this.graph.on('cell:mouseleave', ({ cell }) => {
+      cell.removeTools()
+    })
   }
 
   loadData(data) {
     this.graph.fromJSON(data)
+  }
+  getData() {
+    return this.graph.toJSON()
   }
 }
