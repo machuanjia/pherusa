@@ -29,7 +29,7 @@ export default class BpmnAnimationComponent extends Component {
       })
 
       this.newBpmnDiagram()
-      this.addModelerListener()
+      // this.addModelerListener()
     }, 1000)
   }
 
@@ -39,8 +39,17 @@ export default class BpmnAnimationComponent extends Component {
     console.log(points)
     map(points, ele => {
       const path = ele.getAttribute('points')
-      str += `<circle r="5" fill="red"><animateMotion dur="10s" fill="freeze" repeatCount="0" path="M${path}"/></circle>`
+      var group = document.createElement("g")
+      group.setAttribute("stroke","none")
+      group.style.zIndex = "-100"
+      group.innerHTML = `<animateMotion dur="10s" fill="freeze" repeatCount="0" path="M${path}">
+      </animateMotion>
+      <circle r="5" fill="red"></circle>
+      <text x="0" y="-7" style="fill: black; text-anchor: middle; visibility: hidden">Case38</text>`
+      this.bpmn._viewport.append(group)
+ 
     })
+    console.log(this.bpmn._viewport)
     this.bpmn._viewport.innerHTML = str + this.bpmn._viewport.innerHTML
   }
 
@@ -49,6 +58,9 @@ export default class BpmnAnimationComponent extends Component {
   }
 
   openBpmnDiagram = xml => {
+    this.bpmn = this.modeler.get('canvas')
+    console.log(this.bpmn._viewport)
+    // this.getPoints()
     this.modeler.importXML(xml, error => {
       if (error) {
         return console.log('fail import xml')
@@ -59,27 +71,27 @@ export default class BpmnAnimationComponent extends Component {
     })
   }
 
-  addModelerListener() {
-    // 监听 modeler
-    const bpmnjs = this.modeler
-    const that = this
-    // 'shape.removed', 'connect.end', 'connect.move'
-    const events = ['shape.added', 'shape.move.end', 'shape.removed']
-    events.forEach(function (event) {
-      that.modeler.on(event, e => {
-        var elementRegistry = bpmnjs.get('elementRegistry')
-        var shape = e.element ? elementRegistry.get(e.element.id) : e.shape
-        // console.log(shape)
-        if (event === 'shape.added') {
-          console.log('新增了shape')
-        } else if (event === 'shape.move.end') {
-          console.log('移动了shape')
-        } else if (event === 'shape.removed') {
-          console.log('删除了shape')
-        }
-      })
-    })
-  }
+  // addModelerListener() {
+  //   // 监听 modeler
+  //   const bpmnjs = this.modeler
+  //   const that = this
+  //   // 'shape.removed', 'connect.end', 'connect.move'
+  //   const events = ['shape.added', 'shape.move.end', 'shape.removed']
+  //   events.forEach(function (event) {
+  //     that.modeler.on(event, e => {
+  //       var elementRegistry = bpmnjs.get('elementRegistry')
+  //       var shape = e.element ? elementRegistry.get(e.element.id) : e.shape
+  //       // console.log(shape)
+  //       if (event === 'shape.added') {
+  //         console.log('新增了shape')
+  //       } else if (event === 'shape.move.end') {
+  //         console.log('移动了shape')
+  //       } else if (event === 'shape.removed') {
+  //         console.log('删除了shape')
+  //       }
+  //     })
+  //   })
+  // }
 
   render = () => {
     return (
