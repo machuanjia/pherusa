@@ -38,6 +38,7 @@ export default class BpmnCustomComponent extends Component {
         return console.log('fail import xml')
       }
       const canvas = this.modeler.get('canvas')
+      console.log(canvas)
       canvas.zoom('fit-viewport')
     })
   }

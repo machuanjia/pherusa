@@ -22,6 +22,7 @@ export default class CustomRenderer extends BaseRenderer {
     }
 
     drawShape(parentNode, element) {
+        console.log(parentNode)
         console.log(element)
         const type = element.type // 获取到类型
         if (customElements.includes(type)) { // or customConfig[type]

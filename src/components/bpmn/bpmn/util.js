@@ -4,7 +4,8 @@ const customConfig = { // 自定义元素的配置
         'url': require('@assets/rules.png'),
         // 'url': require('../../assets/rules.png'),
         // 'url': 'https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/rules.png',
-        'attr': { x: 0, y: 0, width: 48, height: 48 }
+        'attr': { x: 0, y: 0, width: 48, height: 48 },
+        // 'style': 
     },
     'bpmn:StartEvent': {
         'url': 'https://hexo-blog-1256114407.cos.ap-shenzhen-fsi.myqcloud.com/start.png',

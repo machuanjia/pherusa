@@ -7,7 +7,7 @@ import BpmnBasicComponent from './bpmn/basic.component'
 import BpmnEventComponent from './bpmn/event.component'
 import BpmnPaletteComponent from './bpmn/palette.component'
 import BpmnCustomComponent from './bpmn/custom.component'
-import BpmnAnnimationComponent from './bpmn/annimation.component'
+import BpmnAnimationComponent from './bpmn/animation.component'
 
 interface IBpmnEditorProps {}
 interface IBpmnEditorState {
@@ -15,7 +15,7 @@ interface IBpmnEditorState {
   isEventVisible: boolean
   isPaletteVisible: boolean
   isPaletteCustomVisible: boolean
-  isPaletteAnnimationVisible: boolean
+  isAnimationVisible: boolean
 }
 
 export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBpmnEditorState> {
@@ -26,7 +26,7 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
       isEventVisible: false,
       isPaletteVisible: false,
       isPaletteCustomVisible: false,
-      isPaletteAnnimationVisible: false,
+      isAnimationVisible: false,
     }
   }
   setOpen(key) {
@@ -42,7 +42,7 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
       isEventVisible: false,
       isPaletteVisible: false,
       isPaletteCustomVisible: false,
-      isPaletteAnnimationVisible: false,
+      isAnimationVisible: false,
     })
   }
 
@@ -52,7 +52,7 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
       isEventVisible,
       isPaletteVisible,
       isPaletteCustomVisible,
-      isPaletteAnnimationVisible,
+      isAnimationVisible,
     } = this.state
     return (
       <div>
@@ -112,18 +112,18 @@ export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBp
             <BpmnCustomComponent />
           </div>
         </Modal>
-        <Button type="primary" className="m-l-12" onClick={this.setOpen.bind(this, 'isPaletteAnnimationVisible')}>
-          annimation
+        <Button type="primary" className="m-l-12" onClick={this.setOpen.bind(this, 'isAnimationVisible')}>
+          animation
         </Button>
         <Modal
           title="Palette Custom"
           width={MODAL_SIZE.lg}
           footer={null}
           destroyOnClose={true}
-          visible={isPaletteAnnimationVisible}
+          visible={isAnimationVisible}
           onCancel={this.handleCancel.bind(this)}>
           <div style={{ height: '800px', overflow: 'auto' }}>
-            <BpmnAnnimationComponent />
+            <BpmnAnimationComponent />
           </div>
         </Modal>
       </div>
