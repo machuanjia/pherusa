@@ -39,15 +39,14 @@ export default class BpmnAnimationComponent extends Component {
     console.log(points)
     map(points, ele => {
       const path = ele.getAttribute('points')
-      var group = document.createElement("g")
-      group.setAttribute("stroke","none")
-      group.style.zIndex = "-100"
+      var group = document.createElement('g')
+      group.setAttribute('stroke', 'none')
+      group.style.zIndex = '-100'
       group.innerHTML = `<animateMotion dur="10s" fill="freeze" repeatCount="0" path="M${path}">
       </animateMotion>
       <circle r="5" fill="red"></circle>
       <text x="0" y="-7" style="fill: black; text-anchor: middle; visibility: hidden">Case38</text>`
       this.bpmn._viewport.append(group)
- 
     })
     console.log(this.bpmn._viewport)
     this.bpmn._viewport.innerHTML = str + this.bpmn._viewport.innerHTML
