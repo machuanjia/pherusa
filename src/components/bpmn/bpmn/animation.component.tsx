@@ -7,6 +7,7 @@ import { diagramBpmn } from './diagram.bpmn'
 import propertiesPanelModule from 'bpmn-js-properties-panel'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
+import { map } from 'lodash'
 
 export default class BpmnAnimationComponent extends Component {
   modeler = null
@@ -73,6 +74,17 @@ export default class BpmnAnimationComponent extends Component {
     // </circle>` + this.bpmn._svg.innerHTML
   }
 
+  getPoints() {
+    const points = document.getElementsByClassName('djs-hit djs-hit-stroke')
+    let str = ''
+    console.log(points)
+    map(points, ele => {
+      const path = ele.getAttribute('points')
+      str += `<circle r="5" fill="red"><animateMotion dur="10s" fill="freeze" repeatCount="0" path="M${path}"/></circle>`
+    })
+    this.bpmn._svg.innerHTML = str + this.bpmn._svg.innerHTML
+  }
+
   newBpmnDiagram = () => {
     this.openBpmnDiagram(diagramBpmn)
   }
@@ -85,8 +97,9 @@ export default class BpmnAnimationComponent extends Component {
       this.bpmn = this.modeler.get('canvas')
       // console.log(this.bpmn)
       // this.bpmn.zoom('fit-viewport')
-      this.addAnimation()
+      // this.addAnimation()
       // this.bpmn.zoom('fit-viewport')
+      this.getPoints()
     })
   }
 
@@ -114,11 +127,11 @@ export default class BpmnAnimationComponent extends Component {
 
   render = () => {
     return (
-      <div id="bpmncontainer">
+      <div id="bpmncontainer" style={{ width: '1200px', height: '1200px', overflow: 'auto' }}>
         {/* <div
           id="propview"
           style={{ width: '15%', height: '98vh', float: 'right', maxHeight: '98vh', overflowX: 'auto' }}></div> */}
-        <div id="bpmnview" style={{ width: '85%', height: '2000px', overflow: 'auto' }}></div>
+        <div id="bpmnview" style={{ width: '85%', height: '3000px' }}></div>
       </div>
     )
   }
