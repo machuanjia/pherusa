@@ -11,5 +11,5 @@ export default {
   login,
   validate,
   list,
-  router
+  router,
 }
