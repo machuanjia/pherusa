@@ -32,7 +32,7 @@ class LoginView extends Component<ILoginProps, ILoginState> {
     if (isPhone(value)) {
       callback()
     } else {
-      callback('请输入正确的手机号码')
+      callback(i18n.t('validate.phone.message'))
     }
   }
 
@@ -73,20 +73,23 @@ class LoginView extends Component<ILoginProps, ILoginState> {
                     </div>
                     <div className="m-l-12">
                       <Button type="primary" className="xlarge">
-                        获取验证码
+                        <Trans i18nKey="login.captcha"></Trans>
                       </Button>
                     </div>
                   </div>
                 </Form.Item>
                 <Form.Item>
                   <Button type="primary" htmlType="submit" className="xlarge" block>
-                    立即登录
+                    <Trans i18nKey="login.signin"></Trans>
                   </Button>
                 </Form.Item>
               </Form>
             </div>
             <div className={styles['login-form-footer']}>
-              还没有注册？ <a href="/">马上注册</a>
+              <Trans i18nKey="login.is_registe"></Trans>
+              <a href="/">
+                <Trans i18nKey="login.registe_now"></Trans>
+              </a>
             </div>
           </div>
         </div>
