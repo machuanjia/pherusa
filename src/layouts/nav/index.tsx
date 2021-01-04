@@ -94,14 +94,22 @@ export default class NavComponent extends Component<INavProps, INavState> {
                   }
                   let link = (
                     <Link to={item.path}>
-                      {n.meta.iconType ? <Icon type={n.meta.iconType} /> : <i className={n.meta.className}></i>}
+                      {item.meta.iconType ? (
+                        <Icon type={item.meta.iconType} />
+                      ) : (
+                        <i className={item.meta.className}></i>
+                      )}
                       {item.meta.name}
                     </Link>
                   )
                   if (item.meta.isLink) {
                     link = (
                       <a href={item.path} target="_blank" rel="noopener noreferrer">
-                        {n.meta.iconType ? <Icon type={n.meta.iconType} /> : <i className={n.meta.className}></i>}
+                        {item.meta.iconType ? (
+                          <Icon type={item.meta.iconType} />
+                        ) : (
+                          <i className={item.meta.className}></i>
+                        )}
                         {item.meta.name}
                       </a>
                     )

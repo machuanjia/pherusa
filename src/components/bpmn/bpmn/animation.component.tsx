@@ -8,7 +8,7 @@ import propertiesPanelModule from 'bpmn-js-properties-panel'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 import camundaModdleDescriptor from 'camunda-bpmn-moddle/resources/camunda'
 import { map } from 'lodash'
-import { appendTo, append, remove, create, innerSVG, on, off } from 'tiny-svg'
+import { appendTo, append, remove, create, innerSVG, on } from 'tiny-svg'
 
 export default class BpmnAnimationComponent extends Component {
   modeler = null
