@@ -3,53 +3,55 @@
 @import '@styles/variables.less';
 
 .content-layout {
-    height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &-header {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px @border solid;
+    background: @bg-white;
+    margin-bottom: 12px;
 
-    &-header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        border-bottom: 1px @border solid;
+    &-left {
+      flex: 1;
+      padding: 10px;
+      :global {
+        .search {
+          max-width: 280px;
+        }
+      }
+    }
+
+    &-center {
+      flex: 1;
+    }
+
+    &-actions {
+      padding: 10px;
+      display: flex;
+    }
+  }
+
+  &-main {
+    flex: 1;
+    overflow: auto;
+    background: @bg-main;
+    :global {
+      .ant-table {
         background: @bg-white;
-        margin-bottom: 12px;
-
-        &-left {
-            flex: 1;
-            padding: 10px;
-            :global{
-                .search{
-                    max-width: 280px;
-                }
-            }
-        }
-
-        &-center {
-            flex: 1;
-        }
-
-        &-actions {
-            padding: 10px;
-            display: flex;
-        }
+      }
+      .ant-pagination {
+        background: @bg-white;
+        float: none;
+        margin-left: 0;
+        padding: 12px 0;
+        margin: 12px 0;
+        display: flex;
+        justify-content: flex-start;
+      }
     }
-
-    &-main {
-        flex: 1;
-        overflow: auto;
-        background: @bg-main;
-        :global{
-            .ant-table{
-                background: @bg-white;
-            }
-            .ant-pagination{
-                background: @bg-white;
-                float: none;
-                margin-left: 0;
-                padding: 12px 0;
-                margin: 12px 0 ;
-            }
-        }
-    }
+  }
 }

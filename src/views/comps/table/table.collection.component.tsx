@@ -63,9 +63,9 @@ export default class TableCollecrtionComponent extends Component<ITableCollectio
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="m-r-12">
-            {i18n.t('actions.save')}
+            {i18n.t('action.save')}
           </Button>
-          <Button onClick={this.cancel.bind(this)}> {i18n.t('actions.cancel')}</Button>
+          <Button onClick={this.cancel.bind(this)}> {i18n.t('action.cancel')}</Button>
         </Form.Item>
       </Form>
     )
