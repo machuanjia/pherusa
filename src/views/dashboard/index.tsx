@@ -165,7 +165,7 @@ export default class DashboardView extends Component {
       { i: 'a', x: 0, y: 0, w: 4, h: 3 },
       { i: 'b', x: 4, y: 0, w: 8, h: 3 },
       { i: 'c', x: 8, y: 4, w: 4, h: 3 },
-      { i: 'd', x: 0, y: 4, w: 8, h: 3 }
+      { i: 'd', x: 0, y: 4, w: 8, h: 3 },
     ]
     return (
       <GridLayout className="layout" layout={layout} cols={12} rowHeight={100} width={1200}>

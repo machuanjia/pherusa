@@ -137,7 +137,6 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
       },
     }
     return <Line {...config} />
-
   }
 
   render() {
