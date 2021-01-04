@@ -1,9 +1,9 @@
 /** @format */
 
 export default {
-  name: 'name',
-  password: 'password',
-  address: 'address',
-  operation: 'operation',
-  search: 'Search your files',
-}
+    name: 'Name',
+    password: 'Password',
+    address: 'Address',
+    operation: 'Operation',
+    search: 'Search your files',
+  }

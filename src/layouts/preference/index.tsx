@@ -4,9 +4,9 @@ import React, { Component } from 'react'
 import styles from './preference.module.less'
 import { logout } from '@utils/index'
 import { SketchPicker } from 'react-color'
-import { MODAL_SIZE } from '@constants/index'
+import { DRAWER_SIZE, MODAL_SIZE } from '@constants/index'
 import i18n from 'i18next'
-import { QuestionCircleOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
+import { QuestionCircleOutlined, SettingOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons'
 import { getLocal } from '@i18n/index'
 
 export default class PreferenceComponent extends Component {
@@ -52,23 +52,23 @@ export default class PreferenceComponent extends Component {
     const content = (
       <Menu style={{ width: 200 }} className={`${styles['prefernce-menu']}`} onClick={this.menuAction.bind(this)}>
         <Menu.Item key="log">
-          <QuestionCircleOutlined /> 更新日志
+          <QuestionCircleOutlined /> {i18n.t('preference.log')}
         </Menu.Item>
         <Menu.Item key="setting">
-          <SettingOutlined /> 个人设置
+          <SettingOutlined /> {i18n.t('preference.personal')}
         </Menu.Item>
         <Menu.Item key="logout">
-          <LogoutOutlined /> 退出
+          <LogoutOutlined /> {i18n.t('preference.logout')}
         </Menu.Item>
       </Menu>
     )
     return (
       <div className={styles['preference-wrap']}>
         <Popover placement="rightBottom" title={null} content={content}>
-          <Avatar size="large" style={{ backgroundColor: '#79adf8' }} className="pointer" icon="user" />
+          <Avatar size="large" style={{ backgroundColor: '#79adf8' }} className="pointer" icon={<UserOutlined />} />
         </Popover>
         <Modal
-          title="更新日志"
+          title={i18n.t('preference.log')}
           width={MODAL_SIZE.md}
           visible={this.state['isLogVisible']}
           footer={null}
@@ -98,28 +98,29 @@ export default class PreferenceComponent extends Component {
 
         <Drawer
           // @ts-ignore
-          title="偏好设置"
+          title={i18n.t('preference.preference')}
           placement="right"
           closable={false}
+          width={DRAWER_SIZE.xsm}
           onClose={this.closeSetting.bind(this)}
           visible={this.state['isSettingVisible']}>
-          <div className="text-dark m-b-8">语言</div>
+          <div className="text-dark m-b-8">{i18n.t('preference.language')}</div>
           <div className="m-b-24">
             <Radio.Group onChange={this.changeLang.bind(this)} defaultValue={getLocal()}>
-              <Radio.Button value="zh">中文</Radio.Button>
-              <Radio.Button value="en">英文</Radio.Button>
-              <Radio.Button value="ZH">繁体</Radio.Button>
+              <Radio.Button value="zh">{i18n.t('preference.chinese')}</Radio.Button>
+              <Radio.Button value="en">{i18n.t('preference.english')}</Radio.Button>
+              {/* <Radio.Button value="ZH">{i18n.t('preference.cantonese')}</Radio.Button> */}
             </Radio.Group>
           </div>
-          <div className="text-dark m-b-8">部件大小</div>
+          <div className="text-dark m-b-8">{i18n.t('preference.size')}</div>
           <div className="m-b-24">
             <Radio.Group onChange={this.changeLang.bind(this)} defaultValue="middle">
-              <Radio.Button value="large">大</Radio.Button>
-              <Radio.Button value="middle">中</Radio.Button>
-              <Radio.Button value="small">小</Radio.Button>
+              <Radio.Button value="large">{i18n.t('preference.large')}</Radio.Button>
+              <Radio.Button value="middle">{i18n.t('preference.medium')}</Radio.Button>
+              <Radio.Button value="small">{i18n.t('preference.small')}</Radio.Button>
             </Radio.Group>
           </div>
-          <div className="text-dark m-b-8">主题</div>
+          <div className="text-dark m-b-8">{i18n.t('preference.theme')}</div>
           <div className="m-b-24">
             <Popover
               overlayClassName="preference-pop-wrap"

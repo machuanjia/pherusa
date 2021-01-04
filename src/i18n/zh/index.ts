@@ -5,6 +5,7 @@ import login from './login'
 import validate from './validate'
 import list from './list'
 import router from './router'
+import preference from './preference'
 
 export default {
   action,
@@ -12,4 +13,5 @@ export default {
   validate,
   list,
   router,
+  preference,
 }

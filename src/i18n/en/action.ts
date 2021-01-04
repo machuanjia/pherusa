@@ -7,5 +7,5 @@ export default {
   setting: 'setting',
   edit: 'edit',
   delete: 'delete',
-  create: 'Create new',
+  create: 'Create',
 }
