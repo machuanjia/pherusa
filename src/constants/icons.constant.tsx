@@ -8,7 +8,7 @@ import {
   LayoutOutlined,
   RadarChartOutlined,
   CreditCardOutlined,
-  BarChartOutlined
+  BarChartOutlined,
 } from '@ant-design/icons'
 import React from 'react'
 
@@ -19,6 +19,6 @@ export const ICON_MAP = {
   editor: <FileMarkdownOutlined />,
   layout: <LayoutOutlined />,
   cytoscape: <RadarChartOutlined />,
-  x6:<CreditCardOutlined />,
-  bpmn:<BarChartOutlined />
+  x6: <CreditCardOutlined />,
+  bpmn: <BarChartOutlined />,
 }
