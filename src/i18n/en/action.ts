@@ -7,6 +7,5 @@ export default {
   setting: 'setting',
   edit: 'edit',
   delete: 'delete',
-  search: 'Search your files',
   create: 'Create new',
 }

@@ -1,13 +1,15 @@
 /** @format */
 
-import actions from './actions'
+import action from './action'
 import login from './login'
 import validate from './validate'
 import list from './list'
+import router from './router'
 
 export default {
-  actions,
+  action,
   login,
   validate,
   list,
+  router
 }

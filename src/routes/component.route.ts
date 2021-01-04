@@ -2,6 +2,8 @@
 
 import { AsyncComponent } from '@components/index'
 import RouteLayout from '@layouts/route-layout'
+import i18n from 'i18next'
+
 const TableView = AsyncComponent(() => import('@views/comps/table/index'))
 const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))
 const GraphLayoutView = AsyncComponent(() => import('@views/comps/graph-layout/index'))
@@ -14,7 +16,7 @@ const componentsRoute = {
   component: RouteLayout,
   meta: {
     key: 'Components',
-    name: '组件',
+    name: 'router.component',
     iconType: 'component',
   },
   children: [
@@ -23,7 +25,7 @@ const componentsRoute = {
       component: TableView,
       meta: {
         key: 'CList',
-        name: '列表',
+        name: 'router.list',
         iconType: 'list',
       },
     },
@@ -32,7 +34,7 @@ const componentsRoute = {
       component: EditorView,
       meta: {
         key: 'CEditor',
-        name: '富文本',
+        name: 'router.editor',
         iconType: 'editor',
       },
     },
@@ -41,7 +43,7 @@ const componentsRoute = {
       component: GraphLayoutView,
       meta: {
         key: 'GraphLayout',
-        name: '画布布局',
+        name: 'router.layout',
         iconType: 'layout',
       },
     },
@@ -68,7 +70,7 @@ const componentsRoute = {
       component: BpmnView,
       meta: {
         key: 'BpmnEditor',
-        name: 'Bpmn编辑器',
+        name: 'Bpmn',
         iconType: 'bpmn',
       },
     },

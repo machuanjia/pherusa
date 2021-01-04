@@ -6,6 +6,21 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 import langEN from '@i18n/en'
 import langCN from '@i18n/zh'
+import zhCN from 'antd/lib/locale/zh_CN'
+import enUS from 'antd/lib/locale/en_US'
+
+const ANTD_LOCAL_MAP = {
+  en: enUS,
+  zh: zhCN,
+}
+
+export const getLocal = () => {
+  return localStorage.getItem('i18nextLng') || 'zh'
+}
+
+export const getAntdLocal = () => {
+  return ANTD_LOCAL_MAP[getLocal()]
+}
 
 i18n
   // load translation using http -> see /public/locales

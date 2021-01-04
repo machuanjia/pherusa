@@ -7,6 +7,7 @@ import { withRouter } from 'react-router-dom'
 import store from '@stores/store'
 import { find } from 'lodash'
 import { ICON_MAP } from '@constants/index'
+import i18n from 'i18next'
 
 interface INavbarProps {
   location: {
@@ -21,7 +22,7 @@ class NavbarComponent extends Component<INavbarProps, INavbarState> {
     let title = '来也'
     let icon = null
     if (route && route.meta) {
-      title = route.meta.name
+      title = i18n.t(route.meta.name)
       icon = route.meta.iconType ? ICON_MAP[route.meta.iconType] : <i className={route.meta.className}></i>
     }
 

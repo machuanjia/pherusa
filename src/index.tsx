@@ -10,7 +10,6 @@ import '@i18n'
 import { Provider } from 'react-redux'
 import store from '@stores/store'
 import { BrowserRouter } from 'react-router-dom'
-import zhCN from 'antd/lib/locale/zh_CN'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import { history } from '@utils/history'
 import { ConfigProvider } from 'antd'
@@ -21,6 +20,7 @@ import '@antv/x6-react-components/es/menu/style/index.css'
 import '@antv/x6-react-components/es/toolbar/style/index.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
+import { getAntdLocal } from '@i18n/index'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -28,7 +28,7 @@ ReactDOM.render(
       <title>来也科技</title>
     </Helmet>
     <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
-      <ConfigProvider locale={zhCN} componentSize="middle">
+      <ConfigProvider locale={getAntdLocal()} componentSize="middle">
         <App />
       </ConfigProvider>
     </BrowserRouter>

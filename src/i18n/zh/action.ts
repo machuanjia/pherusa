@@ -7,6 +7,5 @@ export default {
   setting: '设置',
   edit: '编辑',
   delete: '删除',
-  search: '搜索你的文件',
   create: '新建',
 }

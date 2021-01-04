@@ -7,6 +7,7 @@ import { SketchPicker } from 'react-color'
 import { MODAL_SIZE } from '@constants/index'
 import i18n from 'i18next'
 import { QuestionCircleOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
+import { getLocal } from '@i18n/index'
 
 export default class PreferenceComponent extends Component {
   constructor(props) {
@@ -104,7 +105,7 @@ export default class PreferenceComponent extends Component {
           visible={this.state['isSettingVisible']}>
           <div className="text-dark m-b-8">语言</div>
           <div className="m-b-24">
-            <Radio.Group onChange={this.changeLang.bind(this)} defaultValue="zh-cn">
+            <Radio.Group onChange={this.changeLang.bind(this)} defaultValue={getLocal()}>
               <Radio.Button value="zh">中文</Radio.Button>
               <Radio.Button value="en">英文</Radio.Button>
               <Radio.Button value="ZH">繁体</Radio.Button>
@@ -112,10 +113,10 @@ export default class PreferenceComponent extends Component {
           </div>
           <div className="text-dark m-b-8">部件大小</div>
           <div className="m-b-24">
-            <Radio.Group onChange={this.changeLang.bind(this)} defaultValue="zh-cn">
-              <Radio.Button value="zh-cn">大</Radio.Button>
-              <Radio.Button value="en">中</Radio.Button>
-              <Radio.Button value="ZH">小</Radio.Button>
+            <Radio.Group onChange={this.changeLang.bind(this)} defaultValue="middle">
+              <Radio.Button value="large">大</Radio.Button>
+              <Radio.Button value="middle">中</Radio.Button>
+              <Radio.Button value="small">小</Radio.Button>
             </Radio.Group>
           </div>
           <div className="text-dark m-b-8">主题</div>

@@ -57,15 +57,15 @@ class TableView extends Component<IListMixin, ITableState> {
         render: (text, record) => (
           <span>
             <span className="m-l-12 m-r-12 icon-action">
-              <SettingOutlined /> {i18n.t('actions.setting')}
+              <SettingOutlined /> {i18n.t('action.setting')}
             </span>
             <span className="m-l-12 m-r-12 icon-action">
-              <Tooltip placement="top" title={i18n.t('actions.edit')}>
+              <Tooltip placement="top" title={i18n.t('action.edit')}>
                 <EditOutlined onClick={this.editAction.bind(this, record)} />
               </Tooltip>
             </span>
             <span className="m-l-12 m-r-12 icon-action">
-              <Tooltip placement="top" title={i18n.t('actions.delete')}>
+              <Tooltip placement="top" title={i18n.t('action.delete')}>
                 <DeleteOutlined onClick={this.deleteAction.bind(this, record)} />
               </Tooltip>
             </span>
@@ -102,18 +102,18 @@ class TableView extends Component<IListMixin, ITableState> {
             className="search"
             onKeyDown={searchAction}
             suffix={<SearchOutlined />}
-            placeholder={i18n.t('actions.search')}
+            placeholder={i18n.t('list.search')}
           />
         </Fragment>
         <Fragment key="actions">
           <Button type="primary" icon={<PlusOutlined />} className={`${'action-btn'}`} onClick={openCollection}>
-            {i18n.t('actions.create')}
+            {i18n.t('action.create')}
           </Button>
         </Fragment>
         <Fragment key="main">
           {this.getTable()}
           <Modal
-            title={i18n.t('actions.create')}
+            title={i18n.t('action.create')}
             visible={isCollectionVisible}
             width={MODAL_SIZE.md}
             destroyOnClose={true}
