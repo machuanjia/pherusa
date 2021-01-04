@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addRoles } from '@stores/app/app.actions'
 import styles from './redirect.module.less'
-import { Icon } from 'laiye-antd'
+import { LoadingOutlined } from '@ant-design/icons'
 import { setInfo } from '../../permission'
 
 interface IRedirectProps {
@@ -32,7 +32,7 @@ class RedirectView extends Component<IRedirectProps, IRedirectState> {
     return (
       <div className={styles['redirect-wrap']}>
         <div className={styles['redirect-content']}>
-          <Icon type="loading" />
+          <LoadingOutlined />
           <br />
           <div className={styles['redirect-loading-text']}>Loading</div>
         </div>

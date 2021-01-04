@@ -1,11 +1,12 @@
 /** @format */
-import { Avatar, Drawer, Icon, Menu, Modal, Popover, Radio } from 'laiye-antd'
+import { Avatar, Drawer, Menu, Modal, Popover, Radio } from 'antd'
 import React, { Component } from 'react'
 import styles from './preference.module.less'
 import { logout } from '@utils/index'
 import { SketchPicker } from 'react-color'
 import { MODAL_SIZE } from '@constants/index'
 import i18n from 'i18next'
+import { QuestionCircleOutlined, SettingOutlined, LogoutOutlined } from '@ant-design/icons'
 
 export default class PreferenceComponent extends Component {
   constructor(props) {
@@ -50,13 +51,13 @@ export default class PreferenceComponent extends Component {
     const content = (
       <Menu style={{ width: 200 }} className={`${styles['prefernce-menu']}`} onClick={this.menuAction.bind(this)}>
         <Menu.Item key="log">
-          <Icon type="question-circle" /> 更新日志
+          <QuestionCircleOutlined /> 更新日志
         </Menu.Item>
         <Menu.Item key="setting">
-          <Icon type="setting" /> 个人设置
+          <SettingOutlined /> 个人设置
         </Menu.Item>
         <Menu.Item key="logout">
-          <Icon type="logout" /> 退出
+          <LogoutOutlined /> 退出
         </Menu.Item>
       </Menu>
     )

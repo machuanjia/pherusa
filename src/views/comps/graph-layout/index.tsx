@@ -1,7 +1,7 @@
 /** @format */
 
 import { MODAL_SIZE } from '@constants/index'
-import { Button, Modal } from 'laiye-antd'
+import { Button, Modal } from 'antd'
 import React, { Component } from 'react'
 import ChordComponent from './components/chord.component'
 import ClusterComponent from './components/cluster.component'

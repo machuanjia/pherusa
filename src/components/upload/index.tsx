@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component, Fragment } from 'react'
-import { Upload, message, Button, Icon, Modal, Table } from 'laiye-antd'
+import { Upload, message, Button, Modal, Table } from 'antd'
 import { ModalDragComponent } from '@components/index'
 import styles from './upload.module.less'
 import { getFileIconByName } from '@utils/index'
@@ -11,6 +11,7 @@ import { getFileSize } from '@utils/index'
 import { MODAL_SIZE } from '@constants/index'
 import { IFile } from '@entities/file'
 import { UPLOAD_POP_STATUS } from './upload.constant'
+import { LoadingOutlined } from '@ant-design/icons'
 
 interface IUploadProps {}
 interface IUploadState {
@@ -124,7 +125,7 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
   getFileStatus(text, row, index) {
     const icon =
       row.status === 'uploading' ? (
-        <Icon className="text-primary" type="loading" />
+        <LoadingOutlined />
       ) : (
         <i className={FILE_STATUS_MAP[row.status]['icon']}></i>
       )

@@ -2,12 +2,13 @@
 
 import React, { Component, Fragment } from 'react'
 import { ContentLayoutComponent } from '@components/index'
-import { Table, Input, Icon, Button, Tooltip, Modal } from 'laiye-antd'
+import { Table, Input, Button, Tooltip, Modal } from 'antd'
 import { MODAL_SIZE } from '@constants/index'
 import TableCollecrtionComponent from './table.collection.component'
 import { ListMixin } from '@components/mixin/list.mixin'
 import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index'
 import { IListMixin } from '@entities/mixin'
+import { SettingOutlined, EditOutlined, DeleteOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons'
 
 interface ITableState {}
 
@@ -51,19 +52,20 @@ class TableView extends Component<IListMixin, ITableState> {
       {
         title: '操作',
         key: 'action',
+        width:200,
         render: (text, record) => (
           <span>
             <span className="m-l-12 m-r-12 icon-action">
-              <Icon type="setting" /> 设置
+              <SettingOutlined /> 设置
             </span>
             <span className="m-l-12 m-r-12 icon-action">
-              <Tooltip type="bright" placement="top" title="编辑">
-                <Icon type="form" onClick={this.editAction.bind(this, record)} />
+              <Tooltip placement="top" title="编辑">
+                <EditOutlined onClick={this.editAction.bind(this, record)} />
               </Tooltip>
             </span>
             <span className="m-l-12 m-r-12 icon-action">
-              <Tooltip type="bright" placement="top" title="删除">
-                <Icon type="delete" onClick={this.deleteAction.bind(this, record)} />
+              <Tooltip placement="top" title="删除">
+                <DeleteOutlined onClick={this.deleteAction.bind(this, record)} />
               </Tooltip>
             </span>
           </span>
@@ -95,15 +97,10 @@ class TableView extends Component<IListMixin, ITableState> {
     return (
       <ContentLayoutComponent>
         <Fragment key="left">
-          <Input
-            className="search"
-            onKeyDown={searchAction}
-            suffix={<Icon type="search" />}
-            placeholder="搜索你的文件"
-          />
+          <Input className="search" onKeyDown={searchAction} suffix={<SearchOutlined />} placeholder="搜索你的文件" />
         </Fragment>
         <Fragment key="actions">
-          <Button type="primary" icon="plus" className={`${'action-btn'}`} onClick={openCollection}>
+          <Button type="primary" icon={<PlusOutlined />} className={`${'action-btn'}`} onClick={openCollection}>
             新建
           </Button>
         </Fragment>

@@ -2,7 +2,7 @@
 
 import React, { Component, Fragment } from 'react'
 import { ContentLayoutComponent } from '@components/index'
-import { Button } from 'laiye-antd'
+import { Button } from 'antd'
 import BasicCytoscapeComponent from './components/basic-cytoscape'
 import LayoutCytoscapeComponent from './components/layout-cytoscape'
 import StylesCytoscapeComponent from './components/styles-cytoscape'

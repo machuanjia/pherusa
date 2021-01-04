@@ -1,13 +1,20 @@
 /** @format */
 
-import { Icon, Modal } from 'laiye-antd'
+import { Modal, Slider } from 'antd'
 import React, { Component, Fragment } from 'react'
 import styles from './../cytoscape.module.less'
 import { data } from './data'
 import { CytoscapeGenerator } from './util-cytoscape'
 import { Line } from '@ant-design/charts'
-import { Slider } from 'laiye-antd'
 import { filter, map, isUndefined } from 'lodash'
+import {
+  ZoomInOutlined,
+  ZoomOutOutlined,
+  PicCenterOutlined,
+  FileImageOutlined,
+  FilePdfOutlined,
+} from '@ant-design/icons'
+
 interface IProdCytoscapeProps {}
 interface IProdCytoscapeState {
   nodeDetailVisible: boolean
@@ -148,11 +155,11 @@ export default class ProdCytoscapeComponent extends Component<IProdCytoscapeProp
             <Slider defaultValue={100} onAfterChange={this.onAfterChange.bind(this)} />
           </div>
           <div className={styles['cytoscape-actions-buttons']}>
-            <Icon className="fs-18 m-r-8" type="zoom-in" onClick={this.zoomIn.bind(this)} />
-            <Icon className="fs-18 m-r-8" type="zoom-out" onClick={this.zoomOut.bind(this)} />
-            <Icon className="fs-18 m-r-8" type="pic-center" onClick={this.center.bind(this)} />
-            <Icon className="fs-18 m-r-8" type="file-image" onClick={this.exportImg.bind(this)} />
-            <Icon className="fs-18 m-r-8" type="file-pdf" onClick={this.exportPdf.bind(this)} />
+            <ZoomInOutlined className="fs-18 m-r-8" onClick={this.zoomIn.bind(this)} />
+            <ZoomOutOutlined className="fs-18 m-r-8" onClick={this.zoomOut.bind(this)} />
+            <PicCenterOutlined className="fs-18 m-r-8" onClick={this.center.bind(this)} />
+            <FileImageOutlined className="fs-18 m-r-8" onClick={this.exportImg.bind(this)} />
+            <FilePdfOutlined className="fs-18 m-r-8" onClick={this.exportPdf.bind(this)} />
           </div>
         </div>
         <div id="cy" className={styles['cytoscape-wrap']}></div>

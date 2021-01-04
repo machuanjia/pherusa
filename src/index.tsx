@@ -13,7 +13,7 @@ import { BrowserRouter } from 'react-router-dom'
 import zhCN from 'antd/lib/locale/zh_CN'
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
 import { history } from '@utils/history'
-import { ConfigProvider } from 'laiye-antd'
+import { ConfigProvider } from 'antd'
 import 'tippy.js/index.css'
 import 'cytoscape-context-menus/cytoscape-context-menus.css'
 import 'cytoscape-navigator/cytoscape.js-navigator.css'
@@ -29,7 +29,7 @@ ReactDOM.render(
       <title>来也科技</title>
     </Helmet>
     <BrowserRouter basename={process.env.PUBLIC_URL} history={history}>
-      <ConfigProvider locale={zhCN}>
+      <ConfigProvider locale={zhCN} componentSize="middle">
         <App />
       </ConfigProvider>
     </BrowserRouter>

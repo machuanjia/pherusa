@@ -1,7 +1,7 @@
 /** @format */
 
 import axios from 'axios'
-import { message } from 'laiye-antd'
+import { message } from 'antd'
 import { logout } from '@utils/index'
 
 const service = axios.create({

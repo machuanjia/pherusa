@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { Component } from 'react'
-import { Button, Modal } from 'laiye-antd'
+import { Button, Modal } from 'antd'
 import { MODAL_SIZE } from '@constants/index'
 import BpmnBasicComponent from './bpmn/basic.component'
 import BpmnEventComponent from './bpmn/event.component'
