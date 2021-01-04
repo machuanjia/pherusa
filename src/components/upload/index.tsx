@@ -124,11 +124,7 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
   }
   getFileStatus(text, row, index) {
     const icon =
-      row.status === 'uploading' ? (
-        <LoadingOutlined />
-      ) : (
-        <i className={FILE_STATUS_MAP[row.status]['icon']}></i>
-      )
+      row.status === 'uploading' ? <LoadingOutlined /> : <i className={FILE_STATUS_MAP[row.status]['icon']}></i>
     return (
       <Fragment>
         {icon} {FILE_STATUS_MAP[row.status]['label']}

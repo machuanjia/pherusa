@@ -52,7 +52,7 @@ class TableView extends Component<IListMixin, ITableState> {
       {
         title: '操作',
         key: 'action',
-        width:200,
+        width: 200,
         render: (text, record) => (
           <span>
             <span className="m-l-12 m-r-12 icon-action">
