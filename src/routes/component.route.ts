@@ -7,6 +7,7 @@ const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))
 const GraphLayoutView = AsyncComponent(() => import('@views/comps/graph-layout/index'))
 const CytoscapeView = AsyncComponent(() => import('@views/comps/cytoscape/index'))
 const X6View = AsyncComponent(() => import('@views/comps/x6/index'))
+const BpmnView = AsyncComponent(() => import('@views/bmpn/index'))
 
 const componentsRoute = {
   path: '/components',
@@ -32,7 +33,7 @@ const componentsRoute = {
       meta: {
         key: 'CEditor',
         name: '富文本',
-        iconType: 'table',
+        iconType: 'file-markdown',
       },
     },
     {
@@ -41,7 +42,7 @@ const componentsRoute = {
       meta: {
         key: 'GraphLayout',
         name: '画布布局',
-        iconType: 'LayoutOutlined',
+        iconType: 'layout',
       },
     },
     {
@@ -50,7 +51,7 @@ const componentsRoute = {
       meta: {
         key: 'Cytoscape',
         name: 'Cytoscape',
-        iconType: 'LayoutOutlined',
+        iconType: 'radar-chart',
       },
     },
     {
@@ -59,7 +60,17 @@ const componentsRoute = {
       meta: {
         key: 'X6',
         name: 'X6',
-        iconType: 'LayoutOutlined',
+        iconType: 'credit-card',
+      },
+    },
+    {
+      path: '/components/bpmn',
+      component: BpmnView,
+      meta: {
+        key: 'BpmnEditor',
+        name: 'Bpmn编辑器',
+        iconType: 'line-chart',
+        permission: 'bpmn.editor*',
       },
     },
   ],

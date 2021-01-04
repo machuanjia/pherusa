@@ -1,7 +1,6 @@
 /** @format */
 
 import { AsyncComponent } from '@components/index'
-import bpmnRoute from './bpmn.route'
 import componentsRoute from './component.route'
 import MainLayout from '@layouts/main'
 import RouteLayout from '@layouts/route-layout'
@@ -15,7 +14,7 @@ const NotFontVIew = AsyncComponent(() => import('@views/no-fond'))
 const DashboardView = AsyncComponent(() => import('@views/dashboard'))
 
 //动态路由，根据后台返回的权限动态生成
-export const asyncRouters = [bpmnRoute, componentsRoute]
+export const asyncRouters = [componentsRoute]
 
 //固定路由
 const routes = [
