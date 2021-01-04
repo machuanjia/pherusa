@@ -19,6 +19,8 @@ import 'cytoscape-context-menus/cytoscape-context-menus.css'
 import 'cytoscape-navigator/cytoscape.js-navigator.css'
 import '@antv/x6-react-components/es/menu/style/index.css'
 import '@antv/x6-react-components/es/toolbar/style/index.css'
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
 
 ReactDOM.render(
   <Provider store={store}>

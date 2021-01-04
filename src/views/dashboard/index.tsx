@@ -1,10 +1,15 @@
 /** @format */
 
-import React, { Component, useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import GridLayout from 'react-grid-layout'
 import { Line, Bar, Pie, DualAxes } from '@ant-design/charts'
+import styles from './dashboard.module.less'
 
 export default class DashboardView extends Component {
+  getWidth() {
+    return document.documentElement.clientWidth - 140
+  }
+
   render() {
     const data = [
       { year: '1991', value: 3 },
@@ -168,17 +173,17 @@ export default class DashboardView extends Component {
       { i: 'd', x: 0, y: 4, w: 8, h: 3 },
     ]
     return (
-      <GridLayout className="layout" layout={layout} cols={12} rowHeight={100} width={1200}>
-        <div key="a">
+      <GridLayout className="layout" layout={layout} cols={24} autoSize={true} rowHeight={100} width={this.getWidth()}>
+        <div key="a" className={styles['card-wrap']}>
           <Line {...config} />
         </div>
-        <div key="b">
+        <div key="b" className={styles['card-wrap']}>
           <Bar {...config_bar} />
         </div>
-        <div key="c">
+        <div key="c" className={styles['card-wrap']}>
           <Pie {...config_pie} />
         </div>
-        <div key="d">
+        <div key="d" className={styles['card-wrap']}>
           <DualAxes {...config_dual} />
         </div>
       </GridLayout>
