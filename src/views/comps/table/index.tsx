@@ -98,7 +98,12 @@ class TableView extends Component<IListMixin, ITableState> {
     return (
       <ContentLayoutComponent>
         <Fragment key="left">
-          <Input className="search" onKeyDown={searchAction} suffix={<SearchOutlined />} placeholder={i18n.t('actions.search')} />
+          <Input
+            className="search"
+            onKeyDown={searchAction}
+            suffix={<SearchOutlined />}
+            placeholder={i18n.t('actions.search')}
+          />
         </Fragment>
         <Fragment key="actions">
           <Button type="primary" icon={<PlusOutlined />} className={`${'action-btn'}`} onClick={openCollection}>

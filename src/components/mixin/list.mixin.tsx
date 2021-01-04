@@ -60,7 +60,7 @@ export const ListMixin = ComposedComponent =>
       this.pagination.pageSize = pageSize
       this.getList()
     }
-    
+
     pageChange(page, pageSize) {
       this.pagination.pageIndex = page
       this.getList()
