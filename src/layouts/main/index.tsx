@@ -7,6 +7,7 @@ import { RouteView } from '@components/index'
 import PreferenceComponent from '../preference'
 import NavbarComponent from '../navbar'
 
+
 interface IMainLayoutProps {
   route: any
 }

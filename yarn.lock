@@ -9093,13 +9093,6 @@ klona@^2.0.4:
   resolved "http://npm.laiye.com/klona/-/klona-2.0.4.tgz#7bb1e3affb0cb8624547ef7e8f6708ea2e39dfc0"
   integrity sha1-e7Hjr/sMuGJFR+9+j2cI6i4538A=
 
-laiye-antd@0.0.27:
-  version "0.0.27"
-  resolved "http://npm.laiye.com/laiye-antd/-/laiye-antd-0.0.27.tgz#aaeec5213f1ff1dfefa5551e57aa154071b5d233"
-  integrity sha512-5sD7k4Y3cYaeYsFc7FUlx4Wm5Doe6GnL7JyX+Q6kMVW29lZ2z9dERUJFHKGYgj93VVEyx7GEfZsEm/D45uN7mQ==
-  dependencies:
-    antd "^3.26.18"
-
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "http://npm.laiye.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"

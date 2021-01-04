@@ -35,7 +35,6 @@
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.21",
     "jspdf": "2.2.0",
-    "laiye-antd": "0.0.27",
     "react": "^17.0.1",
     "react-bpmn": "^0.2.0",
     "react-color": "^2.19.3",

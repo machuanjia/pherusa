@@ -21,7 +21,6 @@ import '@antv/x6-react-components/es/menu/style/index.css'
 import '@antv/x6-react-components/es/toolbar/style/index.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
-import 'antd/dist/antd.css'
 
 ReactDOM.render(
   <Provider store={store}>

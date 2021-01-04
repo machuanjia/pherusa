@@ -6,7 +6,7 @@ import styles from './navbar.module.less'
 import { withRouter } from 'react-router-dom'
 import store from '@stores/store'
 import { find } from 'lodash'
-import { Icon } from 'laiye-antd'
+import { ICON_MAP } from '@constants/index'
 
 interface INavbarProps {
   location: {
@@ -22,7 +22,7 @@ class NavbarComponent extends Component<INavbarProps, INavbarState> {
     let icon = null
     if (route && route.meta) {
       title = route.meta.name
-      icon = route.meta.iconType ? <Icon type={route.meta.iconType} /> : <i className={route.meta.className}></i>
+      icon = route.meta.iconType ? ICON_MAP[route.meta.iconType] : <i className={route.meta.className}></i>
     }
 
     return (

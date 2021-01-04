@@ -1,13 +1,14 @@
 /** @format */
 
 import React, { Component } from 'react'
-import { Icon, Menu } from 'laiye-antd'
+import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
 import { filter, map, find } from 'lodash'
 import store from '@stores/store'
 import styles from './nav.module.less'
 import { SET_ACTIVE_NAV } from '@stores/app/app.types'
 import { ROUTE_APP_KEY } from '@routes/index'
+import { ICON_MAP } from '@constants/index'
 
 interface IRoute {
   path: string
@@ -77,12 +78,12 @@ export default class NavComponent extends Component<INavProps, INavState> {
               title={
                 n.meta.redirect ? (
                   <Link to={n.meta.redirect} className={styles['nav-item']}>
-                    {n.meta.iconType ? <Icon type={n.meta.iconType} /> : <i className={n.meta.className}></i>}
+                    {n.meta.iconType ? ICON_MAP[n.meta.iconType] : <i className={n.meta.className}></i>}
                     <span>{n.meta.name}</span>
                   </Link>
                 ) : (
                   <span>
-                    {n.meta.iconType ? <Icon type={n.meta.iconType} /> : <i className={n.meta.className}></i>}
+                    {n.meta.iconType ? ICON_MAP[n.meta.iconType] : <i className={n.meta.className}></i>}
                     <span>{n.meta.name}</span>
                   </span>
                 )
@@ -94,22 +95,14 @@ export default class NavComponent extends Component<INavProps, INavState> {
                   }
                   let link = (
                     <Link to={item.path}>
-                      {item.meta.iconType ? (
-                        <Icon type={item.meta.iconType} />
-                      ) : (
-                        <i className={item.meta.className}></i>
-                      )}
+                      {item.meta.iconType ? ICON_MAP[item.meta.iconType] : <i className={item.meta.className}></i>}
                       {item.meta.name}
                     </Link>
                   )
                   if (item.meta.isLink) {
                     link = (
                       <a href={item.path} target="_blank" rel="noopener noreferrer">
-                        {item.meta.iconType ? (
-                          <Icon type={item.meta.iconType} />
-                        ) : (
-                          <i className={item.meta.className}></i>
-                        )}
+                        {item.meta.iconType ? ICON_MAP[item.meta.iconType] : <i className={item.meta.className}></i>}
                         {item.meta.name}
                       </a>
                     )

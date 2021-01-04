@@ -45,7 +45,7 @@ module.exports = {
   },
   babel: {
     plugins: [
-      ['import', { libraryName: 'laiye-antd', style: true }],
+      ['import', { libraryName: 'antd', style: true }],
       [
         'import',
         {

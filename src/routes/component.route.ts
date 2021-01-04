@@ -15,7 +15,7 @@ const componentsRoute = {
   meta: {
     key: 'Components',
     name: '组件',
-    iconType: 'appstore',
+    iconType: 'component',
   },
   children: [
     {
@@ -24,7 +24,7 @@ const componentsRoute = {
       meta: {
         key: 'CList',
         name: '列表',
-        iconType: 'table',
+        iconType: 'list',
       },
     },
     {
@@ -33,7 +33,7 @@ const componentsRoute = {
       meta: {
         key: 'CEditor',
         name: '富文本',
-        iconType: 'file-markdown',
+        iconType: 'editor',
       },
     },
     {
@@ -51,7 +51,7 @@ const componentsRoute = {
       meta: {
         key: 'Cytoscape',
         name: 'Cytoscape',
-        iconType: 'radar-chart',
+        iconType: 'cytoscape',
       },
     },
     {
@@ -60,7 +60,7 @@ const componentsRoute = {
       meta: {
         key: 'X6',
         name: 'X6',
-        iconType: 'credit-card',
+        iconType: 'x6',
       },
     },
     {
@@ -69,8 +69,7 @@ const componentsRoute = {
       meta: {
         key: 'BpmnEditor',
         name: 'Bpmn编辑器',
-        iconType: 'line-chart',
-        permission: 'bpmn.editor*',
+        iconType: 'bpmn',
       },
     },
   ],
