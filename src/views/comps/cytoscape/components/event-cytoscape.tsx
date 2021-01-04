@@ -183,13 +183,13 @@ export default class EventCytoscapeComponent extends Component {
 
     // 生成2000个node
     console.time('2000')
-    for (var i = 0; i < 2000; i++) {
+    for (let i = 0; i < 2000; i++) {
       this.cy.add({ group: 'nodes', data: { id: 'i' + i }, position: { x: 300 + i * 50, y: 400 } })
     }
     console.timeEnd('2000')
 
     console.time('5000')
-    for (var i = 0; i < 5000; i++) {
+    for (let i = 0; i < 5000; i++) {
       this.cy.add({ group: 'nodes', data: { id: 'j' + i }, position: { x: 300 + i * 20, y: 500 } })
     }
     console.timeEnd('5000')
