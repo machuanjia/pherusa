@@ -7,5 +7,5 @@ import validate from './validate'
 export default {
   common,
   login,
-  validate
+  validate,
 }
