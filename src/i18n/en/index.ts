@@ -1,11 +1,13 @@
 /** @format */
 
-import common from './common'
+import actions from './actions'
 import login from './login'
 import validate from './validate'
+import list from './list'
 
 export default {
-  common,
+  actions,
   login,
   validate,
+  list,
 }

@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import { isPhone } from '@utils/index'
 import { Form, Input, Button } from 'antd'
+import i18n from 'i18next'
 
 interface ITableCollectionProps {
   callback: ({ isVisible, isRefresh }) => {}
@@ -62,9 +63,9 @@ export default class TableCollecrtionComponent extends Component<ITableCollectio
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="m-r-12">
-            保存
+            {i18n.t('actions.save')}
           </Button>
-          <Button onClick={this.cancel.bind(this)}>取消</Button>
+          <Button onClick={this.cancel.bind(this)}> {i18n.t('actions.cancel')}</Button>
         </Form.Item>
       </Form>
     )

@@ -9,6 +9,7 @@ import { ListMixin } from '@components/mixin/list.mixin'
 import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index'
 import { IListMixin } from '@entities/mixin'
 import { SettingOutlined, EditOutlined, DeleteOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons'
+import i18n from 'i18next'
 
 interface ITableState {}
 
@@ -34,37 +35,37 @@ class TableView extends Component<IListMixin, ITableState> {
     const { data, loading, pagination, getRowKey } = this.props
     const columns = [
       {
-        title: '名称',
+        title: i18n.t('list.name'),
         dataIndex: 'username',
         key: 'username',
         render: text => text,
       },
       {
-        title: '密码',
+        title: i18n.t('list.password'),
         dataIndex: 'password',
         key: 'password',
       },
       {
-        title: '地址',
+        title: i18n.t('list.address'),
         dataIndex: 'address',
         key: 'address',
       },
       {
-        title: '操作',
+        title: i18n.t('list.operation'),
         key: 'action',
         width: 200,
         render: (text, record) => (
           <span>
             <span className="m-l-12 m-r-12 icon-action">
-              <SettingOutlined /> 设置
+              <SettingOutlined /> {i18n.t('actions.setting')}
             </span>
             <span className="m-l-12 m-r-12 icon-action">
-              <Tooltip placement="top" title="编辑">
+              <Tooltip placement="top" title={i18n.t('actions.edit')}>
                 <EditOutlined onClick={this.editAction.bind(this, record)} />
               </Tooltip>
             </span>
             <span className="m-l-12 m-r-12 icon-action">
-              <Tooltip placement="top" title="删除">
+              <Tooltip placement="top" title={i18n.t('actions.delete')}>
                 <DeleteOutlined onClick={this.deleteAction.bind(this, record)} />
               </Tooltip>
             </span>
@@ -97,17 +98,17 @@ class TableView extends Component<IListMixin, ITableState> {
     return (
       <ContentLayoutComponent>
         <Fragment key="left">
-          <Input className="search" onKeyDown={searchAction} suffix={<SearchOutlined />} placeholder="搜索你的文件" />
+          <Input className="search" onKeyDown={searchAction} suffix={<SearchOutlined />} placeholder={i18n.t('actions.search')} />
         </Fragment>
         <Fragment key="actions">
           <Button type="primary" icon={<PlusOutlined />} className={`${'action-btn'}`} onClick={openCollection}>
-            新建
+            {i18n.t('actions.create')}
           </Button>
         </Fragment>
         <Fragment key="main">
           {this.getTable()}
           <Modal
-            title="新建"
+            title={i18n.t('actions.create')}
             visible={isCollectionVisible}
             width={MODAL_SIZE.md}
             destroyOnClose={true}
