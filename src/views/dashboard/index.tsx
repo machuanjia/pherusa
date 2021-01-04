@@ -4,13 +4,22 @@ import React, { Component } from 'react'
 import GridLayout from 'react-grid-layout'
 import { Line, Bar, Pie, DualAxes } from '@ant-design/charts'
 import styles from './dashboard.module.less'
+import { map } from 'lodash'
 
 export default class DashboardView extends Component {
-  getWidth() {
-    return document.documentElement.clientWidth - 140
+  private layout = [
+    { i: 'a', x: 0, y: 0, w: 4, h: 3 },
+    { i: 'b', x: 4, y: 0, w: 8, h: 3 },
+    { i: 'c', x: 8, y: 4, w: 4, h: 3 },
+    { i: 'd', x: 0, y: 4, w: 8, h: 3 },
+  ]
+
+  constructor(props) {
+    super(props)
+    localStorage.getItem('dashboard') && (this.layout = JSON.parse(localStorage.getItem('dashboard')))
   }
 
-  render() {
+  getLine() {
     const data = [
       { year: '1991', value: 3 },
       { year: '1992', value: 4 },
@@ -32,7 +41,10 @@ export default class DashboardView extends Component {
         shape: 'diamond',
       },
     }
+    return <Line {...config} />
+  }
 
+  getBar() {
     const data_bar = [
       {
         type: '分类一',
@@ -77,7 +89,10 @@ export default class DashboardView extends Component {
       //   layout: [{ type: 'adjust-color' }],
       // },
     }
+    return <Bar {...config_bar} />
+  }
 
+  getPie() {
     const data_pie = [
       {
         type: '分类一',
@@ -124,8 +139,11 @@ export default class DashboardView extends Component {
       },
       interactions: [{ type: 'element-active' }],
     }
+    return <Pie {...config_pie} />
+  }
 
-    var data_dual = [
+  getAxes() {
+    const data_dual = [
       {
         time: '2019-03',
         value: 350,
@@ -152,7 +170,7 @@ export default class DashboardView extends Component {
         count: 220,
       },
     ]
-    var config_dual = {
+    const config_dual = {
       data: [data_dual, data_dual],
       xField: 'time',
       yField: ['value', 'count'],
@@ -164,27 +182,48 @@ export default class DashboardView extends Component {
         },
       ],
     }
+    return <DualAxes {...config_dual} />
+  }
 
-    // layout is an array of objects, see the demo for more complete usage
-    const layout = [
-      { i: 'a', x: 0, y: 0, w: 4, h: 3 },
-      { i: 'b', x: 4, y: 0, w: 8, h: 3 },
-      { i: 'c', x: 8, y: 4, w: 4, h: 3 },
-      { i: 'd', x: 0, y: 4, w: 8, h: 3 },
-    ]
+  getWidth() {
+    return document.documentElement.clientWidth - 140
+  }
+
+  onLayoutChange(layouts) {
+    const layout = []
+    map(layouts, n => {
+      layout.push({
+        i: n.i,
+        x: n.x,
+        y: n.y,
+        w: n.w,
+        h: n.h,
+      })
+    })
+    localStorage.setItem('dashboard', JSON.stringify(layout))
+  }
+
+  render() {
     return (
-      <GridLayout className="layout" layout={layout} cols={24} autoSize={true} rowHeight={100} width={this.getWidth()}>
+      <GridLayout
+        className="layout"
+        onLayoutChange={this.onLayoutChange.bind(this)}
+        layout={this.layout}
+        cols={24}
+        autoSize={true}
+        rowHeight={100}
+        width={this.getWidth()}>
         <div key="a" className={styles['card-wrap']}>
-          <Line {...config} />
+          {this.getLine()}
         </div>
         <div key="b" className={styles['card-wrap']}>
-          <Bar {...config_bar} />
+          {this.getBar()}
         </div>
         <div key="c" className={styles['card-wrap']}>
-          <Pie {...config_pie} />
+          {this.getPie()}
         </div>
         <div key="d" className={styles['card-wrap']}>
-          <DualAxes {...config_dual} />
+          {this.getAxes()}
         </div>
       </GridLayout>
     )
