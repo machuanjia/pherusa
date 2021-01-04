@@ -9,6 +9,8 @@ import { connect } from 'react-redux'
 import { signIn } from '@apis/users'
 import { addToken } from '@stores/app/app.actions'
 import { setToken } from '@utils/index'
+import { Trans } from 'react-i18next'
+import i18n from 'i18next'
 
 interface ILoginProps {
   addToken: (token: string) => {}
@@ -52,18 +54,22 @@ class LoginView extends Component<ILoginProps, ILoginState> {
         <div className={styles['login-main']}>
           <div className={styles['login-form-wrap']}>
             <div className={styles['login-form-header']}>
-              <div className={styles['login-form-title']}>来也科技登录</div>
-              <div className={styles['login-form-desc']}>欢迎访问来也科技专区</div>
+              <div className={styles['login-form-title']}>
+                <Trans i18nKey="login.title"></Trans>
+              </div>
+              <div className={styles['login-form-desc']}>
+                <Trans i18nKey="login.desc"></Trans>
+              </div>
             </div>
             <div className={styles['login-form-body']}>
               <Form onFinish={this.handleSubmit.bind(this)} className={styles['page-form']}>
                 <Form.Item name="phone" rules={[{ validator: this.checkPhone.bind(this) }]}>
-                  <Input className="xlarge" placeholder="请输入手机号" />
+                  <Input className="xlarge" placeholder={i18n.t('login.desc')} />
                 </Form.Item>
-                <Form.Item name="captcha" rules={[{ required: true, message: '请输入正确的验证码' }]}>
+                <Form.Item name="captcha" rules={[{ required: true, message: i18n.t('validate.captcha.message') }]}>
                   <div className="flex-r">
                     <div className="flex-1">
-                      <Input className="xlarge" type="captcha" placeholder="请输入验证码" />
+                      <Input className="xlarge" type="captcha" placeholder={i18n.t('validate.captcha.placeholder')} />
                     </div>
                     <div className="m-l-12">
                       <Button type="primary" className="xlarge">

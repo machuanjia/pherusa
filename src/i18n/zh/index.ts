@@ -1,7 +1,11 @@
 /** @format */
 
-import common from '@i18n/zh/common'
+import common from './common'
+import login from './login'
+import validate from './validate'
 
 export default {
   ...common,
+  ...login,
+  ...validate,
 }
