@@ -1,24 +1,24 @@
 /** @format */
 
-import React, { Component } from 'react'
-interface IListProps {}
-interface IListState {
-  data: {}[]
-  loading: boolean
-  isCollectionVisible: boolean
-  entity: {}
-}
-export const ListMixin = ComposedComponent =>
-  class extends Component<IListProps, IListState> {
-    private instance = null
-    private fetchAction = null
-    private getDetailAction = null
-    private updateAction = null
-    private deleteAction = null
+import React, { Component } from 'react';
 
-    private beforeFetch = null
-    private afterFtech = null
-    private searchText = ''
+type IListState = {
+  data: Record<string, unknown>[];
+  loading: boolean;
+  isCollectionVisible: boolean;
+  entity: Record<string, unknown>;
+};
+export const listMixin = (ComposedComponent) =>
+  class extends Component<any, IListState> {
+    private instance = null;
+    private fetchAction = null;
+    private getDetailAction = null;
+    private updateAction = null;
+    private deleteAction = null;
+
+    private beforeFetch = null;
+    private afterFtech = null;
+    private searchText = '';
     private pagination = {
       showSizeChanger: true,
       onShowSizeChange: this.onShowSizeChange.bind(this),
@@ -28,65 +28,66 @@ export const ListMixin = ComposedComponent =>
       pageIndex: 1,
       pageSize: 20,
       total: 0,
-    }
+    };
     constructor(props) {
-      super(props)
+      super(props);
       this.state = {
         data: [],
         loading: false,
         isCollectionVisible: false,
         entity: null,
-      }
+      };
     }
 
     componentDidMount() {
-      this.beforeFetch()
-      this.getList()
-      this.afterFtech()
+      this.beforeFetch();
+      this.getList();
+      this.afterFtech();
     }
 
     searchAction(e) {
-      const code = e.keyCode
-      const value = e.target.value
+      const code = e.keyCode;
+      const { value } = e.target;
       if (code === 13) {
-        this.searchText = value
-        this.pagination.pageIndex = 1
-        this.pagination.pageSize = 20
-        this.getList()
+        this.searchText = value;
+        this.pagination.pageIndex = 1;
+        this.pagination.pageSize = 20;
+        this.getList();
       }
     }
 
     onShowSizeChange(current, pageSize) {
-      this.pagination.pageSize = pageSize
-      this.getList()
+      console.log(current);
+      this.pagination.pageSize = pageSize;
+      this.getList();
     }
 
-    pageChange(page, pageSize) {
-      this.pagination.pageIndex = page
-      this.getList()
+    pageChange(page) {
+      this.pagination.pageIndex = page;
+      this.getList();
     }
 
     openCollection() {
       this.setState({
         isCollectionVisible: true,
-      })
+      });
     }
 
     closeCollection() {
       this.setState({
         isCollectionVisible: false,
-      })
+      });
     }
 
     collectionCallBack({ isVisible, isRefresh }) {
-      isVisible && this.openCollection()
-      !isVisible && this.closeCollection()
-      isRefresh && this.getList()
+      isVisible && this.openCollection();
+      !isVisible && this.closeCollection();
+      isRefresh && this.getList();
     }
 
     getInstance(instance) {
       if (instance) {
-        this.instance = instance
+        this.instance = instance;
         const {
           fetchAction = () => {},
           getDetailAction = () => {},
@@ -94,33 +95,33 @@ export const ListMixin = ComposedComponent =>
           deleteAction = () => {},
           beforeFetch = () => {},
           afterFtech = () => {},
-        } = this.instance.init()
-        this.fetchAction = fetchAction
-        this.getDetailAction = getDetailAction
-        this.updateAction = updateAction
-        this.deleteAction = deleteAction
-        this.beforeFetch = beforeFetch
-        this.afterFtech = afterFtech
+        } = this.instance.init();
+        this.fetchAction = fetchAction;
+        this.getDetailAction = getDetailAction;
+        this.updateAction = updateAction;
+        this.deleteAction = deleteAction;
+        this.beforeFetch = beforeFetch;
+        this.afterFtech = afterFtech;
       }
     }
 
     getList() {
       this.setState({
         loading: true,
-      })
+      });
       this.fetchAction({
         pi: this.pagination.pageIndex - 1,
         ps: this.pagination.pageSize,
         keyword: this.searchText,
-      }).then(res => {
-        const { page, total, data } = res.data
-        this.pagination.total = total
-        this.pagination.pageIndex = page
+      }).then((res) => {
+        const { page, total, data } = res.data;
+        this.pagination.total = total;
+        this.pagination.pageIndex = page;
         this.setState({
           loading: false,
           data,
-        })
-      })
+        });
+      });
     }
 
     editEntity(id: string) {
@@ -129,27 +130,32 @@ export const ListMixin = ComposedComponent =>
           this.setState({
             entity: data,
             isCollectionVisible: true,
-          })
+          });
         },
-        err => {},
-      )
+        (err) => {
+          console.log(err);
+        },
+      );
     }
 
     deleteEntity(id: string) {
       this.deleteAction(id).then(
         ({ data }) => {
-          this.getList()
+          console.log(data);
+          this.getList();
         },
-        error => {},
-      )
+        (error) => {
+          console.log(error);
+        },
+      );
     }
 
     getRowKey(record, index) {
-      return record.id || record._id || index
+      return record.id || record._id || index;
     }
 
     render() {
-      const { loading, data, isCollectionVisible, entity } = this.state
+      const { loading, data, isCollectionVisible, entity } = this.state;
       return (
         <ComposedComponent
           loading={loading}
@@ -168,6 +174,6 @@ export const ListMixin = ComposedComponent =>
           {...this.props}
           ref={this.getInstance.bind(this)}
         />
-      )
+      );
     }
-  }
+  };

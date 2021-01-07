@@ -1,98 +1,107 @@
-/** @format */
+import React, { Component, Fragment } from 'react';
+import { Upload, message, Button, Modal, Table } from 'antd';
+import { ModalDragComponent } from '@components/index';
+import styles from './upload.module.less';
+import { getFileIconByName } from '@utils/index';
+import { filter } from 'lodash';
+import { FILE_STATUS_MAP } from '@constants/index';
+import { getFileSize } from '@utils/index';
+import { MODAL_SIZE } from '@constants/index';
+import type { IFile } from '@entities/file';
+import { UPLOAD_POP_STATUS } from './upload.constant';
+import { LoadingOutlined } from '@ant-design/icons';
 
-import React, { Component, Fragment } from 'react'
-import { Upload, message, Button, Modal, Table } from 'antd'
-import { ModalDragComponent } from '@components/index'
-import styles from './upload.module.less'
-import { getFileIconByName } from '@utils/index'
-import { map, filter } from 'lodash'
-import { FILE_STATUS_MAP } from '@constants/index'
-import { getFileSize } from '@utils/index'
-import { MODAL_SIZE } from '@constants/index'
-import { IFile } from '@entities/file'
-import { UPLOAD_POP_STATUS } from './upload.constant'
-import { LoadingOutlined } from '@ant-design/icons'
-
-interface IUploadProps {}
-interface IUploadState {
-  isVisible: boolean
-  width: number
-  popStatus: {}
-  file: IFile
-  fileList: IFile[]
-}
+type IUploadProps = Record<string, unknown>;
+type IUploadState = {
+  isVisible: boolean;
+  width: number;
+  popStatus: number;
+  file: IFile;
+  fileList: IFile[];
+};
 
 export default class UploadComponent extends Component<IUploadProps, IUploadState> {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isVisible: false,
       width: MODAL_SIZE.md,
       popStatus: UPLOAD_POP_STATUS.DEFAULT,
       file: null,
       fileList: [],
-    }
+    };
   }
   uploadChange(info) {
     this.setState({
       file: info.file,
       fileList: info.fileList,
-    })
+    });
     if (info.file.status === 'uploading') {
       this.setState({
         isVisible: true,
-      })
+      });
     }
     if (info.file.status === 'done') {
-      message.success(`${info.file.name} 上传成功`)
+      message.success(`${info.file.name} 上传成功`);
     } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} 上传失败.`)
+      message.error(`${info.file.name} 上传失败.`);
     }
   }
   save() {}
   cancel() {
     this.setState({
       isVisible: false,
-    })
+    });
   }
   minAction() {
     this.setState({
       popStatus: UPLOAD_POP_STATUS.MIN,
-    })
-    const _width = document.documentElement.clientWidth
-    const _height = document.documentElement.clientHeight
-    const _modal: any = document.getElementsByClassName('upload-modal')[0]
-    const _h = _modal.getElementsByClassName('ant-modal-content')[0].clientHeight
-    _modal.style.transform = `translate(${(_width - this.state.width) / 2}px, ${(_height - _h) / 2}px)`
+    });
+    const width = document.documentElement.clientWidth;
+    const height = document.documentElement.clientHeight;
+    const modal: any = document.getElementsByClassName('upload-modal')[0];
+    const h = modal.getElementsByClassName('ant-modal-content')[0].clientHeight;
+    modal.style.transform = `translate(${(width - this.state.width) / 2}px, ${(height - h) / 2}px)`;
   }
   maxAction() {
     this.setState({
       popStatus: UPLOAD_POP_STATUS.DEFAULT,
-    })
+    });
   }
   getModelTitle() {
-    const { popStatus } = this.state
-    const min = <i className="iconfont iconmodal-min icon-primary pointer" onClick={this.minAction.bind(this)}></i>
+    const { popStatus } = this.state;
+    const min = (
+      <i
+        className="iconfont iconmodal-min icon-primary pointer"
+        onClick={this.minAction.bind(this)}
+      ></i>
+    );
     const max = (
-      <i className="iconfont iconmodal-max icon-primary pointer m-l-12" onClick={this.maxAction.bind(this)}></i>
-    )
+      <i
+        className="iconfont iconmodal-max icon-primary pointer m-l-12"
+        onClick={this.maxAction.bind(this)}
+      ></i>
+    );
     const titleWrap = (
       <div className={styles['upload-header']}>
         <div className={styles['upload-header-title']}>上传文件</div>
         <div className={styles['upload-header-actions']}>
           {popStatus === UPLOAD_POP_STATUS.DEFAULT ? min : max}
-          <i className="iconfont iconmodal-close icon-primary pointer m-l-12" onClick={this.cancel.bind(this)}></i>
+          <i
+            className="iconfont iconmodal-close icon-primary pointer m-l-12"
+            onClick={this.cancel.bind(this)}
+          ></i>
         </div>
       </div>
-    )
-    return <ModalDragComponent title={titleWrap} selector="upload-modal" />
+    );
+    return <ModalDragComponent title={titleWrap} selector="upload-modal" />;
   }
   beforeUpload(file) {
     if (file.size / 1024 / 1024 > 10) {
-      message.error(`${file.name} 太大了，不要超过10M哦。`)
-      return false
+      message.error(`${file.name} 太大了，不要超过10M哦。`);
+      return false;
     }
-    return true
+    return true;
   }
   getModalProps() {
     return {
@@ -105,9 +114,9 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
       onChange: this.uploadChange.bind(this),
       beforeUpload: this.beforeUpload.bind(this),
       accept: '.doc,.docx,.xlsx,.xls,.ppt,.pptx,.mp4,.png,.jpg',
-    }
+    };
   }
-  getFileName(text, row, index) {
+  getFileName(text, row) {
     return (
       <div className={styles['file-name']}>
         {row.status !== 'done' ? (
@@ -120,35 +129,42 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
           <span>{row.name}</span>
         </span>
       </div>
-    )
+    );
   }
-  getFileStatus(text, row, index) {
+  getFileStatus(text, row) {
     const icon =
-      row.status === 'uploading' ? <LoadingOutlined /> : <i className={FILE_STATUS_MAP[row.status]['icon']}></i>
+      row.status === 'uploading' ? (
+        <LoadingOutlined />
+      ) : (
+        <i className={FILE_STATUS_MAP[row.status].icon}></i>
+      );
     return (
       <Fragment>
-        {icon} {FILE_STATUS_MAP[row.status]['label']}
+        {icon} {FILE_STATUS_MAP[row.status].label}
       </Fragment>
-    )
+    );
   }
   removeFile(file: IFile) {
     this.setState({
       fileList: filter(this.state.fileList, (n: IFile) => {
-        return n.uid !== file.uid
+        return n.uid !== file.uid;
       }),
-    })
+    });
   }
-  getFileActions(text, row, index) {
+  getFileActions(text, row) {
     return row.status === 'done' ? (
-      <i className="iconfont icontableClose icon-primary pointer fs-14" onClick={this.removeFile.bind(this, row)}></i>
+      <i
+        className="iconfont icontableClose icon-primary pointer fs-14"
+        onClick={this.removeFile.bind(this, row)}
+      ></i>
     ) : (
       ''
-    )
+    );
   }
   getFileList() {
-    const { fileList, popStatus } = this.state
+    const { fileList, popStatus } = this.state;
     if (popStatus === UPLOAD_POP_STATUS.MIN) {
-      const dones = filter(fileList, { status: 'done' })
+      const dones = filter(fileList, { status: 'done' });
       return (
         <div className={styles['upload-summary']}>
           <div className={styles['upload-summary-title']}>
@@ -156,7 +172,7 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
           </div>
           <i className="iconfont icontableClose pointer fs-14"></i>
         </div>
-      )
+      );
     }
     const columns = [
       {
@@ -170,7 +186,7 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
         dataIndex: 'size',
         key: 'size',
         width: 120,
-        render: (text, row, index) => getFileSize(row.size),
+        render: (text, row) => getFileSize(row.size),
       },
       {
         title: '状态',
@@ -186,12 +202,11 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
         width: 60,
         render: this.getFileActions.bind(this),
       },
-    ]
-    map(fileList, n => {})
-    return <Table columns={columns} dataSource={fileList} pagination={false} />
+    ];
+    return <Table columns={columns} dataSource={fileList} pagination={false} />;
   }
   render() {
-    const { isVisible, width } = this.state
+    const { isVisible, width } = this.state;
     return (
       <Fragment>
         <Upload {...this.getModalProps()}>
@@ -208,10 +223,11 @@ export default class UploadComponent extends Component<IUploadProps, IUploadStat
           destroyOnClose={true}
           closable={false}
           onOk={this.save.bind(this)}
-          onCancel={this.cancel.bind(this)}>
+          onCancel={this.cancel.bind(this)}
+        >
           {this.getFileList()}
         </Modal>
       </Fragment>
-    )
+    );
   }
 }

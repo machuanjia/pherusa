@@ -1,17 +1,21 @@
-/** @format */
+import React, { Component, Fragment } from 'react';
+import { ContentLayoutComponent } from '@components/index';
+import { Table, Input, Button, Tooltip, Modal } from 'antd';
+import { MODAL_SIZE } from '@constants/index';
+import TableCollecrtionComponent from './table.collection.component';
+import { listMixin } from '@components/mixin/list.mixin';
+import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index';
+import type { IListMixin } from '@entities/mixin';
+import {
+  SettingOutlined,
+  EditOutlined,
+  DeleteOutlined,
+  SearchOutlined,
+  PlusOutlined,
+} from '@ant-design/icons';
+import i18n from 'i18next';
 
-import React, { Component, Fragment } from 'react'
-import { ContentLayoutComponent } from '@components/index'
-import { Table, Input, Button, Tooltip, Modal } from 'antd'
-import { MODAL_SIZE } from '@constants/index'
-import TableCollecrtionComponent from './table.collection.component'
-import { ListMixin } from '@components/mixin/list.mixin'
-import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index'
-import { IListMixin } from '@entities/mixin'
-import { SettingOutlined, EditOutlined, DeleteOutlined, SearchOutlined, PlusOutlined } from '@ant-design/icons'
-import i18n from 'i18next'
-
-interface ITableState {}
+type ITableState = unknown;
 
 class TableView extends Component<IListMixin, ITableState> {
   init() {
@@ -20,25 +24,25 @@ class TableView extends Component<IListMixin, ITableState> {
       getDetailAction: getUserDetail,
       updateAction: updateUser,
       deleteAction: deleteUser,
-    }
+    };
   }
 
   editAction(record) {
-    this.props.editEntity(record._id)
+    this.props.editEntity(record._id);
   }
 
   deleteAction(record) {
-    this.props.deleteEntity(record._id)
+    this.props.deleteEntity(record._id);
   }
 
   getTable() {
-    const { data, loading, pagination, getRowKey } = this.props
+    const { data, loading, pagination, getRowKey } = this.props;
     const columns = [
       {
         title: i18n.t('list.name'),
         dataIndex: 'username',
         key: 'username',
-        render: text => text,
+        render: (text) => text,
       },
       {
         title: i18n.t('list.password'),
@@ -72,7 +76,7 @@ class TableView extends Component<IListMixin, ITableState> {
           </span>
         ),
       },
-    ]
+    ];
 
     return (
       <Table
@@ -83,7 +87,7 @@ class TableView extends Component<IListMixin, ITableState> {
         columns={columns}
         dataSource={data}
       />
-    )
+    );
   }
 
   render() {
@@ -94,7 +98,7 @@ class TableView extends Component<IListMixin, ITableState> {
       closeCollection,
       collectionCallBack,
       entity,
-    } = this.props
+    } = this.props;
     return (
       <ContentLayoutComponent>
         <Fragment key="left">
@@ -106,7 +110,12 @@ class TableView extends Component<IListMixin, ITableState> {
           />
         </Fragment>
         <Fragment key="actions">
-          <Button type="primary" icon={<PlusOutlined />} className={`${'action-btn'}`} onClick={openCollection}>
+          <Button
+            type="primary"
+            icon={<PlusOutlined />}
+            className={`${'action-btn'}`}
+            onClick={openCollection}
+          >
             {i18n.t('action.create')}
           </Button>
         </Fragment>
@@ -118,7 +127,8 @@ class TableView extends Component<IListMixin, ITableState> {
             width={MODAL_SIZE.md}
             destroyOnClose={true}
             footer={false}
-            onCancel={closeCollection}>
+            onCancel={closeCollection}
+          >
             {
               // @ts-ignore
               <TableCollecrtionComponent entity={entity} callback={collectionCallBack} />
@@ -126,8 +136,8 @@ class TableView extends Component<IListMixin, ITableState> {
           </Modal>
         </Fragment>
       </ContentLayoutComponent>
-    )
+    );
   }
 }
 
-export default ListMixin(TableView)
+export default listMixin(TableView);

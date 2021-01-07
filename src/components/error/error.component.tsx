@@ -1,18 +1,16 @@
-/** @format */
-import React from 'react'
+import React from 'react';
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { hasError: false }
+    super(props);
+    this.state = { hasError: false };
   }
 
   componentDidCatch(error, info) {
-    // this.setState({ hasError: true })
-    // console.log(error)
+    console.log(error, info);
   }
 
   render() {
-    return this.props.children
+    return this.props.children;
   }
 }

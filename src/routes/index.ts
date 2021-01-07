@@ -1,22 +1,22 @@
 /** @format */
 
-import { AsyncComponent } from '@components/index'
+import { asyncComponent } from '@components/index'
 import componentsRoute from './component.route'
 import MainLayout from '@layouts/main'
 import RouteLayout from '@layouts/route-layout'
 
 export const ROUTE_APP_KEY = 'app'
 
-const AboutView = AsyncComponent(() => import('@views/about'))
-const RedirectView = AsyncComponent(() => import('@views/redirect'))
-const LoginView = AsyncComponent(() => import('@views/login'))
-const NotFontVIew = AsyncComponent(() => import('@views/no-fond'))
-const DashboardView = AsyncComponent(() => import('@views/dashboard'))
+const AboutView = asyncComponent(() => import('@views/about'))
+const RedirectView = asyncComponent(() => import('@views/redirect'))
+const LoginView = asyncComponent(() => import('@views/login'))
+const NotFontVIew = asyncComponent(() => import('@views/no-fond'))
+const DashboardView = asyncComponent(() => import('@views/dashboard'))
 
-//动态路由，根据后台返回的权限动态生成
+// 动态路由，根据后台返回的权限动态生成
 export const asyncRouters = [componentsRoute]
 
-//固定路由
+// 固定路由
 const routes = [
   {
     path: '/login',

@@ -129,8 +129,8 @@ export default class DashboardView extends Component {
         type: 'inner',
         offset: '-30%',
         content: function content(_ref: { percent: string }) {
-          var percent = parseFloat(_ref.percent)
-          return percent * 100 + '%'
+          const percent = parseFloat(_ref.percent)
+          return `${percent * 100  }%`
         },
         style: {
           fontSize: 12,

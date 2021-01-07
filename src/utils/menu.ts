@@ -2,9 +2,10 @@
 
 export const initMenu = () => {
   // @ts-ignore
-  new LaiyePublic({
+  const menu = new LaiyePublic({
     mode: 'dev',
     ativeSrc: 'partners',
     navCurretElement: document.getElementById('header'),
   })
+  return menu
 }

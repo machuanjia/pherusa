@@ -41,7 +41,7 @@ export default class X6View extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //@ts-ignore
+      // @ts-ignore
       xe: this.xe,
     }
   }

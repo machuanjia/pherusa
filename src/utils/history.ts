@@ -2,6 +2,7 @@
 
 import { createBrowserHistory } from 'history'
 import { removeToken } from './catch'
+
 export const history = createBrowserHistory()
 
 export const redirectTo = (option: { path: string; isHash?: boolean }) => {

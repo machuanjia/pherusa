@@ -1,10 +1,10 @@
 /** @format */
 
 /// <reference types="react-scripts" />
-declare var APP_CONFIGRATION: any
+declare let APP_CONFIGRATION: any
 
 declare module '*.less' {
-  const content: { [className: string]: string }
+  const content: Record<string, string>
   export default content
 }
 

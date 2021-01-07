@@ -1,16 +1,16 @@
 /** @format */
 
-import React, { Component } from 'react'
-import styles from './../cytoscape.module.less'
-import cytoscape from 'cytoscape'
-import dagre from 'cytoscape-dagre'
-import cola from 'cytoscape-cola'
+import React, { Component } from 'react';
+import styles from './../cytoscape.module.less';
+import cytoscape from 'cytoscape';
+import dagre from 'cytoscape-dagre';
+import cola from 'cytoscape-cola';
 
-cytoscape.use(cola)
-cytoscape.use(dagre)
+cytoscape.use(cola);
+cytoscape.use(dagre);
 
 export default class LayoutCytoscapeComponent extends Component {
-  private cy
+  private cy;
 
   componentDidMount() {
     this.cy = cytoscape({
@@ -78,10 +78,10 @@ export default class LayoutCytoscapeComponent extends Component {
         nodes: [],
         edges: [],
       },
-    })
-    this.loadData()
-    this.layout()
-    console.log(this.cy.data())
+    });
+    this.loadData();
+    this.layout();
+    console.log(this.cy.data());
   }
 
   loadData() {
@@ -110,8 +110,8 @@ export default class LayoutCytoscapeComponent extends Component {
       { data: { source: 'n0', strength: 32.15725806451613, target: 'n2', label: '11' } },
       { data: { source: 'n1', strength: 22.15725806451613, target: 'n2', label: '2' } },
       { data: { source: 'n2', strength: 12.15725806451613, target: 'n3', label: '3' } },
-    ]
-    this.cy.add(str)
+    ];
+    this.cy.add(str);
   }
 
   layout() {
@@ -124,18 +124,19 @@ export default class LayoutCytoscapeComponent extends Component {
         nodeSep: 100,
         rankSep: 100,
         rankDir: 'LR',
-        edgeWeight: function (edge) {
-          return 100
+        edgeWeight(edge) {
+          console.log(edge);
+          return 100;
         },
       })
-      .run()
+      .run();
   }
 
   componentWillUnmount() {
-    this.cy && this.cy.destroy()
+    this.cy && this.cy.destroy();
   }
 
   render() {
-    return <div id="cy" className={styles['cytoscape-wrap']}></div>
+    return <div id="cy" className={styles['cytoscape-wrap']}></div>;
   }
 }

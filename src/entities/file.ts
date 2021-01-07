@@ -1,6 +1,6 @@
 /** @format */
 
-export interface IFile {
+export type IFile = {
   id?: number
   name: string
   updateTime?: string

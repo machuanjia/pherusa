@@ -1,19 +1,19 @@
 /** @format */
 
-import React, { Component, Fragment } from 'react'
-import { ContentLayoutComponent } from '@components/index'
-import { Button } from 'antd'
-import BasicCytoscapeComponent from './components/basic-cytoscape'
-import LayoutCytoscapeComponent from './components/layout-cytoscape'
-import StylesCytoscapeComponent from './components/styles-cytoscape'
-import EventCytoscapeComponent from './components/event-cytoscape'
+import React, { Component, Fragment } from 'react';
+import { ContentLayoutComponent } from '@components/index';
+import { Button } from 'antd';
+import BasicCytoscapeComponent from './components/basic-cytoscape';
+import LayoutCytoscapeComponent from './components/layout-cytoscape';
+import StylesCytoscapeComponent from './components/styles-cytoscape';
+import EventCytoscapeComponent from './components/event-cytoscape';
 
-import ProdCytoscapeComponent from './components/prod-cytoscape'
+import ProdCytoscapeComponent from './components/prod-cytoscape';
 
-interface ICytoscapeProps {}
-interface ICytoscapeState {
-  current: number
-}
+type ICytoscapeProps = Record<string, unknown>;
+type ICytoscapeState = {
+  current: number;
+};
 
 export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscapeState> {
   private cytoscapeDemoType = {
@@ -23,20 +23,20 @@ export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscape
     layout: 4,
     prod: 5,
     animation: 6,
-  }
+  };
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       current: this.cytoscapeDemoType.basic,
-    }
+    };
   }
   setType(key) {
     this.setState({
       current: this.cytoscapeDemoType[key],
-    })
+    });
   }
   render() {
-    const { current } = this.state
+    const { current } = this.state;
     return (
       <ContentLayoutComponent>
         <Fragment key="left"></Fragment>
@@ -61,13 +61,15 @@ export default class CytoscapeView extends Component<ICytoscapeProps, ICytoscape
           </Button>
         </Fragment>
         <Fragment key="main">
-          {current === this.cytoscapeDemoType.basic && <BasicCytoscapeComponent></BasicCytoscapeComponent>}
+          {current === this.cytoscapeDemoType.basic && (
+            <BasicCytoscapeComponent></BasicCytoscapeComponent>
+          )}
           {current === this.cytoscapeDemoType.styles && <StylesCytoscapeComponent />}
           {current === this.cytoscapeDemoType.event && <EventCytoscapeComponent />}
           {current === this.cytoscapeDemoType.layout && <LayoutCytoscapeComponent />}
           {current === this.cytoscapeDemoType.prod && <ProdCytoscapeComponent />}
         </Fragment>
       </ContentLayoutComponent>
-    )
+    );
   }
 }

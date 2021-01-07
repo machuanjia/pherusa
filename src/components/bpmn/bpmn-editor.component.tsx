@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { Component } from 'react'
 import { Button, Modal } from 'antd'
 import { MODAL_SIZE } from '@constants/index'
@@ -9,8 +7,7 @@ import BpmnPaletteComponent from './bpmn/palette.component'
 import BpmnCustomComponent from './bpmn/custom.component'
 import BpmnAnimationComponent from './bpmn/animation.component'
 
-interface IBpmnEditorProps {}
-interface IBpmnEditorState {
+type IBpmnEditorState = {
   isBasicVisible: boolean
   isEventVisible: boolean
   isPaletteVisible: boolean
@@ -18,7 +15,7 @@ interface IBpmnEditorState {
   isAnimationVisible: boolean
 }
 
-export default class BpmnEditorComponent extends Component<IBpmnEditorProps, IBpmnEditorState> {
+export default class BpmnEditorComponent extends Component<any, IBpmnEditorState> {
   constructor(props) {
     super(props)
     this.state = {

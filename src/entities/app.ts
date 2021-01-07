@@ -1,26 +1,26 @@
 /** @format */
 
 export type AppState = {
-  token: string
-  permissions: string[]
-  roles: string[]
-  routers: {}[]
-  flattenRouters: {}[]
-  warning: string
-  id: string
-  activeNav: {}
-}
+  token: string;
+  permissions: string[];
+  roles: string[];
+  routers: {}[];
+  flattenRouters: {}[];
+  warning: string;
+  id: string;
+  activeNav: {};
+};
 
 export type AppAction = {
-  type: string
-  token?: string
-  permissions?: string[]
-  roles?: string[]
-  routers?: {}[]
-  flattenRouters?: {}[]
-  warning?: string
-  id?: string
-  activeNav?: {}
-}
+  type: string;
+  token?: string;
+  permissions?: string[];
+  roles?: string[];
+  routers?: {}[];
+  flattenRouters?: {}[];
+  warning?: string;
+  id?: string;
+  activeNav?: {};
+};
 
-export type DispatchType = (args: AppAction) => AppAction
+export type DispatchType = (args: AppAction) => AppAction;

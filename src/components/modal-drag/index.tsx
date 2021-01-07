@@ -1,30 +1,29 @@
-/** @format */
+import DragM from 'dragm';
+import React, { Component } from 'react';
+import style from './modal-drag.module.less';
 
-import DragM from 'dragm'
-import React, { Component } from 'react'
-import style from './modal-drag.module.less'
+type IModalDragProps = {
+  title: any;
+  selector: string;
+};
 
-interface IModalDragProps {
-  title: any
-  selector: string
-}
-
-interface IModalDragState {}
+type IModalDragState = unknown;
 
 export default class ModalDragComponent extends Component<IModalDragProps, IModalDragState> {
-  modalDom: any = {}
-  updateTransform = transformStr => {
-    this.modalDom.style.transform = transformStr
-  }
+  modalDom: any = {};
+  updateTransform = (transformStr) => {
+    this.modalDom.style.transform = transformStr;
+  };
   componentDidMount() {
-    this.modalDom = document.getElementsByClassName(this.props.selector || 'ant-modal-wrap')[0]
+    const [dom] = document.getElementsByClassName(this.props.selector || 'ant-modal-wrap') as any;
+    this.modalDom = dom;
   }
   render() {
-    const { title } = this.props
+    const { title } = this.props;
     return (
       <DragM updateTransform={this.updateTransform}>
         <div className={style['modal-drag-title']}>{title}</div>
       </DragM>
-    )
+    );
   }
 }

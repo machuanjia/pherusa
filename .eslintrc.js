@@ -1,32 +1,17 @@
-/** @format */
-
 module.exports = {
-    parser: '@typescript-eslint/parser',
-    extends: ['prettier/@typescript-eslint', 'plugin:prettier/recommended'], //使用推荐的React代码检测规范
-    // plugins: ["@typescript-eslint"],
-    env: {
-        browser: true,
-        node: true,
-    },
-    globals: {
-    },
-    settings: {
-        //自动发现React的版本，从而进行规范react代码
-        react: {
-            pragma: 'React',
-            version: 'detect',
-        },
-    },
-    parserOptions: {
-        //指定ESLint可以解析JSX语法
-        ecmaVersion: 2019,
-        sourceType: 'module',
-        ecmaFeatures: {
-            jsx: true,
-        },
-    },
-    rules: {
-        'array-bracket-spacing': 'off',
-        'object-curly-spacing': ['error', 'always'],
-    },
-}
+  extends: ['react-app', require.resolve('@umijs/fabric/dist/eslint')],
+
+  // in antd-design-pro
+  globals: {
+    ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: true,
+    page: true,
+  },
+
+  rules: {
+    // your rules
+    'new-cap': ['error', { newIsCap: false }],
+    'no-underscore-dangle': ['error', { allow: ['_id','_viewport'] }],
+    'no-console': 0,
+    'no-underscore-dangle':0
+  },
+};

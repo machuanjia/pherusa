@@ -1,6 +1,6 @@
 /** @format */
 
-import { IUser } from '@entities/user'
+import type { IUser } from '@entities/user'
 import request from '@utils/request'
 
 export const signIn = (data: { phone: string; captcha: string }) => {

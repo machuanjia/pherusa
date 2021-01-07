@@ -1,58 +1,58 @@
 /** @format */
 
-import React, { Component, Fragment } from 'react'
-import { generateRoutes } from './index'
-import store from '@stores/store'
-import { checkAuth } from './../../permission'
-import { withRouter } from 'react-router-dom'
+import React, { Component, Fragment } from 'react';
+import { generateRoutes } from './index';
+import store from '@stores/store';
+import { checkAuth } from './../../permission';
+import { withRouter } from 'react-router-dom';
 
-interface IRouteViewProps {
-  routers?: {}[]
-}
-interface IRouteViewState {
-  routers?: {}[]
-}
+type IRouteViewProps = {
+  routers?: Record<string, unknown>[];
+};
+type IRouteViewState = {
+  routers?: Record<string, unknown>[];
+};
 
 class RouteViewComponent extends Component<IRouteViewProps, IRouteViewState> {
-  private subRoles
+  private subRoles;
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       routers: store.getState().app.routers,
-    }
+    };
     this.subRoles = store.subscribe(() => {
-      const routers = store.getState().app.routers || []
+      const routers = store.getState().app.routers || [];
       if (routers.length > 0) {
         this.setState({
           routers,
-        })
+        });
       }
-    })
+    });
   }
 
   componentDidMount() {
-    !this.props['routers'] && checkAuth()
+    !this.props.routers && checkAuth();
   }
 
   componentWillMount() {}
 
   componentWillUnmount() {
-    this.subRoles && this.subRoles()
+    this.subRoles && this.subRoles();
   }
 
   getRoutes() {
-    const routers = this.props['routers']
-    let routes = null
+    const { routers } = this.props;
+    let routes = null;
     if (routers) {
-      routes = routers
+      routes = routers;
     } else {
-      routes = this.state.routers
+      routes = this.state.routers;
     }
-    return routes
+    return routes;
   }
 
   render() {
-    return <Fragment>{generateRoutes(this.getRoutes())}</Fragment>
+    return <Fragment>{generateRoutes(this.getRoutes())}</Fragment>;
   }
 }
-export default withRouter(RouteViewComponent)
+export default withRouter(RouteViewComponent);

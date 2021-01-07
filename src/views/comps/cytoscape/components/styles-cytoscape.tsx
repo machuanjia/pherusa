@@ -1,17 +1,18 @@
 /** @format */
 
-import React, { Component } from 'react'
-import styles from './../cytoscape.module.less'
-import cytoscape from 'cytoscape'
-import navigator from 'cytoscape-navigator'
-import edgehandles from 'cytoscape-edgehandles'
-navigator(cytoscape)
-cytoscape.use(edgehandles)
+import React, { Component } from 'react';
+import styles from './../cytoscape.module.less';
+import cytoscape from 'cytoscape';
+import navigator from 'cytoscape-navigator';
+import edgehandles from 'cytoscape-edgehandles';
+
+navigator(cytoscape);
+cytoscape.use(edgehandles);
 
 export default class StylesCytoscapeComponent extends Component {
-  private cy
-  private nav
-  private eh
+  private cy;
+  private nav;
+  private eh;
 
   componentDidMount() {
     this.cy = cytoscape({
@@ -121,10 +122,10 @@ export default class StylesCytoscapeComponent extends Component {
       autolock: false,
       autoungrabify: false,
       autounselectify: false,
-    })
+    });
 
     // navigator
-    var defaults = {
+    const defaults = {
       container: false, // html dom element
       viewLiveFramerate: 0, // set false to update graph pan only on drag end; set 0 to do it instantly; set a number (frames per second) to update not more than N times per second
       thumbnailEventFramerate: 30, // max thumbnail's updates per second triggered by graph updates
@@ -132,13 +133,13 @@ export default class StylesCytoscapeComponent extends Component {
       dblClickDelay: 200, // milliseconds
       removeCustomContainer: true, // destroy the container specified by user on plugin destroy
       rerenderDelay: 100, // ms to throttle rerender updates to the panzoom for performance
-    }
+    };
 
-    this.nav = this.cy.navigator(defaults) // get navigator instance, nav
+    this.nav = this.cy.navigator(defaults); // get navigator instance, nav
 
     // edge handle
     // the default values of each option are outlined below:
-    let defaults_eh = {
+    const defaults_eh = {
       preview: true, // whether to show added edges preview before releasing selection
       hoverDelay: 150, // time spent hovering over a target node before it is considered selected
       handleNodes: 'node', // selector/filter function for whether edges can be made from a given node
@@ -147,76 +148,91 @@ export default class StylesCytoscapeComponent extends Component {
       snapFrequency: 15, // the number of times per second (Hz) that snap checks done (lower is less expensive)
       noEdgeEventsInDraw: false, // set events:no to edges during draws, prevents mouseouts on compounds
       disableBrowserGestures: true, // during an edge drawing gesture, disable browser gestures such as two-finger trackpad swipe and pinch-to-zoom
-      handlePosition: function (node) {
-        return 'middle top' // sets the position of the handle in the format of "X-AXIS Y-AXIS" such as "left top", "middle top"
+      handlePosition(node) {
+        console.log(node);
+        return 'middle top'; // sets the position of the handle in the format of "X-AXIS Y-AXIS" such as "left top", "middle top"
       },
       handleInDrawMode: false, // whether to show the handle in draw mode
-      edgeType: function (sourceNode, targetNode) {
+      edgeType(sourceNode, targetNode) {
+        console.log(sourceNode, targetNode);
         // can return 'flat' for flat edges between nodes or 'node' for intermediate node between them
         // returning null/undefined means an edge can't be added between the two nodes
-        return 'flat'
+        return 'flat';
       },
-      loopAllowed: function (node) {
+      loopAllowed(node) {
+        console.log(node);
         // for the specified node, return whether edges from itself to itself are allowed
-        return true
+        return true;
       },
       nodeLoopOffset: -50, // offset for edgeType: 'node' loops
-      nodeParams: function (sourceNode, targetNode) {
+      nodeParams(sourceNode, targetNode) {
+        console.log(sourceNode, targetNode);
         // for edges between the specified source and target
         // return element object to be passed to cy.add() for intermediary node
-        return {}
+        return {};
       },
-      edgeParams: function (sourceNode, targetNode, i) {
+      edgeParams(sourceNode, targetNode, i) {
+        console.log(sourceNode, targetNode, i);
         // for edges between the specified source and target
         // return element object to be passed to cy.add() for edge
         // NB: i indicates edge index in case of edgeType: 'node'
-        return {}
+        return {};
       },
-      ghostEdgeParams: function () {
+      ghostEdgeParams() {
         // return element object to be passed to cy.add() for the ghost edge
         // (default classes are always added for you)
-        return {}
+        return {};
       },
-      show: function (sourceNode) {
+      show(sourceNode) {
+        console.log(sourceNode);
         // fired when handle is shown
       },
-      hide: function (sourceNode) {
+      hide(sourceNode) {
+        console.log(sourceNode);
         // fired when the handle is hidden
       },
-      start: function (sourceNode) {
+      start(sourceNode) {
+        console.log(sourceNode);
         // fired when edgehandles interaction starts (drag on handle)
       },
-      complete: function (sourceNode, targetNode, addedEles) {
+      complete(sourceNode, targetNode, addedEles) {
+        console.log(addedEles);
         // fired when edgehandles is done and elements are added
       },
-      stop: function (sourceNode) {
+      stop(sourceNode) {
+        console.log(sourceNode);
         // fired when edgehandles interaction is stopped (either complete with added edges or incomplete)
       },
-      cancel: function (sourceNode, cancelledTargets) {
+      cancel(sourceNode, cancelledTargets) {
+        console.log(cancelledTargets);
         // fired when edgehandles are cancelled (incomplete gesture)
       },
-      hoverover: function (sourceNode, targetNode) {
+      hoverover(sourceNode, targetNode) {
+        console.log(targetNode);
         // fired when a target is hovered
       },
-      hoverout: function (sourceNode, targetNode) {
+      hoverout(sourceNode, targetNode) {
+        console.log(targetNode);
         // fired when a target isn't hovered anymore
       },
-      previewon: function (sourceNode, targetNode, previewEles) {
+      previewon(sourceNode, targetNode, previewEles) {
+        console.log(previewEles);
         // fired when preview is shown
       },
-      previewoff: function (sourceNode, targetNode, previewEles) {
+      previewoff(sourceNode, targetNode, previewEles) {
+        console.log(previewEles);
         // fired when preview is hidden
       },
-      drawon: function () {
+      drawon() {
         // fired when draw mode enabled
       },
-      drawoff: function () {
+      drawoff() {
         // fired when draw mode disabled
       },
-    }
+    };
 
-    this.eh = this.cy.edgehandles(defaults_eh)
-    this.eh.enableDrawMode()
+    this.eh = this.cy.edgehandles(defaults_eh);
+    this.eh.enableDrawMode();
 
     this.cy.add({
       group: 'nodes',
@@ -230,7 +246,7 @@ export default class StylesCytoscapeComponent extends Component {
         'text-halign': 'left',
         'text-valign': 'top',
       },
-    })
+    });
 
     this.cy.add({
       group: 'nodes',
@@ -247,7 +263,7 @@ export default class StylesCytoscapeComponent extends Component {
         'text-valign': 'center',
         'text-rotation': '45deg',
       },
-    })
+    });
 
     this.cy.add({
       group: 'nodes',
@@ -261,11 +277,21 @@ export default class StylesCytoscapeComponent extends Component {
         'text-halign': 'right',
         'text-valign': 'bottom',
       },
-    })
+    });
 
     this.cy.add([
-      { group: 'nodes', data: { id: 'n0' }, position: { x: 300, y: 200 }, style: { shape: 'rectangle' } },
-      { group: 'nodes', data: { id: 'n1' }, position: { x: 450, y: 200 }, style: { shape: 'round-diamond' } },
+      {
+        group: 'nodes',
+        data: { id: 'n0' },
+        position: { x: 300, y: 200 },
+        style: { shape: 'rectangle' },
+      },
+      {
+        group: 'nodes',
+        data: { id: 'n1' },
+        position: { x: 450, y: 200 },
+        style: { shape: 'round-diamond' },
+      },
       {
         group: 'edges',
         data: { id: 'e0', source: 'n0', target: 'n0' },
@@ -289,7 +315,7 @@ export default class StylesCytoscapeComponent extends Component {
           'loop-direction': '-90deg',
         },
       },
-    ])
+    ]);
 
     this.cy.add([
       { group: 'nodes', data: { id: 'n2' }, position: { x: 300, y: 300 } },
@@ -332,7 +358,7 @@ export default class StylesCytoscapeComponent extends Component {
           'control-point-weights': '0.25 0.5 0.75',
         },
       },
-    ])
+    ]);
 
     this.cy.add([
       { group: 'nodes', data: { id: 'n4' }, position: { x: 300, y: 400 } },
@@ -364,10 +390,10 @@ export default class StylesCytoscapeComponent extends Component {
           //   'curve-style': 'straight',
         },
       },
-    ])
+    ]);
 
-    const j = this.cy.$id('n5')
-    this.cy.center(j)
+    const j = this.cy.$id('n5');
+    this.cy.center(j);
 
     // compound nodes
     this.cy.add([
@@ -375,10 +401,10 @@ export default class StylesCytoscapeComponent extends Component {
       { group: 'nodes', data: { id: 'c1', parent: 'p1' }, position: { x: 400, y: 500 } },
       { group: 'nodes', data: { id: 'p1' } },
       { group: 'edges', data: { id: 'e7', source: 'p1', target: 'n5' } },
-    ])
+    ]);
 
-    this.cy.$id('c0').ungrabify()
-    this.cy.$id('c1').ungrabify()
+    this.cy.$id('c0').ungrabify();
+    this.cy.$id('c1').ungrabify();
 
     // this.cy.remove('node#n0');
 
@@ -409,40 +435,40 @@ export default class StylesCytoscapeComponent extends Component {
     //   },
     // )
 
-    this.cy.startBatch()
+    this.cy.startBatch();
 
-    this.cy.$('#n1').data('weight', '70').addClass('funny').removeClass('serious')
+    this.cy.$('#n1').data('weight', '70').addClass('funny').removeClass('serious');
 
-    this.cy.endBatch()
+    this.cy.endBatch();
 
-    console.log(this.cy.data())
+    console.log(this.cy.data());
 
     // 点击node
-    this.cy.on('tap', 'node', function (evt) {
-      var node = evt.target
-      console.log('tapped ' + node.id())
-    })
+    this.cy.on('tap', 'node', (evt) => {
+      const node = evt.target;
+      console.log(`tapped ${node.id()}`);
+    });
 
-    this.cy.on('tap', event => {
+    this.cy.on('tap', (event) => {
       // target holds a reference to the originator
       // of the event (core or element)
-      var evtTarget = event.target
+      const evtTarget = event.target;
       if (evtTarget === this.cy) {
-        console.log('tap on background')
+        console.log('tap on background');
       } else {
-        console.log('tap on some element')
+        console.log('tap on some element');
       }
-    })
+    });
 
     // this.cy.navigator({})
   }
 
   componentWillUnmount() {
-    this.cy && this.cy.destroy()
+    this.cy && this.cy.destroy();
     // this.nav.destroy()
   }
 
   render() {
-    return <div id="cy" className={styles['cytoscape-wrap']}></div>
+    return <div id="cy" className={styles['cytoscape-wrap']}></div>;
   }
 }

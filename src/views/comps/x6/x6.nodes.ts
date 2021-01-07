@@ -35,8 +35,8 @@ export class X6Nodes {
         },
       ],
       // @ts-ignore
-      getDragNode: (node, options) => {
-        const type = node.data.type
+      getDragNode: (node) => {
+        const {type} = node.data
         return CellMap[type](this.graph)
       },
     })

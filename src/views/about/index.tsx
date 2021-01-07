@@ -25,7 +25,7 @@ class About extends Component<any, any> {
     console.log(i18n.t('actions.ok'))
     // i18n.changeLanguage('zh-cn')
     // console.log(i18n.t('actions.ok'))
-    const list = this.props.list
+    const {list} = this.props
     return (
       <div>
         <button onClick={this.addNewArticle.bind(this)}>add</button>

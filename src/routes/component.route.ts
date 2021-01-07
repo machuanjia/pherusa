@@ -1,15 +1,12 @@
-/** @format */
+import { asyncComponent } from '@components/index';
+import RouteLayout from '@layouts/route-layout';
 
-import { AsyncComponent } from '@components/index'
-import RouteLayout from '@layouts/route-layout'
-import i18n from 'i18next'
-
-const TableView = AsyncComponent(() => import('@views/comps/table/index'))
-const EditorView = AsyncComponent(() => import('@views/comps/editor/index'))
-const GraphLayoutView = AsyncComponent(() => import('@views/comps/graph-layout/index'))
-const CytoscapeView = AsyncComponent(() => import('@views/comps/cytoscape/index'))
-const X6View = AsyncComponent(() => import('@views/comps/x6/index'))
-const BpmnView = AsyncComponent(() => import('@views/bmpn/index'))
+const tableView = asyncComponent(() => import('@views/comps/table/index'));
+const editorView = asyncComponent(() => import('@views/comps/editor/index'));
+const graphLayoutView = asyncComponent(() => import('@views/comps/graph-layout/index'));
+const cytoscapeView = asyncComponent(() => import('@views/comps/cytoscape/index'));
+const x6View = asyncComponent(() => import('@views/comps/x6/index'));
+const bpmnView = asyncComponent(() => import('@views/bmpn/index'));
 
 const componentsRoute = {
   path: '/components',
@@ -22,7 +19,7 @@ const componentsRoute = {
   children: [
     {
       path: '/components/list',
-      component: TableView,
+      component: tableView,
       meta: {
         key: 'CList',
         name: 'router.list',
@@ -31,7 +28,7 @@ const componentsRoute = {
     },
     {
       path: '/components/editor',
-      component: EditorView,
+      component: editorView,
       meta: {
         key: 'CEditor',
         name: 'router.editor',
@@ -40,7 +37,7 @@ const componentsRoute = {
     },
     {
       path: '/components/graph-layout',
-      component: GraphLayoutView,
+      component: graphLayoutView,
       meta: {
         key: 'GraphLayout',
         name: 'router.layout',
@@ -49,7 +46,7 @@ const componentsRoute = {
     },
     {
       path: '/components/cytoscape',
-      component: CytoscapeView,
+      component: cytoscapeView,
       meta: {
         key: 'Cytoscape',
         name: 'Cytoscape',
@@ -58,7 +55,7 @@ const componentsRoute = {
     },
     {
       path: '/components/x6',
-      component: X6View,
+      component: x6View,
       meta: {
         key: 'X6',
         name: 'X6',
@@ -67,7 +64,7 @@ const componentsRoute = {
     },
     {
       path: '/components/bpmn',
-      component: BpmnView,
+      component: bpmnView,
       meta: {
         key: 'BpmnEditor',
         name: 'Bpmn',
@@ -75,5 +72,5 @@ const componentsRoute = {
       },
     },
   ],
-}
-export default componentsRoute
+};
+export default componentsRoute;

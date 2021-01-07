@@ -1,26 +1,25 @@
-/** @format */
-import cytoscape from 'cytoscape'
-import tippy from 'tippy.js'
-import { jsPDF } from 'jspdf'
-import edgeBendEditing from 'cytoscape-edge-bend-editing'
-import popper from 'cytoscape-popper'
-import contextMenus from 'cytoscape-context-menus'
-import { isString } from 'lodash'
+import cytoscape from 'cytoscape';
+import tippy from 'tippy.js';
+import { jsPDF } from 'jspdf';
+import edgeBendEditing from 'cytoscape-edge-bend-editing';
+import popper from 'cytoscape-popper';
+import contextMenus from 'cytoscape-context-menus';
+import { isString } from 'lodash';
 
-cytoscape.use(popper)
-cytoscape.use(contextMenus)
-edgeBendEditing(cytoscape)
+cytoscape.use(popper);
+cytoscape.use(contextMenus);
+edgeBendEditing(cytoscape);
 
 export class CytoscapeGenerator {
-  private cy
-  private container
-  private contextMenu
-  public static LAYOUT_MANUAL_BEZIER = 0
-  public static LAYOUT_DAGRE_LR = 1
-  public static LAYOUT_DAGRE_TB = 2
-  public static LAYOUT_BREADTH_FIRST = 3
-  private NAME_PROP = 'oriname'
-  private MAX_AUTOFIT_ZOOM = 1
+  private cy;
+  private container;
+  private contextMenu;
+  public static LAYOUT_MANUAL_BEZIER = 0;
+  public static LAYOUT_DAGRE_LR = 1;
+  public static LAYOUT_DAGRE_TB = 2;
+  public static LAYOUT_BREADTH_FIRST = 3;
+  private NAME_PROP = 'oriname';
+  private MAX_AUTOFIT_ZOOM = 1;
   private options = {
     maxZoom: 1e50,
     minZoom: 1e-50,
@@ -30,7 +29,7 @@ export class CytoscapeGenerator {
     wheelSensitivity: 0.1,
     zoom: 1,
     zoomingEnabled: true,
-  }
+  };
   private style = [
     {
       selector: 'node',
@@ -88,44 +87,42 @@ export class CytoscapeGenerator {
         'target-arrow-color': '#ffa500',
       },
     },
-  ]
+  ];
   private elements = {
     nodes: [],
     edges: [],
-  }
+  };
   private layouters = {
     [CytoscapeGenerator.LAYOUT_MANUAL_BEZIER]: () => {
       this.cy
         .style()
         .selector('edge')
         .style({
-          'curve-style': ele => {
-            return ele.data('edge-style')
+          'curve-style': (ele) => {
+            return ele.data('edge-style');
           },
           'edge-distances': 'intersection',
-          'control-point-distances': ele => {
+          'control-point-distances': (ele) => {
             if (ele.data('edge-style') === 'unbundled-bezier') {
-              return ele.data('point-distances')
-            } else {
-              return '0'
+              return ele.data('point-distances');
             }
+            return '0';
           },
-          'control-point-weights': ele => {
+          'control-point-weights': (ele) => {
             if (ele.data('edge-style') === 'unbundled-bezier') {
-              return ele.data('point-weights')
-            } else {
-              return '0.5'
+              return ele.data('point-weights');
             }
+            return '0.5';
           },
         })
-        .update()
+        .update();
 
       this.cy
         .elements()
         .layout({
           name: 'preset',
         })
-        .run()
+        .run();
     },
     [CytoscapeGenerator.LAYOUT_DAGRE_LR]: () => {
       this.cy
@@ -139,9 +136,9 @@ export class CytoscapeGenerator {
           rankDir: 'LR',
           ranker: 'network-simplex',
         })
-        .run()
+        .run();
     },
-    [CytoscapeGenerator.LAYOUT_DAGRE_TB]: randomize => {
+    [CytoscapeGenerator.LAYOUT_DAGRE_TB]: (randomize) => {
       this.cy
         .style()
         .selector('edge')
@@ -149,7 +146,7 @@ export class CytoscapeGenerator {
           'text-background-opacity': 1,
           'text-margin-y': 0,
         })
-        .update()
+        .update();
 
       this.cy
         .elements()
@@ -162,7 +159,7 @@ export class CytoscapeGenerator {
           rankDir: 'TB',
           ranker: 'tight-tree',
         })
-        .run()
+        .run();
     },
     [CytoscapeGenerator.LAYOUT_BREADTH_FIRST]: () => {
       this.cy
@@ -172,7 +169,7 @@ export class CytoscapeGenerator {
           'text-background-opacity': 1,
           'text-margin-y': 0,
         })
-        .update()
+        .update();
 
       this.cy
         .elements()
@@ -182,25 +179,25 @@ export class CytoscapeGenerator {
           name: 'breadthfirst',
           spacingFactor: 1,
         })
-        .run()
+        .run();
     },
-  }
-  private currentLayout = 0
-  private isCtrlPressed = false
-  private isAltPressed = false
-  private currentNodeTooltip
-  private currentZoomLevel = 1
-  private currentPanPosition
-  private isTraceMode = false
-  private removed
-  private nodeTap
-  private edgeTap
+  };
+  private currentLayout = 0;
+  private isCtrlPressed = false;
+  private isAltPressed = false;
+  private currentNodeTooltip;
+  private currentZoomLevel = 1;
+  private currentPanPosition;
+  private isTraceMode = false;
+  private removed;
+  private nodeTap;
+  private edgeTap;
 
-  constructor(options: { container: string; nodeTap: (node) => {}; edgeTap: (edge) => {} }) {
-    this.nodeTap = options.nodeTap
-    this.edgeTap = options.edgeTap
-    this.container = document.getElementById('cy')
-    this.init()
+  constructor(options: { container: string; nodeTap; edgeTap }) {
+    this.nodeTap = options.nodeTap;
+    this.edgeTap = options.edgeTap;
+    this.container = document.getElementById('cy');
+    this.init();
   }
 
   init() {
@@ -210,9 +207,9 @@ export class CytoscapeGenerator {
         style: this.style,
         elements: this.elements,
       }),
-    )
-    this.setContextMenu()
-    this.bindActions()
+    );
+    this.setContextMenu();
+    this.bindActions();
   }
 
   setContextMenu() {
@@ -224,10 +221,10 @@ export class CytoscapeGenerator {
           tooltipText: 'remove',
           image: { src: 'assets/remove.svg', width: 12, height: 12, x: 6, y: 4 },
           selector: 'node, edge',
-          onClickFunction: event => {
-            var target = event.target || event.cyTarget
-            this.removed = target.remove()
-            this.contextMenu.showMenuItem('undo-last-remove')
+          onClickFunction: (event) => {
+            const target = event.target || event.cyTarget;
+            this.removed = target.remove();
+            this.contextMenu.showMenuItem('undo-last-remove');
           },
           hasTrailingDivider: true,
         },
@@ -237,11 +234,12 @@ export class CytoscapeGenerator {
           selector: 'node, edge',
           show: false,
           coreAsWell: true,
-          onClickFunction: event => {
+          onClickFunction: (event) => {
+            console.log(event);
             if (this.removed) {
-              this.removed.restore()
+              this.removed.restore();
             }
-            this.contextMenu.hideMenuItem('undo-last-remove')
+            this.contextMenu.hideMenuItem('undo-last-remove');
           },
           hasTrailingDivider: true,
         },
@@ -256,27 +254,27 @@ export class CytoscapeGenerator {
               id: 'color-blue',
               content: 'blue',
               tooltipText: 'blue',
-              onClickFunction: event => {
-                let target = event.target || event.cyTarget
-                target.style('background-color', 'blue')
+              onClickFunction: (event) => {
+                const target = event.target || event.cyTarget;
+                target.style('background-color', 'blue');
               },
               submenu: [
                 {
                   id: 'color-light-blue',
                   content: 'light blue',
                   tooltipText: 'light blue',
-                  onClickFunction: event => {
-                    let target = event.target || event.cyTarget
-                    target.style('background-color', 'lightblue')
+                  onClickFunction: (event) => {
+                    const target = event.target || event.cyTarget;
+                    target.style('background-color', 'lightblue');
                   },
                 },
                 {
                   id: 'color-dark-blue',
                   content: 'dark blue',
                   tooltipText: 'dark blue',
-                  onClickFunction: event => {
-                    let target = event.target || event.cyTarget
-                    target.style('background-color', 'darkblue')
+                  onClickFunction: (event) => {
+                    const target = event.target || event.cyTarget;
+                    target.style('background-color', 'darkblue');
                   },
                 },
               ],
@@ -285,18 +283,18 @@ export class CytoscapeGenerator {
               id: 'color-green',
               content: 'green',
               tooltipText: 'green',
-              onClickFunction: event => {
-                let target = event.target || event.cyTarget
-                target.style('background-color', 'green')
+              onClickFunction: (event) => {
+                const target = event.target || event.cyTarget;
+                target.style('background-color', 'green');
               },
             },
             {
               id: 'color-red',
               content: 'red',
               tooltipText: 'red',
-              onClickFunction: event => {
-                let target = event.target || event.cyTarget
-                target.style('background-color', 'red')
+              onClickFunction: (event) => {
+                const target = event.target || event.cyTarget;
+                target.style('background-color', 'red');
               },
             },
           ],
@@ -307,20 +305,20 @@ export class CytoscapeGenerator {
           tooltipText: 'add node',
           image: { src: 'assets/add.svg', width: 12, height: 12, x: 6, y: 4 },
           coreAsWell: true,
-          onClickFunction: event => {
-            var data = {
+          onClickFunction: (event) => {
+            const data = {
               group: 'nodes',
-            }
+            };
 
-            var pos = event.position || event.cyPosition
+            const pos = event.position || event.cyPosition;
 
             this.cy.add({
-              data: data,
+              data,
               position: {
                 x: pos.x,
                 y: pos.y,
               },
-            })
+            });
           },
         },
         {
@@ -329,10 +327,11 @@ export class CytoscapeGenerator {
           selector: 'node',
           coreAsWell: true,
           show: true,
-          onClickFunction: event => {
+          onClickFunction: (event) => {
+            console.log(event);
             // this.selectAllOfTheSameType('node');
-            this.contextMenu.hideMenuItem('select-all-nodes')
-            this.contextMenu.showMenuItem('unselect-all-nodes')
+            this.contextMenu.hideMenuItem('select-all-nodes');
+            this.contextMenu.showMenuItem('unselect-all-nodes');
           },
         },
         {
@@ -341,10 +340,11 @@ export class CytoscapeGenerator {
           selector: 'node',
           coreAsWell: true,
           show: false,
-          onClickFunction: event => {
+          onClickFunction: (event) => {
+            console.log(event);
             // this.unselectAllOfTheSameType('node');
-            this.contextMenu.showMenuItem('select-all-nodes')
-            this.contextMenu.hideMenuItem('unselect-all-nodes')
+            this.contextMenu.showMenuItem('select-all-nodes');
+            this.contextMenu.hideMenuItem('unselect-all-nodes');
           },
         },
         {
@@ -353,10 +353,11 @@ export class CytoscapeGenerator {
           selector: 'edge',
           coreAsWell: true,
           show: true,
-          onClickFunction: event => {
+          onClickFunction: (event) => {
+            console.log(event);
             // this.selectAllOfTheSameType('edge');
-            this.contextMenu.hideMenuItem('select-all-edges')
-            this.contextMenu.showMenuItem('unselect-all-edges')
+            this.contextMenu.hideMenuItem('select-all-edges');
+            this.contextMenu.showMenuItem('unselect-all-edges');
           },
         },
         {
@@ -365,94 +366,100 @@ export class CytoscapeGenerator {
           selector: 'edge',
           coreAsWell: true,
           show: false,
-          onClickFunction: event => {
+          onClickFunction: (event) => {
+            console.log(event);
             // this.unselectAllOfTheSameType('edge');
-            this.contextMenu.showMenuItem('select-all-edges')
-            this.contextMenu.hideMenuItem('unselect-all-edges')
+            this.contextMenu.showMenuItem('select-all-edges');
+            this.contextMenu.hideMenuItem('unselect-all-edges');
           },
         },
       ],
-    })
+    });
   }
 
   bindActions() {
     // 边框点击
-    this.cy.on('tap', 'edge', source => {
-      this.edgeTap(source)
-    })
+    this.cy.on('tap', 'edge', (source) => {
+      this.edgeTap(source);
+    });
     // 节点点击
-    this.cy.on('tap', 'node', source => {
-      this.nodeTap(source)
-    })
+    this.cy.on('tap', 'node', (source) => {
+      this.nodeTap(source);
+    });
     // 边框右键
-    this.cy.on('cxttap', 'edge', source => {
+    this.cy.on('cxttap', 'edge', (source) => {
+      console.log(source);
       if (!this.isTraceMode) {
         //   removeEdge(source)
       }
-    })
+    });
     // 节点右键
-    this.cy.on('cxttap', 'node', source => {
+    this.cy.on('cxttap', 'node', (source) => {
+      console.log(source);
       if (!this.isTraceMode) {
         //   removeNode(source)
       }
-    })
+    });
     // 平移动
-    this.cy.on('pan', event => {
+    this.cy.on('pan', (event) => {
+      console.log(event);
       if (!this.isTraceMode) {
-        this.currentPanPosition = this.cy.pan()
+        this.currentPanPosition = this.cy.pan();
       }
-    })
+    });
     // 缩放
-    this.cy.on('zoom', event => {
+    this.cy.on('zoom', (event) => {
+      console.log(event);
       if (!this.isTraceMode) {
-        this.currentZoomLevel = this.cy.zoom()
+        this.currentZoomLevel = this.cy.zoom();
       }
-    })
+    });
     // 鼠标hover，显示tooltip
-    this.cy.on('mouseover', 'node', event => {
-      let node = event.target
+    this.cy.on('mouseover', 'node', (event) => {
+      const node = event.target;
       if (node.data(this.NAME_PROP)) {
-        this.currentNodeTooltip = this.makeTippy(node, node.data(this.NAME_PROP))
-        this.currentNodeTooltip.show()
+        this.currentNodeTooltip = this.makeTippy(node, node.data(this.NAME_PROP));
+        this.currentNodeTooltip.show();
       } else {
-        this.currentNodeTooltip = undefined
+        this.currentNodeTooltip = undefined;
       }
-    })
+    });
     // 鼠标移出，隐藏tooltip
-    this.cy.on('mouseout', 'node', event => {
-      if (this.currentNodeTooltip) this.currentNodeTooltip.hide()
-    })
+    this.cy.on('mouseout', 'node', (event) => {
+      console.log(event);
+      if (this.currentNodeTooltip) this.currentNodeTooltip.hide();
+    });
   }
 
   destroy() {
-    this.cy.destroy()
+    this.cy.destroy();
   }
 
   layout(layoutType) {
-    let layouter = this.layouters[layoutType]
+    const layouter = this.layouters[layoutType];
     if (layouter) {
-      layouter(true)
+      layouter(true);
     }
   }
 
   loadData(payload: { data; layoutType: number; retain: boolean }) {
-    this.currentLayout = payload.layoutType
-    let zoom = this.currentZoomLevel
-    let pan = this.currentPanPosition
+    this.currentLayout = payload.layoutType;
+    const zoom = this.currentZoomLevel;
+    const pan = this.currentPanPosition;
 
-    this.isTraceMode = false
-    this.destroy()
-    this.init()
-    this.cy.add(isString(payload.data) ? JSON.parse(payload.data) : payload.data)
-    this.layout(payload.layoutType)
+    this.isTraceMode = false;
+    this.destroy();
+    this.init();
+    this.cy.add(isString(payload.data) ? JSON.parse(payload.data) : payload.data);
+    this.layout(payload.layoutType);
 
     if (payload.retain) {
-      this.cy.zoom(zoom)
-      this.cy.pan(pan)
-      this.currentZoomLevel = zoom
-      this.currentPanPosition = pan
+      this.cy.zoom(zoom);
+      this.cy.pan(pan);
+      this.currentZoomLevel = zoom;
+      this.currentPanPosition = pan;
     } else {
-      this.fit(payload.layoutType)
+      this.fit(payload.layoutType);
     }
 
     this.cy.edgeBendEditing({
@@ -460,142 +467,145 @@ export class CytoscapeGenerator {
       enabled: true,
       initBendPointsAutomatically: false,
       undoable: true,
-    })
+    });
   }
 
   fit(layoutType?) {
-    this.cy.fit()
+    console.log(layoutType);
+    this.cy.fit();
     if (this.cy.zoom() > this.MAX_AUTOFIT_ZOOM) {
-      this.cy.zoom(this.MAX_AUTOFIT_ZOOM)
-      this.cy.center()
+      this.cy.zoom(this.MAX_AUTOFIT_ZOOM);
+      this.cy.center();
     }
-    //moveTop(layoutType);
+    // moveTop(layoutType);
   }
 
   loadTrace(json) {
-    this.isTraceMode = true
-    this.destroy()
-    this.init()
-    this.cy.add(JSON.parse(json))
-    this.layout(CytoscapeGenerator.LAYOUT_MANUAL_BEZIER)
-    this.fit(1)
+    this.isTraceMode = true;
+    this.destroy();
+    this.init();
+    this.cy.add(JSON.parse(json));
+    this.layout(CytoscapeGenerator.LAYOUT_MANUAL_BEZIER);
+    this.fit(1);
   }
 
   zoomIn() {
-    this.cy.zoom(this.cy.zoom() + 0.1)
-    this.cy.center()
+    this.cy.zoom(this.cy.zoom() + 0.1);
+    this.cy.center();
   }
 
   zoomOut() {
-    this.cy.zoom(this.cy.zoom() - 0.1)
-    this.cy.center()
+    this.cy.zoom(this.cy.zoom() - 0.1);
+    this.cy.center();
   }
 
   center(layoutType) {
-    this.fit()
+    console.log(layoutType);
+    this.fit();
     // this.cy.center()
-    //moveTop(layoutType);
+    // moveTop(layoutType);
   }
 
   resize() {
-    this.cy.resize()
-    this.fit()
+    this.cy.resize();
+    this.fit();
   }
 
   moveTop(layoutType) {
-    let currentPos = this.cy.pan()
-    let box = this.cy.elements().boundingBox({ includeNodes: true, includeEdges: true })
+    const currentPos = this.cy.pan();
+    const box = this.cy.elements().boundingBox({ includeNodes: true, includeEdges: true });
 
     switch (layoutType) {
       case 0:
       case 1:
         if (this.cy.zoom() > 1.0) {
-          this.cy.pan({ x: currentPos.x, y: -box.y1 + 10 })
+          this.cy.pan({ x: currentPos.x, y: -box.y1 + 10 });
         } else {
-          this.cy.pan({ x: currentPos.x, y: -box.y1 * this.cy.zoom() + 10 })
+          this.cy.pan({ x: currentPos.x, y: -box.y1 * this.cy.zoom() + 10 });
         }
-        break
+        break;
       case 2:
         this.cy.center(
-          this.cy.nodes().filter(ele => {
-            return ele.data(this.NAME_PROP) === '|>'
+          this.cy.nodes().filter((ele) => {
+            return ele.data(this.NAME_PROP) === '|>';
           }),
-        )
-        this.cy.pan({ x: currentPos.x, y: 0 })
-        break
+        );
+        this.cy.pan({ x: currentPos.x, y: 0 });
+        break;
       case 3:
-        this.cy.fit()
-        break
+        this.cy.fit();
+        break;
       default:
       // code block
     }
   }
 
-  private SIGN_HEIGHT = 100
-  private MARGIN = 100
+  private SIGN_HEIGHT = 100;
+  private MARGIN = 100;
 
   loadImage(src) {
     return new Promise((resolve, reject) => {
-      const img = new Image()
-      img.addEventListener('load', () => resolve(img))
-      img.addEventListener('error', err => reject(err))
-      img.src = src
-    })
+      const img = new Image();
+      img.addEventListener('load', () => resolve(img));
+      img.addEventListener('error', (err) => reject(err));
+      img.src = src;
+    });
   }
 
   rasterizeForPrint() {
     return Promise.all([
       this.loadImage(
-        'data:image/png;base64,' +
-          this.cy.png({
-            full: true,
-            output: 'base64',
-            scale: 1.0,
-            quality: 1.0,
-          }),
+        `data:image/png;base64,${this.cy.png({
+          full: true,
+          output: 'base64',
+          scale: 1.0,
+          quality: 1.0,
+        })}`,
       ),
     ]).then(([graph]) => {
-      let canvas = document.createElement('canvas')
-      let context = canvas.getContext('2d')
-      let signHeight = this.SIGN_HEIGHT
-      canvas.width = graph['width'] + 2 * this.MARGIN
-      canvas.height = graph['height'] + signHeight + 2 * this.MARGIN
-      context.fillStyle = 'white'
-      context.fillRect(0, 0, canvas.width, canvas.height)
-      //@ts-ignore
-      context.drawImage(graph, this.MARGIN, signHeight + this.MARGIN)
-      return canvas
-    })
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      const signHeight = this.SIGN_HEIGHT;
+      // @ts-ignore
+      canvas.width = graph.width + 2 * this.MARGIN;
+      // @ts-ignore
+      canvas.height = graph.height + signHeight + 2 * this.MARGIN;
+      context.fillStyle = 'white';
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      // @ts-ignore
+      context.drawImage(graph, this.MARGIN, signHeight + this.MARGIN);
+      return canvas;
+    });
   }
 
   exportPDF(filename) {
-    this.rasterizeForPrint().then(canvas => {
-      let pdf = new jsPDF('l', 'px', [canvas.width, canvas.height], false)
-      this.loadImage(canvas.toDataURL()).then(raster => {
-        //@ts-ignore
-        pdf.addImage(raster, 'PNG', 0, 0, canvas.width, canvas.height, NaN, 'FAST')
-        pdf.save(filename + '.pdf', { returnPromise: true })
-      })
-    })
+    this.rasterizeForPrint().then((canvas) => {
+      const pdf = new jsPDF('l', 'px', [canvas.width, canvas.height], false);
+      this.loadImage(canvas.toDataURL()).then((raster) => {
+        // @ts-ignore
+        pdf.addImage(raster, 'PNG', 0, 0, canvas.width, canvas.height, NaN, 'FAST');
+        pdf.save(`${filename}.pdf`, { returnPromise: true });
+      });
+    });
   }
 
   exportPNG(filename) {
-    this.rasterizeForPrint().then(function (canvas) {
-      let a = document.createElement('a')
-      canvas.toBlob(function (blob) {
-        a.href = URL.createObjectURL(blob)
-        a.download = filename + '.png'
-        a.click()
-      })
-    })
+    this.rasterizeForPrint().then((canvas) => {
+      const a = document.createElement('a');
+      canvas.toBlob((blob) => {
+        a.href = URL.createObjectURL(blob);
+        a.download = `${filename}.png`;
+        a.click();
+      });
+    });
   }
 
   makeTippy(node, text) {
     return tippy(node.popperRef(), {
-      content: function () {
-        let div = document.createElement('div')
-        div.innerHTML = text
-        return div
+      content() {
+        const div = document.createElement('div');
+        div.innerHTML = text;
+        return div;
       },
       trigger: 'manual',
       arrow: true,
@@ -604,6 +614,6 @@ export class CytoscapeGenerator {
       multiple: false,
       sticky: true,
       appendTo: document.body,
-    })
+    });
   }
 }

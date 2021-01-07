@@ -1,16 +1,17 @@
 /** @format */
 
-import React, { Component } from 'react'
-import * as d3 from 'd3'
+import React, { Component } from 'react';
+import * as d3 from 'd3';
+
 export default class TreeComponent extends Component {
   componentDidMount() {
     setTimeout(() => {
-      this.drawTree()
-    }, 1500)
+      this.drawTree();
+    }, 1500);
   }
 
   drawTree() {
-    console.log(d3['select'])
+    console.log(d3.select);
 
     const data = {
       name: 'A1',
@@ -37,17 +38,22 @@ export default class TreeComponent extends Component {
           value: 200,
         },
       ],
-    }
-    var root = d3.hierarchy(data)
+    };
+    const root = d3.hierarchy(data);
 
-    var treeLayout = d3.tree()
-    treeLayout.size([400, 200])
+    const treeLayout = d3.tree();
+    treeLayout.size([400, 200]);
 
-    treeLayout(root)
+    treeLayout(root);
 
-    const svg = d3.select('#tree').append('svg').attr('width', 1000).attr('height', 1000).style('margin-left', 10)
+    const svg = d3
+      .select('#tree')
+      .append('svg')
+      .attr('width', 1000)
+      .attr('height', 1000)
+      .style('margin-left', 10);
 
-    console.log(root.descendants())
+    console.log(root.descendants());
 
     // Nodes
     svg
@@ -56,13 +62,13 @@ export default class TreeComponent extends Component {
       .enter()
       .append('circle')
       .classed('node', true)
-      .attr('cx', function (d) {
-        return d['x']
+      .attr('cx', (d: any) => {
+        return d.x;
       })
-      .attr('cy', function (d) {
-        return d['y']
+      .attr('cy', (d: any) => {
+        return d.y;
       })
-      .attr('r', 4)
+      .attr('r', 4);
 
     svg
       .selectAll('line.link')
@@ -70,23 +76,23 @@ export default class TreeComponent extends Component {
       .enter()
       .append('line')
       .classed('link', true)
-      .attr('x1', function (d) {
-        return d.source['x']
+      .attr('x1', (d: any) => {
+        return d.source.x;
       })
-      .attr('y1', function (d) {
-        return d.source['y']
+      .attr('y1', (d: any) => {
+        return d.source.y;
       })
-      .attr('x2', function (d) {
-        return d.target['x']
+      .attr('x2', (d: any) => {
+        return d.target.x;
       })
-      .attr('y2', function (d) {
-        return d.target['y']
+      .attr('y2', (d: any) => {
+        return d.target.y;
       })
       .attr('stroke-width', 1)
-      .attr('stroke', 'black')
+      .attr('stroke', 'black');
   }
 
   render() {
-    return <div id="tree">tree</div>
+    return <div id="tree">tree</div>;
   }
 }

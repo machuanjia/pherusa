@@ -11,11 +11,11 @@ export default class ChordComponent extends Component {
   }
 
   drawCluster() {
-    console.log(d3['select'])
+    console.log(d3.select)
 
-    var chordGenerator = d3.chord().sortSubgroups(d3.ascending).padAngle(0.04)
+    const chordGenerator = d3.chord().sortSubgroups(d3.ascending).padAngle(0.04)
 
-    var ribbonGenerator = d3.ribbon().radius(200)
+    const ribbonGenerator = d3.ribbon().radius(200)
 
     console.log(ribbonGenerator)
 
@@ -25,7 +25,7 @@ export default class ChordComponent extends Component {
       [100, 200, 300],
     ]
 
-    var chords = chordGenerator(data)
+    const chords = chordGenerator(data)
 
     console.log(chords)
 

@@ -4,12 +4,12 @@ import { Toolbar } from '@antv/x6-react-components/es/toolbar'
 import React, { Component } from 'react'
 import { ZoomInOutlined, ZoomOutOutlined, UndoOutlined, RedoOutlined, DeleteOutlined } from '@ant-design/icons'
 
-const Item = Toolbar.Item
-const Group = Toolbar.Group
-interface IX6ToolbarProps {
+const {Item} = Toolbar
+const {Group} = Toolbar
+type IX6ToolbarProps = {
   xe: any
 }
-interface IX6ToolbarState {}
+type IX6ToolbarState = unknown
 
 export default class X6ToolbarComponent extends Component<IX6ToolbarProps, IX6ToolbarState> {
   private xe

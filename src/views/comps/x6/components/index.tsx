@@ -1,6 +1,7 @@
 /** @format */
 import React from 'react'
 import X6TableComponent from './x6-table.component'
+
 export const CellMap = {
   table: graph => {
     return graph.createNode({

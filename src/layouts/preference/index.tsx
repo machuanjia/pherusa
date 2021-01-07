@@ -1,56 +1,71 @@
-/** @format */
-import { Avatar, Drawer, Menu, Modal, Popover, Radio } from 'antd'
-import React, { Component } from 'react'
-import styles from './preference.module.less'
-import { logout } from '@utils/index'
-import { SketchPicker } from 'react-color'
-import { DRAWER_SIZE, MODAL_SIZE } from '@constants/index'
-import i18n from 'i18next'
-import { QuestionCircleOutlined, SettingOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons'
-import { getLocal } from '@i18n/index'
+import { Avatar, Drawer, Menu, Modal, Popover, Radio } from 'antd';
+import React, { Component } from 'react';
+import styles from './preference.module.less';
+import { logout } from '@utils/index';
+import { SketchPicker } from 'react-color';
+import { DRAWER_SIZE, MODAL_SIZE } from '@constants/index';
+import i18n from 'i18next';
+import {
+  QuestionCircleOutlined,
+  SettingOutlined,
+  LogoutOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
+import { getLocal } from '@i18n/index';
 
-export default class PreferenceComponent extends Component {
+type IPreferenceProps = Record<string, unknown>;
+
+type IPreferenceState = {
+  isSettingVisible: boolean;
+  isLogVisible: boolean;
+};
+
+export default class PreferenceComponent extends Component<IPreferenceProps, IPreferenceState> {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isSettingVisible: false,
       isLogVisible: false,
-    }
+    };
   }
   menuAction({ key }) {
     if (key === 'log') {
       this.setState({
         isLogVisible: true,
-      })
+      });
     }
     if (key === 'setting') {
       this.setState({
         isSettingVisible: true,
-      })
+      });
     }
     if (key === 'logout') {
-      logout()
+      logout();
     }
   }
   closeSetting() {
     this.setState({
       isSettingVisible: false,
-    })
+    });
   }
   closeLog() {
     this.setState({
       isLogVisible: false,
-    })
+    });
   }
   changeLang(e) {
-    e.preventDefault()
-    i18n.changeLanguage(e.target.value)
-    window.location.reload()
+    e.preventDefault();
+    i18n.changeLanguage(e.target.value);
+    window.location.reload();
   }
   themeAction() {}
   render() {
     const content = (
-      <Menu style={{ width: 200 }} className={`${styles['prefernce-menu']}`} onClick={this.menuAction.bind(this)}>
+      <Menu
+        style={{ width: 200 }}
+        className={`${styles['prefernce-menu']}`}
+        onClick={this.menuAction.bind(this)}
+      >
         <Menu.Item key="log">
           <QuestionCircleOutlined /> {i18n.t('preference.log')}
         </Menu.Item>
@@ -61,18 +76,24 @@ export default class PreferenceComponent extends Component {
           <LogoutOutlined /> {i18n.t('preference.logout')}
         </Menu.Item>
       </Menu>
-    )
+    );
     return (
       <div className={styles['preference-wrap']}>
         <Popover placement="rightBottom" title={null} content={content}>
-          <Avatar size="large" style={{ backgroundColor: '#79adf8' }} className="pointer" icon={<UserOutlined />} />
+          <Avatar
+            size="large"
+            style={{ backgroundColor: '#79adf8' }}
+            className="pointer"
+            icon={<UserOutlined />}
+          />
         </Popover>
         <Modal
           title={i18n.t('preference.log')}
           width={MODAL_SIZE.md}
-          visible={this.state['isLogVisible']}
+          visible={this.state.isLogVisible}
           footer={null}
-          onCancel={this.closeLog.bind(this)}>
+          onCancel={this.closeLog.bind(this)}
+        >
           <p>
             <b>V0.0.1</b>
             <div>本版本包含完整的项目框架结构，你可以稍加改动即可进行业务开发。包含内容如下：</div>
@@ -90,7 +111,11 @@ export default class PreferenceComponent extends Component {
           <p>11. 代码检查（使用prettier和eslint）</p>
           <p>12. 代码提交检查（commit-lint）</p>
           <p>
-            <a href="https://wiki.laiye.com/display/FE/Pherusa" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://wiki.laiye.com/display/FE/Pherusa"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               详细文档
             </a>
           </p>
@@ -103,7 +128,8 @@ export default class PreferenceComponent extends Component {
           closable={false}
           width={DRAWER_SIZE.xsm}
           onClose={this.closeSetting.bind(this)}
-          visible={this.state['isSettingVisible']}>
+          visible={this.state.isSettingVisible}
+        >
           <div className="text-dark m-b-8">{i18n.t('preference.language')}</div>
           <div className="m-b-24">
             <Radio.Group onChange={this.changeLang.bind(this)} defaultValue={getLocal()}>
@@ -127,12 +153,13 @@ export default class PreferenceComponent extends Component {
               placement="bottom"
               title={null}
               content={<SketchPicker />}
-              trigger="click">
+              trigger="click"
+            >
               <div className="preference-theme-block"></div>
             </Popover>
           </div>
         </Drawer>
       </div>
-    )
+    );
   }
 }

@@ -1,64 +1,84 @@
 /** @format */
 
-import React, { Component } from 'react'
-import { isPhone } from '@utils/index'
-import { Form, Input, Button } from 'antd'
-import i18n from 'i18next'
+import React, { Component } from 'react';
+import { isPhone } from '@utils/index';
+import { Form, Input, Button } from 'antd';
+import i18n from 'i18next';
 
-interface ITableCollectionProps {
-  callback: ({ isVisible, isRefresh }) => {}
-  form: any
-  entity: {}
-}
-interface ITableCollectionState {
-  loading: boolean
-}
+type ITableCollectionProps = {
+  callback: ({ isVisible, isRefresh }) => unknown;
+  form: any;
+  entity: unknown;
+};
+type ITableCollectionState = {
+  loading: boolean;
+};
 
-export default class TableCollecrtionComponent extends Component<ITableCollectionProps, ITableCollectionState> {
+export default class TableCollecrtionComponent extends Component<
+  ITableCollectionProps,
+  ITableCollectionState
+> {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       loading: false,
-    }
+    };
   }
   componentDidMount() {
-    console.log(this.props.entity)
+    console.log(this.props.entity);
   }
   cancel(e) {
-    e.preventDefault()
+    e.preventDefault();
     this.props.callback({
       isVisible: false,
       isRefresh: false,
-    })
+    });
   }
-  handleSubmit(e) {
+  handleSubmit() {
     this.props.callback({
       isVisible: false,
       isRefresh: true,
-    })
+    });
   }
   checkPhone(rule, value, callback) {
-    isPhone(value) ? callback() : callback('请输入正确的手机号码')
+    isPhone(value) ? callback() : callback('请输入正确的手机号码');
   }
   render() {
     return (
-      <Form labelCol={{ span: 24 }} wrapperCol={{ span: 24 }} onFinish={this.handleSubmit.bind(this)}>
-        <Form.Item label="合作伙伴名称" name="partnerName" rules={[{ required: true, message: '请输入合作伙伴名称' }]}>
+      <Form
+        labelCol={{ span: 24 }}
+        wrapperCol={{ span: 24 }}
+        onFinish={this.handleSubmit.bind(this)}
+      >
+        <Form.Item
+          label="合作伙伴名称"
+          name="partnerName"
+          rules={[{ required: true, message: '请输入合作伙伴名称' }]}
+        >
           <Input placeholder="请输入名称" />
         </Form.Item>
         <Form.Item
           label="合作伙伴联系电话"
           name="phone"
-          rules={[{ required: true, message: '请输入合作伙伴电话' }, { validator: this.checkPhone.bind(this) }]}>
+          rules={[
+            { required: true, message: '请输入合作伙伴电话' },
+            { validator: this.checkPhone.bind(this) },
+          ]}
+        >
           <Input placeholder="请输入电话" />
         </Form.Item>
         <Form.Item
           label="合作伙伴负责人"
           name="partnerAdminName"
-          rules={[{ required: true, message: '请输入合作伙伴负责人' }]}>
+          rules={[{ required: true, message: '请输入合作伙伴负责人' }]}
+        >
           <Input placeholder="请输入合作伙伴负责人" />
         </Form.Item>
-        <Form.Item label="渠道经理" name="channelManagerName" rules={[{ required: true, message: '请输入渠道经理' }]}>
+        <Form.Item
+          label="渠道经理"
+          name="channelManagerName"
+          rules={[{ required: true, message: '请输入渠道经理' }]}
+        >
           <Input placeholder="请输入渠道经理" />
         </Form.Item>
         <Form.Item>
@@ -68,6 +88,6 @@ export default class TableCollecrtionComponent extends Component<ITableCollectio
           <Button onClick={this.cancel.bind(this)}> {i18n.t('action.cancel')}</Button>
         </Form.Item>
       </Form>
-    )
+    );
   }
 }

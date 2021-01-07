@@ -1,6 +1,6 @@
 /** @format */
 
-export interface ILoginEntity {
+export type ILoginEntity = {
   phone: string
   captcha: string
 }

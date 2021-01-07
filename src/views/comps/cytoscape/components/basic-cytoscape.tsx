@@ -1,11 +1,11 @@
 /** @format */
 
-import React, { Component } from 'react'
-import styles from './../cytoscape.module.less'
-import cytoscape from 'cytoscape'
+import React, { Component } from 'react';
+import styles from './../cytoscape.module.less';
+import cytoscape from 'cytoscape';
 
 export default class BasicCytoscapeComponent extends Component {
-  private cy
+  private cy;
 
   componentDidMount() {
     this.cy = cytoscape({
@@ -53,7 +53,7 @@ export default class BasicCytoscapeComponent extends Component {
       autolock: false,
       autoungrabify: false,
       autounselectify: false,
-    })
+    });
 
     // this.cy.add({
     //   group: 'nodes',
@@ -64,7 +64,7 @@ export default class BasicCytoscapeComponent extends Component {
       { group: 'nodes', data: { id: 'n0', weight: 100 }, position: { x: 100, y: 100 } },
       { group: 'nodes', data: { id: 'n1', cus: 'cus' }, position: { x: 200, y: 200 } },
       { group: 'edges', data: { id: 'e0', source: 'n0', target: 'n1' } },
-    ])
+    ]);
 
     // const j = this.cy.$id('n1');
     // this.cy.center( j );
@@ -96,39 +96,39 @@ export default class BasicCytoscapeComponent extends Component {
       {
         duration: 1000,
       },
-    )
+    );
 
-    this.cy.startBatch()
+    this.cy.startBatch();
 
-    this.cy.$('#n1').data('weight', '70').addClass('funny').removeClass('serious')
+    this.cy.$('#n1').data('weight', '70').addClass('funny').removeClass('serious');
 
-    this.cy.endBatch()
+    this.cy.endBatch();
 
-    console.log(this.cy.data())
+    console.log(this.cy.data());
 
     // 点击node
-    this.cy.on('tap', 'node', function (evt) {
-      var node = evt.target
-      console.log('tapped ' + node.id())
-    })
+    this.cy.on('tap', 'node', (evt) => {
+      const node = evt.target;
+      console.log(`tapped ${node.id()}`);
+    });
 
-    this.cy.on('tap', event => {
+    this.cy.on('tap', (event) => {
       // target holds a reference to the originator
       // of the event (core or element)
-      var evtTarget = event.target
+      const evtTarget = event.target;
       if (evtTarget === this.cy) {
-        console.log('tap on background')
+        console.log('tap on background');
       } else {
-        console.log('tap on some element')
+        console.log('tap on some element');
       }
-    })
+    });
   }
 
   componentWillUnmount() {
-    this.cy && this.cy.destroy()
+    this.cy && this.cy.destroy();
   }
 
   render() {
-    return <div id="cy" className={styles['cytoscape-wrap']}></div>
+    return <div id="cy" className={styles['cytoscape-wrap']}></div>;
   }
 }

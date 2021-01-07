@@ -1,53 +1,53 @@
 /** @format */
 
 export const getFileIconByName = (name: string) => {
-  const _names = name.split('.')
-  const ext = _names.length > 0 ? _names[_names.length - 1] : 'file'
-  let iconImg
+  const names = name.split('.');
+  const ext = names.length > 0 ? names[names.length - 1] : 'file';
+  let iconImg;
   switch (ext) {
     case 'mp4':
     case 'rm':
     case 'avi':
     case 'wmv':
-      iconImg = 'videoIcon'
-      break
+      iconImg = 'videoIcon';
+      break;
     case 'jpeg':
     case 'jpg':
     case 'png':
     case 'gif':
-      iconImg = 'imgIcon'
-      break
+      iconImg = 'imgIcon';
+      break;
     case 'xlsx':
     case 'xls':
-      iconImg = 'excelIcon'
-      break
+      iconImg = 'excelIcon';
+      break;
     case 'pdf':
-      iconImg = 'pdfIcon'
-      break
+      iconImg = 'pdfIcon';
+      break;
     case 'zip':
     case 'rar':
-      iconImg = 'zipIcon'
-      break
+      iconImg = 'zipIcon';
+      break;
     case 'ppt':
     case 'pptx':
-      iconImg = 'pptIcon'
-      break
+      iconImg = 'pptIcon';
+      break;
     case 'doc':
     case 'docx':
-      iconImg = 'wordIcon'
-      break
+      iconImg = 'wordIcon';
+      break;
     case 'wma':
     case 'amr':
     case 'mp3':
-      iconImg = 'radioIcon'
-      break
+      iconImg = 'radioIcon';
+      break;
     case 'dir':
     case 'file':
-      iconImg = 'fileIcon'
-      break
+      iconImg = 'fileIcon';
+      break;
     default:
-      iconImg = 'otherfileIcon'
-      break
+      iconImg = 'otherfileIcon';
+      break;
   }
-  return `https://cdn.wul.ai/official/img/${iconImg}.png`
-}
+  return `https://cdn.wul.ai/official/img/${iconImg}.png`;
+};

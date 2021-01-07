@@ -1,6 +1,6 @@
 /** @format */
 
-export interface IArticle {
+export type IArticle = {
   id: number
   title: string
   body: string

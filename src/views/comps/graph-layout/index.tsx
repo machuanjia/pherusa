@@ -10,8 +10,8 @@ import PartitionComponent from './components/partition.component'
 import TreeComponent from './components/tree.component'
 import TreemapComponent from './components/treemap.component'
 
-interface IGraphLayoutProps {}
-interface IGraphLayoutState {
+type IGraphLayoutProps = unknown
+type IGraphLayoutState = {
   isTreeVisible: boolean
   isClusterVisible: boolean
   isTreemapVisible: boolean

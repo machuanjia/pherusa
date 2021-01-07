@@ -1,11 +1,11 @@
 /** @format */
 import React, { Component } from 'react'
-import { ReactShape } from '@antv/x6-react-shape'
+import type { ReactShape } from '@antv/x6-react-shape'
 import styles from './x6-table.module.less'
 
 export default class X6TableComponent extends Component<{ node?: ReactShape }> {
   shouldComponentUpdate() {
-    const node = this.props.node
+    const {node} = this.props
     if (node) {
       if (node.hasChanged('data')) {
         return true

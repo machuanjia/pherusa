@@ -13,16 +13,16 @@ export default class ContentLayoutComponent extends Component {
     const childrenMap = keyBy(children, 'key')
     let title = null
     let actions = null
-    let bread = null
+    const bread = null
     let main = null
-    if (childrenMap['left']) {
-      title = <div className={styles['content-layout-header-left']}>{childrenMap['left']}</div>
+    if (childrenMap.left) {
+      title = <div className={styles['content-layout-header-left']}>{childrenMap.left}</div>
     }
-    if (childrenMap['actions']) {
-      actions = <div className={styles['content-layout-header-actions']}>{childrenMap['actions']}</div>
+    if (childrenMap.actions) {
+      actions = <div className={styles['content-layout-header-actions']}>{childrenMap.actions}</div>
     }
-    if (childrenMap['main']) {
-      main = <div className={styles['content-layout-main']}>{childrenMap['main']}</div>
+    if (childrenMap.main) {
+      main = <div className={styles['content-layout-main']}>{childrenMap.main}</div>
     }
     return (
       <div className={styles['content-layout']}>

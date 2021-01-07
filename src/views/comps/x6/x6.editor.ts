@@ -1,24 +1,24 @@
 /** @format */
-import { Graph } from '@antv/x6'
-import { SimpleNodeView } from './x6.map'
+import { Graph } from '@antv/x6';
+import { SimpleNodeView } from './x6.map';
 
 export class X6Editor {
-  private graph
+  private graph;
   private options: any = {
     container: null,
     width: 800,
     height: 600,
-    grid: true, //网格
-    background: false, //背景
-    clipboard: true, //剪切板
-    history: true, //撤销、重做
+    grid: true, // 网格
+    background: false, // 背景
+    clipboard: true, // 剪切板
+    history: true, // 撤销、重做
     selecting: {
       enabled: true,
       multiple: true,
       rubberband: true,
       movable: true,
       showNodeSelectionBox: true,
-    }, //点选、框选
+    }, // 点选、框选
     snapline: true, // 对齐线
     scroller: true, // 滚动
     resizing: {
@@ -30,7 +30,7 @@ export class X6Editor {
       enabled: true,
     },
     connecting: {
-      //是否连线
+      // 是否连线
       snap: true,
       allowBlank: true,
       allowMulti: true,
@@ -40,13 +40,13 @@ export class X6Editor {
       allowPort: true,
       router: 'manhattan',
     },
-  }
+  };
 
   constructor(ops: { container: string; miniMap: string }) {
-    this.options = Object.assign({}, this.options, ops)
-    const container = document.getElementById(this.options.container)
+    this.options = { ...this.options, ...ops };
+    const container = document.getElementById(this.options.container);
     if (this.options.miniMap) {
-      const miniMap = document.getElementById(this.options.miniMap)
+      const miniMap = document.getElementById(this.options.miniMap);
       this.options.minimap = {
         enabled: true,
         container: miniMap,
@@ -57,27 +57,29 @@ export class X6Editor {
           async: true,
           getCellView(cell) {
             if (cell.isNode()) {
-              return SimpleNodeView
+              return SimpleNodeView;
             }
+            return null;
           },
-          createCellView(cell) {
-            if (cell.isEdge()) {
-              return null
-            }
-          },
+          // createCellView(cell) {
+          //   if (cell.isEdge()) {
+          //     return null;
+          //   }
+          //   return null;
+          // },
         },
-      }
-      delete this.options.miniMap
+      };
+      delete this.options.miniMap;
     }
-    this.options.container = container
-    this.options.width = container.clientWidth
-    this.options.height = container.clientHeight
-    this.init()
+    this.options.container = container;
+    this.options.width = container.clientWidth;
+    this.options.height = container.clientHeight;
+    this.init();
   }
 
   init() {
-    this.graph = new Graph(this.options)
-    this.setTools()
+    this.graph = new Graph(this.options);
+    this.setTools();
   }
 
   setTools() {
@@ -103,34 +105,36 @@ export class X6Editor {
               offset: { x: 10, y: 10 },
             },
           },
-        ])
+        ]);
       } else {
-        cell.addTools(['vertices', 'segments'])
+        cell.addTools(['vertices', 'segments']);
       }
-    })
+    });
     this.graph.on('cell:mouseleave', ({ cell }) => {
-      cell.removeTools()
-    })
+      cell.removeTools();
+    });
   }
 
   loadData(data) {
-    this.graph.fromJSON(data)
+    this.graph.fromJSON(data);
   }
   getData() {
-    return this.graph.toJSON()
+    return this.graph.toJSON();
   }
 
   zoomIn() {
-    this.graph.zoomTo(this.graph.zoom() + 0.1)
+    this.graph.zoomTo(this.graph.zoom() + 0.1);
   }
 
   zoomOut() {
-    this.graph.zoomTo(this.graph.zoom() - 0.1)
+    this.graph.zoomTo(this.graph.zoom() - 0.1);
   }
+
   undo() {
-    this.graph.history.undo()
+    this.graph.history.undo();
   }
+
   redo() {
-    this.graph.history.redo()
+    this.graph.history.redo();
   }
 }

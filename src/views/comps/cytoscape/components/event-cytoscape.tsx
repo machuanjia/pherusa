@@ -1,11 +1,11 @@
 /** @format */
 
-import React, { Component } from 'react'
-import styles from './../cytoscape.module.less'
-import cytoscape from 'cytoscape'
+import React, { Component } from 'react';
+import styles from './../cytoscape.module.less';
+import cytoscape from 'cytoscape';
 
 export default class EventCytoscapeComponent extends Component {
-  private cy
+  private cy;
 
   componentDidMount() {
     this.cy = cytoscape({
@@ -65,17 +65,17 @@ export default class EventCytoscapeComponent extends Component {
       autolock: false,
       autoungrabify: false,
       autounselectify: false,
-    })
+    });
 
     // this.cy.on('add', 'node', evt => {
     //   var node = evt.target
     //   console.log('added ' + node.id())
     // })
 
-    this.cy.on('drag', 'node', evt => {
-      var node = evt.target
-      console.log('dragged ' + node.id())
-    })
+    this.cy.on('drag', 'node', (evt) => {
+      const node = evt.target;
+      console.log(`dragged ${node.id()}`);
+    });
 
     this.cy.add([
       { group: 'nodes', data: { id: 'n0' }, position: { x: 300, y: 300 } },
@@ -92,10 +92,10 @@ export default class EventCytoscapeComponent extends Component {
           'control-point-weights': '0.25 0.5 0.75',
         },
       },
-    ])
+    ]);
 
-    const j = this.cy.$id('n1')
-    this.cy.center(j)
+    const j = this.cy.$id('n1');
+    this.cy.center(j);
 
     // this.cy.remove('node#n0');
 
@@ -110,8 +110,8 @@ export default class EventCytoscapeComponent extends Component {
     // this.cy.fit()
 
     this.cy.on('zoom', () => {
-      console.log('zoom')
-    })
+      console.log('zoom');
+    });
 
     // this.cy.zoom({
     //     level: 2.0, // the zoom level
@@ -139,67 +139,67 @@ export default class EventCytoscapeComponent extends Component {
     // console.log(this.cy.data())
 
     // 点击node
-    this.cy.on('tap', 'node', evt => {
-      var node = evt.target
-      console.log('tapped ' + node.id())
-    })
+    this.cy.on('tap', 'node', (evt) => {
+      const node = evt.target;
+      console.log(`tapped ${node.id()}`);
+    });
 
-    this.cy.on('boxstart', function (evt) {
-      console.log('boxstart')
-    })
+    this.cy.on('boxstart', (evt) => {
+      console.log('boxstart', evt);
+    });
 
-    this.cy.on('boxselect', evt => {
-      var ele = evt.target
-      console.log('boxselect' + ele.id())
+    this.cy.on('boxselect', (evt) => {
+      const ele = evt.target;
+      console.log(`boxselect${ele.id()}`);
       // this.cy.getElementById(ele.id()).select()
       // ele.style({
       //     'border-width': '1',
       //     'border-style': 'solid'})
-    })
+    });
 
-    this.cy.on('boxend', function (evt) {
+    this.cy.on('boxend', (evt) => {
       // var ele = evt.target
-      console.log('boxendd')
-    })
+      console.log('boxendd', evt);
+    });
 
-    this.cy.on('box', function (evt) {
-      console.log('box')
-    })
+    this.cy.on('box', (evt) => {
+      console.log('box', evt);
+    });
 
-    this.cy.on('select', function (evt) {
-      var ele = evt.target
-      console.log('select' + ele.id())
-    })
+    this.cy.on('select', (evt) => {
+      const ele = evt.target;
+      console.log(`select${ele.id()}`);
+    });
 
-    this.cy.on('unselect', function (evt) {
-      var ele = evt.target
-      console.log('unselect' + ele.id())
+    this.cy.on('unselect', (evt) => {
+      const ele = evt.target;
+      console.log(`unselect${ele.id()}`);
       // ele.style({
       //     'border-width': '0',
       //     'border-style': 'solid'})
-    })
+    });
 
     // this.cy.removeListener('tap');
 
     // 生成2000个node
-    console.time('2000')
-    for (let i = 0; i < 2000; i++) {
-      this.cy.add({ group: 'nodes', data: { id: 'i' + i }, position: { x: 300 + i * 50, y: 400 } })
+    console.time('2000');
+    for (let i = 0; i < 2000; i += 1) {
+      this.cy.add({ group: 'nodes', data: { id: `i${i}` }, position: { x: 300 + i * 50, y: 400 } });
     }
-    console.timeEnd('2000')
+    console.timeEnd('2000');
 
-    console.time('5000')
-    for (let i = 0; i < 5000; i++) {
-      this.cy.add({ group: 'nodes', data: { id: 'j' + i }, position: { x: 300 + i * 20, y: 500 } })
+    console.time('5000');
+    for (let i = 0; i < 5000; i += 1) {
+      this.cy.add({ group: 'nodes', data: { id: `j${i}` }, position: { x: 300 + i * 20, y: 500 } });
     }
-    console.timeEnd('5000')
+    console.timeEnd('5000');
   }
 
   componentWillUnmount() {
-    this.cy && this.cy.destroy()
+    this.cy && this.cy.destroy();
   }
 
   render() {
-    return <div id="cy" className={styles['cytoscape-wrap']}></div>
+    return <div id="cy" className={styles['cytoscape-wrap']}></div>;
   }
 }

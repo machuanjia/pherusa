@@ -14,19 +14,19 @@ export default class SimpleLayoutComponent extends Component {
     let desc = null
     let graphic = null
     let action = null
-    if (childrenMap['action']) {
-      action = <div className={styles['simple-layout-action']}>{childrenMap['action']}</div>
+    if (childrenMap.action) {
+      action = <div className={styles['simple-layout-action']}>{childrenMap.action}</div>
     }
-    if (childrenMap['desc']) {
+    if (childrenMap.desc) {
       desc = (
         <div className={styles['simple-layout-desc']}>
-          {childrenMap['desc']}
+          {childrenMap.desc}
           {action}
         </div>
       )
     }
-    if (childrenMap['graphic']) {
-      graphic = <div className={styles['simple-layout-graphic']}>{childrenMap['graphic']}</div>
+    if (childrenMap.graphic) {
+      graphic = <div className={styles['simple-layout-graphic']}>{childrenMap.graphic}</div>
     }
 
     return (
