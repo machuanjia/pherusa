@@ -4,11 +4,11 @@ export type AppState = {
   token: string;
   permissions: string[];
   roles: string[];
-  routers: {}[];
-  flattenRouters: {}[];
+  routers: Record<string, unknown>[];
+  flattenRouters: Record<string, unknown>[];
   warning: string;
   id: string;
-  activeNav: {};
+  activeNav: Record<string, unknown>;
 };
 
 export type AppAction = {
@@ -16,11 +16,11 @@ export type AppAction = {
   token?: string;
   permissions?: string[];
   roles?: string[];
-  routers?: {}[];
-  flattenRouters?: {}[];
+  routers?: Record<string, unknown>[];
+  flattenRouters?: Record<string, unknown>[];
   warning?: string;
   id?: string;
-  activeNav?: {};
+  activeNav?: Record<string, unknown>;
 };
 
 export type DispatchType = (args: AppAction) => AppAction;

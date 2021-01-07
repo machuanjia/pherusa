@@ -3,7 +3,7 @@
 export type OperateState = {
   isEdit: boolean;
   step: number;
-  draft: {} | null;
+  draft: Record<string, unknown> | null;
   isNext: boolean;
 };
 
@@ -19,7 +19,7 @@ export type IOperateSignRenewalStepProps = {
   isNext?: boolean;
   isEdit?: boolean;
   updateDraft?: any;
-  setStep?: (step: number) => {};
+  setStep?: (step: number) => unknown;
 };
 export type IOperateSignRenewalEntity = {
   licence_uri?: string;

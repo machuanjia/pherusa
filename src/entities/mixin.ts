@@ -1,17 +1,15 @@
-/** @format */
-
 export type IListMixin = {
-  data: {}[];
+  data: Record<string, unknown>[];
   loading: boolean;
-  pagination: {};
-  searchAction: () => {};
-  openCollection: () => {};
-  closeCollection: () => {};
-  getList: () => {};
+  pagination: unknown;
+  searchAction: () => unknown;
+  openCollection: () => unknown;
+  closeCollection: () => unknown;
+  getList: () => unknown;
   getRowKey: any;
-  collectionCallBack: () => {};
+  collectionCallBack: () => unknown;
   editEntity: any;
   deleteEntity: any;
-  entity: {};
+  entity: Record<string, unknown>;
   isCollectionVisible: boolean;
 };
