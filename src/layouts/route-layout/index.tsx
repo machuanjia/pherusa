@@ -1,5 +1,11 @@
-/** @format */
-
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 18:55:58
+ * @LastEditTime: 2021-02-04 19:04:08
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/layouts/route-layout/index.tsx
+ * @Description: 
+ */
 import React, { Component } from 'react';
 import { RouteView } from '@components/index';
 

@@ -1,10 +1,8 @@
-/** @format */
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addRoles } from '@stores/app/app.actions';
-import styles from './redirect.module.less';
 import { LoadingOutlined } from '@ant-design/icons';
+import styles from './index.module.less';
 import { setInfo } from '../../permission';
 
 type IRedirectProps = {

@@ -58,7 +58,8 @@
     "test": "craco test",
     "eject": "craco eject",
     "analyze": "source-map-explorer dist/static/js/main.*",
-    "lint": "eslint src --fix --ext .ts,.tsx "
+    "lint": "eslint src --fix --ext .ts,.tsx ",
+    "style": "stylelint --fix \"src/**/*.less\" --syntax less"
   },
   "eslintConfig": {
     "extends": [

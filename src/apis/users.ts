@@ -6,7 +6,6 @@
  * @FilePath: /pherusa/src/apis/users.ts
  * @Description: 
  */
-/** @format */
 
 import type { IUser } from '@interfaces/index'
 import request from '@utils/request'

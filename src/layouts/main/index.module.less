@@ -1,17 +1,15 @@
-/** @format */
-
 @import '@styles/variables.less';
 
 .main-layout{
     display: flex;
     height: 100vh;
     &-side{
-        width: 81px;
-        border-right: 1px @border solid;
-        background: #001529;
-        text-align: center;
         display: flex;
         flex-direction: column;
+        width: 81px;
+        text-align: center;
+        background: #001529;
+        border-right: 1px @border solid;
         :global{
             .logo{
                 margin: 12px auto;
@@ -19,20 +17,17 @@
             .navs{
                 flex:1;
             }
-            .preference{
-
-            }
         }
     }
     &-main{
-        flex:1;
         display: flex;
+        flex:1;
         flex-direction: column;
         &-container{
-            padding: 30px;
-            background: @bg-main;
             flex:1;
+            padding: 30px;
             overflow: auto;
+            background: @bg-main;
         }
     }
 }

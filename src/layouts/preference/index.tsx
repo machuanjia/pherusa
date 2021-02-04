@@ -1,10 +1,9 @@
 import { Avatar, Drawer, Menu, Modal, Popover, Radio } from 'antd';
 import React, { Component } from 'react';
-import styles from './index.module.less';
-import { logout } from '@utils/index';
+import i18n from 'i18next';
 import { SketchPicker } from 'react-color';
 import { DRAWER_SIZE, MODAL_SIZE } from '@constants/index';
-import i18n from 'i18next';
+import { logout } from '@utils/index';
 import {
   QuestionCircleOutlined,
   SettingOutlined,
@@ -12,6 +11,7 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { getLocal } from '@i18n/index';
+import styles from './index.module.less';
 
 type IPreferenceProps = Record<string, unknown>;
 

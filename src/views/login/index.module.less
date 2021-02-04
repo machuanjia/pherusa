@@ -2,30 +2,30 @@
 
 @import '@styles/variables.less';
 .login-wrap {
-  height: 100%;
   display: flex;
+  height: 100%;
   .login-aside {
+    flex-shrink: 0;
     width: 40%;
     max-width: 620px;
-    flex-shrink: 0;
+    padding-top: 120px;
+    text-align: center;
     background: url('https://cdn.wul.ai/official/hestia/login-aside-bg.png') no-repeat bottom left @color-primary;
     background-size: contain;
-    text-align: center;
-    padding-top: 120px;
     .login-icon {
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
     }
     .login-aside-content {
       width: 70%;
     }
   }
   .login-main {
-    flex: 1;
     display: flex;
-    justify-content: center;
+    flex: 1;
     align-items: center;
+    justify-content: center;
   }
 }
 
@@ -34,17 +34,15 @@
   .login-form-header {
     text-align: center;
     .login-form-title {
-      font-size: 2rem;
-      font-weight: 500;
       color: @color-primary;
+      font-weight: 500;
+      font-size: 2rem;
     }
     .login-form-desc {
-      font-size: 0.875rem;
-      color: @text-desc;
       margin-bottom: 48px;
+      color: @text-desc;
+      font-size: 0.875rem;
     }
-  }
-  .login-form-body {
   }
   .login-form-footer {
     text-align: center;

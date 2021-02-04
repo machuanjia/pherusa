@@ -1,7 +1,5 @@
-/** @format */
-
 import React, { Component } from 'react'
-import styles from './no-font.module.less'
+import styles from './index.module.less'
 
 export default class NoFonfView extends Component {
   render() {
