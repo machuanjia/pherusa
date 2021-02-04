@@ -1,5 +1,5 @@
 import * as actionTypes from './article.types';
-import type { IArticle, ArticleAction, ArticleState } from '@entities/article';
+import type { IArticle, ArticleAction, ArticleState } from '@interfaces/index';
 
 const initialState: ArticleState = {
   articles: [

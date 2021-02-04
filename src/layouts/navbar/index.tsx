@@ -1,10 +1,20 @@
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:46:02
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/layouts/navbar/index.tsx
+ * @Description: 
+ */
 import React, { Component } from 'react';
-import styles from './navbar.module.less';
 import { withRouter } from 'react-router-dom';
-import store from '@stores/store';
-import { find } from 'lodash';
-import { ICON_MAP } from '@constants/index';
 import i18n from 'i18next';
+import { find } from 'lodash';
+
+import store from '@stores/store';
+import { ICON_MAP } from '@constants/index';
+
+import styles from './index.module.less';
 
 type INavbarProps = {
   location: {

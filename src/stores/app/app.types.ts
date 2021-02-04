@@ -1,4 +1,11 @@
-/** @format */
+/*
+ * @Author: D.Y
+ * @Date: 2020-12-17 10:23:10
+ * @LastEditTime: 2021-02-04 15:56:03
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/stores/app/app.types.ts
+ * @Description: 
+ */
 
 export const SET_TOKEN = 'SET_TOKEN'
 export const SET_PERMISSIONS = 'SET_PERMISSIONS'

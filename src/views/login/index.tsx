@@ -1,37 +1,47 @@
-import React, { Component } from 'react';
-import styles from './login.module.less';
-import { Form, Input, Button } from 'antd';
-import type { ILoginEntity } from '@entities/login';
-import { isPhone } from '@utils/validate';
-import { connect } from 'react-redux';
-import { signIn } from '@apis/users';
-import { addToken } from '@stores/app/app.actions';
-import { setToken } from '@utils/index';
-import { Trans } from 'react-i18next';
-import i18n from 'i18next';
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:52:36
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/views/login/index.tsx
+ * @Description:
+ */
+import React, { Component } from 'react'
+import { Form, Input, Button } from 'antd'
+import type { ILoginEntity } from '@interfaces/index'
+import i18n from 'i18next'
+import { connect } from 'react-redux'
+import { Trans } from 'react-i18next'
+
+import { isPhone } from '@utils/validate'
+import { signIn } from '@apis/users'
+import { addToken } from '@stores/app/app.actions'
+import { setToken } from '@utils/index'
+
+import styles from './index.module.less'
 
 type ILoginProps = {
-  history: any;
-  addToken: (token: string) => unknown;
-};
-type ILoginState = unknown;
+  history: any
+  addToken: (token: string) => unknown
+}
+type ILoginState = unknown
 
 class LoginView extends Component<ILoginProps, ILoginState> {
   async loginSuccess(payload: ILoginEntity) {
-    const { data } = await signIn(payload);
-    setToken('token');
-    data && this.props.history.push('/redirect');
+    const { data } = await signIn(payload)
+    setToken('token')
+    data && this.props.history.push('/redirect')
   }
 
   handleSubmit(values: any) {
-    this.loginSuccess(values);
+    this.loginSuccess(values)
   }
 
   checkPhone(rule, value, callback) {
     if (isPhone(value)) {
-      callback();
+      callback()
     } else {
-      callback(i18n.t('validate.phone.message'));
+      callback(i18n.t('validate.phone.message'))
     }
   }
 
@@ -104,19 +114,19 @@ class LoginView extends Component<ILoginProps, ILoginState> {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
     addToken: (token: string) => {
-      dispatch(addToken(token));
+      dispatch(addToken(token))
     },
-  };
-};
+  }
+}
 
 const mapStateToProps = () => {
-  return {};
-};
-export default connect(mapStateToProps, mapDispatchToProps)(LoginView);
+  return {}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(LoginView)

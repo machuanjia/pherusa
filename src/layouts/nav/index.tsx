@@ -1,9 +1,19 @@
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:43:36
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/layouts/nav/index.tsx
+ * @Description: 
+ */
 import React, { Component } from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { filter, map, find } from 'lodash';
+
 import store from '@stores/store';
-import styles from './nav.module.less';
+
+import styles from './index.module.less';
 import { SET_ACTIVE_NAV } from '@stores/app/app.types';
 import { ROUTE_APP_KEY } from '@routes/index';
 import { ICON_MAP } from '@constants/index';

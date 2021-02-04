@@ -1,6 +1,6 @@
 import { Avatar, Drawer, Menu, Modal, Popover, Radio } from 'antd';
 import React, { Component } from 'react';
-import styles from './preference.module.less';
+import styles from './index.module.less';
 import { logout } from '@utils/index';
 import { SketchPicker } from 'react-color';
 import { DRAWER_SIZE, MODAL_SIZE } from '@constants/index';

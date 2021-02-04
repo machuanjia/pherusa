@@ -1,10 +1,8 @@
-/** @format */
-
 import * as actionTypes from './app.types';
-import type { AppAction, DispatchType } from '@entities/app';
+import type { AppAction } from '@interfaces/index';
 
 export const dispatchAction = (action: AppAction) => {
-  return (dispatch: DispatchType) => {
+  return (dispatch) => {
     dispatch(action);
   };
 };

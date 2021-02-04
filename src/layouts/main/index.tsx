@@ -1,6 +1,14 @@
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:43:18
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/layouts/main/index.tsx
+ * @Description: 
+ */
 import React, { Component } from 'react';
 import NavComponent from '../nav';
-import styles from './main.module.less';
+import styles from './index.module.less';
 import { RouteView } from '@components/index';
 import PreferenceComponent from '../preference';
 import NavbarComponent from '../navbar';

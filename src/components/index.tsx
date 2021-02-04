@@ -1,25 +1,18 @@
-/** @format */
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:33:53
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/components/index.tsx
+ * @Description: 
+ */
 
-import asyncComponent from './async'
-import ContentLayoutComponent from './content-layouts/content'
-import SimpleLayoutComponent from './content-layouts/simple'
-import UploadComponent from './upload'
-import ModalDragComponent from './modal-drag'
-import RouteView from './render-route/route-view.component'
-import BpmnEditorComponent from './bpmn/bpmn-editor.component'
-import CmmnEditorComponent from './bpmn/cmmn-editor.component'
-import DmnEditorComponent from './bpmn/dmn-editor.component'
-import ErrorBoundary from './error/error.component'
+import asyncComponent from './Async'
+import ContentLayoutComponent from './ContentLayout'
+import RouteView from './RenderRoute/RouteView'
 
 export {
   asyncComponent,
   ContentLayoutComponent,
-  SimpleLayoutComponent,
-  UploadComponent,
-  ModalDragComponent,
   RouteView,
-  ErrorBoundary,
-  BpmnEditorComponent,
-  CmmnEditorComponent,
-  DmnEditorComponent,
 }

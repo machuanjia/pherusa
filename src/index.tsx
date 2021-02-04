@@ -1,26 +1,29 @@
-/** @format */
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:42:49
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/index.tsx
+ * @Description: 
+ */
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Helmet } from 'react-helmet'
+import { ConfigProvider } from 'antd'
+import 'react-grid-layout/css/styles.css'
+import 'react-resizable/css/styles.css'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom'
+
+import store from '@stores/store'
+import { history } from '@utils/history'
+import '@i18n'
+import { getAntdLocal } from '@i18n/index'
+
 import './styles/index.less'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import { Helmet } from 'react-helmet'
-import '@i18n'
-import { Provider } from 'react-redux'
-import store from '@stores/store'
-import { BrowserRouter } from 'react-router-dom'
-import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css'
-import { history } from '@utils/history'
-import { ConfigProvider } from 'antd'
-import 'tippy.js/index.css'
-import 'cytoscape-context-menus/cytoscape-context-menus.css'
-import 'cytoscape-navigator/cytoscape.js-navigator.css'
-import '@antv/x6-react-components/es/menu/style/index.css'
-import '@antv/x6-react-components/es/toolbar/style/index.css'
-import 'react-grid-layout/css/styles.css'
-import 'react-resizable/css/styles.css'
-import { getAntdLocal } from '@i18n/index'
 
 ReactDOM.render(
   <Provider store={store}>

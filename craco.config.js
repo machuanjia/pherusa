@@ -32,7 +32,7 @@ module.exports = {
       '@utils': pathResolve('src/utils'),
       '@views': pathResolve('src/views'),
       '@routes': pathResolve('src/routes'),
-      '@entities': pathResolve('src/entities'),
+      '@interfaces': pathResolve('src/interfaces'),
     },
     configure: (webpackConfig, { env, paths }) => {
       paths.appBuild = 'dist'

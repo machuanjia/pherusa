@@ -1,12 +1,11 @@
-/** @format */
-
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { Trans } from 'react-i18next'
 import { connect } from 'react-redux'
-import { addArticle } from '@stores/article/article.actions'
 import i18n from 'i18next'
+
+import { addArticle } from '@stores/article/article.actions'
 
 class About extends Component<any, any> {
   addNewArticle = (e: React.FormEvent) => {

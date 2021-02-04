@@ -1,6 +1,14 @@
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:51:41
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/apis/users.ts
+ * @Description: 
+ */
 /** @format */
 
-import type { IUser } from '@entities/user'
+import type { IUser } from '@interfaces/index'
 import request from '@utils/request'
 
 export const signIn = (data: { phone: string; captcha: string }) => {

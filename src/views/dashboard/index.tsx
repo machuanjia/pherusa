@@ -1,10 +1,9 @@
-/** @format */
 
 import React, { Component } from 'react'
 import GridLayout from 'react-grid-layout'
-import { Line, Bar, Pie, DualAxes } from '@ant-design/charts'
-import styles from './dashboard.module.less'
 import { map } from 'lodash'
+import { Line, Bar, Pie, DualAxes } from '@ant-design/charts'
+import styles from './index.module.less'
 
 export default class DashboardView extends Component {
   private layout = [

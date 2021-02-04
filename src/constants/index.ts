@@ -1,7 +1,11 @@
-/** @format */
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:37:06
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/constants/index.ts
+ * @Description: 
+ */
 
-export * from './file.constant'
-export * from './modal.constant'
-export * from './province.constant'
-export * from './auth.constant'
-export * from './icons.constant'
+export * from './modal'
+export * from './icons'

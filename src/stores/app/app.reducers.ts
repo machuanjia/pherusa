@@ -1,5 +1,13 @@
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-04 15:27:20
+ * @LastEditTime: 2021-02-04 15:51:57
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/stores/app/app.reducers.ts
+ * @Description: 
+ */
 import * as actionTypes from './app.types';
-import type { AppState, AppAction } from '@entities/app';
+import type { AppState, AppAction } from '@interfaces/index';
 import routes from '@routes/index';
 
 const initialState: AppState = {

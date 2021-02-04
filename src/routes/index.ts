@@ -1,9 +1,7 @@
-/** @format */
-
 import { asyncComponent } from '@components/index'
-import componentsRoute from './component.route'
 import MainLayout from '@layouts/main'
 import RouteLayout from '@layouts/route-layout'
+import componentsRoute from './component'
 
 export const ROUTE_APP_KEY = 'app'
 

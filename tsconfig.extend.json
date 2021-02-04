@@ -14,7 +14,7 @@
         "@views/*": ["views/*"],
         "@utils/*": ["utils/*"],
         "@routes/*": ["routes/*"],
-        "@entities/*": ["entities/*"],
+        "@interfaces/*": ["interfaces/*"],
       }
     }
   }

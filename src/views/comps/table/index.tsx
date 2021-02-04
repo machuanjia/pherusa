@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import { ContentLayoutComponent } from '@components/index';
 import { Table, Input, Button, Tooltip, Modal } from 'antd';
+
+import { ContentLayoutComponent } from '@components/index';
 import { MODAL_SIZE } from '@constants/index';
-import TableCollecrtionComponent from './table.collection.component';
-import { listMixin } from '@components/mixin/list.mixin';
+import TableCollecrtionComponent from './TableCollection';
+import { listMixin } from '@components/Mixin';
 import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index';
-import type { IListMixin } from '@entities/mixin';
+import type { IListMixin } from '@interfaces/mixin';
 import {
   SettingOutlined,
   EditOutlined,
