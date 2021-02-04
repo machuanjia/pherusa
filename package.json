@@ -102,7 +102,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
+      "pre-commit": "npm run lint && npm run style",
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
   }
