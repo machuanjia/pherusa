@@ -345,36 +345,6 @@
   dependencies:
     tslib "^2.0.3"
 
-"@antv/x6-react-components@1.0.4":
-  version "1.0.4"
-  resolved "http://npm.laiye.com/@antv%2fx6-react-components/-/x6-react-components-1.0.4.tgz#dc5a2d3eee5f52a469c4f4d27f55bd22e5410f4a"
-  integrity sha1-3FotPu5fUqRpxPTSf1W9IuVBD0o=
-  dependencies:
-    clamp "^1.0.1"
-    classnames "^2.2.6"
-    rc-dropdown "^3.0.0-alpha.0"
-    rc-util "^4.15.7"
-    react-color "^2.17.3"
-    react-resize-detector "^4.2.1"
-    ua-parser-js "^0.7.20"
-
-"@antv/x6-react-shape@1.1.51":
-  version "1.1.51"
-  resolved "http://npm.laiye.com/@antv%2fx6-react-shape/-/x6-react-shape-1.1.51.tgz#3639501076bc3335fabb44f07e3c055f72fa57d9"
-  integrity sha1-NjlQEHa8MzX6u0TwfjwFX3L6V9k=
-
-"@antv/x6@1.7.10":
-  version "1.7.10"
-  resolved "http://npm.laiye.com/@antv%2fx6/-/x6-1.7.10.tgz#0702f527f257b082b254fcf4c982629509a39a6e"
-  integrity sha1-BwL1J/JXsIKyVPz0yYJilQmjmm4=
-  dependencies:
-    csstype "^3.0.3"
-    jquery "^3.5.1"
-    jquery-mousewheel "^3.1.13"
-    lodash-es "^4.17.15"
-    mousetrap "^1.6.5"
-    utility-types "^3.10.0"
-
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "http://npm.laiye.com/@babel%2fcode-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -438,9 +408,9 @@
     source-map "^0.5.0"
 
 "@babel/generator@^7.12.1", "@babel/generator@^7.12.13":
-  version "7.12.13"
-  resolved "http://npm.laiye.com/@babel%2fgenerator/-/generator-7.12.13.tgz#5f6ebe6c85db99886db2d7b044409196f872a503"
-  integrity sha1-X26+bIXbmYhtstewRECRlvhypQM=
+  version "7.12.15"
+  resolved "http://npm.laiye.com/@babel%2fgenerator/-/generator-7.12.15.tgz#4617b5d0b25cc572474cc1aafee1edeaf9b5368f"
+  integrity sha1-Rhe10LJcxXJHTMGq/uHt6vm1No8=
   dependencies:
     "@babel/types" "^7.12.13"
     jsesc "^2.5.1"
@@ -640,9 +610,9 @@
     js-tokens "^4.0.0"
 
 "@babel/parser@^7.1.0", "@babel/parser@^7.12.13", "@babel/parser@^7.12.3", "@babel/parser@^7.7.0":
-  version "7.12.14"
-  resolved "http://npm.laiye.com/@babel%2fparser/-/parser-7.12.14.tgz#4adb7c5eef1d437ef965ad1569cd826db8c11dc9"
-  integrity sha1-Stt8Xu8dQ375Za0Vac2CbbjBHck=
+  version "7.12.15"
+  resolved "http://npm.laiye.com/@babel%2fparser/-/parser-7.12.15.tgz#2b20de7f0b4b332d9b119dd9c33409c538b8aacf"
+  integrity sha1-KyDefwtLMy2bEZ3ZwzQJxTi4qs8=
 
 "@babel/plugin-proposal-async-generator-functions@^7.12.1", "@babel/plugin-proposal-async-generator-functions@^7.12.13":
   version "7.12.13"
@@ -2241,227 +2211,12 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/d3-array@*":
-  version "2.9.0"
-  resolved "http://npm.laiye.com/@types%2fd3-array/-/d3-array-2.9.0.tgz#fb6c3d7d7640259e68771cd90cc5db5ac1a1a012"
-  integrity sha1-+2w9fXZAJZ5odxzZDMXbWsGhoBI=
-
-"@types/d3-axis@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-axis/-/d3-axis-2.0.0.tgz#a3e7534d3c399c20ba42ec3093dd2a385659366e"
-  integrity sha1-o+dTTTw5nCC6Quwwk90qOFZZNm4=
-  dependencies:
-    "@types/d3-selection" "*"
-
-"@types/d3-brush@*":
-  version "2.1.0"
-  resolved "http://npm.laiye.com/@types%2fd3-brush/-/d3-brush-2.1.0.tgz#c51ad1ab93887b23be7637d2100540f1df0dac00"
-  integrity sha1-xRrRq5OIeyO+djfSEAVA8d8NrAA=
-  dependencies:
-    "@types/d3-selection" "*"
-
-"@types/d3-chord@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-chord/-/d3-chord-2.0.0.tgz#8d7085e2828418f2c5087e512f276559499bacfd"
-  integrity sha1-jXCF4oKEGPLFCH5RLydlWUmbrP0=
-
-"@types/d3-color@*":
-  version "2.0.1"
-  resolved "http://npm.laiye.com/@types%2fd3-color/-/d3-color-2.0.1.tgz#570ea7f8b853461301804efa52bd790a640a26db"
-  integrity sha1-Vw6n+LhTRhMBgE76Ur15CmQKJts=
-
-"@types/d3-contour@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-contour/-/d3-contour-2.0.0.tgz#6e079f281b29a8df3fcbd3ec193f2cf1d0b4a584"
-  integrity sha1-bgefKBspqN8/y9PsGT8s8dC0pYQ=
-  dependencies:
-    "@types/d3-array" "*"
-    "@types/geojson" "*"
-
-"@types/d3-delaunay@*":
-  version "5.3.0"
-  resolved "http://npm.laiye.com/@types%2fd3-delaunay/-/d3-delaunay-5.3.0.tgz#416169bb5c67a510c87b55d092a404fcab49def3"
-  integrity sha1-QWFpu1xnpRDIe1XQkqQE/KtJ3vM=
-
-"@types/d3-dispatch@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-dispatch/-/d3-dispatch-2.0.0.tgz#1f8803041b73b81f2c751e026b7bb63dd5f24ce0"
-  integrity sha1-H4gDBBtzuB8sdR4Ca3u2PdXyTOA=
-
-"@types/d3-drag@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-drag/-/d3-drag-2.0.0.tgz#ef66acc422576fbe10b8bd66af45a9fb8525199a"
-  integrity sha1-72asxCJXb74QuL1mr0Wp+4UlGZo=
-  dependencies:
-    "@types/d3-selection" "*"
-
-"@types/d3-dsv@*":
-  version "2.0.1"
-  resolved "http://npm.laiye.com/@types%2fd3-dsv/-/d3-dsv-2.0.1.tgz#44ce09b025cf365d27cbe11fc13cd10954369627"
-  integrity sha1-RM4JsCXPNl0ny+EfwTzRCVQ2lic=
-
-"@types/d3-ease@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-ease/-/d3-ease-2.0.0.tgz#798cbd9908d26cfe9f1a295a3a75164da9a3666e"
-  integrity sha1-eYy9mQjSbP6fGilaOnUWTamjZm4=
-
-"@types/d3-fetch@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-fetch/-/d3-fetch-2.0.0.tgz#580846256ed0011b36a08ebb36924e0dff70e27e"
-  integrity sha1-WAhGJW7QARs2oI67NpJODf9w4n4=
-  dependencies:
-    "@types/d3-dsv" "*"
-
-"@types/d3-force@*":
-  version "2.1.0"
-  resolved "http://npm.laiye.com/@types%2fd3-force/-/d3-force-2.1.0.tgz#6a2210f04d02a0862c6b069de91bad904143e7b5"
-  integrity sha1-aiIQ8E0CoIYsawad6RutkEFD57U=
-
-"@types/d3-format@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-format/-/d3-format-2.0.0.tgz#607d261cb268f0a027f100575491031539a40ee6"
-  integrity sha1-YH0mHLJo8KAn8QBXVJEDFTmkDuY=
-
-"@types/d3-geo@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-geo/-/d3-geo-2.0.0.tgz#6f179512343c2d30e06acde190abfacf44b2d264"
-  integrity sha1-bxeVEjQ8LTDgas3hkKv6z0Sy0mQ=
-  dependencies:
-    "@types/geojson" "*"
-
-"@types/d3-hierarchy@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-hierarchy/-/d3-hierarchy-2.0.0.tgz#92079d9dbcec1dfe2736fb050a8bf916e5850a1c"
-  integrity sha1-kgednbzsHf4nNvsFCov5FuWFChw=
-
-"@types/d3-interpolate@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-interpolate/-/d3-interpolate-2.0.0.tgz#325029216dc722c1c68c33ccda759f1209d35823"
-  integrity sha1-MlApIW3HIsHGjDPM2nWfEgnTWCM=
-  dependencies:
-    "@types/d3-color" "*"
-
-"@types/d3-path@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-path/-/d3-path-2.0.0.tgz#dcc7f5ecadf52b0c0c39f6c1def3733195e4b199"
-  integrity sha1-3Mf17K31KwwMOfbB3vNzMZXksZk=
-
-"@types/d3-path@^1":
-  version "1.0.9"
-  resolved "http://npm.laiye.com/@types%2fd3-path/-/d3-path-1.0.9.tgz#73526b150d14cd96e701597cbf346cfd1fd4a58c"
-  integrity sha1-c1JrFQ0UzZbnAVl8vzRs/R/UpYw=
-
-"@types/d3-polygon@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-polygon/-/d3-polygon-2.0.0.tgz#8b1df0a1358016e62c4961b01e8dc8e5ab4c64e5"
-  integrity sha1-ix3woTWAFuYsSWGwHo3I5atMZOU=
-
-"@types/d3-quadtree@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-quadtree/-/d3-quadtree-2.0.0.tgz#b17e953dc061e083966075bba0d3a9a259812150"
-  integrity sha1-sX6VPcBh4IOWYHW7oNOpolmBIVA=
-
-"@types/d3-random@*":
-  version "2.2.0"
-  resolved "http://npm.laiye.com/@types%2fd3-random/-/d3-random-2.2.0.tgz#fc44cabb966917459490b758f31f5359adeabe5b"
-  integrity sha1-/ETKu5ZpF0WUkLdY8x9TWa3qvls=
-
-"@types/d3-scale-chromatic@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-scale-chromatic/-/d3-scale-chromatic-2.0.0.tgz#8d4a6f07cbbf2a9f2a4bec9c9476c27ed76a96ea"
-  integrity sha1-jUpvB8u/Kp8qS+yclHbCftdqluo=
-
-"@types/d3-scale@*":
-  version "3.2.2"
-  resolved "http://npm.laiye.com/@types%2fd3-scale/-/d3-scale-3.2.2.tgz#5e28d0b1c599328aaec6094219f10a2570be6d74"
-  integrity sha1-XijQscWZMoquxglCGfEKJXC+bXQ=
-  dependencies:
-    "@types/d3-time" "*"
-
-"@types/d3-selection@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-selection/-/d3-selection-2.0.0.tgz#59df94a8e47ed1050a337d4ffb4d4d213aa590a8"
-  integrity sha1-Wd+UqOR+0QUKM31P+01NITqlkKg=
-
-"@types/d3-shape@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-shape/-/d3-shape-2.0.0.tgz#61aa065726f3c2641aedc59c3603475ab11aeb2f"
-  integrity sha1-YaoGVybzwmQa7cWcNgNHWrEa6y8=
-  dependencies:
-    "@types/d3-path" "^1"
-
-"@types/d3-time-format@*":
-  version "3.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-time-format/-/d3-time-format-3.0.0.tgz#913e984362a59792dc8d8b122dd17625991eade2"
-  integrity sha1-kT6YQ2Kll5LcjYsSLdF2JZkereI=
-
-"@types/d3-time@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-time/-/d3-time-2.0.0.tgz#831dd093db91f16b83ba980e194bb8e4bcef44d6"
-  integrity sha1-gx3Qk9uR8WuDupgOGUu45LzvRNY=
-
-"@types/d3-timer@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-timer/-/d3-timer-2.0.0.tgz#9901bb02af38798764674df17d66b07329705632"
-  integrity sha1-mQG7Aq84eYdkZ03xfWawcylwVjI=
-
 "@types/d3-timer@^1.0.9":
   version "1.0.10"
   resolved "http://npm.laiye.com/@types%2fd3-timer/-/d3-timer-1.0.10.tgz#329c51c2c931f44ed0acff78b8c84571acf0ed21"
   integrity sha1-MpxRwskx9E7QrP94uMhFcazw7SE=
 
-"@types/d3-transition@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-transition/-/d3-transition-2.0.0.tgz#6f073f0b567c13b7a3dcd1d54214c89f48c5a873"
-  integrity sha1-bwc/C1Z8E7ej3NHVQhTIn0jFqHM=
-  dependencies:
-    "@types/d3-selection" "*"
-
-"@types/d3-zoom@*":
-  version "2.0.0"
-  resolved "http://npm.laiye.com/@types%2fd3-zoom/-/d3-zoom-2.0.0.tgz#ef8b87464e8ebc7c66b70f6383d1ae841e78e7fc"
-  integrity sha1-74uHRk6OvHxmtw9jg9GuhB545/w=
-  dependencies:
-    "@types/d3-interpolate" "*"
-    "@types/d3-selection" "*"
-
-"@types/d3@^6.2.0":
-  version "6.3.0"
-  resolved "http://npm.laiye.com/@types%2fd3/-/d3-6.3.0.tgz#28d1bfd4e5ef6a38535d8ef0884d452192719528"
-  integrity sha1-KNG/1OXvajhTXY7wiE1FIZJxlSg=
-  dependencies:
-    "@types/d3-array" "*"
-    "@types/d3-axis" "*"
-    "@types/d3-brush" "*"
-    "@types/d3-chord" "*"
-    "@types/d3-color" "*"
-    "@types/d3-contour" "*"
-    "@types/d3-delaunay" "*"
-    "@types/d3-dispatch" "*"
-    "@types/d3-drag" "*"
-    "@types/d3-dsv" "*"
-    "@types/d3-ease" "*"
-    "@types/d3-fetch" "*"
-    "@types/d3-force" "*"
-    "@types/d3-format" "*"
-    "@types/d3-geo" "*"
-    "@types/d3-hierarchy" "*"
-    "@types/d3-interpolate" "*"
-    "@types/d3-path" "*"
-    "@types/d3-polygon" "*"
-    "@types/d3-quadtree" "*"
-    "@types/d3-random" "*"
-    "@types/d3-scale" "*"
-    "@types/d3-scale-chromatic" "*"
-    "@types/d3-selection" "*"
-    "@types/d3-shape" "*"
-    "@types/d3-time" "*"
-    "@types/d3-time-format" "*"
-    "@types/d3-timer" "*"
-    "@types/d3-transition" "*"
-    "@types/d3-zoom" "*"
-
-"@types/eslint@^7.2.4":
+"@types/eslint@^7.2.6":
   version "7.2.6"
   resolved "http://npm.laiye.com/@types%2feslint/-/eslint-7.2.6.tgz#5e9aff555a975596c03a98b59ecd103decc70c3c"
   integrity sha1-Xpr/VVqXVZbAOpi1ns0QPezHDDw=
@@ -2478,11 +2233,6 @@
   version "0.0.39"
   resolved "http://npm.laiye.com/@types%2festree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
   integrity sha1-4Xfmme4bjCLSMXTKqnQiZEOJUJ8=
-
-"@types/geojson@*":
-  version "7946.0.7"
-  resolved "http://npm.laiye.com/@types%2fgeojson/-/geojson-7946.0.7.tgz#c8fa532b60a0042219cdf173ca21a975ef0666ad"
-  integrity sha1-yPpTK2CgBCIZzfFzyiGpde8GZq0=
 
 "@types/glob@^7.1.1":
   version "7.1.3"
@@ -2582,9 +2332,9 @@
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
 
 "@types/prettier@^2.0.0":
-  version "2.1.6"
-  resolved "http://npm.laiye.com/@types%2fprettier/-/prettier-2.1.6.tgz#f4b1efa784e8db479cdb8b14403e2144b1e9ff03"
-  integrity sha1-9LHvp4To20ec24sUQD4hRLHp/wM=
+  version "2.2.0"
+  resolved "http://npm.laiye.com/@types%2fprettier/-/prettier-2.2.0.tgz#a4e8205a4955690eef712a6d0394a1d2e121e721"
+  integrity sha1-pOggWklVaQ7vcSptA5Sh0uEh5yE=
 
 "@types/prop-types@*":
   version "15.7.3"
@@ -2666,9 +2416,9 @@
     "@types/jest" "*"
 
 "@types/uglify-js@*":
-  version "3.11.1"
-  resolved "http://npm.laiye.com/@types%2fuglify-js/-/uglify-js-3.11.1.tgz#97ff30e61a0aa6876c270b5f538737e2d6ab8ceb"
-  integrity sha1-l/8w5hoKpodsJwtfU4c34tarjOs=
+  version "3.12.0"
+  resolved "http://npm.laiye.com/@types%2fuglify-js/-/uglify-js-3.12.0.tgz#2bb061c269441620d46b946350c8f16d52ef37c5"
+  integrity sha1-K7BhwmlEFiDUa5RjUMjxbVLvN8U=
   dependencies:
     source-map "^0.6.1"
 
@@ -3080,13 +2830,6 @@ acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0:
   version "7.4.1"
   resolved "http://npm.laiye.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=
-
-add-dom-event-listener@^1.1.0:
-  version "1.1.0"
-  resolved "http://npm.laiye.com/add-dom-event-listener/-/add-dom-event-listener-1.1.0.tgz#6a92db3a0dd0abc254e095c0f1dc14acbbaae310"
-  integrity sha1-apLbOg3Qq8JU4JXA8dwUrLuq4xA=
-  dependencies:
-    object-assign "4.x"
 
 address@1.1.2, address@^1.0.1:
   version "1.1.2"
@@ -4141,13 +3884,6 @@ camelcase@^6.0.0, camelcase@^6.1.0, camelcase@^6.2.0:
   resolved "http://npm.laiye.com/camelcase/-/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
   integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
 
-camunda-bpmn-moddle@^4.5.0:
-  version "4.5.0"
-  resolved "http://npm.laiye.com/camunda-bpmn-moddle/-/camunda-bpmn-moddle-4.5.0.tgz#f26e235cd3728ac66fcf0442afa895a35d5471cb"
-  integrity sha1-8m4jXNNyisZvzwRCr6iVo11Uccs=
-  dependencies:
-    min-dash "^3.0.0"
-
 caniuse-api@^3.0.0:
   version "3.0.0"
   resolved "http://npm.laiye.com/caniuse-api/-/caniuse-api-3.0.0.tgz#5e4d90e2274961d46291997df599e3ed008ee4c0"
@@ -4159,9 +3895,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001166, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001181:
-  version "1.0.30001183"
-  resolved "http://npm.laiye.com/caniuse-lite/-/caniuse-lite-1.0.30001183.tgz#7a57ba9d6584119bb5f2bc76d3cc47ba9356b3e2"
-  integrity sha1-ele6nWWEEZu18rx208xHupNWs+I=
+  version "1.0.30001185"
+  resolved "http://npm.laiye.com/caniuse-lite/-/caniuse-lite-1.0.30001185.tgz#3482a407d261da04393e2f0d61eefbc53be43b95"
+  integrity sha1-NIKkB9Jh2gQ5Pi8NYe77xTvkO5U=
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -4308,11 +4044,6 @@ cjs-module-lexer@^0.6.0:
   version "0.6.0"
   resolved "http://npm.laiye.com/cjs-module-lexer/-/cjs-module-lexer-0.6.0.tgz#4186fcca0eae175970aee870b9fe2d6cf8d5655f"
   integrity sha1-QYb8yg6uF1lwruhwuf4tbPjVZV8=
-
-clamp@^1.0.1:
-  version "1.0.1"
-  resolved "http://npm.laiye.com/clamp/-/clamp-1.0.1.tgz#66a0e64011816e37196828fdc8c8c147312c8634"
-  integrity sha1-ZqDmQBGBbjcZaCj9yMjBRzEshjQ=
 
 class-utils@^0.3.5:
   version "0.3.6"
@@ -4578,7 +4309,7 @@ confusing-browser-globals@^1.0.10:
   resolved "http://npm.laiye.com/confusing-browser-globals/-/confusing-browser-globals-1.0.10.tgz#30d1e7f3d1b882b25ec4933d1d1adac353d20a59"
   integrity sha1-MNHn89G4grJexJM9HRraw1PSClk=
 
-connect-history-api-fallback@^1.6.0:
+connect-history-api-fallback@1.6.0, connect-history-api-fallback@^1.6.0:
   version "1.6.0"
   resolved "http://npm.laiye.com/connect-history-api-fallback/-/connect-history-api-fallback-1.6.0.tgz#8b32089359308d111115d81cad3fceab888f97bc"
   integrity sha1-izIIk1kwjRERFdgcrT/Oq4iPl7w=
@@ -4663,11 +4394,11 @@ cookie@0.4.0:
   integrity sha1-vrQ35wIrO21JAZ0IhmUwPr6cFLo=
 
 copy-anything@^2.0.1:
-  version "2.0.1"
-  resolved "http://npm.laiye.com/copy-anything/-/copy-anything-2.0.1.tgz#2afbce6da684bdfcbec93752fa762819cb480d9a"
-  integrity sha1-KvvObaaEvfy+yTdS+nYoGctIDZo=
+  version "2.0.3"
+  resolved "http://npm.laiye.com/copy-anything/-/copy-anything-2.0.3.tgz#842407ba02466b0df844819bbe3baebbe5d45d87"
+  integrity sha1-hCQHugJGaw34RIGbvjuuu+XUXYc=
   dependencies:
-    is-what "^3.7.1"
+    is-what "^3.12.0"
 
 copy-concurrently@^1.0.0:
   version "1.0.5"
@@ -5072,7 +4803,7 @@ cssstyle@^2.2.0:
   dependencies:
     cssom "~0.3.6"
 
-csstype@^3.0.2, csstype@^3.0.3:
+csstype@^3.0.2:
   version "3.0.6"
   resolved "http://npm.laiye.com/csstype/-/csstype-3.0.6.tgz#865d0b5833d7d8d40f4e5b8a6d76aea3de4725ef"
   integrity sha1-hl0LWDPX2NQPTluKbXauo95HJe8=
@@ -5215,9 +4946,9 @@ data-urls@^2.0.0:
     whatwg-url "^8.0.0"
 
 date-fns@^2.15.0:
-  version "2.16.1"
-  resolved "http://npm.laiye.com/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
-  integrity sha1-BXdXksPzMx2oEq8lPhqTWFHTg0s=
+  version "2.17.0"
+  resolved "http://npm.laiye.com/date-fns/-/date-fns-2.17.0.tgz#afa55daea539239db0a64e236ce716ef3d681ba1"
+  integrity sha1-r6VdrqU5I52wpk4jbOcW7z1oG6E=
 
 dayjs@^1.8.30:
   version "1.10.4"
@@ -5564,13 +5295,6 @@ dotenv@8.2.0:
   resolved "http://npm.laiye.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
 
-dragm@^0.0.5:
-  version "0.0.5"
-  resolved "http://npm.laiye.com/dragm/-/dragm-0.0.5.tgz#2a0a60f93e849dd4ad9bbfe3c62071bceba6d090"
-  integrity sha1-Kgpg+T6EndStm7/jxiBxvOum0JA=
-  dependencies:
-    prop-types "^15.5.8"
-
 duplexer2@0.0.2:
   version "0.0.2"
   resolved "http://npm.laiye.com/duplexer2/-/duplexer2-0.0.2.tgz#c614dcf67e2fb14995a91711e5a617e8a60a31db"
@@ -5612,16 +5336,16 @@ ejs@^2.6.1:
   integrity sha1-SGYSh1c9zFPjZsehrlLDoSDuybo=
 
 ejs@^3.1.5:
-  version "3.1.5"
-  resolved "http://npm.laiye.com/ejs/-/ejs-3.1.5.tgz#aed723844dc20acb4b170cd9ab1017e476a0d93b"
-  integrity sha1-rtcjhE3CCstLFwzZqxAX5Hag2Ts=
+  version "3.1.6"
+  resolved "http://npm.laiye.com/ejs/-/ejs-3.1.6.tgz#5bfd0a0689743bb5268b3550cceeebbc1702822a"
+  integrity sha1-W/0KBol0O7UmizVQzO7rvBcCgio=
   dependencies:
     jake "^10.6.1"
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.649:
-  version "1.3.653"
-  resolved "http://npm.laiye.com/electron-to-chromium/-/electron-to-chromium-1.3.653.tgz#1d98400eba330538a7fe169808c6bf9d83c44450"
-  integrity sha1-HZhADrozBTin/haYCMa/nYPERFA=
+  version "1.3.657"
+  resolved "http://npm.laiye.com/electron-to-chromium/-/electron-to-chromium-1.3.657.tgz#a9c307f2612681245738bb8d36d997cbb568d481"
+  integrity sha1-qcMH8mEmgSRXOLuNNtmXy7Vo1IE=
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -5837,7 +5561,7 @@ eslint-ast-utils@^1.1.0:
     lodash.get "^4.4.2"
     lodash.zip "^4.2.0"
 
-eslint-config-airbnb-base@^14.2.0, eslint-config-airbnb-base@^14.2.1:
+eslint-config-airbnb-base@^14.2.0:
   version "14.2.1"
   resolved "http://npm.laiye.com/eslint-config-airbnb-base/-/eslint-config-airbnb-base-14.2.1.tgz#8a2eb38455dc5a312550193b319cdaeef042cd1e"
   integrity sha1-ii6zhFXcWjElUBk7MZza7vBCzR4=
@@ -5846,16 +5570,7 @@ eslint-config-airbnb-base@^14.2.0, eslint-config-airbnb-base@^14.2.1:
     object.assign "^4.1.2"
     object.entries "^1.1.2"
 
-eslint-config-airbnb@^18.0.0:
-  version "18.2.1"
-  resolved "http://npm.laiye.com/eslint-config-airbnb/-/eslint-config-airbnb-18.2.1.tgz#b7fe2b42f9f8173e825b73c8014b592e449c98d9"
-  integrity sha1-t/4rQvn4Fz6CW3PIAUtZLkScmNk=
-  dependencies:
-    eslint-config-airbnb-base "^14.2.1"
-    object.assign "^4.1.2"
-    object.entries "^1.1.2"
-
-eslint-config-prettier@^6.13.0, eslint-config-prettier@^6.15.0:
+eslint-config-prettier@^6.13.0:
   version "6.15.0"
   resolved "http://npm.laiye.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
   integrity sha1-f5P2y31FqS8VN6cOzAY2bhrG/tk=
@@ -5882,11 +5597,6 @@ eslint-formatter-pretty@^4.0.0:
     string-width "^4.2.0"
     supports-hyperlinks "^2.0.0"
 
-eslint-import-resolver-alias@^1.1.2:
-  version "1.1.2"
-  resolved "http://npm.laiye.com/eslint-import-resolver-alias/-/eslint-import-resolver-alias-1.1.2.tgz#297062890e31e4d6651eb5eba9534e1f6e68fc97"
-  integrity sha1-KXBiiQ4x5NZlHrXrqVNOH25o/Jc=
-
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
   resolved "http://npm.laiye.com/eslint-import-resolver-node/-/eslint-import-resolver-node-0.3.4.tgz#85ffa81942c25012d8231096ddf679c03042c717"
@@ -5894,17 +5604,6 @@ eslint-import-resolver-node@^0.3.4:
   dependencies:
     debug "^2.6.9"
     resolve "^1.13.1"
-
-eslint-loader@^4.0.2:
-  version "4.0.2"
-  resolved "http://npm.laiye.com/eslint-loader/-/eslint-loader-4.0.2.tgz#386a1e21bcb613b3cf2d252a3b708023ccfb41ec"
-  integrity sha1-OGoeIby2E7PPLSUqO3CAI8z7Qew=
-  dependencies:
-    find-cache-dir "^3.3.1"
-    fs-extra "^8.1.0"
-    loader-utils "^2.0.0"
-    object-hash "^2.0.3"
-    schema-utils "^2.6.5"
 
 eslint-module-utils@^2.6.0:
   version "2.6.0"
@@ -5977,7 +5676,7 @@ eslint-plugin-jest@^24.0.1, eslint-plugin-jest@^24.1.0:
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
-eslint-plugin-jsx-a11y@^6.2.0, eslint-plugin-jsx-a11y@^6.2.1, eslint-plugin-jsx-a11y@^6.3.1:
+eslint-plugin-jsx-a11y@^6.2.0, eslint-plugin-jsx-a11y@^6.3.1:
   version "6.4.1"
   resolved "http://npm.laiye.com/eslint-plugin-jsx-a11y/-/eslint-plugin-jsx-a11y-6.4.1.tgz#a2d84caa49756942f42f1ffab9002436391718fd"
   integrity sha1-othMqkl1aUL0Lx/6uQAkNjkXGP0=
@@ -6003,19 +5702,12 @@ eslint-plugin-markdown@^1.0.0:
     remark-parse "^5.0.0"
     unified "^6.1.2"
 
-eslint-plugin-prettier@^3.1.4:
-  version "3.3.1"
-  resolved "http://npm.laiye.com/eslint-plugin-prettier/-/eslint-plugin-prettier-3.3.1.tgz#7079cfa2497078905011e6f82e8dd8453d1371b7"
-  integrity sha1-cHnPoklweJBQEeb4Lo3YRT0Tcbc=
-  dependencies:
-    prettier-linter-helpers "^1.0.0"
-
 eslint-plugin-promise@^4.1.1:
   version "4.2.1"
   resolved "http://npm.laiye.com/eslint-plugin-promise/-/eslint-plugin-promise-4.2.1.tgz#845fd8b2260ad8f82564c1222fce44ad71d9418a"
   integrity sha1-hF/YsiYK2PglZMEiL85ErXHZQYo=
 
-eslint-plugin-react-hooks@^4.0.0, eslint-plugin-react-hooks@^4.1.2, eslint-plugin-react-hooks@^4.2.0:
+eslint-plugin-react-hooks@^4.1.2, eslint-plugin-react-hooks@^4.2.0:
   version "4.2.0"
   resolved "http://npm.laiye.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
   integrity sha1-jCKcJo1GiVYzTJQ7tF/IYCgPVVY=
@@ -6069,9 +5761,9 @@ eslint-rule-composer@^0.3.0:
   integrity sha1-eTIMknsMXA09PSt2yLSkiPJbuvk=
 
 eslint-rule-docs@^1.1.5:
-  version "1.1.219"
-  resolved "http://npm.laiye.com/eslint-rule-docs/-/eslint-rule-docs-1.1.219.tgz#56be57cf4857b1749e78dab0175a617d0320ce02"
-  integrity sha1-Vr5Xz0hXsXSeeNqwF1phfQMgzgI=
+  version "1.1.220"
+  resolved "http://npm.laiye.com/eslint-rule-docs/-/eslint-rule-docs-1.1.220.tgz#1768d8c35788c9ea2d3ed70c57c245c13619aec4"
+  integrity sha1-F2jYw1eIyeotPtcMV8JFwTYZrsQ=
 
 eslint-scope@^4.0.3:
   version "4.0.3"
@@ -6117,11 +5809,11 @@ eslint-visitor-keys@^2.0.0:
   integrity sha1-If3I+82ceVzAMh8FY3AglXUVEag=
 
 eslint-webpack-plugin@^2.1.0:
-  version "2.4.3"
-  resolved "http://npm.laiye.com/eslint-webpack-plugin/-/eslint-webpack-plugin-2.4.3.tgz#59afc76ab747e47fcc3ccd05375b58cbc5a034d5"
-  integrity sha1-Wa/HardH5H/MPM0FN1tYy8WgNNU=
+  version "2.5.0"
+  resolved "http://npm.laiye.com/eslint-webpack-plugin/-/eslint-webpack-plugin-2.5.0.tgz#a8f96f30dee245c92384f8109f41f473f603faba"
+  integrity sha1-qPlvMN7iRckjhPgQn0H0c/YD+ro=
   dependencies:
-    "@types/eslint" "^7.2.4"
+    "@types/eslint" "^7.2.6"
     arrify "^2.0.1"
     jest-worker "^26.6.2"
     micromatch "^4.0.2"
@@ -6185,9 +5877,9 @@ esprima@^4.0.0, esprima@^4.0.1:
   integrity sha1-E7BM2z5sXRnfkatph6hpVhmwqnE=
 
 esquery@^1.2.0, esquery@^1.3.1:
-  version "1.3.1"
-  resolved "http://npm.laiye.com/esquery/-/esquery-1.3.1.tgz#b78b5828aa8e214e29fb74c4d5b752e1c033da57"
-  integrity sha1-t4tYKKqOIU4p+3TE1bdS4cAz2lc=
+  version "1.4.0"
+  resolved "http://npm.laiye.com/esquery/-/esquery-1.4.0.tgz#2148ffc38b82e8c7057dfed48425b3e61f0f24a5"
+  integrity sha1-IUj/w4uC6McFff7UhCWz5h8PJKU=
   dependencies:
     estraverse "^5.1.0"
 
@@ -6422,11 +6114,6 @@ fast-deep-equal@^3.1.1:
   resolved "http://npm.laiye.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha1-On1WtVnWy8PrUSMlJE5hmmXGxSU=
 
-fast-diff@^1.1.2:
-  version "1.2.0"
-  resolved "http://npm.laiye.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
-  integrity sha1-c+4RmC2Gyq95WYKNUZz+kn+sXwM=
-
 fast-glob@^2.2.6:
   version "2.2.7"
   resolved "http://npm.laiye.com/fast-glob/-/fast-glob-2.2.7.tgz#6953857c3afa475fff92ee6015d52da70a4cd39d"
@@ -6532,9 +6219,9 @@ file-uri-to-path@1.0.0:
   integrity sha1-VTp7hEb/b2hDWcRF8eN6BdrMM90=
 
 filelist@^1.0.1:
-  version "1.0.1"
-  resolved "http://npm.laiye.com/filelist/-/filelist-1.0.1.tgz#f10d1a3ae86c1694808e8f20906f43d4c9132dbb"
-  integrity sha1-8Q0aOuhsFpSAjo8gkG9D1MkTLbs=
+  version "1.0.2"
+  resolved "http://npm.laiye.com/filelist/-/filelist-1.0.2.tgz#80202f21462d4d1c2e214119b1807c1bc0380e5b"
+  integrity sha1-gCAvIUYtTRwuIUEZsYB8G8A4Dls=
   dependencies:
     minimatch "^3.0.4"
 
@@ -6789,9 +6476,9 @@ fsevents@^1.2.7:
     nan "^2.12.1"
 
 fsevents@^2.1.2, fsevents@^2.1.3, fsevents@~2.3.1:
-  version "2.3.1"
-  resolved "http://npm.laiye.com/fsevents/-/fsevents-2.3.1.tgz#b209ab14c61012636c8863507edf7fb68cc54e9f"
-  integrity sha1-sgmrFMYQEmNsiGNQft9/tozFTp8=
+  version "2.3.2"
+  resolved "http://npm.laiye.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
+  integrity sha1-ilJveLj99GI7cJ4Ll1xSwkwC/Ro=
 
 function-bind@^1.1.1:
   version "1.1.1"
@@ -7018,9 +6705,9 @@ gonzales-pe@^4.2.3, gonzales-pe@^4.3.0:
     minimist "^1.2.5"
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4:
-  version "4.2.4"
-  resolved "http://npm.laiye.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
-  integrity sha1-Ila94U02MpWMRl68ltxGfKB6Kfs=
+  version "4.2.5"
+  resolved "http://npm.laiye.com/graceful-fs/-/graceful-fs-4.2.5.tgz#bc18864a6c9fc7b303f2e2abdb9155ad178fbe29"
+  integrity sha1-vBiGSmyfx7MD8uKr25FVrRePvik=
 
 graphlib@^2.1.8:
   version "2.1.8"
@@ -8023,7 +7710,7 @@ is-typedarray@^1.0.0, is-typedarray@~1.0.0:
   resolved "http://npm.laiye.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
-is-what@^3.7.1:
+is-what@^3.12.0:
   version "3.12.0"
   resolved "http://npm.laiye.com/is-what/-/is-what-3.12.0.tgz#f4405ce4bd6dd420d3ced51a026fb90e03705e55"
   integrity sha1-9EBc5L1t1CDTztUaAm+5DgNwXlU=
@@ -8572,16 +8259,6 @@ jest@26.6.0:
     "@jest/core" "^26.6.0"
     import-local "^3.0.2"
     jest-cli "^26.6.0"
-
-jquery-mousewheel@^3.1.13:
-  version "3.1.13"
-  resolved "http://npm.laiye.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5"
-  integrity sha1-BvAzXxbjU6aV5yBr9QUDy1I6buU=
-
-jquery@^3.5.1:
-  version "3.5.1"
-  resolved "http://npm.laiye.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
-  integrity sha1-17TQjhv9uGrS8aPQOeoXMEcXq7U=
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -9197,9 +8874,9 @@ mdast-util-from-markdown@^0.8.0:
     unist-util-stringify-position "^2.0.0"
 
 mdast-util-to-markdown@^0.6.0:
-  version "0.6.2"
-  resolved "http://npm.laiye.com/mdast-util-to-markdown/-/mdast-util-to-markdown-0.6.2.tgz#8fe6f42a2683c43c5609dfb40407c095409c85b4"
-  integrity sha1-j+b0KiaDxDxWCd+0BAfAlUCchbQ=
+  version "0.6.5"
+  resolved "http://npm.laiye.com/mdast-util-to-markdown/-/mdast-util-to-markdown-0.6.5.tgz#b33f67ca820d69e6cc527a93d4039249b504bebe"
+  integrity sha1-sz9nyoINaebMUnqT1AOSSbUEvr4=
   dependencies:
     "@types/unist" "^2.0.0"
     longest-streak "^2.0.0"
@@ -9320,9 +8997,9 @@ microevent.ts@~0.1.1:
   integrity sha1-cLCbg/Q99RctAgWmMCW84Pc1f6A=
 
 micromark@~2.11.0:
-  version "2.11.3"
-  resolved "http://npm.laiye.com/micromark/-/micromark-2.11.3.tgz#648e1e7970ea66a946cc2cbc678093ed814f29ed"
-  integrity sha1-ZI4eeXDqZqlGzCy8Z4CT7YFPKe0=
+  version "2.11.4"
+  resolved "http://npm.laiye.com/micromark/-/micromark-2.11.4.tgz#d13436138eea826383e822449c9a5c50ee44665a"
+  integrity sha1-0TQ2E47qgmOD6CJEnJpcUO5EZlo=
   dependencies:
     debug "^4.0.0"
     parse-entities "^2.0.0"
@@ -9388,11 +9065,6 @@ mimic-fn@^2.1.0:
   version "2.1.0"
   resolved "http://npm.laiye.com/mimic-fn/-/mimic-fn-2.1.0.tgz#7ed2c2ccccaf84d3ffcb7a69b57711fc2083401b"
   integrity sha1-ftLCzMyvhNP/y3pptXcR/CCDQBs=
-
-min-dash@^3.0.0:
-  version "3.5.2"
-  resolved "http://npm.laiye.com/min-dash/-/min-dash-3.5.2.tgz#23786fa289116ba3656038e16511577413d27200"
-  integrity sha1-I3hvookRa6NlYDjhZRFXdBPScgA=
 
 min-indent@^1.0.0:
   version "1.0.1"
@@ -9570,11 +9242,6 @@ moment@^2.24.0, moment@^2.25.3:
   version "2.29.1"
   resolved "http://npm.laiye.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha1-sr52n6MZQL6e7qZGnAdeNQBvo9M=
-
-mousetrap@^1.6.5:
-  version "1.6.5"
-  resolved "http://npm.laiye.com/mousetrap/-/mousetrap-1.6.5.tgz#8a766d8c272b08393d5f56074e0b5ec183485bf9"
-  integrity sha1-inZtjCcrCDk9X1YHTgtewYNIW/k=
 
 move-concurrently@^1.0.1:
   version "1.0.1"
@@ -9868,7 +9535,7 @@ oauth-sign@~0.9.0:
   resolved "http://npm.laiye.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha1-R6ewFrqmi1+g7PPe4IqFxnmsZFU=
 
-object-assign@4.x, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
+object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "http://npm.laiye.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
@@ -9881,11 +9548,6 @@ object-copy@^0.1.0:
     copy-descriptor "^0.1.0"
     define-property "^0.2.5"
     kind-of "^3.0.3"
-
-object-hash@^2.0.3:
-  version "2.1.1"
-  resolved "http://npm.laiye.com/object-hash/-/object-hash-2.1.1.tgz#9447d0279b4fcf80cff3259bf66a1dc73afabe09"
-  integrity sha1-lEfQJ5tPz4DP8yWb9modxzr6vgk=
 
 object-inspect@^1.8.0, object-inspect@^1.9.0:
   version "1.9.0"
@@ -11259,9 +10921,9 @@ postcss@^7, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.13, postcss@^7.0.14, po
     supports-color "^6.1.0"
 
 postcss@^8.1.0, postcss@^8.1.4, postcss@^8.2.4:
-  version "8.2.4"
-  resolved "http://npm.laiye.com/postcss/-/postcss-8.2.4.tgz#20a98a39cf303d15129c2865a9ec37eda0031d04"
-  integrity sha1-IKmKOc8wPRUSnChlqew37aADHQQ=
+  version "8.2.5"
+  resolved "http://npm.laiye.com/postcss/-/postcss-8.2.5.tgz#3c75149ada4e93db9521913654c0144517f77c9a"
+  integrity sha1-PHUUmtpOk9uVIZE2VMAURRf3fJo=
   dependencies:
     colorette "^1.2.1"
     nanoid "^3.1.20"
@@ -11281,13 +10943,6 @@ prepend-http@^1.0.0:
   version "1.0.4"
   resolved "http://npm.laiye.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
-
-prettier-linter-helpers@^1.0.0:
-  version "1.0.0"
-  resolved "http://npm.laiye.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
-  integrity sha1-0j1B/hN1ZG3i0BBNNFSjAIgCz3s=
-  dependencies:
-    fast-diff "^1.1.2"
 
 prettier@^2.1.2:
   version "2.2.1"
@@ -11360,7 +11015,7 @@ prompts@2.4.0, prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@15.x, prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.x, prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "http://npm.laiye.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -11487,11 +11142,6 @@ quick-lru@^4.0.1:
   resolved "http://npm.laiye.com/quick-lru/-/quick-lru-4.0.1.tgz#5b8878f113a58217848c6482026c73e1ba57727f"
   integrity sha1-W4h48ROlgheEjGSCAmxz4bpXcn8=
 
-raf-schd@^4.0.2:
-  version "4.0.2"
-  resolved "http://npm.laiye.com/raf-schd/-/raf-schd-4.0.2.tgz#bd44c708188f2e84c810bf55fcea9231bcaed8a0"
-  integrity sha1-vUTHCBiPLoTIEL9V/OqSMbyu2KA=
-
 raf@^3.4.1:
   version "3.4.1"
   resolved "http://npm.laiye.com/raf/-/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
@@ -11589,7 +11239,7 @@ rc-drawer@~4.1.0:
     classnames "^2.2.6"
     rc-util "^5.0.1"
 
-rc-dropdown@^3.0.0-alpha.0, rc-dropdown@^3.1.3, rc-dropdown@~3.2.0:
+rc-dropdown@^3.1.3, rc-dropdown@~3.2.0:
   version "3.2.0"
   resolved "http://npm.laiye.com/rc-dropdown/-/rc-dropdown-3.2.0.tgz#da6c2ada403842baee3a9e909a0b1a91ba3e1090"
   integrity sha1-2mwq2kA4QrruOp6Qmgsakbo+EJA=
@@ -11732,9 +11382,9 @@ rc-resize-observer@^1.0.0:
     resize-observer-polyfill "^1.5.1"
 
 rc-select@^12.0.0:
-  version "12.1.2"
-  resolved "http://npm.laiye.com/rc-select/-/rc-select-12.1.2.tgz#7f5f06838b8a8c86516acb66ead26adbc55fbc16"
-  integrity sha1-f18Gg4uKjIZRastm6tJq28VfvBY=
+  version "12.1.3"
+  resolved "http://npm.laiye.com/rc-select/-/rc-select-12.1.3.tgz#3d1715ba24313951f184b446ac352cfc2d548a20"
+  integrity sha1-PRcVuiQxOVHxhLRGrDUs/C1UiiA=
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"
@@ -11869,17 +11519,6 @@ rc-upload@~3.3.4:
     classnames "^2.2.5"
     rc-util "^5.2.0"
 
-rc-util@^4.15.7:
-  version "4.21.1"
-  resolved "http://npm.laiye.com/rc-util/-/rc-util-4.21.1.tgz#88602d0c3185020aa1053d9a1e70eac161becb05"
-  integrity sha1-iGAtDDGFAgqhBT2aHnDqwWG+ywU=
-  dependencies:
-    add-dom-event-listener "^1.1.0"
-    prop-types "^15.5.10"
-    react-is "^16.12.0"
-    react-lifecycles-compat "^3.0.4"
-    shallowequal "^1.1.0"
-
 rc-util@^5.0.0, rc-util@^5.0.1, rc-util@^5.0.5, rc-util@^5.0.6, rc-util@^5.0.7, rc-util@^5.1.0, rc-util@^5.2.0, rc-util@^5.2.1, rc-util@^5.3.0, rc-util@^5.4.0, rc-util@^5.5.0, rc-util@^5.5.1, rc-util@^5.7.0:
   version "5.8.0"
   resolved "http://npm.laiye.com/rc-util/-/rc-util-5.8.0.tgz#8058d6b3cd4c0a336360171f74d6c4d08d5065ac"
@@ -11915,7 +11554,7 @@ react-bpmn@^0.2.0:
   resolved "http://npm.laiye.com/react-bpmn/-/react-bpmn-0.2.0.tgz#f9eafb5d793b5e1d09c2f6a609d2068a664f5ad1"
   integrity sha1-+er7XXk7Xh0JwvamCdIGimZPWtE=
 
-react-color@^2.17.3, react-color@^2.19.3:
+react-color@^2.19.3:
   version "2.19.3"
   resolved "http://npm.laiye.com/react-color/-/react-color-2.19.3.tgz#ec6c6b4568312a3c6a18420ab0472e146aa5683d"
   integrity sha1-7GxrRWgxKjxqGEIKsEcuFGqlaD0=
@@ -12029,11 +11668,6 @@ react-is@^17.0.1:
   resolved "http://npm.laiye.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha1-WzUxvXamRaTJ+25pPtNkGeMwEzk=
 
-react-lifecycles-compat@^3.0.4:
-  version "3.0.4"
-  resolved "http://npm.laiye.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
-  integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
-
 react-redux@^7.2.2:
   version "7.2.2"
   resolved "http://npm.laiye.com/react-redux/-/react-redux-7.2.2.tgz#03862e803a30b6b9ef8582dadcc810947f74b736"
@@ -12057,17 +11691,6 @@ react-resizable@^1.10.0:
   dependencies:
     prop-types "15.x"
     react-draggable "^4.0.3"
-
-react-resize-detector@^4.2.1:
-  version "4.2.3"
-  resolved "http://npm.laiye.com/react-resize-detector/-/react-resize-detector-4.2.3.tgz#7df258668a30bdfd88e655bbdb27db7fd7b23127"
-  integrity sha1-ffJYZoowvf2I5lW72yfbf9eyMSc=
-  dependencies:
-    lodash "^4.17.15"
-    lodash-es "^4.17.15"
-    prop-types "^15.7.2"
-    raf-schd "^4.0.2"
-    resize-observer-polyfill "^1.5.1"
 
 react-router-config@^5.1.1:
   version "5.1.1"
@@ -14399,11 +14022,6 @@ typescript@^4.0.2, typescript@^4.0.5:
   resolved "http://npm.laiye.com/typescript/-/typescript-4.1.3.tgz#519d582bd94cba0cf8934c7d8e8467e473f53bb7"
   integrity sha1-UZ1YK9lMugz4k0x9joRn5HP1O7c=
 
-ua-parser-js@^0.7.20:
-  version "0.7.23"
-  resolved "http://npm.laiye.com/ua-parser-js/-/ua-parser-js-0.7.23.tgz#704d67f951e13195fbcd3d78818577f5bc1d547b"
-  integrity sha1-cE1n+VHhMZX7zT14gYV39bwdVHs=
-
 unherit@^1.0.4:
   version "1.1.3"
   resolved "http://npm.laiye.com/unherit/-/unherit-1.1.3.tgz#6c9b503f2b41b262330c80e91c8614abdaa69c22"
@@ -14694,11 +14312,6 @@ utila@~0.4:
   version "0.4.0"
   resolved "http://npm.laiye.com/utila/-/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
   integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
-
-utility-types@^3.10.0:
-  version "3.10.0"
-  resolved "http://npm.laiye.com/utility-types/-/utility-types-3.10.0.tgz#ea4148f9a741015f05ed74fd615e1d20e6bed82b"
-  integrity sha1-6kFI+adBAV8F7XT9YV4dIOa+2Cs=
 
 utils-merge@1.0.1:
   version "1.0.1"

@@ -1,5 +1,3 @@
-/** @format */
-
 const webpack = require('webpack')
 const CracoLessPlugin = require('craco-less')
 const path = require('path')
