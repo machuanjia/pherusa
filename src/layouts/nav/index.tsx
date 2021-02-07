@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 19:05:15
+ * @LastEditTime: 2021-02-07 14:39:06
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/nav/index.tsx
  * @Description: 
@@ -44,7 +44,7 @@ export default class NavComponent extends Component<INavProps, INavState> {
     this.state = this.getRouters();
     this.subRoutes = store.subscribe(() => {
       const routers = store.getState().app.routers || [];
-      if (routers.length > 0) {
+      if (this.state.routers !== routers) {
         this.setState(this.getRouters());
       }
     });

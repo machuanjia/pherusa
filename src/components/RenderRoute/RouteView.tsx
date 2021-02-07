@@ -1,4 +1,11 @@
-/** @format */
+/*
+ * @Author: D.Y
+ * @Date: 2021-02-07 14:07:03
+ * @LastEditTime: 2021-02-07 14:39:22
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/components/RenderRoute/RouteView.tsx
+ * @Description: 
+ */
 
 import React, { Component, Fragment } from 'react';
 import { generateRoutes } from './index';
@@ -22,7 +29,8 @@ class RouteViewComponent extends Component<IRouteViewProps, IRouteViewState> {
     };
     this.subRoles = store.subscribe(() => {
       const routers = store.getState().app.routers || [];
-      if (routers.length > 0) {
+      if (this.state.routers !== routers) {
+        console.log('11')
         this.setState({
           routers,
         });
