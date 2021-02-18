@@ -92,7 +92,7 @@ nestjs
 ```
 文档 
 
-https://wiki.laiye.com/display/FE/Pherusa
+http://doc.single-spa.com/Pherusa/README.html
 
 ```
 
