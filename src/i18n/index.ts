@@ -1,3 +1,9 @@
+/*
+ * @Author: xulijing
+ * @Date: 2021-02-24 16:42:55
+ * @LastEditTime: 2021-02-25 15:05:13
+ * @FilePath: /pherusa/src/i18n/index.ts
+ */
 /** @format */
 
 import i18n from 'i18next'
@@ -11,11 +17,17 @@ import enUS from 'antd/lib/locale/en_US'
 
 const ANTD_LOCAL_MAP = {
   en: enUS,
-  zh: zhCN,
+  zh: zhCN
 }
 
 export const getLocal = () => {
-  return localStorage.getItem('i18nextLng') || 'zh'
+  const i18nextLng = localStorage.getItem('i18nextLng')
+
+  if (i18nextLng === 'zh-CN') {
+    return 'zh'
+  }
+  // 英文呢？？？
+  return 'zh'
 }
 
 export const getAntdLocal = () => {

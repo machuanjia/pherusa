@@ -1,9 +1,9 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:36:24
- * @LastEditors: D.Y
- * @FilePath: /pherusa/src/constants/icons.constant.tsx
+ * @LastEditTime: 2021-02-25 17:46:34
+ * @LastEditors: Please set LastEditors
+ * @FilePath: /pherusa/src/constants/icons.tsx
  * @Description: 
  */
 import {
@@ -15,6 +15,7 @@ import {
   RadarChartOutlined,
   CreditCardOutlined,
   BarChartOutlined,
+  DesktopOutlined
 } from '@ant-design/icons'
 import React from 'react'
 
@@ -27,4 +28,5 @@ export const ICON_MAP = {
   cytoscape: <RadarChartOutlined />,
   x6: <CreditCardOutlined />,
   bpmn: <BarChartOutlined />,
+  desktop: <DesktopOutlined />
 }

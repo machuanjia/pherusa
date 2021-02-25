@@ -10025,6 +10025,11 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+pdfjs-dist@2.6.347:
+  version "2.6.347"
+  resolved "http://npm.laiye.com/pdfjs-dist/-/pdfjs-dist-2.6.347.tgz#f257ed66e83be900cd0fd28524a2187fb9e25cd5"
+  integrity sha1-8lftZug76QDND9KFJKIYf7niXNU=
+
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "http://npm.laiye.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
@@ -14318,15 +14323,15 @@ utils-merge@1.0.1:
   resolved "http://npm.laiye.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+uuid@8.3.2, uuid@^8.3.0:
+  version "8.3.2"
+  resolved "http://npm.laiye.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha1-gNW1ztJxu5r2xEXyGhoExgbO++I=
+
 uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "http://npm.laiye.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
-
-uuid@^8.3.0:
-  version "8.3.2"
-  resolved "http://npm.laiye.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
-  integrity sha1-gNW1ztJxu5r2xEXyGhoExgbO++I=
 
 v8-compile-cache@^2.0.3, v8-compile-cache@^2.2.0:
   version "2.2.0"
@@ -14486,6 +14491,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha1-wdjRSTFtPqhShIiVy2oL/oh7h98=
   dependencies:
     minimalistic-assert "^1.0.0"
+
+web-highlighter@0.7.1:
+  version "0.7.1"
+  resolved "http://npm.laiye.com/web-highlighter/-/web-highlighter-0.7.1.tgz#616fe7e48697f4aec351645717a7d7f5811f693e"
+  integrity sha1-YW/n5IaX9K7DUWRXF6fX9YEfaT4=
 
 web-vitals@^0.2.4:
   version "0.2.4"

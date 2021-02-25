@@ -1,8 +1,8 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:46:02
- * @LastEditors: D.Y
+ * @LastEditTime: 2021-02-25 17:22:41
+ * @LastEditors: Please set LastEditors
  * @FilePath: /pherusa/src/layouts/navbar/index.tsx
  * @Description: 
  */
@@ -26,10 +26,12 @@ type INavbarState = Record<string, unknown>;
 class NavbarComponent extends Component<INavbarProps, INavbarState> {
   render() {
     const route = find(store.getState().app.flattenRouters, { path: this.props.location.pathname });
+
     let title = '来也';
     let icon = null;
     if (route && route.meta) {
       title = i18n.t(route.meta.name);
+
       icon = route.meta.iconType ? (
         ICON_MAP[route.meta.iconType]
       ) : (
@@ -40,7 +42,6 @@ class NavbarComponent extends Component<INavbarProps, INavbarState> {
     return (
       <div className={styles['nav-bar-wrap']}>
         <div className={styles['nav-bar-title']}>
-          {icon}
           <span className="m-l-12">{title}</span>
         </div>
       </div>
@@ -48,3 +49,5 @@ class NavbarComponent extends Component<INavbarProps, INavbarState> {
   }
 }
 export default withRouter(NavbarComponent);
+
+

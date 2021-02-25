@@ -1,0 +1,84 @@
+.container {
+  position: relative;
+  padding-top: 31px;
+
+  :global {
+    & .highlight-mengshou-wrap {
+      background-color: #d2e4fd;
+    }
+
+    & .remove-tip {
+      position: absolute;
+      box-sizing: border-box;
+      padding: 4px 8px;
+      overflow: visible;
+      color: #fff;
+      font-weight: 500;
+      font-size: 12px;
+      text-align: center;
+      background: #000;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    & .tip-container {
+      position: absolute;
+      width: 64px;
+      height: 31px;
+    }
+
+    & .tip-bottom {
+      position: absolute;
+      bottom: 0;
+      left: 26px;
+      width: 0;
+      height: 0;
+      border-color: #fff transparent transparent;
+      border-style: solid;
+      border-width: 5px 5px 0;
+    }
+
+    & .highlight-wrap-hover {
+      background-color: #ffe666;
+    }
+
+    & .label-container {
+      position: absolute;
+      z-index: 1050;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 24px 0 0 0;
+      padding: 4px;
+      overflow: hidden;
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 14px;
+      font-variant: normal;
+      line-height: 1.5715;
+      list-style-type: none;
+      background-color: #fff;
+      border-radius: 2px;
+      outline: none;
+      box-shadow: 0 2px 4px 0 rgba(66, 91, 109, 0.2);
+      font-feature-settings: 'tnum';
+    }
+
+    & .label-container li {
+      height: 32px;
+      color: rgba(0, 0, 0, 0.85);
+      line-height: 32px;
+      cursor: pointer;
+    }
+
+    & .label-container li:hover {
+      background-color: #e6f7ff;
+    }
+
+    & .lable-item {
+      display: block;
+      margin-top: 3px;
+      padding: 2px;
+      color: #fff;
+      font-size: 12px;
+    }
+  }
+}
