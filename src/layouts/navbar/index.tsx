@@ -1,8 +1,8 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-25 17:22:41
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-03-26 11:55:24
+ * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/navbar/index.tsx
  * @Description: 
  */
@@ -42,6 +42,7 @@ class NavbarComponent extends Component<INavbarProps, INavbarState> {
     return (
       <div className={styles['nav-bar-wrap']}>
         <div className={styles['nav-bar-title']}>
+          {icon}
           <span className="m-l-12">{title}</span>
         </div>
       </div>

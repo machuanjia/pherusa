@@ -68,7 +68,7 @@ export const getAuthRoutes = () => {
     return n.meta.key === ROUTE_APP_KEY
   })
   app &&
-  (app.children = uniqBy([...app.children, ...asyncRoutes], (n) => {
+    (app.children = uniqBy([...app.children, ...asyncRoutes], (n) => {
       return n.meta.key
     }))
   return routes
@@ -106,15 +106,19 @@ export const setInfo = async () => {
 }
 
 export const checkAuth = async () => {
-  const routesArray = getAuthRoutes()
-  const flattenRouters = filterFlattenRoutes(routesArray)
-
-  store.dispatch({
-    type: SET_ROUTERS,
-    routers: routesArray,
-  })
-  store.dispatch({
-    type: SET_FLATTEN_ROUTERS,
-    flattenRouters,
-  })
+  if (getToken()) {
+    if (whiteList.includes(getRoute())) {
+      redirectTo({
+        path: `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/dashboard/index`,
+        isHash: false,
+      })
+    } else {
+      if (store.getState().app.id) {
+        return
+      }
+      setInfo()
+    }
+  } else if (whiteList.includes(getRoute())) {
+    console.log('ridirect to route')
+  }
 }
