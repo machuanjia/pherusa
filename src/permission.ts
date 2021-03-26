@@ -68,7 +68,7 @@ export const getAuthRoutes = () => {
     return n.meta.key === ROUTE_APP_KEY
   })
   app &&
-    (app.children = uniqBy([...app.children], (n) => {
+  (app.children = uniqBy([...app.children, ...asyncRoutes], (n) => {
       return n.meta.key
     }))
   return routes

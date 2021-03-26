@@ -1,8 +1,8 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-25 17:43:12
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-03-26 11:46:41
+ * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/nav/index.tsx
  * @Description: 
  */
@@ -88,7 +88,7 @@ export default class NavComponent extends Component<INavProps, INavState> {
 
     // 如果有children的话才SubMenu、否则就是Menu.Item
     return (
-      <Menu mode="inline" className={styles['nav-main']} theme="dark" inlineCollapsed={false}>
+      <Menu mode="inline" className={styles['nav-main']} theme="dark" inlineCollapsed={true}>
         {routers.map((n) => {
           return n.children ?  (
             <SubMenu
