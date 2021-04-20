@@ -1,18 +1,16 @@
 /*
  * @Author: xulijing
  * @Date: 2021-02-24 16:42:55
- * @LastEditTime: 2021-03-26 11:35:51
+ * @LastEditTime: 2021-04-20 10:25:19
  * @FilePath: /pherusa/src/routes/index.ts
  */
 import { asyncComponent } from '@components/index'
 import MainLayout from '@layouts/main'
-import RouteLayout from '@layouts/route-layout'
 import componentsRoute from './component'
 
 export const ROUTE_APP_KEY = 'app'
 
 const AboutView = asyncComponent(() => import('@views/about'))
-const RedirectView = asyncComponent(() => import('@views/redirect'))
 const LoginView = asyncComponent(() => import('@views/login'))
 const NotFontVIew = asyncComponent(() => import('@views/no-fond'))
 
@@ -40,15 +38,6 @@ const routes = [
     component: AboutView,
   },
   {
-    path: '/redirect',
-    component: RedirectView,
-    meta: {
-      key: 'Redirect',
-      name: 'redirect',
-      isHidden: true,
-    },
-  },
-  {
     path: '/',
     component: MainLayout,
     meta: {
@@ -57,7 +46,8 @@ const routes = [
       isHidden: true,
       redirect: '/project'
     },
-    children:[]},
+    children:[]
+  },
   {
     path: '/404',
     meta: {

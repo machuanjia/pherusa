@@ -10,9 +10,6 @@ import {
   SET_USET_ID,
   SET_FLATTEN_ROUTERS,
 } from '@stores/app/app.types'
-import { getToken, redirectTo } from '@utils/index'
-
-import { getRoute } from './utils'
 
 export const whiteList = [`${process.env.PUBLIC_URL}/login`]
 
@@ -75,50 +72,53 @@ export const getAuthRoutes = () => {
 }
 
 export const setInfo = async () => {
-  try {
-    const { data } = await getUserInfo()
-    const { roles = [], permissions = [] } = data
-    store.dispatch({
-      type: SET_USET_ID,
-      id: data.majorKeyId,
-    })
-    store.dispatch({
-      type: SET_ROLES,
-      roles,
-    })
-    store.dispatch({
-      type: SET_PERMISSIONS,
-      permissions,
-    })
-    const routesArray = getAuthRoutes()
-    const flattenRouters = filterFlattenRoutes(routesArray)
-    store.dispatch({
-      type: SET_ROUTERS,
-      routers: routesArray,
-    })
-    store.dispatch({
-      type: SET_FLATTEN_ROUTERS,
-      flattenRouters,
-    })
-  } catch (e) {
-    console.log(e)
-  }
+  return getUserInfo().then(
+    ({ data }) => {
+      const { roles = [], permissions = [] } = data
+      store.dispatch({
+        type: SET_USET_ID,
+        id: data.majorKeyId,
+      })
+      store.dispatch({
+        type: SET_ROLES,
+        roles,
+      })
+      store.dispatch({
+        type: SET_PERMISSIONS,
+        permissions,
+      })
+      const routesArray = getAuthRoutes()
+      const flattenRouters = filterFlattenRoutes(routesArray)
+      store.dispatch({
+        type: SET_ROUTERS,
+        routers: routesArray,
+      })
+      store.dispatch({
+        type: SET_FLATTEN_ROUTERS,
+        flattenRouters,
+      })
+      return true
+    },
+    () => {
+      return false
+    },
+  )
 }
 
-export const checkAuth = async () => {
-  if (getToken()) {
-    if (whiteList.includes(getRoute())) {
-      redirectTo({
-        path: `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/dashboard/index`,
-        isHash: false,
-      })
-    } else {
-      if (store.getState().app.id) {
-        return
-      }
-      setInfo()
-    }
-  } else if (whiteList.includes(getRoute())) {
-    console.log('ridirect to route')
-  }
-}
+// export const checkAuth = async () => {
+//   if (getToken()) {
+//     if (whiteList.includes(getRoute())) {
+//       redirectTo({
+//         path: `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/dashboard/index`,
+//         isHash: false,
+//       })
+//     } else {
+//       if (store.getState().app.id) {
+//         return
+//       }
+//       setInfo()
+//     }
+//   } else if (whiteList.includes(getRoute())) {
+//     console.log('ridirect to route')
+//   }
+// }
