@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:42:49
+ * @LastEditTime: 2021-04-21 17:58:44
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/index.tsx
  * @Description: 
@@ -10,7 +10,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Helmet } from 'react-helmet'
-import { ConfigProvider } from 'antd'
+import { ConfigProvider } from 'laiye-antd'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import { Provider } from 'react-redux'

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Table, Input, Button, Tooltip, Modal } from 'antd';
+import { Table, Input, Button, Tooltip, Modal } from 'laiye-antd';
 
 import { ContentLayoutComponent } from '@components/index';
 import { MODAL_SIZE } from '@constants/index';

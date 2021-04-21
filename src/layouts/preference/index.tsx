@@ -1,4 +1,4 @@
-import { Avatar, Drawer, Menu, Modal, Popover, Radio } from 'antd';
+import { Avatar, Drawer, Menu, Modal, Popover, Radio } from 'laiye-antd';
 import React, { Component } from 'react';
 import i18n from 'i18next';
 import { SketchPicker } from 'react-color';

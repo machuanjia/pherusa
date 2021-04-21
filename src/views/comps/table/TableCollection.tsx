@@ -7,7 +7,7 @@
  * @Description: 
  */
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button } from 'laiye-antd';
 import i18n from 'i18next';
 import { isPhone } from '@utils/index';
 

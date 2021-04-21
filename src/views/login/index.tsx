@@ -7,7 +7,7 @@
  * @Description:
  */
 import React, { Component } from 'react'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button } from 'laiye-antd'
 import type { ILoginEntity } from '@interfaces/index'
 import i18n from 'i18next'
 import { connect } from 'react-redux'

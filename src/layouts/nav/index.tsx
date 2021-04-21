@@ -7,7 +7,7 @@
  * @Description: 
  */
 import React, { Component } from 'react';
-import { Menu } from 'antd';
+import { Menu } from 'laiye-antd';
 import { Link } from 'react-router-dom';
 import { filter, map, find } from 'lodash';
 import i18n from 'i18next';
