@@ -81,8 +81,8 @@ export default class PreferenceComponent extends Component<IPreferenceProps, IPr
       <div className={styles['preference-wrap']}>
         <Popover placement="rightBottom" title={null} content={content}>
           <Avatar
-            size="large"
-            style={{ backgroundColor: '#79adf8' }}
+            size={36}
+            style={{ backgroundColor: '#2249c0' }}
             className="pointer"
             icon={<UserOutlined />}
           />

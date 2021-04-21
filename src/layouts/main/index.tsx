@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-21 14:13:12
+ * @LastEditTime: 2021-04-21 17:41:25
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/main/index.tsx
  * @Description:
@@ -13,6 +13,7 @@ import { RouteView } from '@components/index'
 import PreferenceComponent from '../preference'
 import NavbarComponent from '../navbar'
 import { setInfo } from '../../permission'
+import logoPath from '../../assets/logo.png'
 
 type IMainLayoutProps = {
   route: any,
@@ -56,8 +57,8 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
               <img
                 className="logo"
                 alt="logo"
-                src="https://cdn.wul.ai/official/img/officialLogo.png"
-                width="50"
+                src={logoPath}
+                width="40"
               />
               <div className="navs">
                 <NavComponent history={history}/>

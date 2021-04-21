@@ -1,0 +1,84 @@
+#root {
+  height: 100%;
+}
+.pointer {
+  cursor: pointer;
+}
+.action-btn {
+  min-width: auto !important;
+}
+.opacity-5 {
+  opacity: 0.5;
+}
+.hide {
+  display: none;
+}
+.c-tp-container {
+  height: 100%;
+  padding: 24px;
+}
+.c-tp-title {
+  margin-right: auto;
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
+}
+.c-tp-total {
+  color: #425b6d;
+  font-weight: normal;
+}
+.c-tp-total::before {
+  margin: 0 8px;
+  color: #d9dee2;
+  content: '|';
+}
+.c-tp-table {
+  position: relative;
+  height: calc(100% - 60px);
+  margin-top: 24px;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+.c-tp-search:global(.ant-input-affix-wrapper) {
+  width: 200px;
+  margin-right: 16px;
+}
+.c-tp-name-tr {
+  padding: 8px 24px !important;
+}
+.c-tp-name {
+  justify-content: space-between;
+}
+.c-tp-name:hover .c-tp-edit {
+  visibility: visible;
+}
+.c-tp-edit {
+  margin-left: 8px;
+  color: #b3bdc5;
+  visibility: hidden;
+  cursor: pointer;
+}
+.c-tp-edit:hover {
+  color: #2249c0;
+}
+.c-label {
+  margin: 24px 0 8px 0;
+  color: #425b6d;
+  font-weight: 500;
+}
+.c-label.t-first {
+  margin-top: 0;
+}
+.c-label.is-required::before {
+  display: inline-block;
+  width: 2px;
+  height: 10px;
+  margin: 4px 4px 0 0;
+  overflow: hidden;
+  vertical-align: baseline;
+  background-color: #ff3e27;
+  border-radius: 3px;
+  content: '';
+}
