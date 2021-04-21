@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:52:36
+ * @LastEditTime: 2021-04-20 14:41:52
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/views/login/index.tsx
  * @Description:
@@ -30,7 +30,7 @@ class LoginView extends Component<ILoginProps, ILoginState> {
   async loginSuccess(payload: ILoginEntity) {
     const { data } = await signIn(payload)
     setToken('token')
-    data && this.props.history.push('/redirect')
+    data && this.props.history.push('/')
   }
 
   handleSubmit(values: any) {

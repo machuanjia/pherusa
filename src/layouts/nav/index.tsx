@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-03-26 11:46:41
+ * @LastEditTime: 2021-04-20 14:39:05
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/nav/index.tsx
  * @Description: 
@@ -48,6 +48,15 @@ export default class NavComponent extends Component<INavProps, INavState> {
         this.setState(this.getRouters());
       }
     });
+  }
+
+
+  componentDidMount(){
+    const {history} = this.props
+    // @ts-ignore
+    history.listen((...args)=>{
+      console.log(args)
+    })
   }
 
   componentWillUnmount() {

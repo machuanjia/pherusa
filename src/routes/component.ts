@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:39:59
+ * @LastEditTime: 2021-04-21 14:15:57
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/routes/component.ts
  * @Description: 
@@ -25,6 +25,15 @@ const componentsRoute = {
       component: tableView,
       meta: {
         key: 'CList',
+        name: 'router.list',
+        iconType: 'list',
+      },
+    },
+    {
+      path: '/components/list2',
+      component: tableView,
+      meta: {
+        key: 'CList2',
         name: 'router.list',
         iconType: 'list',
       },

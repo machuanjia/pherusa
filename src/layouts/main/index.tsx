@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-20 10:21:27
+ * @LastEditTime: 2021-04-21 14:13:12
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/main/index.tsx
  * @Description:
@@ -15,7 +15,8 @@ import NavbarComponent from '../navbar'
 import { setInfo } from '../../permission'
 
 type IMainLayoutProps = {
-  route: any
+  route: any,
+  history: any
 }
 
 type IMainLayoutState = {
@@ -43,7 +44,7 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
   }
 
   render() {
-    const { route } = this.props
+    const { route, history } = this.props
     const { loading } = this.state
     return (
       <>
@@ -59,7 +60,7 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
                 width="50"
               />
               <div className="navs">
-                <NavComponent />
+                <NavComponent history={history}/>
               </div>
               <PreferenceComponent />
             </div>

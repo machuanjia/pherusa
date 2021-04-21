@@ -20,6 +20,7 @@ type ITableState = unknown;
 
 class TableView extends Component<IListMixin, ITableState> {
   init() {
+    console.log(this.props)
     return {
       fetchAction: getUsers,
       getDetailAction: getUserDetail,

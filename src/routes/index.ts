@@ -1,7 +1,7 @@
 /*
  * @Author: xulijing
  * @Date: 2021-02-24 16:42:55
- * @LastEditTime: 2021-04-20 10:25:19
+ * @LastEditTime: 2021-04-20 15:10:42
  * @FilePath: /pherusa/src/routes/index.ts
  */
 import { asyncComponent } from '@components/index'
