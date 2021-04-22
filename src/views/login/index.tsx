@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-20 14:41:52
+ * @LastEditTime: 2021-04-22 14:47:17
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/views/login/index.tsx
  * @Description:
@@ -13,7 +13,7 @@ import i18n from 'i18next'
 import { connect } from 'react-redux'
 import { Trans } from 'react-i18next'
 
-import { isPhone } from '@utils/validate'
+import { isPhoneNumber } from 'laiye-pro'
 import { signIn } from '@apis/users'
 import { addToken } from '@stores/app/app.actions'
 import { setToken } from '@utils/index'
@@ -38,7 +38,7 @@ class LoginView extends Component<ILoginProps, ILoginState> {
   }
 
   checkPhone(rule, value, callback) {
-    if (isPhone(value)) {
+    if (isPhoneNumber(value)) {
       callback()
     } else {
       callback(i18n.t('validate.phone.message'))

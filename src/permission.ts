@@ -74,6 +74,8 @@ export const getAuthRoutes = () => {
 export const setInfo = async () => {
   return getUserInfo().then(
     ({ data }) => {
+      // eslint-disable-next-line no-debugger
+      debugger
       const { roles = [], permissions = [] } = data
       store.dispatch({
         type: SET_USET_ID,

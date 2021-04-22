@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:48:36
+ * @LastEditTime: 2021-04-22 14:46:53
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/views/comps/table/TableCollection.tsx
  * @Description: 
@@ -9,7 +9,7 @@
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'laiye-antd';
 import i18n from 'i18next';
-import { isPhone } from '@utils/index';
+import { isPhoneNumber } from 'laiye-pro';
 
 type ITableCollectionProps = {
   callback: ({ isVisible, isRefresh }) => unknown;
@@ -47,7 +47,7 @@ export default class TableCollecrtionComponent extends Component<
     });
   }
   checkPhone(rule, value, callback) {
-    isPhone(value) ? callback() : callback('请输入正确的手机号码');
+    isPhoneNumber(value) ? callback() : callback('请输入正确的手机号码');
   }
   render() {
     return (

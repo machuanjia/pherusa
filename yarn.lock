@@ -19,13 +19,6 @@
   dependencies:
     tinycolor2 "^1.4.1"
 
-"@ant-design/colors@^5.0.0":
-  version "5.1.1"
-  resolved "http://npm.laiye.com/@ant-design%2fcolors/-/colors-5.1.1.tgz#800b2186b1e27e66432e67d03ed96af3e21d8940"
-  integrity sha1-gAshhrHifmZDLmfQPtlq8+IdiUA=
-  dependencies:
-    "@ctrl/tinycolor" "^3.3.1"
-
 "@ant-design/colors@^6.0.0":
   version "6.0.0"
   resolved "http://npm.laiye.com/@ant-design%2fcolors/-/colors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"
@@ -43,19 +36,7 @@
   resolved "http://npm.laiye.com/@ant-design%2ficons-svg/-/icons-svg-4.60.0.tgz#54f7a9ca2ab4c8cadd05300252f7d838d7381a82"
   integrity sha512-oYiHTAiMj1dmOQkfDN0xcU2z4rAk/XJ7sPfgIND9o2zeGu0a5SGRut0KulMKFqqJ147mBjt+EWjYIYM0drI7wQ==
 
-"@ant-design/icons@4.3.0":
-  version "4.3.0"
-  resolved "http://npm.laiye.com/@ant-design%2ficons/-/icons-4.3.0.tgz#420e0cd527486c0fe57f81310d681950fc4cfacf"
-  integrity sha1-Qg4M1SdIbA/lf4ExDWgZUPxM+s8=
-  dependencies:
-    "@ant-design/colors" "^5.0.0"
-    "@ant-design/icons-svg" "^4.0.0"
-    "@babel/runtime" "^7.11.2"
-    classnames "^2.2.6"
-    insert-css "^2.0.0"
-    rc-util "^5.0.1"
-
-"@ant-design/icons@^4.1.0":
+"@ant-design/icons@4.6.2", "@ant-design/icons@^4.1.0":
   version "4.6.2"
   resolved "http://npm.laiye.com/@ant-design%2ficons/-/icons-4.6.2.tgz#290f2e8cde505ab081fda63e511e82d3c48be982"
   integrity sha1-KQ8ujN5QWrCB/aY+UR6C08SL6YI=
@@ -430,7 +411,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@>=7.2.2", "@babel/core@>=7.9.0", "@babel/core@^7.1.0", "@babel/core@^7.12.16", "@babel/core@^7.12.3", "@babel/core@^7.7.5", "@babel/core@^7.8.4", "@babel/core@^7.9.0":
+"@babel/core@>=7.2.2", "@babel/core@>=7.9.0", "@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.12.16", "@babel/core@^7.12.3", "@babel/core@^7.7.5", "@babel/core@^7.8.4", "@babel/core@^7.9.0":
   version "7.13.16"
   resolved "http://npm.laiye.com/@babel%2fcore/-/core-7.13.16.tgz#7756ab24396cc9675f1c3fcd5b79fcce192ea96a"
   integrity sha1-d1arJDlsyWdfHD/NW3n8zhkuqWo=
@@ -451,7 +432,7 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
-"@babel/eslint-parser@^7.12.16":
+"@babel/eslint-parser@^7.12.1", "@babel/eslint-parser@^7.12.16":
   version "7.13.14"
   resolved "http://npm.laiye.com/@babel%2feslint-parser/-/eslint-parser-7.13.14.tgz#f80fd23bdd839537221914cb5d17720a5ea6ba3a"
   integrity sha1-+A/SO92DlTciGRTLXRdyCl6mujo=
@@ -1288,7 +1269,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.12.13"
 
-"@babel/plugin-transform-typescript@^7.12.1":
+"@babel/plugin-transform-typescript@^7.12.1", "@babel/plugin-transform-typescript@^7.13.0":
   version "7.13.0"
   resolved "http://npm.laiye.com/@babel%2fplugin-transform-typescript/-/plugin-transform-typescript-7.13.0.tgz#4a498e1f3600342d2a9e61f60131018f55774853"
   integrity sha1-SkmOHzYANC0qnmH2ATEBj1V3SFM=
@@ -1384,7 +1365,7 @@
     core-js-compat "^3.6.2"
     semver "^5.5.0"
 
-"@babel/preset-env@^7.8.4", "@babel/preset-env@^7.9.5":
+"@babel/preset-env@^7.12.11", "@babel/preset-env@^7.8.4", "@babel/preset-env@^7.9.5":
   version "7.13.15"
   resolved "http://npm.laiye.com/@babel%2fpreset-env/-/preset-env-7.13.15.tgz#c8a6eb584f96ecba183d3d414a83553a599f478f"
   integrity sha1-yKbrWE+W7LoYPT1BSoNVOlmfR48=
@@ -1483,7 +1464,7 @@
     "@babel/plugin-transform-react-jsx-source" "^7.12.1"
     "@babel/plugin-transform-react-pure-annotations" "^7.12.1"
 
-"@babel/preset-react@^7.9.4":
+"@babel/preset-react@^7.12.10", "@babel/preset-react@^7.9.4":
   version "7.13.13"
   resolved "http://npm.laiye.com/@babel%2fpreset-react/-/preset-react-7.13.13.tgz#fa6895a96c50763fe693f9148568458d5a839761"
   integrity sha1-+miVqWxQdj/mk/kUhWhFjVqDl2E=
@@ -1502,6 +1483,15 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
     "@babel/plugin-transform-typescript" "^7.12.1"
+
+"@babel/preset-typescript@^7.12.7":
+  version "7.13.0"
+  resolved "http://npm.laiye.com/@babel%2fpreset-typescript/-/preset-typescript-7.13.0.tgz#ab107e5f050609d806fbb039bec553b33462c60a"
+  integrity sha1-qxB+XwUGCdgG+7A5vsVTszRixgo=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.13.0"
+    "@babel/helper-validator-option" "^7.12.17"
+    "@babel/plugin-transform-typescript" "^7.13.0"
 
 "@babel/runtime-corejs3@^7.10.2":
   version "7.13.17"
@@ -1724,7 +1714,7 @@
   resolved "http://npm.laiye.com/@csstools%2fnormalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha1-8JULuhiBlRLUL3GX5WxRiqSRzxg=
 
-"@ctrl/tinycolor@^3.3.1", "@ctrl/tinycolor@^3.4.0":
+"@ctrl/tinycolor@^3.4.0":
   version "3.4.0"
   resolved "http://npm.laiye.com/@ctrl%2ftinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
   integrity sha1-w8WuVDyJfKqcKmhjC+01W+X5mQ8=
@@ -2562,7 +2552,7 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@typescript-eslint/eslint-plugin@^4.10.0", "@typescript-eslint/eslint-plugin@^4.5.0", "@typescript-eslint/eslint-plugin@^4.6.0":
+"@typescript-eslint/eslint-plugin@^4.0.0", "@typescript-eslint/eslint-plugin@^4.10.0", "@typescript-eslint/eslint-plugin@^4.5.0", "@typescript-eslint/eslint-plugin@^4.6.0":
   version "4.22.0"
   resolved "http://npm.laiye.com/@typescript-eslint%2feslint-plugin/-/eslint-plugin-4.22.0.tgz#3d5f29bb59e61a9dba1513d491b059e536e16dbc"
   integrity sha1-PV8pu1nmGp26FRPUkbBZ5Tbhbbw=
@@ -2599,7 +2589,7 @@
     eslint-scope "^5.0.0"
     eslint-utils "^2.0.0"
 
-"@typescript-eslint/parser@^4.10.0", "@typescript-eslint/parser@^4.5.0", "@typescript-eslint/parser@^4.6.0":
+"@typescript-eslint/parser@^4.0.0", "@typescript-eslint/parser@^4.10.0", "@typescript-eslint/parser@^4.5.0", "@typescript-eslint/parser@^4.6.0":
   version "4.22.0"
   resolved "http://npm.laiye.com/@typescript-eslint%2fparser/-/parser-4.22.0.tgz#e1637327fcf796c641fe55f73530e90b16ac8fe8"
   integrity sha1-4WNzJ/z3lsZB/lX3NTDpCxasj+g=
@@ -2692,6 +2682,46 @@
     eslint-plugin-react-hooks "^4.1.2"
     eslint-plugin-unicorn "^20.0.0"
     fast-glob "^3.2.4"
+    stylelint "^13.7.0"
+    stylelint-config-css-modules "^2.2.0"
+    stylelint-config-prettier "^8.0.1"
+    stylelint-config-rational-order "^0.1.2"
+    stylelint-config-standard "^20.0.0"
+    stylelint-declaration-block-no-ignored-properties "^2.1.0"
+    stylelint-no-unsupported-browser-features "^4.1.4"
+    stylelint-order "^4.0.0"
+    typescript "^4.0.2"
+
+"@umijs/fabric@2.5.6":
+  version "2.5.6"
+  resolved "http://npm.laiye.com/@umijs%2ffabric/-/fabric-2.5.6.tgz#5cef0a642768a35ffa11f1f4b80056e2971f0357"
+  integrity sha1-XO8KZCdoo1/6EfH0uABW4pcfA1c=
+  dependencies:
+    "@babel/core" "^7.12.10"
+    "@babel/eslint-parser" "^7.12.1"
+    "@babel/plugin-proposal-class-properties" "^7.12.1"
+    "@babel/preset-env" "^7.12.11"
+    "@babel/preset-react" "^7.12.10"
+    "@babel/preset-typescript" "^7.12.7"
+    "@typescript-eslint/eslint-plugin" "^4.10.0"
+    "@typescript-eslint/parser" "^4.10.0"
+    eslint "^7.11.0"
+    eslint-config-airbnb-base "^14.2.0"
+    eslint-config-prettier "^6.13.0"
+    eslint-formatter-pretty "^4.0.0"
+    eslint-plugin-babel "^5.3.0"
+    eslint-plugin-compat "^3.1.1"
+    eslint-plugin-eslint-comments "^3.1.1"
+    eslint-plugin-import "^2.17.3"
+    eslint-plugin-jest "^24.0.1"
+    eslint-plugin-jsx-a11y "^6.2.0"
+    eslint-plugin-markdown "^1.0.0"
+    eslint-plugin-promise "^4.1.1"
+    eslint-plugin-react "^7.21.5"
+    eslint-plugin-react-hooks "^4.1.2"
+    eslint-plugin-unicorn "^20.0.0"
+    fast-glob "^3.2.4"
+    prettier-plugin-style-order "^0.2.2"
     stylelint "^13.7.0"
     stylelint-config-css-modules "^2.2.0"
     stylelint-config-prettier "^8.0.1"
@@ -3363,7 +3393,7 @@ axe-core@^4.0.2:
   resolved "http://npm.laiye.com/axe-core/-/axe-core-4.1.4.tgz#f19cd99a84ee32a318b9c5b5bb8ed373ad94f143"
   integrity sha1-8ZzZmoTuMqMYucW1u47Tc62U8UM=
 
-axios@^0.21.0:
+axios@0.21.1, axios@^0.21.0:
   version "0.21.1"
   resolved "http://npm.laiye.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
@@ -3375,7 +3405,7 @@ axobject-query@^2.2.0:
   resolved "http://npm.laiye.com/axobject-query/-/axobject-query-2.2.0.tgz#943d47e10c0b704aa42275e20edf3722648989be"
   integrity sha1-lD1H4QwLcEqkInXiDt83ImSJib4=
 
-babel-eslint@^10.1.0:
+babel-eslint@^10.0.0, babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "http://npm.laiye.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
   integrity sha1-aWjlaKkQt4+zd5zdi2rC9HmUMjI=
@@ -5659,7 +5689,7 @@ eslint-config-prettier@^6.13.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-react-app@^6.0.0:
+eslint-config-react-app@6.0.0, eslint-config-react-app@^6.0.0:
   version "6.0.0"
   resolved "http://npm.laiye.com/eslint-config-react-app/-/eslint-config-react-app-6.0.0.tgz#ccff9fc8e36b322902844cbd79197982be355a0e"
   integrity sha1-zP+fyONrMikChEy9eRl5gr41Wg4=
@@ -5732,7 +5762,7 @@ eslint-plugin-flowtype@^5.2.0:
     lodash "^4.17.15"
     string-natural-compare "^3.0.1"
 
-eslint-plugin-import@^2.17.3, eslint-plugin-import@^2.22.1:
+eslint-plugin-import@^2.17.3, eslint-plugin-import@^2.22.0, eslint-plugin-import@^2.22.1:
   version "2.22.1"
   resolved "http://npm.laiye.com/eslint-plugin-import/-/eslint-plugin-import-2.22.1.tgz#0896c7e6a0cf44109a2d97b95903c2bb689d7702"
   integrity sha1-CJbH5qDPRBCaLZe5WQPCu2iddwI=
@@ -5789,12 +5819,12 @@ eslint-plugin-promise@^4.1.1:
   resolved "http://npm.laiye.com/eslint-plugin-promise/-/eslint-plugin-promise-4.3.1.tgz#61485df2a359e03149fdafc0a68b0e030ad2ac45"
   integrity sha1-YUhd8qNZ4DFJ/a/AposOAwrSrEU=
 
-eslint-plugin-react-hooks@^4.1.2, eslint-plugin-react-hooks@^4.2.0:
+eslint-plugin-react-hooks@^4.0.8, eslint-plugin-react-hooks@^4.1.2, eslint-plugin-react-hooks@^4.2.0:
   version "4.2.0"
   resolved "http://npm.laiye.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
   integrity sha1-jCKcJo1GiVYzTJQ7tF/IYCgPVVY=
 
-eslint-plugin-react@^7.21.5:
+eslint-plugin-react@^7.20.3, eslint-plugin-react@^7.21.5:
   version "7.23.2"
   resolved "http://npm.laiye.com/eslint-plugin-react/-/eslint-plugin-react-7.23.2.tgz#2d2291b0f95c03728b55869f01102290e792d494"
   integrity sha1-LSKRsPlcA3KLVYafARAikOeS1JQ=
@@ -5904,7 +5934,7 @@ eslint-webpack-plugin@^2.1.0:
     normalize-path "^3.0.0"
     schema-utils "^3.0.0"
 
-eslint@^7.11.0, eslint@^7.13.0:
+eslint@^7.11.0, eslint@^7.13.0, eslint@^7.5.0:
   version "7.24.0"
   resolved "http://npm.laiye.com/eslint/-/eslint-7.24.0.tgz#2e44fa62d93892bfdb100521f17345ba54b8513a"
   integrity sha1-LkT6Ytk4kr/bEAUh8XNFulS4UTo=
@@ -6946,6 +6976,13 @@ hex-color-regex@^1.1.0:
   resolved "http://npm.laiye.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
+history@5.0.0, history@^5.0.0:
+  version "5.0.0"
+  resolved "http://npm.laiye.com/history/-/history-5.0.0.tgz#0cabbb6c4bbf835addb874f8259f6d25101efd08"
+  integrity sha1-DKu7bEu/g1rduHT4JZ9tJRAe/Qg=
+  dependencies:
+    "@babel/runtime" "^7.7.6"
+
 history@^4.9.0:
   version "4.10.1"
   resolved "http://npm.laiye.com/history/-/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
@@ -6957,13 +6994,6 @@ history@^4.9.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
     value-equal "^1.0.1"
-
-history@^5.0.0:
-  version "5.0.0"
-  resolved "http://npm.laiye.com/history/-/history-5.0.0.tgz#0cabbb6c4bbf835addb874f8259f6d25101efd08"
-  integrity sha1-DKu7bEu/g1rduHT4JZ9tJRAe/Qg=
-  dependencies:
-    "@babel/runtime" "^7.7.6"
 
 hmac-drbg@^1.0.1:
   version "1.0.1"
@@ -8576,6 +8606,26 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
+laiye-pro@^1.0.5:
+  version "1.0.5"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.5.tgz#82062bc946d05cdf3f41fbffa1a77c9bd376231c"
+  integrity sha512-v7W+pOz5dXlkfVHPgZsvNfyWVGL0mIQjpEnrzSsI0WL2H5gasoNxhRa3Yc+NzXZC7NAOo9TqVrrg6cP2btTveA==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^4.0.0"
+    "@typescript-eslint/parser" "^4.0.0"
+    "@umijs/fabric" "2.5.6"
+    axios "0.21.1"
+    babel-eslint "^10.0.0"
+    eslint "^7.5.0"
+    eslint-config-react-app "6.0.0"
+    eslint-plugin-flowtype "^5.2.0"
+    eslint-plugin-import "^2.22.0"
+    eslint-plugin-jsx-a11y "^6.3.1"
+    eslint-plugin-react "^7.20.3"
+    eslint-plugin-react-hooks "^4.0.8"
+    history "5.0.0"
+    moment "2.29.1"
+
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "http://npm.laiye.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"
@@ -8623,23 +8673,6 @@ less-loader@^7.1.0:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-less@4.1.1:
-  version "4.1.1"
-  resolved "http://npm.laiye.com/less/-/less-4.1.1.tgz#15bf253a9939791dc690888c3ff424f3e6c7edba"
-  integrity sha1-Fb8lOpk5eR3GkIiMP/Qk8+bH7bo=
-  dependencies:
-    copy-anything "^2.0.1"
-    parse-node-version "^1.0.1"
-    tslib "^1.10.0"
-  optionalDependencies:
-    errno "^0.1.1"
-    graceful-fs "^4.1.2"
-    image-size "~0.5.0"
-    make-dir "^2.1.0"
-    mime "^1.4.1"
-    needle "^2.5.2"
-    source-map "~0.6.0"
-
 less@^3.11.1, less@^3.11.3:
   version "3.13.1"
   resolved "http://npm.laiye.com/less/-/less-3.13.1.tgz#0ebc91d2a0e9c0c6735b83d496b0ab0583077909"
@@ -8654,6 +8687,23 @@ less@^3.11.1, less@^3.11.3:
     make-dir "^2.1.0"
     mime "^1.4.1"
     native-request "^1.0.5"
+    source-map "~0.6.0"
+
+less@^4.1.1:
+  version "4.1.1"
+  resolved "http://npm.laiye.com/less/-/less-4.1.1.tgz#15bf253a9939791dc690888c3ff424f3e6c7edba"
+  integrity sha1-Fb8lOpk5eR3GkIiMP/Qk8+bH7bo=
+  dependencies:
+    copy-anything "^2.0.1"
+    parse-node-version "^1.0.1"
+    tslib "^1.10.0"
+  optionalDependencies:
+    errno "^0.1.1"
+    graceful-fs "^4.1.2"
+    image-size "~0.5.0"
+    make-dir "^2.1.0"
+    mime "^1.4.1"
+    needle "^2.5.2"
     source-map "~0.6.0"
 
 leven@^2.1.0:
@@ -9378,7 +9428,7 @@ ml-matrix@^6.5.0:
   dependencies:
     ml-array-rescale "^1.3.2"
 
-moment@^2.24.0:
+moment@2.29.1, moment@^2.24.0:
   version "2.29.1"
   resolved "http://npm.laiye.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha1-sr52n6MZQL6e7qZGnAdeNQBvo9M=
@@ -11006,6 +11056,14 @@ postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
 
+postcss-sorting@5.0.1, postcss-sorting@^5.0.1:
+  version "5.0.1"
+  resolved "http://npm.laiye.com/postcss-sorting/-/postcss-sorting-5.0.1.tgz#10d5d0059eea8334dacc820c0121864035bc3f11"
+  integrity sha1-ENXQBZ7qgzTazIIMASGGQDW8PxE=
+  dependencies:
+    lodash "^4.17.14"
+    postcss "^7.0.17"
+
 postcss-sorting@^4.1.0:
   version "4.1.0"
   resolved "http://npm.laiye.com/postcss-sorting/-/postcss-sorting-4.1.0.tgz#a107f0bf3852977fa64e4442bc340c88d5aacdb3"
@@ -11013,14 +11071,6 @@ postcss-sorting@^4.1.0:
   dependencies:
     lodash "^4.17.4"
     postcss "^7.0.0"
-
-postcss-sorting@^5.0.1:
-  version "5.0.1"
-  resolved "http://npm.laiye.com/postcss-sorting/-/postcss-sorting-5.0.1.tgz#10d5d0059eea8334dacc820c0121864035bc3f11"
-  integrity sha1-ENXQBZ7qgzTazIIMASGGQDW8PxE=
-  dependencies:
-    lodash "^4.17.14"
-    postcss "^7.0.17"
 
 postcss-svgo@^4.0.3:
   version "4.0.3"
@@ -11105,6 +11155,14 @@ prepend-http@^1.0.0:
   version "1.0.4"
   resolved "http://npm.laiye.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
   integrity sha1-1PRWKwzjaW5BrFLQ4ALlemNdxtw=
+
+prettier-plugin-style-order@^0.2.2:
+  version "0.2.2"
+  resolved "http://npm.laiye.com/prettier-plugin-style-order/-/prettier-plugin-style-order-0.2.2.tgz#cef2b6af3cfbeb52c821717daff4d8c0c824c012"
+  integrity sha1-zvK2rzz761LIIXF9r/TYwMgkwBI=
+  dependencies:
+    postcss-sorting "5.0.1"
+    resolve-cwd "^3.0.0"
 
 prettier@^2.1.2:
   version "2.2.1"

@@ -1,59 +1,34 @@
-/** @format */
+/*
+ * @Author: D.Y
+ * @Date: 2021-04-21 17:38:42
+ * @LastEditTime: 2021-04-22 15:11:58
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/utils/request.ts
+ * @Description:
+ */
 
-import axios from 'axios'
 import { message } from 'laiye-antd'
 import { logout } from '@utils/index'
+import { getRequest } from 'laiye-pro'
 
-const service = axios.create({
+export default getRequest({
   baseURL: APP_CONFIGRATION.api,
-  timeout: 5000,
-  // withCredentials: true // send cookies when cross-domain requests
-})
-
-// Request interceptors
-service.interceptors.request.use(
-  config => {
-    // config.headers['authorization'] = 'Bearer ' + getToken()
-    return config
-  },
-  error => {
-    Promise.reject(error)
-  },
-)
-// Response interceptors
-service.interceptors.response.use(
-  response => {
-    // noPermission = 10001,
-    // invalidCaptcha = 10003,
-    // userNotLogin = 10004,
-    // notAllowSign = 10005,
-    // notHasLicense = 10006,
-    // copiedPartner = 10007,
-    // invalidChannelManager = 10008
-    const res = response.data
-    if (res.code !== 200) {
-      if (res.code === 10001) {
+  responseAction: (res) => {
+    // eslint-disable-next-line no-debugger
+    const { code, data } = res
+    if (code !== 200) {
+      if (code === 10001) {
         message.error('没有权限登录，请联系渠道经理!')
-      } else if (res.code === 10003) {
+      } else if (code === 10003) {
         message.error('验证码无效!')
-      } else if (res.code === 10004) {
+      } else if (code === 10004) {
         message.error('用户没有登录，请重新登录!')
         logout()
-      } else if (res.code === 10010) {
+      } else if (code === 10010) {
         logout()
       }
-      // else {
-      //     message.error(res.message || 'Something is error!')
-      // }
       return Promise.reject(res)
-    } 
-      return response.data
-    
+    }
+    return res
   },
-  error => {
-    // alert error.message
-    return Promise.reject(error)
-  },
-)
-
-export default service
+})
