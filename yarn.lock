@@ -8606,10 +8606,10 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
-laiye-pro@^1.0.5:
-  version "1.0.5"
-  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.5.tgz#82062bc946d05cdf3f41fbffa1a77c9bd376231c"
-  integrity sha512-v7W+pOz5dXlkfVHPgZsvNfyWVGL0mIQjpEnrzSsI0WL2H5gasoNxhRa3Yc+NzXZC7NAOo9TqVrrg6cP2btTveA==
+laiye-pro@^1.0.9:
+  version "1.0.9"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.9.tgz#4d8e1dc123149547f5f8edd808687db3ecc4a268"
+  integrity sha512-u26VAp0gYXbcttC6gP17YFM0biTcol91dPmyndFRmakF6g5ATXMvJpvrufsGVA86UjIYB14KYm2cwUEvJIdFwA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.0.0"
     "@typescript-eslint/parser" "^4.0.0"

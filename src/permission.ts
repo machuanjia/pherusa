@@ -1,3 +1,12 @@
+/*
+ * @Author: D.Y
+ * @Date: 2021-04-21 17:38:42
+ * @LastEditTime: 2021-04-22 17:07:03
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/permission.ts
+ * @Description:
+ */
+
 import { find, uniqBy } from 'lodash'
 
 import routes, { asyncRouters, ROUTE_APP_KEY } from '@routes/index'
@@ -10,57 +19,10 @@ import {
   SET_USET_ID,
   SET_FLATTEN_ROUTERS,
 } from '@stores/app/app.types'
-
-export const whiteList = [`${process.env.PUBLIC_URL}/login`]
-
-export const isPermission = (permission: string): boolean => {
-  const permissions = store.getState().app.permissions || []
-  return permissions.includes(permission)
-}
-
-const hasPermission = (permissions: string[], route) => {
-  if (route.meta && route.meta.permission) {
-    return permissions.includes(route.meta.permission)
-  }
-  return true
-}
-
-export const getFlattenRoutes = (routeList, flattenRoutes) => {
-  routeList.forEach((route) => {
-    flattenRoutes.push(route)
-    if (route.children) {
-      getFlattenRoutes(route.children, flattenRoutes)
-    }
-  })
-}
-
-export const filterFlattenRoutes = (routesList) => {
-  const flattenRoutes = []
-  getFlattenRoutes(routesList, flattenRoutes)
-  return flattenRoutes
-}
-
-export const filterAsyncRoutes = (routesList, permissions: string[]) => {
-  const res = []
-  routesList.forEach((route) => {
-    const r = { ...route }
-    if (hasPermission(permissions, r)) {
-      if (r.children) {
-        r.children = filterAsyncRoutes(r.children, permissions)
-      }
-      res.push(r)
-    }
-  })
-  return res
-}
-
-export const getConstantRoutes = () => {
-  return [...routes]
-}
+import { setPermissions, filterAsyncRoutes, filterFlattenRoutes } from 'laiye-pro'
 
 export const getAuthRoutes = () => {
-  const permissions = store.getState().app.permissions || []
-  const asyncRoutes = filterAsyncRoutes(asyncRouters, permissions)
+  const asyncRoutes = filterAsyncRoutes(asyncRouters as any)
   const app = find(routes, (n) => {
     return n.meta.key === ROUTE_APP_KEY
   })
@@ -74,8 +36,6 @@ export const getAuthRoutes = () => {
 export const setInfo = async () => {
   return getUserInfo().then(
     ({ data }) => {
-      // eslint-disable-next-line no-debugger
-      debugger
       const { roles = [], permissions = [] } = data
       store.dispatch({
         type: SET_USET_ID,
@@ -89,8 +49,9 @@ export const setInfo = async () => {
         type: SET_PERMISSIONS,
         permissions,
       })
+      setPermissions(permissions)
       const routesArray = getAuthRoutes()
-      const flattenRouters = filterFlattenRoutes(routesArray)
+      const flattenRouters = filterFlattenRoutes(routesArray as any)
       store.dispatch({
         type: SET_ROUTERS,
         routers: routesArray,
@@ -106,21 +67,3 @@ export const setInfo = async () => {
     },
   )
 }
-
-// export const checkAuth = async () => {
-//   if (getToken()) {
-//     if (whiteList.includes(getRoute())) {
-//       redirectTo({
-//         path: `${window.location.protocol}//${window.location.host}${process.env.PUBLIC_URL}/dashboard/index`,
-//         isHash: false,
-//       })
-//     } else {
-//       if (store.getState().app.id) {
-//         return
-//       }
-//       setInfo()
-//     }
-//   } else if (whiteList.includes(getRoute())) {
-//     console.log('ridirect to route')
-//   }
-// }
