@@ -42,7 +42,7 @@
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.21",
     "laiye-antd": "^1.0.0-beta.1",
-    "laiye-pro": "1.0.13",
+    "laiye-pro": "1.0.15",
     "pdfjs-dist": "2.6.347",
     "react": "^17.0.1",
     "react-bpmn": "^0.2.0",
