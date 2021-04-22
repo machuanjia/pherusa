@@ -1,4 +1,3 @@
-/** @format */
 
 export default {
   preference: '偏好设置',

@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-03-26 11:55:24
+ * @LastEditTime: 2021-04-22 18:59:20
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/navbar/index.tsx
  * @Description: 
@@ -12,7 +12,6 @@ import i18n from 'i18next';
 import { find } from 'lodash';
 
 import store from '@stores/store';
-import { ICON_MAP } from '@constants/index';
 
 import styles from './index.module.less';
 
@@ -32,11 +31,7 @@ class NavbarComponent extends Component<INavbarProps, INavbarState> {
     if (route && route.meta) {
       title = i18n.t(route.meta.name);
 
-      icon = route.meta.iconType ? (
-        ICON_MAP[route.meta.iconType]
-      ) : (
-        <i className={route.meta.className}></i>
-      );
+      icon = <i className={route.meta.className}></i>
     }
 
     return (

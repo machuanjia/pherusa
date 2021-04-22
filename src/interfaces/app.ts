@@ -1,12 +1,11 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:56:21
+ * @LastEditTime: 2021-04-22 18:51:48
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/interfaces/app.ts
  * @Description: 
  */
-/** @format */
 
 export type AppState = {
   token: string;

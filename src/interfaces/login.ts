@@ -1,4 +1,3 @@
-/** @format */
 
 export type ILoginEntity = {
   phone: string

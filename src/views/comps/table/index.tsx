@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Table, Input, Button, Tooltip, Modal } from 'laiye-antd';
 
 import { ContentLayoutComponent } from '@components/index';
-import { MODAL_SIZE } from '@constants/index';
+import { MODAL_SIZE } from 'laiye-pro';
 import TableCollecrtionComponent from './TableCollection';
 import { listMixin } from '@components/Mixin';
 import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index';

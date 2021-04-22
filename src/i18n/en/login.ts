@@ -1,4 +1,11 @@
-/** @format */
+/*
+ * @Author: D.Y
+ * @Date: 2021-01-05 14:38:36
+ * @LastEditTime: 2021-04-22 19:01:35
+ * @LastEditors: D.Y
+ * @FilePath: /pherusa/src/i18n/en/login.ts
+ * @Description: 
+ */
 
 export default {
   title: '来也科技',

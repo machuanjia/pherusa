@@ -1,4 +1,3 @@
-/** @format */
 
 import action from './action'
 import login from './login'

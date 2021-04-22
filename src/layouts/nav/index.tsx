@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-21 17:25:02
+ * @LastEditTime: 2021-04-22 18:59:27
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/nav/index.tsx
  * @Description: 
@@ -14,7 +14,6 @@ import i18n from 'i18next';
 import store from '@stores/store';
 import { SET_ACTIVE_NAV } from '@stores/app/app.types';
 import { ROUTE_APP_KEY } from '@routes/index';
-import { ICON_MAP } from '@constants/index';
 import styles from './index.module.less';
 
 type IRoute = {
@@ -105,20 +104,12 @@ export default class NavComponent extends Component<INavProps, INavState> {
               title={
                 n.meta.redirect ? (
                   <Link to={n.meta.redirect} className={styles['nav-item']}>
-                    {n.meta.iconType ? (
-                      ICON_MAP[n.meta.iconType]
-                    ) : (
-                      <i className={n.meta.className}></i>
-                    )}
+                    <i className={n.meta.className}></i>
                     <span>{i18n.t(n.meta.name)}</span>
                   </Link>
                 ) : (
                   <span>
-                    {n.meta.iconType ? (
-                      ICON_MAP[n.meta.iconType]
-                    ) : (
-                      <i className={n.meta.className}></i>
-                    )}
+                    <i className={n.meta.className}></i>
                     <span>{i18n.t(n.meta.name)}</span>
                   </span>
                 )
@@ -131,22 +122,14 @@ export default class NavComponent extends Component<INavProps, INavState> {
                   }
                   let link = (
                     <Link to={item.path}>
-                      {item.meta.iconType ? (
-                        ICON_MAP[item.meta.iconType]
-                      ) : (
-                        <i className={item.meta.className}></i>
-                      )}
+                      <i className={item.meta.className}></i>
                       {i18n.t(item.meta.name)}
                     </Link>
                   );
                   if (item.meta.isLink) {
                     link = (
                       <a href={item.path} target="_blank" rel="noopener noreferrer">
-                        {item.meta.iconType ? (
-                          ICON_MAP[item.meta.iconType]
-                        ) : (
-                          <i className={item.meta.className}></i>
-                        )}
+                        <i className={item.meta.className}></i>
                         {i18n.t(item.meta.name)}
                       </a>
                     );
@@ -161,7 +144,7 @@ export default class NavComponent extends Component<INavProps, INavState> {
           ) : (
             <Menu.Item key={n.path}>
               <Link to={n.path}>
-                {ICON_MAP[n.meta.iconType]}
+                <i className={n.meta.className}></i>
                 <span>{n.meta.name}</span>
               </Link>
           </Menu.Item>

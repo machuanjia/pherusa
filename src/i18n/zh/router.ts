@@ -1,4 +1,3 @@
-/** @format */
 
 export default {
   component: '组件',
