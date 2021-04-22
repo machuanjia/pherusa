@@ -3393,7 +3393,7 @@ axe-core@^4.0.2:
   resolved "http://npm.laiye.com/axe-core/-/axe-core-4.1.4.tgz#f19cd99a84ee32a318b9c5b5bb8ed373ad94f143"
   integrity sha1-8ZzZmoTuMqMYucW1u47Tc62U8UM=
 
-axios@0.21.1, axios@^0.21.0:
+axios@0.21.1:
   version "0.21.1"
   resolved "http://npm.laiye.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
@@ -6976,7 +6976,7 @@ hex-color-regex@^1.1.0:
   resolved "http://npm.laiye.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
-history@5.0.0, history@^5.0.0:
+history@5.0.0:
   version "5.0.0"
   resolved "http://npm.laiye.com/history/-/history-5.0.0.tgz#0cabbb6c4bbf835addb874f8259f6d25101efd08"
   integrity sha1-DKu7bEu/g1rduHT4JZ9tJRAe/Qg=
@@ -8606,10 +8606,10 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
-laiye-pro@^1.0.9:
-  version "1.0.9"
-  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.9.tgz#4d8e1dc123149547f5f8edd808687db3ecc4a268"
-  integrity sha512-u26VAp0gYXbcttC6gP17YFM0biTcol91dPmyndFRmakF6g5ATXMvJpvrufsGVA86UjIYB14KYm2cwUEvJIdFwA==
+laiye-pro@^1.0.11:
+  version "1.0.11"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.11.tgz#c97bca141bbce6586f3381d0095e7d1e52b81975"
+  integrity sha512-F4M9TIKWD/25HV7uv12YQ93Xo6s7zm75kBemoxkV+ASkfiy4o60C3RXRyhMZ5nRk5oyAg2NQscB4289zOZfQTQ==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.0.0"
     "@typescript-eslint/parser" "^4.0.0"
@@ -8625,6 +8625,7 @@ laiye-pro@^1.0.9:
     eslint-plugin-react-hooks "^4.0.8"
     history "5.0.0"
     moment "2.29.1"
+    react-router-dom "5.2.0"
 
 language-subtag-registry@~0.3.2:
   version "0.3.21"
@@ -12027,7 +12028,7 @@ react-router-config@^5.1.1:
   dependencies:
     "@babel/runtime" "^7.1.2"
 
-react-router-dom@^5.2.0:
+react-router-dom@5.2.0, react-router-dom@^5.2.0:
   version "5.2.0"
   resolved "http://npm.laiye.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
   integrity sha1-nmWk0MReEyieZsexfH4XXQ6hVmI=

@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-21 17:41:25
+ * @LastEditTime: 2021-04-22 17:43:28
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/main/index.tsx
  * @Description:
@@ -9,11 +9,11 @@
 import React, { Component } from 'react'
 import NavComponent from '../nav'
 import styles from './index.module.less'
-import { RouteView } from '@components/index'
 import PreferenceComponent from '../preference'
 import NavbarComponent from '../navbar'
 import { setInfo } from '../../permission'
 import logoPath from '../../assets/logo.png'
+import { RouteViewer } from 'laiye-pro'
 
 type IMainLayoutProps = {
   route: any,
@@ -68,7 +68,7 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
             <div className={styles['main-layout-main']}>
               <NavbarComponent />
               <div className={styles['main-layout-main-container']}>
-                <RouteView routers={route.children} />
+                <RouteViewer routers={route.children} />
               </div>
             </div>
           </div>

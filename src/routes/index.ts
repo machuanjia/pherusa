@@ -1,18 +1,18 @@
 /*
  * @Author: xulijing
  * @Date: 2021-02-24 16:42:55
- * @LastEditTime: 2021-04-20 15:10:42
+ * @LastEditTime: 2021-04-22 17:49:05
  * @FilePath: /pherusa/src/routes/index.ts
  */
 import { asyncComponent } from '@components/index'
 import MainLayout from '@layouts/main'
 import componentsRoute from './component'
+import { NoFond } from 'laiye-pro'
 
 export const ROUTE_APP_KEY = 'app'
 
 const AboutView = asyncComponent(() => import('@views/about'))
 const LoginView = asyncComponent(() => import('@views/login'))
-const NotFontVIew = asyncComponent(() => import('@views/no-fond'))
 
 // 动态路由，根据后台返回的权限动态生成
 export const asyncRouters = [componentsRoute]
@@ -55,7 +55,7 @@ const routes = [
       name: 'notFond',
       isHidden: true,
     },
-    component: NotFontVIew,
+    component: NoFond,
   },
 ]
 
