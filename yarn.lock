@@ -2659,39 +2659,6 @@
     "@typescript-eslint/types" "4.22.0"
     eslint-visitor-keys "^2.0.0"
 
-"@umijs/fabric@2.4.10":
-  version "2.4.10"
-  resolved "http://npm.laiye.com/@umijs%2ffabric/-/fabric-2.4.10.tgz#424998dfcac389ce8808a200e3cba43bad7cf77e"
-  integrity sha1-QkmY38rDic6ICKIA48ukO618934=
-  dependencies:
-    "@typescript-eslint/eslint-plugin" "^4.10.0"
-    "@typescript-eslint/parser" "^4.10.0"
-    eslint "^7.11.0"
-    eslint-config-airbnb-base "^14.2.0"
-    eslint-config-prettier "^6.13.0"
-    eslint-formatter-pretty "^4.0.0"
-    eslint-plugin-babel "^5.3.0"
-    eslint-plugin-compat "^3.1.1"
-    eslint-plugin-eslint-comments "^3.1.1"
-    eslint-plugin-import "^2.17.3"
-    eslint-plugin-jest "^24.0.1"
-    eslint-plugin-jsx-a11y "^6.2.0"
-    eslint-plugin-markdown "^1.0.0"
-    eslint-plugin-promise "^4.1.1"
-    eslint-plugin-react "^7.21.5"
-    eslint-plugin-react-hooks "^4.1.2"
-    eslint-plugin-unicorn "^20.0.0"
-    fast-glob "^3.2.4"
-    stylelint "^13.7.0"
-    stylelint-config-css-modules "^2.2.0"
-    stylelint-config-prettier "^8.0.1"
-    stylelint-config-rational-order "^0.1.2"
-    stylelint-config-standard "^20.0.0"
-    stylelint-declaration-block-no-ignored-properties "^2.1.0"
-    stylelint-no-unsupported-browser-features "^4.1.4"
-    stylelint-order "^4.0.0"
-    typescript "^4.0.2"
-
 "@umijs/fabric@2.5.6":
   version "2.5.6"
   resolved "http://npm.laiye.com/@umijs%2ffabric/-/fabric-2.5.6.tgz#5cef0a642768a35ffa11f1f4b80056e2971f0357"
@@ -3456,7 +3423,7 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-import@^1.13.1:
+babel-plugin-import@1.13.3, babel-plugin-import@^1.13.1:
   version "1.13.3"
   resolved "http://npm.laiye.com/babel-plugin-import/-/babel-plugin-import-1.13.3.tgz#9dbbba7d1ac72bd412917a830d445e00941d26d7"
   integrity sha1-nbu6fRrHK9QSkXqDDUReAJQdJtc=
@@ -4648,7 +4615,7 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-craco-less@1.17.1:
+craco-less@^1.17.0:
   version "1.17.1"
   resolved "http://npm.laiye.com/craco-less/-/craco-less-1.17.1.tgz#aa23cf10d09f0f99657bed977788cc9b501add70"
   integrity sha1-qiPPENCfD5lle+2Xd4jMm1Aa3XA=
@@ -5089,7 +5056,7 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.1, debug@^3.2.5, debug@^3.2.6:
+debug@^3.1.1, debug@^3.2.5:
   version "3.2.7"
   resolved "http://npm.laiye.com/debug/-/debug-3.2.7.tgz#72580b7e9145fb39b6676f9c5e5fb100b934179a"
   integrity sha1-clgLfpFF+zm2Z2+cXl+xALk0F5o=
@@ -6582,6 +6549,11 @@ fs.realpath@^1.0.0:
   resolved "http://npm.laiye.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
+fs@0.0.1-security:
+  version "0.0.1-security"
+  resolved "http://npm.laiye.com/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
+  integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
+
 fsevents@^1.2.7:
   version "1.2.13"
   resolved "http://npm.laiye.com/fsevents/-/fsevents-1.2.13.tgz#f325cb0455592428bcf11b383370ef70e3bfcc38"
@@ -7239,7 +7211,7 @@ i18next@^19.8.3:
   dependencies:
     "@babel/runtime" "^7.12.0"
 
-iconv-lite@0.4.24, iconv-lite@^0.4.4:
+iconv-lite@0.4.24:
   version "0.4.24"
   resolved "http://npm.laiye.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
   integrity sha1-ICK0sl+93CHS9SSXSkdKr+czkIs=
@@ -8606,16 +8578,22 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
-laiye-pro@1.0.15:
-  version "1.0.15"
-  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.15.tgz#c9c3ca39941d138081e9124d4154ca2346b53178"
-  integrity sha512-YJexfwmQejWcVOyUdSYX4ctRnpomz2LpW2oqBydTE3HnDkrFyjTBVi5G1AifDMmUzjV/1QSc4dOaJSNmi6GKiw==
+laiye-pro@1.0.20:
+  version "1.0.20"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.20.tgz#2ed1c764fef898b26ae5bc7e949a9e799ed97e0b"
+  integrity sha512-jHwgQAe9W69FekzpxcVIPn3qsG1kEGHdx+8oGb61e8jgLZCTuX0FDKrC2TQf01J89wlOLwWmPrjNk1V25XCbAw==
   dependencies:
+    "@ant-design/icons" "4.6.2"
+    "@testing-library/jest-dom" "^5.11.4"
+    "@testing-library/react" "^11.1.0"
+    "@testing-library/user-event" "^12.1.10"
     "@typescript-eslint/eslint-plugin" "^4.0.0"
     "@typescript-eslint/parser" "^4.0.0"
     "@umijs/fabric" "2.5.6"
     axios "0.21.1"
     babel-eslint "^10.0.0"
+    babel-plugin-import "1.13.3"
+    connect-history-api-fallback "1.6.0"
     eslint "^7.5.0"
     eslint-config-react-app "6.0.0"
     eslint-plugin-flowtype "^5.2.0"
@@ -8624,8 +8602,22 @@ laiye-pro@1.0.15:
     eslint-plugin-react "^7.20.3"
     eslint-plugin-react-hooks "^4.0.8"
     history "5.0.0"
+    i18next "^19.8.3"
+    i18next-browser-languagedetector "^6.0.1"
+    i18next-http-backend "^1.0.21"
     moment "2.29.1"
+    react "^17.0.1"
+    react-bpmn "^0.2.0"
+    react-color "^2.19.3"
+    react-dom "^17.0.1"
+    react-grid-layout "^1.2.0"
+    react-helmet "^6.1.0"
+    react-i18next "^11.7.3"
+    react-redux "^7.2.2"
+    react-router "^5.2.0"
+    react-router-config "^5.1.1"
     react-router-dom "5.2.0"
+    redux-thunk "^2.3.0"
 
 language-subtag-registry@~0.3.2:
   version "0.3.21"
@@ -8674,7 +8666,7 @@ less-loader@^7.1.0:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-less@^3.11.1, less@^3.11.3:
+less@^3.11.1, less@^3.11.3, less@^3.12.2:
   version "3.13.1"
   resolved "http://npm.laiye.com/less/-/less-3.13.1.tgz#0ebc91d2a0e9c0c6735b83d496b0ab0583077909"
   integrity sha1-DryR0qDpwMZzW4PUlrCrBYMHeQk=
@@ -8688,23 +8680,6 @@ less@^3.11.1, less@^3.11.3:
     make-dir "^2.1.0"
     mime "^1.4.1"
     native-request "^1.0.5"
-    source-map "~0.6.0"
-
-less@^4.1.1:
-  version "4.1.1"
-  resolved "http://npm.laiye.com/less/-/less-4.1.1.tgz#15bf253a9939791dc690888c3ff424f3e6c7edba"
-  integrity sha1-Fb8lOpk5eR3GkIiMP/Qk8+bH7bo=
-  dependencies:
-    copy-anything "^2.0.1"
-    parse-node-version "^1.0.1"
-    tslib "^1.10.0"
-  optionalDependencies:
-    errno "^0.1.1"
-    graceful-fs "^4.1.2"
-    image-size "~0.5.0"
-    make-dir "^2.1.0"
-    mime "^1.4.1"
-    needle "^2.5.2"
     source-map "~0.6.0"
 
 leven@^2.1.0:
@@ -9413,7 +9388,7 @@ ml-array-min@^1.2.2:
   dependencies:
     is-any-array "^1.0.0"
 
-ml-array-rescale@^1.3.2:
+ml-array-rescale@^1.3.5:
   version "1.3.5"
   resolved "http://npm.laiye.com/ml-array-rescale/-/ml-array-rescale-1.3.5.tgz#a41a98535e5b3bcdcde2f1ef532f4453feb11104"
   integrity sha1-pBqYU15bO83N4vHvUy9EU/6xEQQ=
@@ -9423,11 +9398,11 @@ ml-array-rescale@^1.3.2:
     ml-array-min "^1.2.2"
 
 ml-matrix@^6.5.0:
-  version "6.7.0"
-  resolved "http://npm.laiye.com/ml-matrix/-/ml-matrix-6.7.0.tgz#5a00e3075d22fe510696782527e3a5367586f815"
-  integrity sha1-WgDjB10i/lEGlnglJ+OlNnWG+BU=
+  version "6.8.0"
+  resolved "http://npm.laiye.com/ml-matrix/-/ml-matrix-6.8.0.tgz#55429ea9625def03ba34e7c8e6ca490409127aa6"
+  integrity sha1-VUKeqWJd7wO6NOfI5spJBAkSeqY=
   dependencies:
-    ml-array-rescale "^1.3.2"
+    ml-array-rescale "^1.3.5"
 
 moment@2.29.1, moment@^2.24.0:
   version "2.29.1"
@@ -9543,15 +9518,6 @@ natural-compare@^1.4.0:
   version "1.4.0"
   resolved "http://npm.laiye.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
-
-needle@^2.5.2:
-  version "2.6.0"
-  resolved "http://npm.laiye.com/needle/-/needle-2.6.0.tgz#24dbb55f2509e2324b4a99d61f413982013ccdbe"
-  integrity sha1-JNu1XyUJ4jJLSpnWH0E5ggE8zb4=
-  dependencies:
-    debug "^3.2.6"
-    iconv-lite "^0.4.4"
-    sax "^1.2.4"
 
 negotiator@0.6.2:
   version "0.6.2"
@@ -10114,11 +10080,6 @@ parse-json@^5.0.0:
     json-parse-even-better-errors "^2.3.0"
     lines-and-columns "^1.1.6"
 
-parse-node-version@^1.0.1:
-  version "1.0.1"
-  resolved "http://npm.laiye.com/parse-node-version/-/parse-node-version-1.0.1.tgz#e2b5dbede00e7fa9bc363607f53327e8b073189b"
-  integrity sha1-4rXb7eAOf6m8NjYH9TMn6LBzGJs=
-
 parse5@6.0.1:
   version "6.0.1"
   resolved "http://npm.laiye.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
@@ -10242,15 +10203,41 @@ performance-now@^2.1.0:
   resolved "http://npm.laiye.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-pherusa-lib@1.0.4:
-  version "1.0.4"
-  resolved "http://npm.laiye.com/pherusa-lib/-/pherusa-lib-1.0.4.tgz#6efef0a4f863b596d5e1cc6398867fb897db434a"
-  integrity sha512-vC7+46LjtpB1hCRoYHlpBmFV2u6qRzOkS/+dkH3UDJLUoelT4vNwbZ7tI0z1RyUhoKTG6SXGeMVz2dQ4VWi7pQ==
+pherusa-lib@1.0.15:
+  version "1.0.15"
+  resolved "http://npm.laiye.com/pherusa-lib/-/pherusa-lib-1.0.15.tgz#95dab7ba9b8a089e634a95309a9872b7d44c1d24"
+  integrity sha512-oClJ8aZuvojdkRr9X8rYFTvrawwAyxMdtutADhAU7o3ztdvtv9xaOmKRiVQQpY6hmD6Kez9ihSI5OcFoxxjVVg==
   dependencies:
-    craco-less "1.17.1"
+    "@babel/plugin-proposal-decorators" "^7.12.1"
+    "@babel/runtime" "^7.12.5"
+    "@commitlint/cli" "^11.0.0"
+    "@commitlint/config-conventional" "^11.0.0"
+    "@craco/craco" "^5.8.0"
+    "@types/jest" "^26.0.15"
+    "@types/node" "^14.14.7"
+    "@types/react" "^16.9.56"
+    "@types/react-dom" "^16.9.9"
+    "@types/react-helmet" "^6.1.0"
+    "@types/react-redux" "^7.1.11"
+    "@typescript-eslint/eslint-plugin" "^4.6.0"
+    "@typescript-eslint/parser" "^4.6.0"
+    babel-plugin-import "^1.13.1"
+    craco-less "^1.17.0"
+    eslint "^7.13.0"
+    express "^4.17.1"
+    fs "0.0.1-security"
+    husky "^4.3.0"
+    less "^3.12.2"
+    less-loader "^7.1.0"
     lodash "4.17.21"
     path "0.12.7"
+    prettier "^2.1.2"
     react "^16.12.0"
+    react-scripts "4.0.1"
+    regenerator-runtime "^0.13.7"
+    source-map-explorer "2.5.1"
+    typescript "^4.0.5"
+    web-vitals "^0.2.4"
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.2.3:
   version "2.2.3"
@@ -12033,7 +12020,7 @@ react-router-config@^5.1.1:
   dependencies:
     "@babel/runtime" "^7.1.2"
 
-react-router-dom@5.2.0, react-router-dom@^5.2.0:
+react-router-dom@5.2.0:
   version "5.2.0"
   resolved "http://npm.laiye.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
   integrity sha1-nmWk0MReEyieZsexfH4XXQ6hVmI=
@@ -12867,7 +12854,7 @@ sass-loader@8.0.2:
     schema-utils "^2.6.1"
     semver "^6.3.0"
 
-sax@^1.2.4, sax@~1.2.4:
+sax@~1.2.4:
   version "1.2.4"
   resolved "http://npm.laiye.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
@@ -14681,15 +14668,15 @@ utils-merge@1.0.1:
   resolved "http://npm.laiye.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
-uuid@8.3.2, uuid@^8.3.0:
-  version "8.3.2"
-  resolved "http://npm.laiye.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
-  integrity sha1-gNW1ztJxu5r2xEXyGhoExgbO++I=
-
 uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "http://npm.laiye.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
+
+uuid@^8.3.0:
+  version "8.3.2"
+  resolved "http://npm.laiye.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha1-gNW1ztJxu5r2xEXyGhoExgbO++I=
 
 v8-compile-cache@^2.0.3, v8-compile-cache@^2.2.0:
   version "2.3.0"
@@ -14849,11 +14836,6 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha1-wdjRSTFtPqhShIiVy2oL/oh7h98=
   dependencies:
     minimalistic-assert "^1.0.0"
-
-web-highlighter@0.7.1:
-  version "0.7.1"
-  resolved "http://npm.laiye.com/web-highlighter/-/web-highlighter-0.7.1.tgz#616fe7e48697f4aec351645717a7d7f5811f693e"
-  integrity sha1-YW/n5IaX9K7DUWRXF6fX9YEfaT4=
 
 web-vitals@^0.2.4:
   version "0.2.4"

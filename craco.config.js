@@ -1,6 +1,5 @@
-const config = require('./server/config')
-const { getConfigs } = require('pherusa-lib')
-const { merge } = require('lodash')
+const { resolve } = require('path')
+const { webpackConfigs,getAppConfigs } = require('pherusa-lib')
 
 const modifiedTheme = {
   '@laiye-primary-color': '#2249c0',
@@ -48,10 +47,11 @@ const modifiedTheme = {
   '@shadow-gray': '#b3bdc5',
 }
 
+const config = getAppConfigs({configPath:process.env.npm_config_conf || resolve(__dirname, './conf/dev.conf')})
 process.env.NODE_ENV === 'development' &&
   (process.env.REACT_APP_CONFIGRATION = JSON.stringify(config))
 
-module.exports = getConfigs({
+module.exports = webpackConfigs({
   theme: modifiedTheme,
   port: config.env.port,
   dirname: __dirname,
