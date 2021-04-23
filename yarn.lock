@@ -8578,10 +8578,17 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
+<<<<<<< HEAD
 laiye-pro@1.0.20:
   version "1.0.20"
   resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.20.tgz#2ed1c764fef898b26ae5bc7e949a9e799ed97e0b"
   integrity sha512-jHwgQAe9W69FekzpxcVIPn3qsG1kEGHdx+8oGb61e8jgLZCTuX0FDKrC2TQf01J89wlOLwWmPrjNk1V25XCbAw==
+=======
+laiye-pro@1.0.17:
+  version "1.0.17"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.17.tgz#a17efb95cb2dbc7bc8a77fe2a17c357093430def"
+  integrity sha512-9pXyZwBh8+df3RWYje2pX7GGZX74IR2N4gjTDs16A77RybEw6pC4ffLvkd1K802nQ6cmxjI3YQuB6/mfV++3ZA==
+>>>>>>> bc0c00880293642fc3d18dc640aa0511b329edb8
   dependencies:
     "@ant-design/icons" "4.6.2"
     "@testing-library/jest-dom" "^5.11.4"
@@ -8593,7 +8600,10 @@ laiye-pro@1.0.20:
     axios "0.21.1"
     babel-eslint "^10.0.0"
     babel-plugin-import "1.13.3"
+<<<<<<< HEAD
     connect-history-api-fallback "1.6.0"
+=======
+>>>>>>> bc0c00880293642fc3d18dc640aa0511b329edb8
     eslint "^7.5.0"
     eslint-config-react-app "6.0.0"
     eslint-plugin-flowtype "^5.2.0"
