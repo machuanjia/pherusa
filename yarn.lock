@@ -3456,7 +3456,7 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-import@^1.13.1:
+babel-plugin-import@1.13.3, babel-plugin-import@^1.13.1:
   version "1.13.3"
   resolved "http://npm.laiye.com/babel-plugin-import/-/babel-plugin-import-1.13.3.tgz#9dbbba7d1ac72bd412917a830d445e00941d26d7"
   integrity sha1-nbu6fRrHK9QSkXqDDUReAJQdJtc=
@@ -8606,16 +8606,17 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
-laiye-pro@1.0.15:
-  version "1.0.15"
-  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.15.tgz#c9c3ca39941d138081e9124d4154ca2346b53178"
-  integrity sha512-YJexfwmQejWcVOyUdSYX4ctRnpomz2LpW2oqBydTE3HnDkrFyjTBVi5G1AifDMmUzjV/1QSc4dOaJSNmi6GKiw==
+laiye-pro@1.0.17:
+  version "1.0.17"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.17.tgz#a17efb95cb2dbc7bc8a77fe2a17c357093430def"
+  integrity sha512-9pXyZwBh8+df3RWYje2pX7GGZX74IR2N4gjTDs16A77RybEw6pC4ffLvkd1K802nQ6cmxjI3YQuB6/mfV++3ZA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.0.0"
     "@typescript-eslint/parser" "^4.0.0"
     "@umijs/fabric" "2.5.6"
     axios "0.21.1"
     babel-eslint "^10.0.0"
+    babel-plugin-import "1.13.3"
     eslint "^7.5.0"
     eslint-config-react-app "6.0.0"
     eslint-plugin-flowtype "^5.2.0"

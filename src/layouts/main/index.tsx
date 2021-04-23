@@ -7,13 +7,15 @@
  * @Description:
  */
 import React, { Component } from 'react'
+import { RouteViewer, GlobalLoading } from 'laiye-pro'
+
 import NavComponent from '../nav'
-import styles from './index.module.less'
 import PreferenceComponent from '../preference'
 import NavbarComponent from '../navbar'
 import { setInfo } from '../../permission'
 import logoPath from '../../assets/logo.png'
-import { RouteViewer } from 'laiye-pro'
+
+import styles from './index.module.less'
 
 type IMainLayoutProps = {
   route: any,
@@ -50,7 +52,9 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
     return (
       <>
         {loading ? (
-          'loading'
+         <div className={styles['main-layout']}>
+            <GlobalLoading />
+         </div>
         ) : (
           <div className={styles['main-layout']}>
             <div className={styles['main-layout-side']}>
