@@ -1,14 +1,14 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-02-04 15:51:57
+ * @LastEditTime: 2021-04-26 17:49:08
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/stores/app/app.reducers.ts
- * @Description: 
+ * @Description:
  */
-import * as actionTypes from './app.types';
-import type { AppState, AppAction } from '@interfaces/index';
-import routes from '@routes/index';
+import * as actionTypes from './app.types'
+import type { AppState, AppAction } from '@interfaces/index'
+import routes from '@routes/index'
 
 const initialState: AppState = {
   token: '',
@@ -16,10 +16,8 @@ const initialState: AppState = {
   roles: [],
   routers: routes,
   flattenRouters: [],
-  warning: '',
   id: '',
-  activeNav: null,
-};
+}
 
 const reducer = (state: AppState = initialState, action: AppAction): AppState => {
   switch (action.type) {
@@ -27,46 +25,36 @@ const reducer = (state: AppState = initialState, action: AppAction): AppState =>
       return {
         ...state,
         token: action.token,
-      };
+      }
     case actionTypes.SET_PERMISSIONS:
       return {
         ...state,
         permissions: action.permissions,
-      };
+      }
     case actionTypes.SET_ROLES:
       return {
         ...state,
         roles: action.roles,
-      };
+      }
     case actionTypes.SET_ROUTERS:
       return {
         ...state,
         routers: action.routers,
-      };
+      }
     case actionTypes.SET_FLATTEN_ROUTERS:
       return {
         ...state,
         flattenRouters: action.flattenRouters,
-      };
-    case actionTypes.SET_WARNING:
-      return {
-        ...state,
-        warning: action.warning,
-      };
+      }
     case actionTypes.SET_USET_ID:
       return {
         ...state,
         id: action.id,
-      };
-    case actionTypes.SET_ACTIVE_NAV:
-      return {
-        ...state,
-        activeNav: action.activeNav,
-      };
+      }
     default:
-      break;
+      break
   }
-  return state;
-};
+  return state
+}
 
-export default reducer;
+export default reducer

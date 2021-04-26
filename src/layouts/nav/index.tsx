@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-26 17:32:09
+ * @LastEditTime: 2021-04-26 17:50:13
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/nav/index.tsx
  * @Description:
@@ -9,13 +9,10 @@
 import React, { Component } from 'react'
 import { Menu } from 'laiye-antd'
 import { Link } from 'react-router-dom'
-import { filter, map, find } from 'lodash'
-import i18n from 'i18next'
+import { find } from 'lodash'
 import { Icon } from 'laiye-pro'
 import store from '@stores/store'
-import { SET_ACTIVE_NAV } from '@stores/app/app.types'
 import { ROUTE_APP_KEY } from '@routes/index'
-import styles from './index.module.less'
 
 type IRoute = {
   path: string
@@ -59,14 +56,6 @@ export default class NavComponent extends Component<INavProps, INavState> {
     // const { history } = this.props
     // history.listen((args) => {
     // })
-  }
-
-  onSelectNav(nav) {
-    nav &&
-      store.dispatch({
-        type: SET_ACTIVE_NAV,
-        activeNav: nav,
-      })
   }
 
   getMenu(menus) {
