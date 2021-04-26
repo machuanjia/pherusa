@@ -7,9 +7,13 @@
   width: 60px;
 }
 
-/* .ant-menu-inline-collapsed > .ant-menu-item, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title, */
-.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
-  padding: 0 20px !important;
+.nav-wrap {
+  &.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+    padding: 0 22px !important;
+    span {
+      display: none;
+    }
+  }
 }
 
 .ant-table-pagination.ant-pagination {

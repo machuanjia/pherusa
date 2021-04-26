@@ -8578,10 +8578,10 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
-laiye-pro@1.0.30:
-  version "1.0.30"
-  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.30.tgz#725651ade82e0f262a4e78b20c4fdbc7ff08b477"
-  integrity sha512-YZlWWQQNid0MICMYuF/qaEev8ISnc9prJKJBW9/eR0X/Fob8dEV2Ju+gb+V1ebQBWo68EfWh7uBn86NQUjcRng==
+laiye-pro@1.0.36:
+  version "1.0.36"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.36.tgz#bef0a044669f6e000359d49d36e7bb8783c4c11f"
+  integrity sha512-gLbZ11jEPpbll1Vmw37O5VW3vAaXc+NmQ02z65TqyibJM1AtWQZxdKyRsnV5MOK5zmGeZsehw39q9qq+KI9Azg==
   dependencies:
     "@ant-design/icons" "4.6.2"
     "@testing-library/jest-dom" "^5.11.4"

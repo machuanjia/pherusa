@@ -1,13 +1,14 @@
 /*
  * @Author: xulijing
  * @Date: 2021-02-24 16:42:55
- * @LastEditTime: 2021-04-25 17:26:15
+ * @LastEditTime: 2021-04-26 17:31:20
  * @FilePath: /pherusa/src/routes/index.ts
  */
 import { asyncComponent } from 'laiye-pro'
 import MainLayout from '@layouts/main'
 import componentsRoute from './component'
 import { NoFond } from 'laiye-pro'
+import i18n from 'i18next'
 
 export const ROUTE_APP_KEY = 'app'
 
@@ -22,7 +23,7 @@ const routes = [
     path: '/login',
     meta: {
       key: 'Login',
-      name: 'login',
+      name: i18n.t('login'),
       isHidden: true,
     },
     component: LoginView,
@@ -32,9 +33,8 @@ const routes = [
     component: MainLayout,
     meta: {
       key: ROUTE_APP_KEY,
-      name: 'App',
+      name: i18n.t('App'),
       isHidden: true,
-      redirect: '/project',
     },
     children: [],
   },
@@ -42,7 +42,7 @@ const routes = [
     path: '/404',
     meta: {
       key: 'NotFond',
-      name: 'notFond',
+      name: i18n.t('notFond'),
       isHidden: true,
     },
     component: NoFond,
