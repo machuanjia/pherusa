@@ -1,12 +1,12 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-22 19:25:10
+ * @LastEditTime: 2021-04-25 17:11:06
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/routes/component.ts
  * @Description: 
  */
-import { asyncComponent } from '@components/index';
+import { asyncComponent } from 'laiye-pro';
 import RouteLayout from '@layouts/route-layout';
 
 const tableView = asyncComponent(() => import('@views/comps/table/index'));

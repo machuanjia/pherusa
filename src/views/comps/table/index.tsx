@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { Table, Input, Button, Tooltip, Modal } from 'laiye-antd';
 
-import { ContentLayoutComponent } from '@components/index';
+import { ContentLayoutComponent } from 'laiye-pro';
 import { MODAL_SIZE } from 'laiye-pro';
 import TableCollecrtionComponent from './TableCollection';
-import { listMixin } from '@components/Mixin';
+import { listMixin } from 'laiye-pro';
 import { getUsers, getUserDetail, updateUser, deleteUser } from '@apis/index';
 import type { IListMixin } from '@interfaces/mixin';
 import {
@@ -141,5 +141,4 @@ class TableView extends Component<IListMixin, ITableState> {
     );
   }
 }
-
 export default listMixin(TableView);

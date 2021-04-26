@@ -1,10 +1,10 @@
 /*
  * @Author: xulijing
  * @Date: 2021-02-24 16:42:55
- * @LastEditTime: 2021-04-22 18:52:44
+ * @LastEditTime: 2021-04-25 17:26:15
  * @FilePath: /pherusa/src/routes/index.ts
  */
-import { asyncComponent } from '@components/index'
+import { asyncComponent } from 'laiye-pro'
 import MainLayout from '@layouts/main'
 import componentsRoute from './component'
 import { NoFond } from 'laiye-pro'
