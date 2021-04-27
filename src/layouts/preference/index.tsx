@@ -10,8 +10,8 @@ import {
   LogoutOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { getLocal } from '@i18n/index';
 import styles from './index.module.less';
+import { getLanguage } from '@i18n/index';
 
 type IPreferenceProps = Record<string, unknown>;
 
@@ -55,6 +55,7 @@ export default class PreferenceComponent extends Component<IPreferenceProps, IPr
   }
   changeLang(e) {
     e.preventDefault();
+    // 自动设置localstorage
     i18n.changeLanguage(e.target.value);
     window.location.reload();
   }
@@ -132,7 +133,7 @@ export default class PreferenceComponent extends Component<IPreferenceProps, IPr
         >
           <div className="text-dark m-b-8">{i18n.t('preference.language')}</div>
           <div className="m-b-24">
-            <Radio.Group onChange={this.changeLang.bind(this)} defaultValue={getLocal()}>
+            <Radio.Group onChange={this.changeLang.bind(this)} defaultValue={getLanguage()}>
               <Radio.Button value="zh">{i18n.t('preference.chinese')}</Radio.Button>
               <Radio.Button value="en">{i18n.t('preference.english')}</Radio.Button>
               {/* <Radio.Button value="ZH">{i18n.t('preference.cantonese')}</Radio.Button> */}

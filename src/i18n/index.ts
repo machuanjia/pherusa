@@ -1,10 +1,9 @@
 /*
  * @Author: xulijing
  * @Date: 2021-02-24 16:42:55
- * @LastEditTime: 2021-02-25 15:05:13
+ * @LastEditTime: 2021-04-27 16:00:57
  * @FilePath: /pherusa/src/i18n/index.ts
  */
-/** @format */
 
 import i18n from 'i18next'
 import Backend from 'i18next-http-backend'
@@ -14,24 +13,23 @@ import langEN from '@i18n/en'
 import langCN from '@i18n/zh'
 import zhCN from 'antd/lib/locale/zh_CN'
 import enUS from 'antd/lib/locale/en_US'
+import { getLocal } from '@utils/catch'
 
 const ANTD_LOCAL_MAP = {
   en: enUS,
   zh: zhCN
 }
 
-export const getLocal = () => {
-  const i18nextLng = localStorage.getItem('i18nextLng')
-
-  if (i18nextLng === 'zh-CN') {
-    return 'zh'
+export const getLanguage = () => {
+  const i18nextLng = getLocal()
+  if (i18nextLng) {
+    return i18nextLng
   }
-  // 英文呢？？？
   return 'zh'
 }
 
 export const getAntdLocal = () => {
-  return ANTD_LOCAL_MAP[getLocal()]
+  return ANTD_LOCAL_MAP[getLanguage()]
 }
 
 i18n
@@ -54,7 +52,7 @@ i18n
         translation: langCN,
       },
     },
-    fallbackLng: 'en', // LanguageDetector优先级高于此设置
+    fallbackLng: 'zh', // LanguageDetector优先级高于此设置
     debug: true,
 
     interpolation: {
