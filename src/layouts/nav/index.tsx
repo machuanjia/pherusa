@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-26 17:50:13
+ * @LastEditTime: 2021-04-27 15:44:40
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/nav/index.tsx
  * @Description:
@@ -76,9 +76,9 @@ export default class NavComponent extends Component<INavProps, INavState> {
           )
         }
         return (
-          <Menu.Item key={item.meta.key} icon={<Icon className="m-r-8" name={item.meta.icon} />}>
+          <Menu.Item key={item.meta.key} title={item.meta.name}>
             <Link to={item.path}>
-              <span>{item.meta.name}</span>
+              <Icon className="m-r-8" name={item.meta.icon} /> <span>{item.meta.name}</span>
             </Link>
           </Menu.Item>
         )
@@ -90,7 +90,13 @@ export default class NavComponent extends Component<INavProps, INavState> {
   render() {
     const { routers, selected } = this.state
     return (
-      <Menu defaultSelectedKeys={selected} mode="inline" theme="light" inlineCollapsed={true} className={'nav-wrap'}>
+      <Menu
+        defaultSelectedKeys={selected}
+        mode="inline"
+        theme="light"
+        inlineCollapsed={true}
+        className={'nav-wrap'}
+      >
         {this.getMenu(routers)}
       </Menu>
     )

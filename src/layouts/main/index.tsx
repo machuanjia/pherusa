@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-26 17:11:45
+ * @LastEditTime: 2021-04-27 15:48:11
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/main/index.tsx
  * @Description:
@@ -18,7 +18,7 @@ import logoPath from '../../assets/logo.png'
 import styles from './index.module.less'
 
 type IMainLayoutProps = {
-  route: any,
+  route: any
   history: any
 }
 
@@ -35,10 +35,12 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
   }
   componentDidMount() {
     setInfo().then((res) => {
-      res &&
+      if (res) {
         this.setState({
           loading: false,
         })
+        this.props.history.push('/dashboard')
+      }
     })
   }
   componentDidCatch(error, info) {
@@ -52,20 +54,15 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
     return (
       <>
         {loading ? (
-         <div className={styles['main-layout']}>
+          <div className={styles['main-layout']}>
             <GlobalLoading />
-         </div>
+          </div>
         ) : (
           <div className={styles['main-layout']}>
             <div className={styles['main-layout-side']}>
-              <img
-                className="logo"
-                alt="logo"
-                src={logoPath}
-                width="40"
-              />
+              <img className="logo" alt="logo" src={logoPath} width="40" />
               <div className="navs">
-                <NavComponent history={history}/>
+                <NavComponent history={history} />
               </div>
               <PreferenceComponent />
             </div>
