@@ -1,12 +1,11 @@
 /*
  * @Author: D.Y
  * @Date: 2021-04-21 17:38:42
- * @LastEditTime: 2021-04-22 17:07:03
+ * @LastEditTime: 2021-04-28 13:39:05
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/permission.ts
- * @Description:
+ * @Description: 
  */
-
 import { find, uniqBy } from 'lodash'
 
 import routes, { asyncRouters, ROUTE_APP_KEY } from '@routes/index'

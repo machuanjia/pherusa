@@ -1,3 +1,4 @@
+export const SET_MICRO = 'SET_MICRO'
 export const SET_TOKEN = 'SET_TOKEN'
 export const SET_USET_ID = 'SET_USER_ID'
 export const SET_PERMISSIONS = 'SET_PERMISSIONS'

@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-26 17:49:08
+ * @LastEditTime: 2021-04-28 13:38:48
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/stores/app/app.reducers.ts
  * @Description:
@@ -17,6 +17,7 @@ const initialState: AppState = {
   routers: routes,
   flattenRouters: [],
   id: '',
+  isMicro: false
 }
 
 const reducer = (state: AppState = initialState, action: AppAction): AppState => {
@@ -51,6 +52,11 @@ const reducer = (state: AppState = initialState, action: AppAction): AppState =>
         ...state,
         id: action.id,
       }
+    case actionTypes.SET_MICRO:
+      return {
+        ...state,
+        isMicro:action.isMicro
+      }  
     default:
       break
   }

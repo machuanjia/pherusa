@@ -1,13 +1,14 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-27 15:48:11
+ * @LastEditTime: 2021-04-28 13:39:56
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/main/index.tsx
  * @Description:
  */
 import React, { Component } from 'react'
 import { RouteViewer, GlobalLoading } from 'laiye-pro'
+import store from '@stores/store'
 
 import NavComponent from '../nav'
 import PreferenceComponent from '../preference'
@@ -40,6 +41,8 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
           loading: false,
         })
         this.props.history.push('/dashboard')
+      } else {
+        this.props.history.push('/login')
       }
     })
   }
@@ -59,13 +62,16 @@ export default class MainLayout extends Component<IMainLayoutProps, IMainLayoutS
           </div>
         ) : (
           <div className={styles['main-layout']}>
-            <div className={styles['main-layout-side']}>
-              <img className="logo" alt="logo" src={logoPath} width="40" />
-              <div className="navs">
-                <NavComponent history={history} />
+            {store.getState().app.isMicro ? null : (
+              <div className={styles['main-layout-side']}>
+                <img className="logo" alt="logo" src={logoPath} width="40" />
+                <div className="navs">
+                  <NavComponent history={history} />
+                </div>
+                <PreferenceComponent />
               </div>
-              <PreferenceComponent />
-            </div>
+            )}
+
             <div className={styles['main-layout-main']}>
               <NavbarComponent />
               <div className={styles['main-layout-main-container']}>
