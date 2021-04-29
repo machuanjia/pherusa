@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-04-21 17:38:42
- * @LastEditTime: 2021-04-28 13:39:05
+ * @LastEditTime: 2021-04-29 11:16:05
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/permission.ts
  * @Description: 
@@ -38,7 +38,7 @@ export const setInfo = async () => {
       const { roles = [], permissions = [] } = data
       store.dispatch({
         type: SET_USET_ID,
-        id: data.majorKeyId,
+        id: data._id,
       })
       store.dispatch({
         type: SET_ROLES,

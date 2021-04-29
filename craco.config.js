@@ -55,5 +55,5 @@ module.exports = webpackConfigs({
   theme: modifiedTheme,
   port: config.env.port,
   dirname: __dirname,
-  proxyPort: 3000,
+  proxyPort: 4000,
 })

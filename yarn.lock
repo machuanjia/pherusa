@@ -8582,10 +8582,10 @@ laiye-antd@^1.0.0-beta.1:
   dependencies:
     antd "4.2.4"
 
-laiye-pro@1.0.37:
-  version "1.0.37"
-  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.37.tgz#2206484b965fcda0bd988cfacd3b0c4589e9b681"
-  integrity sha512-L/TUcTCPtJrKTOmP9rOyIQZ15jC3fi1Ob35/zJko/rJ3skar8B7e1nepxfUAUM1srtiWoPmhkPLnThjoiX8Flw==
+laiye-pro@1.0.39:
+  version "1.0.39"
+  resolved "http://npm.laiye.com/laiye-pro/-/laiye-pro-1.0.39.tgz#5c22700230af5b4bfb996f6c7461c4ec86707e9c"
+  integrity sha512-EzyRCARdS8VnIE06Hxx9NdY6J37YZZNwacLiVYGMknG5jkuUFTBU3kbrJA+puECttx920AdZoGcTeqaY0PopTA==
   dependencies:
     "@ant-design/icons" "4.6.2"
     "@testing-library/jest-dom" "^5.11.4"
