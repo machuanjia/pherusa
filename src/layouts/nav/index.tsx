@@ -1,16 +1,16 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-04-27 15:44:40
+ * @LastEditTime: 2021-06-16 10:46:24
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/layouts/nav/index.tsx
  * @Description:
  */
 import React, { Component } from 'react'
-import { Menu } from 'laiye-antd'
+import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
 import { find } from 'lodash'
-import { Icon } from 'laiye-pro'
+import { Icon } from 'pherusa-pro'
 import store from '@stores/store'
 import { ROUTE_APP_KEY } from '@routes/index'
 
@@ -78,7 +78,7 @@ export default class NavComponent extends Component<INavProps, INavState> {
         return (
           <Menu.Item key={item.meta.key} title={item.meta.name}>
             <Link to={item.path}>
-              <Icon className="m-r-8" name={item.meta.icon} /> <span>{item.meta.name}</span>
+              <Icon className="m-r-8" name={item.meta.icon} /> <span className="nav-text">{item.meta.name}</span>
             </Link>
           </Menu.Item>
         )

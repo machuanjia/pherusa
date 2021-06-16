@@ -4,10 +4,10 @@
  * @LastEditTime: 2021-04-27 15:43:16
  * @FilePath: /pherusa/src/routes/index.ts
  */
-import { asyncComponent } from 'laiye-pro'
+import { asyncComponent } from 'pherusa-pro'
 import MainLayout from '@layouts/main'
 import componentsRoute from './component'
-import { NoFond } from 'laiye-pro'
+import { NoFond } from 'pherusa-pro'
 import i18n from 'i18next'
 
 export const ROUTE_APP_KEY = 'app'

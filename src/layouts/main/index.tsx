@@ -7,7 +7,7 @@
  * @Description:
  */
 import React, { Component } from 'react'
-import { RouteViewer, GlobalLoading } from 'laiye-pro'
+import { RouteViewer, GlobalLoading } from 'pherusa-pro'
 import store from '@stores/store'
 
 import NavComponent from '../nav'

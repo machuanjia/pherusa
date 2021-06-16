@@ -6,7 +6,7 @@
  * @FilePath: /pherusa/src/routes/component.ts
  * @Description:
  */
-import { asyncComponent } from 'laiye-pro'
+import { asyncComponent } from 'pherusa-pro'
 import RouteLayout from '@layouts/route-layout'
 import i18n from 'i18next'
 
