@@ -1,7 +1,7 @@
 /*
  * @Author: D.Y
  * @Date: 2021-01-05 14:38:36
- * @LastEditTime: 2021-04-22 19:01:57
+ * @LastEditTime: 2021-06-25 19:33:36
  * @LastEditors: D.Y
  * @FilePath: /pherusa/src/i18n/zh/login.ts
  * @Description: 
@@ -9,9 +9,11 @@
 
 export default {
   title: '来也科技',
-  desc: '欢迎访问来也科技专区',
+  name:'请输入用户名',
+  password: '请输入密码',
   captcha: '获取验证码',
   signin: '立即登录',
   is_registe: '还没有注册？',
+  is_registed: '已有帐号，',
   registe_now: '马上注册',
 }

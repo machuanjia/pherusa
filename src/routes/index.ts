@@ -1,7 +1,7 @@
 /*
  * @Author: xulijing
  * @Date: 2021-02-24 16:42:55
- * @LastEditTime: 2021-04-27 15:43:16
+ * @LastEditTime: 2021-06-25 19:30:06
  * @FilePath: /pherusa/src/routes/index.ts
  */
 import { asyncComponent } from 'pherusa-pro'
@@ -13,6 +13,7 @@ import i18n from 'i18next'
 export const ROUTE_APP_KEY = 'app'
 
 const LoginView = asyncComponent(() => import('@views/login'))
+const RegisterView = asyncComponent(() => import('@views/register'))
 const DashboardView = asyncComponent(() => import('@views/dashboard'))
 
 // 动态路由，根据后台返回的权限动态生成
@@ -24,10 +25,19 @@ const routes = [
     path: '/login',
     meta: {
       key: 'Login',
-      name: i18n.t('login'),
+      name: i18n.t('router.login'),
       isHidden: true,
     },
     component: LoginView,
+  },
+  {
+    path: '/register',
+    meta: {
+      key: 'Register',
+      name: i18n.t('router.register'),
+      isHidden: true,
+    },
+    component: RegisterView,
   },
   {
     path: '/',

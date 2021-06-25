@@ -1,37 +1,38 @@
 /*
  * @Author: D.Y
  * @Date: 2021-02-04 15:27:20
- * @LastEditTime: 2021-06-25 19:31:48
+ * @LastEditTime: 2021-06-25 19:36:19
  * @LastEditors: D.Y
- * @FilePath: /pherusa/src/views/login/index.tsx
+ * @FilePath: /pherusa/src/views/register/index.tsx
  * @Description:
  */
 import React, { Component } from 'react'
-import { Form, Input, Button } from 'antd'
-import type { ILoginEntity } from '@interfaces/index'
+import { Form, Input, Button,message } from 'antd'
+import type { ILoginEntity, IUser } from '@interfaces/index'
 import i18n from 'i18next'
 import { connect } from 'react-redux'
 import { Trans } from 'react-i18next'
 import { Link } from 'react-router-dom'
 
 import { isPhoneNumber } from 'pherusa-pro'
-import { signIn } from '@apis/users'
+import { createUser, signIn } from '@apis/users'
 import { addToken } from '@stores/app/app.actions'
 import { setToken } from '@utils/index'
 
 import styles from './index.module.less'
 
-type ILoginProps = {
+type IRegisterProps = {
   history: any
   addToken: (token: string) => unknown
 }
 type ILoginState = unknown
 
-class LoginView extends Component<ILoginProps, ILoginState> {
-  async loginSuccess(payload: ILoginEntity) {
-    const { data } = await signIn(payload)
-    setToken(data.token)
-    data && this.props.history.push('/')
+class LoginView extends Component<IRegisterProps, ILoginState> {
+  async loginSuccess(payload: IUser) {
+    const { data } = await createUser(payload)
+    message.success('success!')
+    // setToken(data.token)
+    data && this.props.history.push('/login')
   }
 
   handleSubmit(values: any) {
@@ -78,15 +79,15 @@ class LoginView extends Component<ILoginProps, ILoginState> {
                 </Form.Item>
                 <Form.Item>
                   <Button type="primary" htmlType="submit" className="xlarge" block>
-                    <Trans i18nKey="login.signin"></Trans>
+                    <Trans i18nKey="login.registe_now"></Trans>
                   </Button>
                 </Form.Item>
               </Form>
             </div>
             <div className={styles['login-form-footer']}>
-              <Trans i18nKey="login.is_registe"></Trans>
+              <Trans i18nKey="login.is_registed"></Trans>
               <Link to="/register">
-                <Trans i18nKey="login.registe_now"></Trans>
+                <Trans i18nKey="login.signin"></Trans>
               </Link>
             </div>
           </div>

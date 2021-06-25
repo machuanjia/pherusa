@@ -8,6 +8,8 @@
  */
 
 export default {
+  login:'Login',
+  register:'Register',
   component: 'Components',
   list: 'List',
   editor: 'Editor',
